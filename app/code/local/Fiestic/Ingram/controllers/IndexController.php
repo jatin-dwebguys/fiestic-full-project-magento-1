@@ -14,7 +14,7 @@ class Fiestic_Ingram_IndexController extends Mage_Core_Controller_Front_Action {
 
         $params = array(
             'queryType' => 1,
-            'query' => 'BN=038535066X',
+            'query' => 'BN=110188696X',
             'startRecord' => '1',
             'endRecord' => '25',
             'sortField' => '',
@@ -30,25 +30,34 @@ class Fiestic_Ingram_IndexController extends Mage_Core_Controller_Front_Action {
 //        die;
         $product = Mage::getModel('catalog/product');
         foreach ($ingramSearch->Book as $item) {
-            $product->setData('item_id', (string)$item->Basic->EAN);
-            $product->setData('product_id', (string)$item->Basic->EAN);
+            $product->setData('item_id', (string) $item->Basic->EAN);
+            $product->setData('product_id', (string) $item->Basic->EAN);
             $product->setData('is_in_stock', 1);
             $product->setData('type_id', 'simple');
             $product->setData('name', $item->Basic->TitleLeadingArticle . ' ' . $item->Basic->Title);
 
-            $product->setData('entity_id', (string)$item->Basic->ISBN);
+            $product->setData('entity_id', (string) $item->Basic->ISBN);
             $product->setData('display_mode', 'PRODUCTS');
-            $product->setData('price', (string)$item->Basic->PubListPrice);
+            $product->setData('price', (string) $item->Basic->PubListPrice);
             $product->setData('status', 1);
             $product->setData('visibility', 4);
 
             $product->setData('store_id', 1);
             $product->setData('entity_type_id', 4);
             $product->setData('attribute_set_id', 4);
-            $product->setData('image', (string)$item->Basic->Image->IMG187);
-            $product->setData('small_image', (string)$item->Basic->Image->IMG60);
+            $product->setData('image', (string) $item->Basic->Image->IMG187);
+            $product->setData('small_image', (string) $item->Basic->Image->IMG60);
             $product->setData('thumbnail', NULL);
             $product->setData('weight', 0.5000);
+
+
+            $product->setData('description', (string) $item->Basic->Annotation);
+            $authors = (array) $item->Basic->Contributor;
+            $additional = array();
+
+            $additional['author'] = $authors['Name'];
+            $additional['Publisher'] = 'Ballantine Books';
+            $product->setData('additional', $additional);
         }
 
         Mage::register('product', $product);

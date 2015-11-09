@@ -29,15 +29,15 @@
             <action method="addItem">
                 <type>js_css</type>
                 <name>calendar/calendar-win2k-1.css</name>
-                <params/><!--<if/><condition>can_load_calendar_js</condition>-->
+                <params/>
             </action>
             <action method="addItem">
                 <type>js</type>
-                <name>calendar/calendar.js</name><!--<params/><if/><condition>can_load_calendar_js</condition>-->
+                <name>calendar/calendar.js</name>
             </action>
             <action method="addItem">
                 <type>js</type>
-                <name>calendar/calendar-setup.js</name><!--<params/><if/><condition>can_load_calendar_js</condition>-->
+                <name>calendar/calendar-setup.js</name>
             </action>
         </reference>
         <reference name="content">
@@ -53,8 +53,18 @@
                     <template>catalog/product/view/tierprices.phtml</template>
                 </action>
 
+<!--                <block type="catalog/product_list_upsell" name="product.info.upsell" as="upsell_products" template="catalog/product/list/upsell.phtml">
+                    <action method="setColumnCount">
+                        <columns>6</columns>
+                    </action>
+                    <action method="setItemLimit">
+                        <type>upsell</type>
+                        <limit>6</limit>
+                    </action>
+                </block>-->
+
                 <block type="catalog/product_view_additional" name="product.info.additional" as="product_additional_data" />
-                <block type="catalog/product_view_description" name="product.description" as="description" template="catalog/product/view/description.phtml">
+                <block type="catalog/product_view_description" name="product.description" as="description" template="product/description.phtml">
                     <action method="addToParentGroup">
                         <group>detailed_info</group>
                     </action>
@@ -62,7 +72,7 @@
                         <value>Description</value>
                     </action>
                 </block>
-                <block type="catalog/product_view_attributes" name="product.attributes" as="additional" template="catalog/product/view/attributes.phtml">
+                <block type="catalog/product_view_attributes" name="product.attributes" as="additional" template="product/attributes.phtml">
                     <action method="addToParentGroup">
                         <group>detailed_info</group>
                     </action>
@@ -70,6 +80,10 @@
                         <value>Additional Information</value>
                     </action>
                 </block>
+                <!--<block type="catalog/product_list_related" name="catalog.product.related" as="related_products" template="catalog/product/list/related.phtml" />-->
+
+                <!--<block type="catalog/product_view" name="product.info.addto" as="addto" template="catalog/product/view/addto.phtml"/>-->
+                <!--<block type="catalog/product_view" name="product.info.sharing" as="sharing" template="catalog/product/view/sharing.phtml"/>-->
                 <block type="catalog/product_view" name="product.info.addtocart" as="addtocart" template="catalog/product/view/addtocart.phtml"/>
 
                 <block type="core/text_list" name="product.info.extrahint" as="extrahint" translate="label">
@@ -112,7 +126,13 @@
                     <action method="append">
                         <block>product.info.addtocart</block>
                     </action>
-                 </block>
+                    <!--<action method="append">
+                        <block>product.info.addto</block>
+                    </action>-->
+                    <!--<action method="append">
+                        <block>product.info.sharing</block>
+                    </action>-->
+                </block>
 
                 <block type="core/template_facade" name="product.info.container1" as="container1">
                     <action method="setDataByKey">
