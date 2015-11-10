@@ -42,7 +42,7 @@
         </reference>
         <reference name="content">
             <block type="catalog/product_view" name="product.info" template="catalog/product/view.phtml">
-                <block type="catalog/product_view_media" name="product.info.media" as="media" template="product/mymedia.phtml">
+                <block type="core/template" name="product.info.media" as="media" template="product/mymedia.phtml">
                     <block type="core/text_list" name="product.info.media.after" as="after" />
                 </block>
                 <block type="core/text_list" name="alert.urls" as="alert_urls" translate="label">
@@ -84,7 +84,7 @@
 
                 <!--<block type="catalog/product_view" name="product.info.addto" as="addto" template="catalog/product/view/addto.phtml"/>-->
                 <!--<block type="catalog/product_view" name="product.info.sharing" as="sharing" template="catalog/product/view/sharing.phtml"/>-->
-                <block type="catalog/product_view" name="product.info.addtocart" as="addtocart" template="catalog/product/view/addtocart.phtml"/>
+                <block type="catalog/product_view" name="product.info.addtocart" as="addtocart" template="product/addtocart.phtml"/>
 
                 <block type="core/text_list" name="product.info.extrahint" as="extrahint" translate="label">
                     <label>Product View Extra Hint</label>

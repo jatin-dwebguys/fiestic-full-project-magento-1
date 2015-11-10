@@ -33,7 +33,8 @@
 /* @var $this Mage_Catalog_Block_Product_View_Media */
 ?>
 <?php
-    $_product = $this->getProduct();
+    $_product = Mage::registry('product');
+    //echo 'aaaa<pre>';print_r($_product->getImage());die;    
     $_helper = $this->helper('catalog/output');
 ?>
 <div class="product-image product-image-zoom">
