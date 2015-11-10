@@ -31,16 +31,21 @@
             </updates>
         </layout>
     </frontend>
-    <global>     
+    <global> 
+	<models>
+            <ingram>
+                <class>Fiestic_Ingram_Model</class>
+	    </ingram>
+	</models>    
         <blocks>
-            <product>
+            <ingram>
                 <class>Fiestic_Ingram_Block</class>
-            </product>
+            </ingram>
         </blocks>
         <helpers>
-            <product>
+            <ingram>
                 <class>Fiestic_Ingram_Helper</class>
-            </product>
+            </ingram>
         </helpers>
     </global>
 </config>
