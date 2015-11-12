@@ -37,26 +37,23 @@
     //echo 'aaaa<pre>';print_r($_product->getImage());die;    
     $_helper = $this->helper('catalog/output');
 ?>
-<div class="product-image product-image-zoom">
-    <div class="product-image-gallery">
-        <img id="image-main"
-             class="gallery-image visible"
-             src="<?php echo $_product->getImage() ?>"
-             alt="<?php echo $this->escapeHtml($this->getImageLabel()) ?>"
-             title="<?php echo $this->escapeHtml($this->getImageLabel()); ?>" />
 
-        <?php $i=0; foreach ($this->getGalleryImages() as $_image): ?>
-            <?php if ($this->isGalleryImageVisible($_image)): ?>
-            <img id="image-<?php echo $i; ?>"
-                 class="gallery-image"
-                 src="<?php echo $this->getGalleryImageUrl($_image); ?>"
-                 data-zoom-image="<?php echo  $this->getGalleryImageUrl($_image); ?>" />
-            <?php endif; ?>
-        <?php $i++; endforeach; ?>
-    </div>
+<div class="yt-detail-image zoom-wrapper-detail">
+		<span class="sale-item"></span>
+		<div class="product-image product-image-zoom">
+		<div class="product-image-zoom">
+		<div id="wrap" style="top:0px;z-index:9999;position:relative;">
+			<a style="position: relative; display: block;" id="yt_cloudzoom" class="cloud-zoom" rel="zoomWidth:300, zoomHeight:300, adjustX: 20, adjustY: -3" title="<?php echo $_product->getName() ?>" href="<?php echo $_product->getImage() ?>">
+<img style="display: block;" id="image" src="<?php echo $_product->getImage() ?>" alt="<?php echo $_product->getName() ?>" title="<?php echo $_product->getName() ?>">			
+</a><div class="mousetrap" style="background-image: url(&quot;.&quot;); z-index: 999; position: absolute; width: 214px; height: 330px; left: 0px; top: 0px; cursor: move;"></div></div>
+			<div class="popup-btn  hidden-phone product-image-gallery">
+				<a id="yt_popup" class="fancybox-button" data-fancybox-group="button" href="<?php echo $_product->getSmallImage() ?>">Zoom</a>							
+			</div>
+		</div>
+	</div>
 </div>
 
-<?php if (count($this->getGalleryImages()) > 0): ?>
+<!--<?php if (count($this->getGalleryImages()) > 0): ?>
 <div class="more-views">
     <h2><?php echo $this->__('More Views') ?></h2>
     <ul class="product-image-thumbs">
@@ -72,6 +69,6 @@
     <?php $i++; endforeach; ?>
     </ul>
 </div>
-<?php endif; ?>
+<?php endif; ?>-->
 
 <?php echo $this->getChildHtml('after'); ?>

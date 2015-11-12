@@ -28,7 +28,6 @@ class Fiestic_Ingram_Model_Product extends Mage_Core_Model_Abstract {
 
             $product->setData('description', (string) $item->Basic->Annotation);
             $authors = '';
-            //echo '<pre>';print_r($item);die;
             foreach ($item->Basic->Contributor as $val) {
                 if ($val->Role == 'Author') {
                     if ($authors == '') {
@@ -52,7 +51,7 @@ class Fiestic_Ingram_Model_Product extends Mage_Core_Model_Abstract {
         }
         if ($product) {
             Mage::register('product', $product);
-            return true;
+            return $item->Basic->TitleLeadingArticle . ' ' . $item->Basic->Title;
         } else {
             return false;
         }

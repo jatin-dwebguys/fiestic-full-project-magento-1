@@ -11,8 +11,6 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         $headers = new SoapHeader('http://ingrambook.com/CompDataAccess/companion', 'UserInfo', $userInfo);
 
         $client->__setSoapHeaders($headers);
-        //$isbncode = 'BN=' . $id;
-        //echo $isbncode;die;
         $params = array(
             'queryType' => 1,
             'query' => $id,
@@ -29,13 +27,12 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         if ($type == 'BN') {
             $result = Mage::getModel('ingram/product')->setProductData($ingramSearch);
             if ($result) {
-                return true;
+                return $result;
             } else {
                 return false;
             }
         } elseif ($type == 'KW') {
 	    $result = Mage::getModel('ingram/product')->setProductData($ingramSearch);
-	    //echo '<pre>';print_r($ingramSearch);die;
             return $ingramSearch;
         }
     }
