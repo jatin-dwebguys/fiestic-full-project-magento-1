@@ -187,4 +187,59 @@
         </reference>
         
     </product_index_index>
+
+    <product_index_search>
+	<label>Catalog Category (Non-Anchor)</label>
+	<reference name="root">
+            <action method="setTemplate"><template>page/3columns.phtml</template></action>
+        </reference>
+	<reference name="left">
+            <block type="catalogsearch/layer" name="catalogsearch.leftnav" before="-" template="catalog/layer/view.phtml"/>
+	    <block type="basicproducts/list" name="basicproducts.list.default" template="sm/basicproducts/left-products.phtml">
+				<action method="_setConfig">
+					<value><product_description_display>0</product_description_display></value>
+				</action>
+				<action method="_setConfig">
+					<value><nb_column1>1</nb_column1></value>
+				</action>
+				<action method="_setConfig">
+					<value><nb_column2>1</nb_column2></value>
+				</action>
+				<action method="_setConfig">
+					<value><nb_column3>1</nb_column3></value>
+				</action>
+				<action method="_setConfig">
+					<value><nb_column4>1</nb_column4></value>
+				</action>
+				<action method="_setConfig">
+					<value><product_limitation>4</product_limitation></value>
+				</action>
+				<action method="_setConfig">
+					<value><imgcfg_width>55</imgcfg_width></value>
+				</action>
+				<action method="_setConfig">
+					<value><imgcfg_height>84</imgcfg_height></value>
+				</action>
+				<action method="_setConfig">
+					<value><product_reviews_count>1</product_reviews_count></value>
+				</action>
+				<action method="_setConfig">
+					<value><product_addcart_display>0</product_addcart_display></value>
+				</action>
+				<action method="_setConfig">
+					<value><product_addwishlist_display>0</product_addwishlist_display></value>
+				</action>
+				<action method="_setConfig">
+					<value><product_addcompare_display>0</product_addcompare_display></value>
+				</action>			
+			</block>
+			<block type="cms/block" after="catalog.compare.sidebar" name="left-image">
+				<action method="setBlockId"><block_id>left-img-static</block_id></action>
+			</block>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="product_search_view" template="product/search/view.phtml" />
+        </reference>
+    </product_index_search>
+
 </layout> 

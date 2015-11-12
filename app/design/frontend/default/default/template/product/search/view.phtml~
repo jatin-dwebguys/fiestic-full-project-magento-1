@@ -1,0 +1,109 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @see Mage_Catalog_Block_Product_List
+ */
+/* @var $this Mage_Catalog_Block_Product_List */
+?>
+<?php
+    $_productCollection=Mage::registry('ingram_products');
+//echo $_productCollection->Book->count();die;
+//echo '<pre>';print_r($_productCollection);die;
+    $_helper = $this->helper('catalog/output');
+?>
+<?php if(!$_productCollection->Book->count()): ?>
+<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+<?php else: ?>
+<div class="category-products">
+    <?php //echo $this->getToolbarHtml() ?>
+    <?php $_iterator = 0; ?>
+    <ol class="products-list" id="products-list">
+    <?php foreach ($_productCollection->Book as $_product): ?>
+
+<?php  //echo '<pre>';print_r($_product);die;  ?>
+
+        <li class="item<?php if( ++$_iterator == sizeof($_productCollection->Book) ): ?> last<?php endif; ?>">
+
+                        <a class="product-image" title="<?php echo $_product->Basic->Title; ?>" href="<?php echo Mage::getUrl('product/index/index') . 'BN/'. $_product->Basic->ISBN; ?>">
+                                                <img alt="<?php echo $_product->Basic->Title; ?>" src="<?php echo $_product->Basic->Image->IMG187; ?>" id="product-collection-image-233">
+            </a>
+                        <div class="product-shop">
+                <div class="f-fix">
+                    <div class="product-primary">
+                                                <h2 class="product-name"><a title="<?php echo $_product->Basic->Title; ?>" href="<?php echo Mage::getUrl('product/index/index'); ?>"><?php echo $_product->Basic->Title; ?></a></h2>
+                        
+                                            </div>
+                    <div class="product-secondary">
+                        
+
+
+                        
+    <div class="price-box">
+                                                                <span id="product-price-233" class="regular-price">
+                                            <span class="price"><?php echo $_product->Basic->PubListPrice; ?></span>                                    </span>
+                        
+        </div>
+
+                  </div>
+                    <!--<div class="product-secondary">
+                                                    <p class="action"><button onclick="setLocation('http://127.0.0.1/magentotest/index.php/checkout/cart/add/uenc/aHR0cDovLzEyNy4wLjAuMS9tYWdlbnRvdGVzdC9pbmRleC5waHAvYWJvdXQtdXMuaHRtbD9tb2RlPWxpc3Q,/product/233/form_key/jZmuNQ4U32JKTvHu/')" class="button btn-cart" title="Add to Cart" type="button"><span><span>Add to Cart</span></span></button></p>
+                                                <ul class="add-to-links">
+                                                            <li><a class="link-wishlist" href="http://127.0.0.1/magentotest/index.php/wishlist/index/add/product/233/form_key/jZmuNQ4U32JKTvHu/">Add to Wishlist</a></li>
+                                                                                        <li><span class="separator">|</span> <a class="link-compare" href="http://127.0.0.1/magentotest/index.php/catalog/product_compare/add/product/233/uenc/aHR0cDovLzEyNy4wLjAuMS9tYWdlbnRvdGVzdC9pbmRleC5waHAvYWJvdXQtdXMuaHRtbD9tb2RlPWxpc3Q,/form_key/jZmuNQ4U32JKTvHu/">Add to Compare</a></li>
+                                                    </ul>
+                    </div>-->
+                    <div class="desc std">
+                        <?php echo (string) $_product->Basic->Annotation;?>
+                        <a class="link-learn" title="<?php echo $_product->Basic->Title; ?>" href="<?php echo Mage::getUrl('product/index/index') . 'BN/'. $_product->Basic->ISBN; ?>">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    <?php endforeach; ?>
+    </ol>
+    <script type="text/javascript">decorateList('products-list', 'none-recursive')</script>
+
+    <div class="toolbar-bottom">
+        <?php echo $this->getToolbarHtml() ?>
+    </div>
+</div>
+<?php endif; ?>
+<?php
+// Provides a block where additional page components may be attached, primarily good for in-page JavaScript
+if ($this->getChild('after')) {
+    $_afterChildren = $this->getChild('after')->getSortedChildren();
+    foreach ($_afterChildren as $_afterChildName) {
+        $_afterChild = $this->getChild('after')->getChild($_afterChildName);
+        //set product collection on after blocks
+        $_afterChild->setProductCollection($_productCollection);
+        echo $_afterChild->toHtml();
+    }
+}
+?>
