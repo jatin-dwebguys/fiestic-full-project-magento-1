@@ -34,18 +34,15 @@ $_helper = $this->helper('catalog/output');
 $_product = $this->getProduct();
 ?>
 <?php if ($_additional = $_product->getAdditional()): ?>
-    <h2><?php echo $this->__('Additional Information') ?></h2>
-    <table class="data-table" id="product-attribute-specs-table">
-        <col width="25%" />
-        <col />
-        <tbody>
+    <div class="attribute-specs">
+
+    <table cellspacing="0" class="data-table" id="product-attribute-specs-table">
             <?php foreach ($_additional as $_data => $val): ?>
                 <tr>
-                    <th class="label"><?php echo $this->escapeHtml($this->__($_data)) ?></th>
+                    <td><?php echo $this->escapeHtml($this->__($_data)) ?></td>
                     <td class="data"><?php echo $_helper->productAttribute($_product, $val, $_data) ?></td>
                 </tr>
             <?php endforeach; ?>
-        </tbody>
     </table>
     <script type="text/javascript">decorateTable('product-attribute-specs-table')</script>
 <?php endif; ?>

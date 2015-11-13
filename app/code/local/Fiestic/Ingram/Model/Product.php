@@ -20,6 +20,11 @@ class Fiestic_Ingram_Model_Product extends Mage_Core_Model_Abstract {
             $product->setData('store_id', 1);
             $product->setData('entity_type_id', 4);
             $product->setData('attribute_set_id', 4);
+            $product->setData('min_sale_qty', 1.0000);
+            $product->setData('max_sale_qty', 0.0000);
+            $product->setData('use_config_min_sale_qty', 1);
+            $product->setData('use_config_max_sale_qty', 1);
+            $product->setData('min_qty', 0.0000);
             $product->setData('image', (string) $item->Basic->Image->IMG187);
             $product->setData('small_image', (string) $item->Basic->Image->IMG60);
             $product->setData('thumbnail', NULL);
@@ -27,6 +32,7 @@ class Fiestic_Ingram_Model_Product extends Mage_Core_Model_Abstract {
 
 
             $product->setData('description', (string) $item->Basic->Annotation);
+            $product->setData('short_description', 'The...........');
             $authors = '';
             foreach ($item->Basic->Contributor as $val) {
                 if ($val->Role == 'Author') {
@@ -39,7 +45,7 @@ class Fiestic_Ingram_Model_Product extends Mage_Core_Model_Abstract {
             }
             $additional = array();
 
-            $additional['author'] = $authors;
+            $additional['Author'] = $authors;
             $additional['PubDate'] = (string) $item->Basic->PubDate;
             $additional['Publisher'] = (string) $item->Basic->Publisher;
             $additional['Binding'] = (string) $item->Basic->Binding;
