@@ -1,0 +1,165 @@
+<div class="header-default">
+	<div class="yt-header-top">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-3 logo-wrapper">
+					<h1>
+						<a title="<?php echo $this->getLogoAlt() ?>" href="<?php echo $this->getUrl('') ?>">
+							<img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+						</a>
+					</h1>
+				</div>	
+				<div class="col-lg-3 col-md-3 col-sm-3 wrap-menu-mobi">
+					<div id="yt-responsivemenu" class="yt-responsivemenu">
+						<?php echo $this->getChildHtml('mobiMenu'); ?>
+					</div>
+				</div>		
+				
+				<div class="col-lg-9 col-md-9 top-links-action">
+					<div class="wrap-search-mobile">
+						<a class="btn-search-mobile icon-search" href="javascript:void(0)" title="<?php echo $this->__('Search')?>"><i class="fa fa-search"></i></a>
+						<script>
+							jQuery(document).ready(function($){
+								$( ".btn-search-mobile" ).click(function() {
+									$('.search-pro').toggleClass('show')
+									$(this).toggleClass('active')
+								});
+							});
+						</script>	
+						<div class="search-pro">
+						</div>							
+					</div>
+					<?php echo $this->getChildHtml('currency'); ?>
+					<?php echo $this->getChildHtml('store_language') ?>
+					<div class="mini-cart-header">
+						<?php echo $this->getChildHtml('mini-cartpro') ?>
+					</div>					
+
+					<div class="desktop-action">
+						<div class="block-action-header top-link-account parent-link home-link">
+							<ul>
+								<li>
+									<a class="account-toplink dropdown-ict" title="<?php echo $this->__('Home')?>" href="#"><?php echo $this->__('Home')?></a>
+									<?php echo $this->getChildHtml('home_links'); ?>
+								</li>
+							</ul>
+						</div>
+						
+						<div class="block-action-header top-link-account about-link">
+							<ul>
+								<li>
+									<a class="account-toplink" title="About" href="<?php echo $this->getUrl('') ?>about-us.html"><?php echo $this->__('About')?></a>
+								</li>
+							</ul>
+						</div>	
+						
+						<div class="block-action-header top-link-account contact-link">
+							<ul>
+								<li>
+									<a class="account-toplink" title="Contact" href="<?php echo $this->getUrl('') ?>contact-us.html"><?php echo $this->__('Contact')?></a>
+								</li>
+							</ul>
+						</div>	
+														
+						<div class="block-action-header top-link-account wishlist-link">
+							<ul>
+								<li>
+									<a class="account-toplink" title="Wishlist" href="<?php echo $this->getUrl('') ?>wishlist"><?php echo $this->__('Wishlist')?></a>
+								</li>
+							</ul>
+						</div>											
+						<!-- Checkout
+						<div class="block-action-header top-link-account checkout-link">
+							<?php echo $this->getChildHtml('topLinks');?>
+						</div>	-->	
+						
+						<div class="block-action-header top-link-account parent-link my-account-link">
+							<ul>
+								<li>
+									<a class="account-toplink dropdown-ict" title="<?php echo $this->__('My Account')?>" href="<?php echo $this->getUrl('customer/account')?>"><?php echo $this->__('My Account')?></a>
+									<?php echo $this->getChildHtml('account_links'); ?>
+								</li>
+							</ul>
+						</div>
+
+						<div class="block-action-header top-link-account compare-link">
+							<ul>
+								<li>
+									<a class="account-toplink" title="Compare" href="#"><?php echo $this->__('Compare')?></a>
+								</li>
+							</ul>
+						</div>	
+						
+						<div class="block-action-header top-link-account login-link">
+							<ul>
+								<?php if(!$this->helper('customer')->isLoggedIn()){?>
+								<li>
+									<a class="login-btn" data-toggle="modal" data-target="#modal-login" title="<?php echo $this->__('Login')?>"><?php echo $this->__('Login')?></a>
+									<?php echo $this->getChildHtml('customer_form_mini_login'); ?>
+								</li>
+								<?php } else{?>
+								<li>
+									<a class="logout-btn" href="<?php echo $this->getUrl('customer/account/logout')?>" title="<?php echo $this->__('Logout');?>"><?php echo $this->__('Logout');?></a>
+								</li>
+								<?php } ?>
+							</ul>
+						</div>	
+					</div>	
+					
+					<div class="action-mobile">
+						<div class="block-action-header top-link-account my-account-link account-mobile-btn">
+							<ul>
+								<li>
+									<a title="<?php echo $this->__('My Account')?>" href="<?php echo $this->getUrl('customer/account')?>"><i class="fa fa-user"></i></a>
+								</li>
+							</ul>
+							<div class="dropdown-mobile">
+								<?php echo $this->getChildHtml('topLinks');?>
+								<?php echo $this->getChildHtml('account_links'); ?>
+								<ul class="block-action-header top-link-account login-link">
+									<?php if(!$this->helper('customer')->isLoggedIn()){?>
+									<li>
+										<a class="login-btn" href="<?php echo $this->getUrl('customer/account/login')?>" title="<?php echo $this->__('Login')?>"><?php echo $this->__('Login')?></a>
+									</li>
+									<?php } else{?>
+									<li>
+										<a class="logout-btn" href="<?php echo $this->getUrl('customer/account/logout')?>" title="<?php echo $this->__('Logout');?>"><?php echo $this->__('Logout');?></a>
+									</li>
+									<?php } ?>
+								</ul>								
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="yt-header-under">
+		<div class="container">
+			<div class="row yt-header-under-wrap">
+				<div class="col-lg-12 col-md-12 col-sm-12 logo-small-wrapper">
+					<h1>
+						<a title="<?php echo $this->getLogoAlt() ?>" href="<?php echo $this->getUrl('') ?>">
+							<img src="<?php echo $this->getLogoSrcSmall() ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+						</a>
+					</h1>
+				</div>			
+				<div class="yt-main-menu col-md-12">
+					<div class="yt-menu">
+						<?php if( $var_yttheme->getParam('menustyle') == 'mega' ){
+							echo $this->getChildHtml('megaMenu');
+						} else {
+							echo $this->getChildHtml('topMenu');
+						} ?>
+						
+						<div class="search-pro">
+							<?php echo $this->getChildHtml('searchboxpro'); ?>
+						</div>						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

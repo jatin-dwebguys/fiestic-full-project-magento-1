@@ -1,0 +1,324 @@
+<?xml version="1.0"?>
+<root>
+  <pages>
+    <cms_page>
+      <title>Stobok World V2- Responsive Magento Theme for Multipurpose</title>
+      <root_template>two_columns_left</root_template>
+      <identifier>home-v2</identifier>
+      <content_heading></content_heading>
+      <content><![CDATA[<div class="no-display">&nbsp;</div>]]></content>
+      <is_active>1</is_active>
+      <layout_update_xml><![CDATA[<reference name="megaMenu-left">
+    <block type="megamenu/list" name="megamenu.list.theme" as="megaMenuLeft">
+		<action method="setConfig">
+			<values>  
+				<group_id>1</group_id>
+				<theme>2</theme>
+			</values>
+		</action>
+	</block>
+</reference>
+<reference name="cssMenu-left">
+        <block type="catalog/navigation" name="catalog.cssnav" template="catalog/navigation/top.phtml" />
+</reference>
+<reference name="left">
+	<block type="deal/list" name="deal.list.slidebar" template="sm/deal/default-banner.phtml">
+		<action method="_setConfig">
+			<values>  
+				<deal_title_text>Hot Deals</deal_title_text>
+				<nb_column1>1</nb_column1>
+				<nb_column2>1</nb_column2>
+				<nb_column3>2</nb_column3>
+				<nb_column4>2</nb_column4>
+				<imgcfg_width>230</imgcfg_width>
+				<imgcfg_height>354</imgcfg_height>
+			</values>
+		</action>	 
+	</block>
+
+	<block type="cms/block" name="slider-client-left">
+		<action method="setBlockId"><block_id>slider-client-left</block_id></action>
+	</block>
+
+	<block type="blog/blog" name="blog-slidebar" template="aw_blog/latest-blog-slidebar.phtml"/>
+
+		 <block type="newsletter/subscribe" name="left.newsletter-slidebar" template="newsletter/subscribe-slidebar.phtml"/>
+
+	<block type="page/html" name="social_info-slidebar" template="page/html/social-slidebar.phtml"/>	
+</reference>
+
+<reference name="content">
+
+	<block type="imageslider/list" name="imageslider.list.default" template="sm/imageslider/default.phtml">
+	</block>
+	
+	
+	<block type="deal/list" name="deal.list.pf_h2" template="sm/deal/default-banner-notime.phtml">
+		<action method="_setConfig">
+			<values>  
+				<static_id_left>b-img1-homepage2</static_id_left>
+				<deal_title_text>Featured Products</deal_title_text>
+				<nb_column1>2</nb_column1>
+				<nb_column2>2</nb_column2>
+				<nb_column3>2</nb_column3>
+				<nb_column4>2</nb_column4>
+				<imgcfg_width>255</imgcfg_width>
+				<imgcfg_height>392</imgcfg_height>
+			</values>
+		</action>	 
+	</block>
+
+	<block type="basicproducts/list" name="basicproducts.list.slide.v2" template="sm/basicproducts/product-slide-v2.phtml">
+		<action method="_setConfig">
+			<values>  
+				<title>New Arrivals</title>
+			</values>
+		</action>
+	</block>
+
+         <block type="cms/block" name="b-img2-homepage2">
+	        <action method="setBlockId"><block_id>b-img2-homepage2</block_id></action>
+         </block>
+	
+	<block type="basicproducts/list" name="basicproducts.list.slide.v2.best" template="sm/basicproducts/product-slide-v2.phtml">
+		<action method="_setConfig">
+			<values>  
+				<title>Bestsellers</title>
+				<product_order_by>best_sales</product_order_by>
+			</values>
+		</action>
+	</block>
+
+	 <block type="cms/block" name="bottom-service">
+		<action method="setBlockId"><block_id>bottom-service</block_id></action>
+	 </block>
+</reference>
+
+<reference name="footer">
+   <remove name="social_info"/>
+</reference>]]></layout_update_xml>
+      <store_id>0</store_id>
+    </cms_page>
+    <cms_page>
+      <title>Stobok World V4- Responsive Magento Theme for Multipurpose</title>
+      <root_template>one_column</root_template>
+      <identifier>home-v4</identifier>
+      <content_heading></content_heading>
+      <content><![CDATA[<div class="no-display">&nbsp;</div>]]></content>
+      <is_active>1</is_active>
+      <layout_update_xml><![CDATA[<reference name="block_home_top">
+	<block type="imageslider/list" name="imageslider.list.default" template="sm/imageslider/default.phtml"></block>
+</reference>
+
+<reference name="block_home_content_top">
+	<block type="cms/block" name="bottom-service">
+		<action method="setBlockId"><block_id>bottom-service</block_id></action>
+	</block>
+
+	<block type="deal/list" name="deal.list.pf_h4" template="sm/deal/default-banner-h4.phtml">
+		<action method="_setConfig">
+			<values>  
+				<static_id_left>deal-of-the-week</static_id_left>
+			</values>
+		</action>	 
+	</block>
+</reference>
+
+<reference name="block_home_content_top_2">
+            <block type="featuredcategory/list" name="featuredcategory.list.default" template="sm/featuredcategory/default.phtml">
+            </block>
+</reference>
+<reference name="block_home_content_top_3">
+			<block type="listingtabs/list" name="listingtabs.list.default" template="sm/listingtabs/default.phtml">
+			</block>
+</reference>
+
+<reference name="f_top_box_1">
+	<block type="newsletter/subscribe" name="left.newsletter-slidebar" template="newsletter/footer-subscribe.phtml"/>
+</reference>
+
+<reference name="f_top_box_2">
+         <block type="blog/blog" name="blog-slidebar" template="aw_blog/latest-blog-slidebar.phtml"/>
+</reference>
+
+<reference name="f_top_box_3">
+         <block type="cms/block" name="slider-client-column">
+	        <action method="setBlockId"><block_id>slider-client-left</block_id></action>
+         </block>
+</reference>]]></layout_update_xml>
+      <store_id>0</store_id>
+    </cms_page>
+    <cms_page>
+      <title>Stobok World V3- Responsive Magento Theme for Multipurpose</title>
+      <root_template>two_columns_left</root_template>
+      <identifier>home-v3</identifier>
+      <content_heading></content_heading>
+      <content><![CDATA[<div class="no-display">&nbsp;</div>]]></content>
+      <is_active>1</is_active>
+      <layout_update_xml><![CDATA[<reference name="block_home_content_top">
+
+	<block type="imageslider/list" name="imageslider.list.default" template="sm/imageslider/default.phtml">
+		<action method="_setConfig">
+			<values>  
+				<class_suffix>image-slide-home3 col-lg-8 col-md-8 col-sm-12</class_suffix>
+			</values>
+		</action>
+	</block>
+
+         <block type="cms/block" name="b-img1-homepage3">
+	        <action method="setBlockId"><block_id>b-img1-homepage3</block_id></action>
+         </block>
+
+</reference>
+<reference name="block_home_content_top_1">
+
+	 <block type="deal/list" name="deal.list.slidebar" template="sm/deal/default-banner.phtml">
+		<action method="_setConfig">
+			<values>  
+				<class_suffix>hot-deal-homepage3 col-lg-3 col-md-3 col-sm-12</class_suffix>
+				<deal_title_text>Hot Deals</deal_title_text>
+				<nb_column1>1</nb_column1>
+				<nb_column2>1</nb_column2>
+				<nb_column3>2</nb_column3>
+				<nb_column4>2</nb_column4>
+				<imgcfg_width>240</imgcfg_width>
+				<imgcfg_height>369</imgcfg_height>
+			</values>
+		</action>	 
+	 </block>
+	
+	<block type="basicproducts/list" name="basicproducts.list.slide.v3.best" template="sm/basicproducts/product-slide-v3.phtml">
+	</block>
+
+</reference>
+
+<reference name="block_home_content_top_2">
+
+         <block type="cms/block" name="b-img2-homepage3">
+	        <action method="setBlockId"><block_id>b-img2-homepage3</block_id></action>
+         </block>
+
+</reference>
+<reference name="left">
+
+         <block type="cms/block" name="slider-client-left">
+	        <action method="setBlockId"><block_id>slider-client-left</block_id></action>
+         </block>
+
+         <block type="page/html" name="social_info-slidebar" template="page/html/social-slidebar.phtml"/>	
+
+</reference>
+
+<reference name="content">
+
+			<block type="listingtabs/list" name="listingtabs.list.default.h3" template="sm/listingtabs/default.phtml">
+			</block>
+</reference>
+
+<reference name="block_home_content_bottom_1">
+     <block type="newsletter/subscribe" name="left.newsletter" template="newsletter/subscribe.phtml"/>
+</reference>
+
+<reference name="footer">
+   <remove name="social_info"/>
+</reference>
+]]></layout_update_xml>
+      <store_id>0</store_id>
+    </cms_page>
+    <cms_page>
+      <title>Stobok World - Responsive Magento Theme for Multipurpose</title>
+      <root_template>one_column</root_template>
+      <identifier>home-default</identifier>
+      <content_heading></content_heading>
+      <content><![CDATA[<div class="no-display">&nbsp;</div>]]></content>
+      <is_active>1</is_active>
+      <layout_update_xml><![CDATA[<reference name="block_home_top">
+	<block type="imageslider/list" name="imageslider.list.default" template="sm/imageslider/default.phtml"></block>
+</reference>
+
+<reference name="block_home_content_top">
+	<block type="cms/block" name="welcome">
+		<action method="setBlockId"><block_id>welcome</block_id></action>
+	</block>
+</reference>
+
+<reference name="block_home_content_top_1">
+	<block type="basicproducts/list" name="basicproducts.list.slide" template="sm/basicproducts/product-slide.phtml">
+		<action method="_setConfig">
+			<values>  
+				<title>Featured Products</title>
+			</values>
+		</action>
+	</block>
+</reference>
+
+
+<reference name="block_home_content_top_2">
+	 <block type="deal/list" name="deal.list.default" template="sm/deal/default.phtml"></block>
+</reference>
+
+<reference name="block_home_content_top_3">
+            <block type="featuredcategory/list" name="featuredcategory.list.default" template="sm/featuredcategory/default.phtml">
+            </block>
+</reference>
+
+<reference name="block_home_content_top_4">
+			<block type="listingtabs/list" name="listingtabs.list.default" template="sm/listingtabs/default.phtml">
+			</block>
+</reference>
+
+<reference name="block_home_content_top_5">
+    <block type="cms/block" name="client-say-bottom">
+	    <action method="setBlockId"><block_id>testimonial-h1</block_id></action>
+    </block>
+</reference>
+
+<reference name="content">
+     <block type="blog/blog" name="blog" template="aw_blog/latest-blog.phtml"/>
+</reference>
+
+<reference name="block_home_content_bottom">
+    <block type="cms/block" name="banner-h1">
+	    <action method="setBlockId"><block_id>banner-h1</block_id></action>
+    </block>
+</reference>
+
+<reference name="block_home_content_bottom_1">
+     <block type="newsletter/subscribe" name="left.newsletter" template="newsletter/subscribe.phtml"/>
+</reference>
+
+<reference name="block_home_content_bottom_2">
+    <block type="cms/block" name="bottom-service">
+	    <action method="setBlockId"><block_id>bottom-service</block_id></action>
+    </block>
+</reference>]]></layout_update_xml>
+      <store_id>0</store_id>
+    </cms_page>
+    <cms_page>
+      <title>Blog</title>
+      <root_template>two_columns_left</root_template>
+      <identifier>blog</identifier>
+      <content_heading></content_heading>
+      <content><![CDATA[<div class="no-display">&nbsp;</div>]]></content>
+      <is_active>1</is_active>
+      <layout_update_xml><![CDATA[<reference name="left">
+            <block type="blog/menu_sidebar" name="left.blog.menu"  before="-">
+                <action method="setTemplate" ifconfig="blog/menu/left">
+                    <template>aw_blog/menu.phtml</template>
+                </action>  
+            </block>
+            <block type="basicproducts/list" name="basicproducts.list.default2" before="basicproducts.list.default" template="sm/basicproducts/left-products-blog.phtml">
+            </block>
+              
+        </reference>
+        <reference name="content">
+            <block type="blog/blog" name="blog" template="aw_blog/blog.phtml">
+                <block type="blog/product_toolbar" name="aw_blog_list_toolbar" template="catalog/product/list/toolbar.phtml">
+                    <block type="page/html_pager" name="product_list_toolbar_pager"/>
+                </block>
+            </block>
+        </reference>]]></layout_update_xml>
+      <store_id>0</store_id>
+    </cms_page>
+  </pages>
+</root>

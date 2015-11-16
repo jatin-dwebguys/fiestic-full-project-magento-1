@@ -1,0 +1,96 @@
+<?php
+/*------------------------------------------------------------------------
+ # SM Featured Category - Version 1.0.0
+ # Copyright (c) 2015 YouTech Company. All Rights Reserved.
+ # @license - Copyrighted Commercial Software
+ # Author: YouTech Company
+ # Websites: http://www.magentech.com
+-------------------------------------------------------------------------*/
+$image_config_odd = array(
+    'width' => (int)$this->_getConfig('imgcfg_width', 250),
+    'height' => $this->_getConfig('imgcfg_height', 370),
+    'constrainOnly' => true,
+    'keepAspectRatio' => false,
+    'keepFrame' => true,
+    'keepTransparency' => true,
+    'background' => '#FFFFFF',
+    'function' => true
+);
+
+$image_config_even = array(
+    'width' => (int)$this->_getConfig('imgcfg_width2', 310),
+    'height' => $this->_getConfig('imgcfg_height2', 450),
+    'constrainOnly' => true,
+    'keepAspectRatio' => false,
+    'keepFrame' => true,
+    'keepTransparency' => true,
+    'background' => '#FFFFFF',
+    'function' => true
+);
+
+$helper = Mage::helper('featuredcategory/data');
+$_child_items = $items->child;
+if (!empty($_child_items)) {
+    $key = 0;
+    foreach ($_child_items as $_product) {
+		$now = date("Y-m-d");
+		$newsFrom = substr($_product->getData('news_from_date'), 0, 10);
+		$newsTo = substr($_product->getData('news_to_date'), 0, 10);		
+		$specialprice = Mage::getModel('catalog/product')->load($_product->getId())->getSpecialPrice();
+		if ($specialprice == '') {
+			$store_id = Mage::app()->getStore()->getStoreId();
+			$discounted_price = Mage::getResourceModel('catalogrule/rule')->getRulePrice(
+				Mage::app()->getLocale()->storeTimeStamp($store_id),
+				Mage::app()->getStore($store_id)->getWebsiteId(),
+				Mage::getSingleton('customer/session')->getCustomerGroupId(),
+				$_product->getId());
+			$specialprice = $discounted_price;
+
+		}			
+        $key++;
+        ?>
+        <div class="fc-image-product">
+		
+			<?php if ( $_product->getSpecialPrice() ){ ?>
+				<div class="sale-item <?php echo ($newsFrom != "" && $now >= $newsFrom && ($now <= $newsTo || $newsTo == ""))? "label2":""; ?>">
+					<span><?php echo $this->__('Sale'); ?></span>
+				</div>
+			<?php }?>
+			
+		
+			<?php if ($newsFrom != "" && $now >= $newsFrom && ($now <= $newsTo || $newsTo == "")) { ?>
+				<div class="new-item <?php echo ( $_product->getSpecialPrice() )? "label2":""; ?>">
+					<span class="txt-label"><?php echo $this->__('New') ?></span>
+				</div>
+			<?php } ?>			
+		
+            <?php
+            if ($key % 2 == 0) {
+                $image = $helper->_resizeImage($_product->_image, $image_config_even);
+            } else {
+                $image = $helper->_resizeImage($_product->_image, $image_config_odd);
+            }
+            ?>
+            <?php if ($image) { ?>
+                <div class="item-image">
+                    <a href="<?php echo $_product->link ?>" data-number="<?php echo $key; ?>"
+                        <?php echo $helper->parseTarget($this->_getConfig('link_target')); ?>
+                       title="<?php echo $_product->title; ?>">
+                        <img title="<?php echo $_product->title; ?>"
+                             alt="<?php echo $_product->title; ?>"
+                             src="<?php echo $image; ?>"/>
+                    </a>
+                </div>
+            <?php } ?>
+        </div>
+        <?php
+        $clear = 'clr1';
+        if ($key % 2 == 0) $clear .= ' clr2';
+        if ($key % 3 == 0) $clear .= ' clr3';
+        if ($key % 4 == 0) $clear .= ' clr4';
+        if ($key % 5 == 0) $clear .= ' clr5';
+        if ($key % 6 == 0) $clear .= ' clr6';
+        ?>
+        <div class="<?php echo $clear; ?>"></div>
+    <?php }
+} ?>

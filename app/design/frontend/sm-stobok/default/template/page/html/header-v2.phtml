@@ -1,0 +1,142 @@
+<?php global $var_yttheme; ?>
+<?php $identifier = Mage::getSingleton('cms/page')->getIdentifier();?>
+<div class="header-default header-v2">
+	<div class="yt-header-top">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-6 logo-wrapper">
+					<div class="logo-wrapper-inner">
+						<h1>
+							<a title="<?php echo $this->getLogoAlt() ?>" href="<?php echo $this->getUrl('') ?>">
+								<img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+							</a>
+
+							<?php if ($identifier !="home-v2") {?>
+							<div class="btn-menu-destop"><i class="fa fa-angle-down"></i></div>
+							<?php } ?>
+						</h1>
+						<?php if ($identifier !="home-v2") {?>
+							<div class="yt-menu-wrap-vertical-destop">
+								<?php if( $var_yttheme->getParam('menustyle') == 'mega' ){
+									echo $this->getChildHtml('megaMenuBtnCate');
+								} else { ?>
+									<div class="mega-left-title css-menu-left-title">
+										<strong><?php echo $this->__('Categories')?></strong>
+									</div>
+									<div class="cssMenu-vertical">
+										<?php echo $this->getChildHtml('topMenu');?>
+									</div>
+								<?php } ?>
+							</div>
+						<?php } ?>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 wrap-menu-mobi">
+					<div id="yt-responsivemenu" class="yt-responsivemenu">
+						<?php echo $this->getChildHtml('mobiMenu'); ?>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-9 col-sm-6 right-wrapper">
+					<div class="wrap-search-mobile">
+						<a class="btn-search-mobile icon-search" href="javascript:void(0)" title="<?php echo $this->__('Search')?>"><i class="fa fa-search"></i></a>
+						<script>
+							jQuery(document).ready(function($){
+								$( ".btn-search-mobile" ).click(function() {
+									$('.search-pro').toggleClass('show')
+									$(this).toggleClass('active')
+								});
+							});
+						</script>
+					</div>
+					<?php echo $this->getChildHtml('currency'); ?>
+					<?php echo $this->getChildHtml('store_language') ?>
+					<div class="top-links-action">
+
+						<div class="block-action-header top-link-account login-link">
+							<ul>
+								<?php if(!$this->helper('customer')->isLoggedIn()){?>
+								<li>
+									<a class="login-btn" data-toggle="modal" data-target="#modal-login" title="<?php echo $this->__('Login')?>"><i class="fa fa-user"></i><?php echo $this->__(' Login')?></a>
+									<?php echo $this->getChildHtml('customer_form_mini_login'); ?>
+								</li>
+								<?php } else{?>
+									<div class="block-action-header top-link-account parent-link my-account-link">
+										<ul>
+											<li>
+												<a class="account-toplink dropdown-ict" title="<?php echo $this->__('My Account')?>" href="<?php echo $this->getUrl('customer/account')?>"><i class="fa fa-user"></i><?php echo $this->__(' Hi %s', Mage::getSingleton('customer/session')->getCustomer()->getFirstname()) ?></a>
+												<?php echo $this->getChildHtml('account_links'); ?>
+											</li>
+										</ul>
+									</div>
+								<?php } ?>
+							</ul>
+						</div>
+
+					</div>
+
+					<div class="mini-cart-header">
+						<?php echo $this->getChildHtml('mini-cartpro') ?>
+					</div>
+
+					<div class="action-mobile">
+						<div class="block-action-header top-link-account my-account-link account-mobile-btn">
+							<ul>
+								<li>
+									<a title="<?php echo $this->__('My Account')?>" href="<?php echo $this->getUrl('customer/account')?>"><i class="fa fa-user"></i></a>
+								</li>
+							</ul>
+							<div class="dropdown-mobile">
+								<?php echo $this->getChildHtml('topLinks');?>
+								<?php echo $this->getChildHtml('account_links'); ?>
+								<ul class="block-action-header top-link-account login-link">
+									<?php if(!$this->helper('customer')->isLoggedIn()){?>
+									<li>
+										<a class="login-btn" href="<?php echo $this->getUrl('customer/account/login')?>" title="<?php echo $this->__('Login')?>"><?php echo $this->__('Login')?></a>
+									</li>
+									<?php } else{?>
+									<li>
+										<a class="logout-btn" href="<?php echo $this->getUrl('customer/account/logout')?>" title="<?php echo $this->__('Logout');?>"><?php echo $this->__('Logout');?></a>
+									</li>
+									<?php } ?>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="yt-header-under">
+		<div class="container">
+			<div class="row yt-header-under-wrap">
+				<div class="col-lg-12 col-md-12 col-sm-12 logo-small-wrapper">
+					<h1>
+						<a title="<?php echo $this->getLogoAlt() ?>" href="<?php echo $this->getUrl('') ?>">
+							<img src="<?php echo $this->getLogoSrcSmall() ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+						</a>
+					</h1>
+				</div>
+
+				<div class="col-lg-9 col-md-9 yt-menu-wrap">
+					<div class="search-pro">
+						<?php echo $this->getChildHtml('searchboxpro'); ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery('.header-v2 .btn-menu-destop').click(function(){
+		if(jQuery('.header-v2 .btn-menu-destop i').hasClass('fa-angle-down')){
+			jQuery('.header-v2 .btn-menu-destop i').removeClass('fa-angle-down');
+			jQuery('.header-v2 .btn-menu-destop i').addClass('fa-angle-up');
+		} else {
+			jQuery('.header-v2 .btn-menu-destop i').removeClass('fa-angle-up');
+			jQuery('.header-v2 .btn-menu-destop i').addClass('fa-angle-down');
+		}
+		jQuery(".header-v2 .yt-menu-wrap-vertical-destop").slideToggle("fast");
+	});
+</script>

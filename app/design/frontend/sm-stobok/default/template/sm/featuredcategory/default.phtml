@@ -1,0 +1,99 @@
+<?php
+/*------------------------------------------------------------------------
+ # SM Featured Category - Version 1.0.0
+ # Copyright (c) 2015 YouTech Company. All Rights Reserved.
+ # @license - Copyrighted Commercial Software
+ # Author: YouTech Company
+ # Websites: http://www.magentech.com
+-------------------------------------------------------------------------*/
+$helper = Mage::helper('featuredcategory/data');
+$list = $this->_getList();
+if (!empty($list)) {
+    $tag_id = 'sm_featured_category_'. rand() . time();
+
+	$class_fc_res1 = ' fc01-' . $this->_getConfig('nb_column1', 4);
+    $class_fc_res2 = ' fc02-' . $this->_getConfig('nb_column2', 3);
+    $class_fc_res3 = ' fc03-' . $this->_getConfig('nb_column3', 2);
+    $class_fc_res4 = ' fc04-' . $this->_getConfig('nb_column4', 1);
+    $class_fc_res = $class_fc_res1.$class_fc_res2.$class_fc_res3.$class_fc_res4;
+	?>
+	<!--[if lt IE 9]>
+	<div id="<?php echo $tag_id; ?>" class="sm-featured-category msie lt-ie9 first-load"><![endif]-->
+	<!--[if IE 9]>
+	<div id="<?php echo $tag_id; ?>" class="sm-featured-category msie first-load"><![endif]-->
+	<!--[if gt IE 9]><!-->
+	<div id="<?php echo $tag_id; ?>" class="sm-featured-category first-load"><!--<![endif]-->
+        <div class="fc-loading"></div>
+
+        <?php
+        $pretext = $this->_getConfig('pretext');
+        if (!empty($pretext)) {
+            ?>
+            <div class="fc-pre-text"><?php echo $pretext; ?></div>
+        <?php } ?>
+
+		<div class="fc-cat-wrap">
+            <div class="fc-cat-inner">
+                <!-- Begin Class fc-items-cat -->
+                <div class="fc-cat-items">
+                    <?php
+                    foreach ($list as $key => $items) {
+                    ?>
+                        <div class="fc-cat-item">
+                            <div class="fc-cat-infor">
+                                <?php if ($this->_getConfig('featuredcategory_title_text')) { ?>
+                                    <div class="fc-title-module">
+                                        <span><?php echo $this->_getConfig('featuredcategory_title_text', 'Biography'); ?></span>
+                                    </div>
+                                <?php } ?>
+
+                                <?php if ($this->_getConfig('cat_title_display') == 1) { ?>
+                                    <div class="fc-cat-title">
+                                        <a href="<?php echo $items->link; ?>"
+                                           title="<?php echo $items->title ?>"
+                                            <?php echo $helper->parseTarget($this->_getConfig('link_target')); ?> >
+                                            <?php echo $helper->truncate($items->title, $this->_getConfig('category_title_max_characs', 25)); ?>
+                                        </a>
+                                    </div>
+                                <?php } ?>
+
+                                <div class="fc-item">
+                                    <?php include('default_items.phtml'); ?>
+                                </div>
+
+                                <?php if ((int)$this->_getConfig('cat_readmore_display', 1)) { ?>
+                                    <div class="fc-cat-readmore">
+                                        <a href="<?php echo $items->link;?>" title="<?php echo $items->title;?>"
+                                            <?php echo $helper->parseTarget($this->_getConfig('link_target')); ?> >
+                                            <?php echo $this->_getConfig('cat_readmore_text', 'Discover More');?>
+                                        </a>
+                                    </div>
+                                <?php } ?>
+                            </div>
+
+                            <div class="fc-item-image-container <?php echo $class_fc_res;?>">
+                                <?php include('default_items_image.phtml'); ?>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+                <!-- End Class fc-items-cat -->
+            </div>
+		</div>
+
+		<?php
+		$posttext = $this->_getConfig('posttext');
+		if (!empty($posttext)) {
+			?>
+			<div class="fc-post-text"><?php echo $posttext; ?></div>
+		<?php } ?>
+	</div>
+
+	<?php include('default_js.phtml'); ?>
+<?php
+} else {
+	echo 'Has no item to show!';
+} ?>
+
+
+

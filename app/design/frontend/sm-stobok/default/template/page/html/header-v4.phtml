@@ -1,0 +1,152 @@
+<?php global $var_yttheme; ?>
+<div class="header-default header-v4">
+	<div class="yt-header-top">
+		<div class="container">
+			<div class="row">	
+				<div class="wrap-menu-mobi">	
+					<div id="yt-responsivemenu" class="yt-responsivemenu">
+						<?php echo $this->getChildHtml('mobiMenu'); ?>
+						<a class="btn-search-mobile icon-search" href="javascript:void(0)" title="<?php echo $this->__('Search')?>"></a>
+					</div>			
+				</div>			
+				<div class="col-lg-3 col-md-3 top-links-action header-top-left">
+					<?php echo $this->getChildHtml('store_language') ?>		
+					<?php echo $this->getChildHtml('currency'); ?>
+				</div>
+				
+				<div class="col-lg-9 col-md-9 top-links-action header-top-left">
+					<div class="wrap-search-mobile">
+						<a class="btn-search-mobile icon-search" href="javascript:void(0)" title="<?php echo $this->__('Search')?>"><i class="fa fa-search"></i></a>
+						<script>
+							jQuery(document).ready(function($){
+								$( ".btn-search-mobile" ).click(function() {
+									$('.wrap-search-mobile .search-pro').toggleClass('show')
+									$(this).toggleClass('active')
+								});
+							});
+						</script>	
+						<div class="search-pro">
+							<?php echo $this->getChildHtml('searchboxpro'); ?>
+						</div>							
+					</div>				
+					<div class="mini-cart-header">
+						<?php echo $this->getChildHtml('mini-cartpro') ?>
+					</div>				
+
+					<div class="desktop-action">
+						<div class="block-action-header top-link-account login-link">
+							<ul>
+								<?php if(!$this->helper('customer')->isLoggedIn()){?>
+								<li>
+									<a class="login-btn" data-toggle="modal" data-target="#modal-login" title="<?php echo $this->__('Login')?>"><i class="fa fa-lock"></i><?php echo $this->__('Login')?></a>
+									<?php echo $this->getChildHtml('customer_form_mini_login'); ?>
+								</li>
+								<?php } else{?>
+								<li>
+									<a class="logout-btn" href="<?php echo $this->getUrl('customer/account/logout')?>" title="<?php echo $this->__('Logout');?>"><i class="fa fa-unlock"></i><?php echo $this->__('Logout');?></a>
+								</li>
+								<?php } ?>
+							</ul>
+						</div>					
+						
+						<div class="block-action-header top-link-account checkout-link">
+							<?php echo $this->getChildHtml('topLinks');?>
+						</div>	
+
+						<div class="block-action-header top-link-account compare-link">
+							<ul>
+								<li>
+									<a class="account-toplink" title="Compare" href="#"><i class="fa fa-signal"></i><?php echo $this->__('Compare')?></a>
+								</li>
+							</ul>
+						</div>	
+							
+						<div class="block-action-header top-link-account wishlist-link">
+							<ul>
+								<li>
+									<a class="account-toplink" title="Wishlist" href="<?php echo $this->getUrl('') ?>wishlist"><i class="fa fa-heart"></i><?php echo $this->__('Wishlist')?></a>
+								</li>
+							</ul>
+						</div>		
+
+						<div class="block-action-header top-link-account parent-link my-account-link">
+							<ul>
+								<li>
+									<a class="account-toplink dropdown-ict" title="<?php echo $this->__('My Account')?>" href="<?php echo $this->getUrl('customer/account')?>"><i class="fa fa-user"></i><?php echo $this->__('My Account')?></a>
+									<?php echo $this->getChildHtml('account_links'); ?>
+								</li>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="action-mobile">
+						<div class="block-action-header top-link-account my-account-link account-mobile-btn">
+							<ul>
+								<li>
+									<a title="<?php echo $this->__('My Account')?>" href="<?php echo $this->getUrl('customer/account')?>"><i class="fa fa-user"></i></a>
+								</li>
+							</ul>
+							<div class="dropdown-mobile">
+								<?php echo $this->getChildHtml('topLinks');?>
+								<?php echo $this->getChildHtml('account_links'); ?>
+								<ul class="block-action-header top-link-account login-link">
+									<?php if(!$this->helper('customer')->isLoggedIn()){?>
+									<li>
+										<a class="login-btn" href="<?php echo $this->getUrl('customer/account/login')?>" title="<?php echo $this->__('Login')?>"><?php echo $this->__('Login')?></a>
+									</li>
+									<?php } else{?>
+									<li>
+										<a class="logout-btn" href="<?php echo $this->getUrl('customer/account/logout')?>" title="<?php echo $this->__('Logout');?>"><?php echo $this->__('Logout');?></a>
+									</li>
+									<?php } ?>
+								</ul>								
+							</div>
+						</div>
+						
+					</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+
+	<div class="yt-header-under">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 logo-wrapper">
+					<h1>
+						<a title="<?php echo $this->getLogoAlt() ?>" href="<?php echo $this->getUrl('') ?>">
+							<img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+						</a>
+					</h1>
+				</div>	
+			</div>
+		</div>
+	</div>
+
+	<div class="yt-header-under yt-menu-wrap">
+		<div class="container">
+			<div class="row yt-header-under-wrap">
+				<div class="yt-main-menu col-md-12">
+					<div class="yt-menu">
+						<?php if( $var_yttheme->getParam('menustyle') == 'mega' ){
+							//echo $this->getChildHtml('megaMenu');
+							?>
+							<div class="menu-btn-categories">
+								<div class="btn-cate"><span><?php echo $this->__('Categories')?></span></div>
+								<div class="sub-wrap-cate">
+									<?php echo $this->getChildHtml('megaMenuBtnCate');?>
+								</div>
+							</div>
+							<div class="megamenu-custom">
+								<?php echo $this->getChildHtml('megaMenuCustom');?>
+							</div>
+						<?php
+						} else { 
+							echo $this->getChildHtml('topMenu');
+						} ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

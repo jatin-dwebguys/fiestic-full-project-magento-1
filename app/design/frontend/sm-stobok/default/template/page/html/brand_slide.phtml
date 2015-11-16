@@ -1,0 +1,45 @@
+<?php 
+global $var_yttheme;
+?>
+<div class="brand-slide-wrap">
+	
+	<div class="slider-brand">
+		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('brand-slider')->toHtml(); ?>
+	</div>
+	
+					<script>
+						jQuery(document).ready(function($) {
+							var owl_slider_brand = $(".slider-brand");
+							owl_slider_brand.owlCarousel({
+								responsive: {
+									0: {
+										items:1
+									},
+									480: {
+										items:3
+									},
+									768: {
+										items:4
+									},
+									992: {
+										items:5
+									},
+									1200: {
+										items:6
+									}
+								},								
+
+								autoplayHoverPause: true,
+								autoplaySpeed: 300,
+								paginationSpeed : 400,
+								autoPlay:false,
+								loop: true,
+								nav: true,
+								navClass: ['owl-prev', 'owl-next'],
+								navText: ['>', '<'],
+								dots: false
+							});	 
+
+						});	
+					</script>
+</div>

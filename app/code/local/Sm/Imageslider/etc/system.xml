@@ -1,0 +1,507 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+		<sm>
+			<label>MagenTech.Com</label>
+			<sort_order>205</sort_order>
+		</sm>
+	</tabs>
+	<sections>
+		<imageslider_cfg translate="label" module="imageslider">
+			<label>SM Image Slider</label>
+			<tab>sm</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>150</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<!-- Begin General Settings Group -->
+				<general translate="label" module="imageslider">
+					<expanded>1</expanded>
+					<label>General Settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<active translate="label">
+							<label>Enable/Disable</label>
+							<sort_order>1</sort_order>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_enabledisable</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<theme_display>
+							<label>Select Theme</label>
+							<frontend_type>radios</frontend_type>
+							<source_model>imageslider/system_config_source_Theme</source_model>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</theme_display>
+						<heading1 translate="label">
+							<label>For devices have screen width from 768px up to greater.</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+						</heading1>
+						<nb_column1 translate="label">
+							<label>#Column</label>
+							<frontend_type>select</frontend_type>
+							<source_model>imageslider/system_config_source_ColumnSetting</source_model>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</nb_column1>
+						<heading2 translate="label">
+							<label>For devices have screen width less than or equal 767px.</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+						</heading2>
+						<nb_column2 translate="label">
+							<label>#Column</label>
+							<frontend_type>select</frontend_type>
+							<source_model>imageslider/system_config_source_ColumnSetting</source_model>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</nb_column2>
+						<slider_title_text translate="label">
+							<label>Title of Slider</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>7</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</slider_title_text>
+						<product_links_target translate="label">
+							<label>Link Target</label>
+							<frontend_type>select</frontend_type>
+							<source_model>imageslider/system_config_source_LinkTargets</source_model>
+							<sort_order>8</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_links_target>
+					</fields>
+				</general>
+				<!-- End General Settings Group -->
+
+				<!-- Begin Source Options Settings Group -->
+				<source_options translate="label">
+					<label>Source Options</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>2</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<product_additem translate="label">
+							<label>Media Source</label>
+							<backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+							<frontend_model>imageslider/adminhtml_system_config_form_field_Additem</frontend_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Add Item</comment>
+						</product_additem>
+					</fields>
+				</source_options>
+				<!-- End Source Options Group -->
+
+				<product_options translate="label">
+					<label>Product Options</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>3</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<product_title_heading translate="label">
+							<label>Product Title</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+						</product_title_heading>
+						<product_title_display translate="label">
+							<label>Display</label>
+							<frontend_type>radios</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_title_display>
+						<product_title_maxlength translate="label">
+							<label>Max Length</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_title_maxlength>
+						<product_description_heading translate="label">
+							<label>Product Description</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+						</product_description_heading>
+						<product_description_display translate="label">
+							<label>Display</label>
+							<frontend_type>radios</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_description_display>
+						<product_description_maxlength translate="label">
+							<label>Max Length</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_description_maxlength>
+					</fields>
+				</product_options>
+
+				<!-- End Image Options Group -->
+				<image_options translate="label">
+					<label>Image Options</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>4</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<imgcfg_function translate="label">
+							<label>Resize</label>
+							<frontend_type>radios</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</imgcfg_function>
+						<imgcfg_width translate="label">
+							<label>Image Width</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</imgcfg_width>
+						<imgcfg_height translate="label">
+							<label>Image Height</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</imgcfg_height>
+						<imgcfg_constrainOnly translate="label">
+							<label>Constrain Only</label>
+							<frontend_type>radios</frontend_type>
+							<source_model>imageslider/system_config_source_TrueFalse</source_model>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>If the "constrainOnly" parameter is set to true, in this case the images which are
+								smaller than specified value will be not enlarged by Magento. Only border of such images
+								will increase.
+							</comment>
+						</imgcfg_constrainOnly>
+						<imgcfg_keepAspectRatio translate="label">
+							<label>Keep Aspect Ratio</label>
+							<frontend_type>radios</frontend_type>
+							<source_model>imageslider/system_config_source_TrueFalse</source_model>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>If the "keepAspectRatio" parameter is set to true, in this case the proportions of
+								the image will not be modified.
+							</comment>
+						</imgcfg_keepAspectRatio>
+						<imgcfg_keepFrame translate="label">
+							<label>Keep Frame</label>
+							<frontend_type>radios</frontend_type>
+							<source_model>imageslider/system_config_source_TrueFalse</source_model>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>The "keepFrame" parameter guarantees that the image will be not cropped. When
+								"keepAspectRatio" is false the "keepFrame" will not work.
+							</comment>
+						</imgcfg_keepFrame>
+						<imgcfg_keepTransparency translate="label">
+							<label>Keep Transparency</label>
+							<frontend_type>radios</frontend_type>
+							<source_model>imageslider/system_config_source_TrueFalse</source_model>
+							<sort_order>7</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>The "keepTransparency" parameter keep the transparent background of the images.
+							</comment>
+						</imgcfg_keepTransparency>
+						<imgcfg_background translate="label">
+							<label>Background Color</label>
+							<frontend_type>text</frontend_type>
+							<validate>color</validate>
+							<sort_order>8</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Please Click the text box to select color</comment>
+						</imgcfg_background>
+						<imgcfg_placeholder>
+							<label>Placeholder</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>9</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</imgcfg_placeholder>
+					</fields>
+				</image_options>
+				<!-- End Image Options Group -->
+
+				<!-- Begin Effect Options Group -->
+				<effect_options translate="label">
+					<label>Effect Options</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>5</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<play translate="label">
+							<label>Auto Play</label>
+							<frontend_type>radios</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>0</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</play>
+						<start translate="label">
+							<label>Start</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</start>
+						<scroll translate="label">
+							<label>Step</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</scroll>
+						<duration translate="label">
+							<label>Speed</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</duration>
+						<delay translate="label">
+							<label>Interval</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</delay>
+						<stop translate="label">
+							<label>Stop on Hover</label>
+							<frontend_type>radios</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</stop>
+						<nav translate="label">
+							<label>Navigation</label>
+							<frontend_type>radios</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>7</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</nav>
+						<loop translate="label">
+							<label>Loop</label>
+							<frontend_type>radios</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>8</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</loop>
+						<dots translate="label">
+							<label>Dots</label>
+							<frontend_type>radios</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>9</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</dots>
+						<margin translate="label">
+							<label>Margin-Right</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</margin>
+						<merge translate="label">
+							<label>Merge</label>
+							<frontend_type>radios</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>11</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</merge>
+						<navSpeed translate="label">
+							<label>Nav Speed</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>12</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</navSpeed>
+						<mouseDrag translate="label">
+							<label>Mouse Drag</label>
+							<frontend_type>radios</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>13</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</mouseDrag>
+						<dotsSpeed translate="label">
+							<label>Dots Speed</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>14</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</dotsSpeed>
+						<autoheight_title_heading translate="label">
+							<label>Config for Theme1</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>15</sort_order>
+							<show_in_default>1</show_in_default>
+						</autoheight_title_heading>
+						<autoHeight translate="label">
+							<label>Auto Height</label>
+							<frontend_type>radios</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>16</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</autoHeight>
+						<wide_boxed_title_heading translate="label">
+							<label>Config for Theme2</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>17</sort_order>
+							<show_in_default>1</show_in_default>
+						</wide_boxed_title_heading>
+						<wide_box translate="label">
+							<label>Type Show For Module</label>
+							<frontend_type>radios</frontend_type>
+							<source_model>imageslider/system_config_source_WideBoxed</source_model>
+							<sort_order>18</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</wide_box>
+					</fields>
+				</effect_options>
+				<!-- End Effect Options Group -->
+
+				<!-- Begin Advanced Options Group -->
+				<advanced translate="label">
+					<label>Advanced Options</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>6</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<include_jquery translate="label">
+							<label>Include jQuery</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</include_jquery>
+						<pretext translate="label">
+							<label>Pre-text</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</pretext>
+						<posttext translate="label">
+							<label>Post-text</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</posttext>
+					</fields>
+				</advanced>
+				<!-- End Effect Options Group -->
+
+				<product_information translate="label">
+					<label>Product Information</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>7</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<author translate="label">
+							<label><![CDATA[<p>Author: <a target="_blank" title="Magen Tech" href="http://www.magentech.com">Magen Tech</a></p>
+											<p>Version: 1.1.0</p>
+											<p>Userguide: <a target="_blank" title="Userguide" href="http://www.magentech.com/extensions/extension-user-guides">Userguide</a></p>
+											<p>Support: <a target="_blank" href="http://www.magentech.com/forum">Forum</a></p>
+								]]>
+							</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+						</author>
+					</fields>
+				</product_information>
+
+			</groups>
+		</imageslider_cfg>
+	</sections>
+</config>

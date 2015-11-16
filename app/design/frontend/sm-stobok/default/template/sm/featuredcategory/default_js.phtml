@@ -1,0 +1,75 @@
+<?php
+/*------------------------------------------------------------------------
+ # SM Featured Category - Version 1.0.0
+ # Copyright (c) 2015 YouTech Company. All Rights Reserved.
+ # @license - Copyrighted Commercial Software
+ # Author: YouTech Company
+ # Websites: http://www.magentech.com
+-------------------------------------------------------------------------*/
+?>
+<script type="text/javascript">
+    //<![CDATA[
+    jQuery(document).ready(function ($) {
+        ;
+        (function (element) {
+            var $element = $(element);
+
+            $(window).on('load', function () {
+                setTimeout(function () {
+                    $('.fc-loading', $element).remove();
+                    $element.removeClass('first-load');
+                    CreateProSlider($('.fc-cat-items', $element));
+                }, 1000);
+            });
+
+
+            function CreateProSlider($items) {
+                $items.owlCarousel({
+                    autoHeight: true,
+                    center: false,
+                    loop: false,
+                    margin: 0,
+                    slideBy: 1,
+                    autoplay: false,
+                    autoplayHoverPause: true,
+                    autoplaySpeed: 800,
+                    navSpeed: 1000,
+                    smartSpeed: 1000,
+                    startPosition: 0,
+                    mouseDrag: true,
+                    touchDrag: true,
+                    pullDrag: true,
+                    dots: false,
+                    autoWidth: false,
+                    nav: true,
+                    navClass: ['fc-owl-prev', 'fc-owl-next'],
+                    navContainerClass: 'fc-owl-nav',
+                    controlsClass: 'fc-owl-controls',
+					navText: ['&nbsp;', '&nbsp;'],
+                    //navText: ['&#139;', '&#155;'],
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        480: {
+                            items: 1
+                        },
+                        768: {
+                            items: 1
+                        },
+                        1200: {
+                            items: 1
+                        }
+                    }
+                });
+            }
+
+            $('.fc-cat-items', $element).on('resized.owl.carousel', function (event) {
+                var $this = $(this);
+                $this.find('.owl-height').css('height', $this.find('.owl-item.active').height());
+            });
+
+        })('#<?php echo $tag_id; ?>');
+    });
+    //]]>
+</script>

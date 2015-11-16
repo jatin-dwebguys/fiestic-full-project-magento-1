@@ -1,0 +1,136 @@
+/* COMMON hd3 */
+
+/* BODY header-v3 */
+.bd-hd4 {
+	
+}
+
+#yt_header .header-v4 .yt-header-under .yt-header-under-wrap {
+  padding-bottom: 0;
+}
+
+.header-default.header-v4 {
+	.top-link-account > ul > li .dropdown-ict:after {content: "\f0dd";  position: relative;  top: -2px;
+	}
+	.dropdown-link-sub {  top: 41px; z-index: 999; border-top-color: @color_theme;; box-shadow: none;
+	}	
+	.yt-header-top {background: #282828; border: 0; height: 41px; padding: 0;
+		.block-action-header.jqtransformdone {  float: left; padding: 0; margin: 0;
+		}	
+		.block-action-header .jqTransformSelectWrapper {  border-left: 1px solid #464646;  padding: 0 20px; line-height: 41px;
+			> div span { border: 0; padding: 0; margin: 0;
+				&:after {content: "\f0dd";  position: relative;  top: -2px; margin-left: 10px;}
+			}		
+			ul {  top: 41px; left: 0; right: auto;
+				li a { line-height: 28px;
+				}
+			}
+			&:hover {
+				> div span { color: @color_theme;
+				}
+			}			
+		}
+
+		.language-switcher .jqTransformSelectWrapper > div span { padding-left: 0; margin-right: 0;}		
+		.block-action-header.top-link-account { float: right;
+			> ul > li { .transition_all(0.3s); height: 41px; overflow: hidden;
+				&:hover { background-color: @color_theme;
+					> a {color: #fff;}
+				}			
+			}
+
+		}
+		.top-link-account > ul > li > a	{line-height: 41px; padding: 0 22px 0px;
+			i.fa {margin-right: 5px;}
+		}
+		.top-link-account:first-child {
+			.dropdown-link-sub {  right: 0; left: auto;
+			}	
+		}
+
+		.block.mini-cartpro {  background-color: @color_theme;  padding-bottom: 0;  padding-left: 44px; margin-top: -1px; margin-left: 25px; margin-right: -10px;
+			.block-title {  background-color: #fff;  margin-top: 0;  padding: 12px 50px 11px 17px;
+				&:after {  content: "\f0dd"; top: 10px;
+				}		
+				&:before {  background-color: transparent;  background-position: -32px 0;  top: 11px;  left: -29px;
+				}				
+			}	
+			.block-content {  left: auto;  top: 41px;  right: 0; box-shadow: none;
+			}	
+			&.opencart .block-title, &:hover .block-title {  box-shadow: none; background-color: @color_theme; color: #fff;
+				a {color: #fff;}
+			}			
+		}		
+		
+	}
+	
+	.yt-header-under {background: #fff; border: 0;
+		.container { padding: 52px 15px 46px;
+			&:before {display: none;
+			}		
+			.logo-wrapper { text-align: center;
+			}
+		}
+		
+		&.yt-menu-wrap { position: relative; border-top: 1px solid #e1e1e1;
+			.container { padding: 0 15px;
+				.sm-serachbox-pro .form-search {  height: 27px;  border: 0; margin-top: 10px;
+					.input-search #search {  height: 27px;  margin-top: 0;  line-height: 27px;
+					}				
+					.button-search-pro { top: -2px;
+					}					
+				}			
+			
+				.sm_megamenu_wrapper_horizontal_menu .sm_megamenu_menu > li { position: relative;
+					&:before { .transition_all(0.3s); content: ""; background-color: transparent; top: 0; left: 7px; right: 7px; bottom: 100%; position: absolute;
+					}
+					&:first-child {
+						&:before { left: 0;
+						}					
+					}					
+					a.sm_megamenu_head {  background-color: transparent;  color: #636363;  border: 0;  padding: 10px 20px;  line-height: 33px;
+						&.sm_megamenu_drop:after { content: "\f0dd"; top: -2px; position: relative;
+						}
+					}
+					&.sm_megamenu_actived, &:hover { 
+						a.sm_megamenu_head { color: #fff;
+						}
+						&:before { bottom: -1px; background-color: @color_theme;
+						}
+						a.sm_megamenu_head {
+						}
+					}	
+				}
+				.sm_megamenu_wrapper_horizontal_menu.css_effect .sm_megamenu_lv1 > div { top: 53px;
+				}	
+
+				#nav > li { position: relative;
+					&:before { .transition_all(0.3s); content: ""; background-color: transparent; top: 0; left: 7px; right: 7px; bottom: 100%; position: absolute;
+					}
+					&:first-child {
+						&:before { left: 0;
+						}					
+					}				
+					> a	{ background-color: transparent;  color: #636363;  border: 0;  padding: 10px 20px;  line-height: 27px; position: relative; width: auto; height: auto;
+					}
+					&.parent {
+						> a	{ 
+							&:after { content: "\f0dd"; top: -2px; position: relative;
+							}						
+						}					
+					}
+					&.active, &:hover {
+						&:before { bottom: -2px; background-color: #363636; width: auto; height: auto; z-index: 0;
+						}
+						> a	{ color: #fff; 
+						}						
+					}		
+					> ul { top: 48px;
+					}					
+				}
+				
+			}
+		}
+	}
+	
+}

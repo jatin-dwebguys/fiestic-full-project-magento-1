@@ -1,0 +1,243 @@
+<?php
+/*------------------------------------------------------------------------
+ # SM Deal - Version 1.0.0
+ # Copyright (c) 2014 YouTech Company. All Rights Reserved.
+ # @license - Copyrighted Commercial Software
+ # Author: YouTech Company
+ # Websites: http://www.magentech.com
+-------------------------------------------------------------------------*/?>
+
+<?php 
+$list = $this->_getProducts();
+$helper = Mage::helper('deal/data');
+if (!empty($list)) {
+	$uniqued = 'sm_deal_' . time() . rand();
+	
+	$class_suffix = $this->_getConfig('class_suffix', '');
+	
+	$static_id_left = $this->_getConfig('static_id_left', '');
+	$static_id_right = $this->_getConfig('static_id_right', '');
+
+	$nb_column1 = $this->_getConfig('nb_column1', 6);
+	$nb_column2 = $this->_getConfig('nb_column2', 4);
+	$nb_column3 = $this->_getConfig('nb_column3', 2);
+	$nb_column4 = $this->_getConfig('nb_column4', 1);
+	
+	$showtime = $this->_getConfig('showtime', 1);	
+	
+	$class_slide = 'col-lg-12';
+	$class_static = 'col-lg-4 col-md-4 col-sm-12';
+	if($static_id_left && $static_id_right) {
+		$class_slide = 'col-lg-6 col-md-6 col-sm-12';
+		$class_static = 'col-lg-3 col-md-3 col-sm-12';
+	}
+	if($static_id_left || $static_id_right) {
+		$class_slide = 'col-lg-8 col-md-8 col-sm-12';
+	}
+	
+?>
+
+<div class="deal-wrapper-banner deal-wrapper-banner-notime block <?php echo $class_suffix; ?>">
+	<div class="row">
+		<?php if($static_id_left && $static_id_left != ''):?>
+			<div class="static-l <?php echo $class_static; ?>">
+				<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId($static_id_left)->toHtml();?>
+			</div>
+		<?php endif; ?>
+		<div class="deal-wrapper block <?php echo $class_slide; ?>">
+			<div class="deal-wrapper-inner">
+			<?php if( $this->_getConfig('deal_title_text') ){ ?>
+				<div class="block-title">
+					<span><?php echo $this->_getConfig('deal_title_text','Deal Title'); ?></span>
+				</div>
+			<?php } ?>
+
+
+			<div id="<?php echo $uniqued; ?>" class="sm-deal-wrap">
+				
+				
+				<?php if ( $this->_getConfig('pretext') != null ) { ?>
+					<div class="deal-pretext">
+						<?php echo $this->_getConfig('pretext'); ?>
+					</div>
+				<?php } ?>
+				<div class="w-deal-res deal-home-df">
+					<div class="overflow-owl-slider">
+						<div class="rw-margin">
+						<div class="slider-deal-slidebar">
+							<?php 
+							$j = 0;
+							$_limit = (int)$this->_getConfig('product_limitation', 5);
+							foreach ($list as $_product) {
+							$specialprice = $_product->getData('special_price');
+							$specialPriceFromDate = $_product->getData('special_from_date');
+							$specialPriceToDate = $_product->getData('special_to_date');
+							$today =  time();
+							
+							if ($specialprice && $specialPriceFromDate && $specialPriceToDate){
+								if( $today >= strtotime( $specialPriceFromDate) && $today <= strtotime($specialPriceToDate) || $today >= strtotime( $specialPriceFromDate) && is_null($specialPriceToDate) ){ 
+								$j++;
+								if( $j <= $_limit ){
+								?>			
+								<div class="item item-deal respl-item">
+									<div class="item-inner">
+										
+										<?php if ( $_product->_image && $this->_getConfig('product_image_display') ) { ?>
+											<div class="w-image-box">
+												<div class="image-w">
+													<div class="item-image">
+														<a href="<?php echo $_product->link ?>" title="<?php echo $_product->title; ?>" <?php echo $helper->parseTarget($this->_getConfig('product_links_target'));?>>
+															<img src="<?php echo $_product->_image; ?>" title="<?php echo $_product->title; ?>" alt="<?php echo $_product->title; ?>" >
+														</a>
+													</div>
+				
+												</div>
+
+											</div>
+										<?php } ?>
+										
+										<div class="item-info">
+										
+											
+											<?php if( (int)$this->_getConfig('product_title_display',1) ) { ?>
+												<div class="item-title">
+													<a href="<?php echo $_product->link;?>" title="<?php echo $_product->title; ?>"
+														<?php echo $helper->parseTarget($this->_getConfig('product_links_target'));?>
+														>
+														<?php echo $helper->truncate($_product->title,$this->_getConfig('product_title_maxlength'));?>
+													</a>
+												</div>
+											<?php } ?>		
+
+							
+										
+											<?php if ( (int)$this->_getConfig('product_reviews_count', 1) ) { ?>
+												<div class="item-review">
+													<?php echo $this->getReviewsSummaryHtml($_product, 'short', true); ?>
+												</div>
+											<?php } ?>
+											
+											<?php if ( (int)$this->_getConfig('product_description_display', 1) ) { ?>
+												<div class="des-content">
+													<?php echo $_product->_description; ?>
+												</div>
+											<?php } ?>											
+
+											<?php if ((int)$this->_getConfig('product_price_display', 1) || (int)$this->_getConfig('product_addcart_display', 1)) { ?>
+												<div class="item-price">
+													<?php if ((int)$this->_getConfig('product_price_display', 1)) { ?>
+														<?php echo $this->getPriceHtml($_product, true); ?>
+													<?php } ?>
+											
+												</div>
+											<?php } ?>
+											
+											<?php if ((int)$this->_getConfig('product_addcompare_display', 1) || (int)$this->_getConfig('product_addwishlist_display', 1) || (int)$this->_getConfig('product_addcart_display', 1)) { ?>
+												<div class="item-action">
+													
+													<?php if ((int)$this->_getConfig('product_addcart_display', 1)) : ?>
+														<?php if ($_product->isSaleable()): ?>
+														<button type="button" title="<?php echo $this->__('Buy') ?>"
+																					class="btn-pd btn-cart"
+																					onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')">
+																				<span><span><?php echo $this->__('Buy') ?></span></span>
+														</button>
+														<?php else: ?>
+														<p class="availability out-of-stock">
+															<span><?php echo $this->__('Out of stock') ?></span>
+														</p>
+														<?php endif;
+													endif; ?>
+
+													<?php if ($this->helper('wishlist')->isAllow() && (int)$this->_getConfig('product_addwishlist_display', 1)) : ?>
+														<a data-toggle="tooltip" data-placement="top" title="<?php echo $this->__('Add to Wishlist') ?>" href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>"  class="btn-pd item-wishlist">
+															<span><?php echo $this->__('Add to Wishlist') ?></span>
+														</a>
+													<?php endif; ?>
+
+													<?php if ((int)$this->_getConfig('product_addcompare_display', 1)) {?>
+
+														<?php if ($_compareUrl = $this->getAddToCompareUrl($_product) && (int)$this->_getConfig('product_addcompare_display', 1)): ?>
+															<a data-toggle="tooltip" data-placement="top" title="<?php echo $this->__('Add to Compare') ?>" href="<?php echo $this->getAddToCompareUrl($_product) ?>" class="btn-pd item-compare">
+																<span><?php echo $this->__('Add to Compare') ?></span>
+															</a>
+														<?php endif; ?>
+																	
+													<?php } ?>												
+												</div>
+											<?php } ?>
+
+											<?php if ($this->_getConfig('product_readmore_display') == 1) { ?>
+												<div class="deal-detail">
+													<a href="<?php echo $_product->link ?>"
+														title="<?php echo $_product->title; ?>"
+														<?php echo $helper->parseTarget($this->_getConfig('product_links_target'));?>
+														>
+														<?php echo $this->_getConfig('product_readmore_text','Details'); ?>
+													</a>
+												</div>
+											<?php } ?>
+										</div> 
+										<a style="display:none;" href="<?php echo $_product->link;?>" title="<?php echo $_product->title; ?>" > </a>
+
+
+										
+									</div>
+								</div>
+
+								<?php }}} ?>
+							<?php } ?>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>	
+		</div>
+		<?php if($static_id_right && $static_id_right != ''):?>
+			<div class="static-r <?php echo $class_static; ?>">
+				<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId($static_id_right)->toHtml();?>
+			</div>
+		<?php endif; ?>	
+	</div>
+</div>
+<script>
+		jQuery(document).ready(function($) {
+			var owl_deal_slidebar = $("#<?php echo $uniqued; ?> .slider-deal-slidebar");
+			owl_deal_slidebar.owlCarousel({
+
+				autoplayHoverPause: true,
+				autoplaySpeed: 300,
+				paginationSpeed : 400,
+				autoPlay:false,
+				dots: false,
+				nav: true,
+				navClass: ['owl-prev', 'owl-next'],
+				navText: ['', ''],				
+
+				responsive: {
+					0: {
+						items:1
+						},
+					480: {
+						items:<?php echo $nb_column4;?>							
+						},
+					768: {
+						items:<?php echo $nb_column3;?>							
+						},
+					992: {
+						items:<?php echo $nb_column2;?>							
+					},
+					1200: {
+						items:<?php echo $nb_column1;?>							
+						}
+				}
+				
+			});	 
+		});	
+</script>
+<?php if ($this->_getConfig('posttext') != null) { ?>
+	<div class="deal-posttext"><?php echo $this->_getConfig('posttext'); ?></div>
+<?php } ?>
+	
+<?php } else { echo $this->__('Has no content to show!'); }; ?>

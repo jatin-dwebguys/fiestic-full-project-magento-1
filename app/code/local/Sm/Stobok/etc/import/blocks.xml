@@ -1,0 +1,770 @@
+<?xml version="1.0"?>
+<root>
+  <blocks>
+    <cms_block>
+      <title>Stobok - Google Map</title>
+      <identifier>google-map</identifier>
+      <content/>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Stobok - My Account Links</title>
+      <identifier>account-links</identifier>
+      <content><![CDATA[<ul class="dropdown-link-sub">
+<li><a title="My Orders" href="{{store url="sales/order/history"}}">My Orders</a></li>
+<li><a title="Account Information" href="{{store url="customer/account/edit"}}">Account Information</a></li>
+<li><a title="Address Book" href="{{store url="customer/address"}}">Address Book</a></li>
+<li><a title="My Tags" href="{{store url="tag/customer"}}">My Tags</a></li>
+<li><a title="Billing Agreements" href="{{store url="sales/billing_agreement"}}">Billing Agreements</a></li>
+<li><a title="Recurring Profiles" href="{{store url="sales/recurring_profile"}}">Recurring Profiles</a></li>
+</ul>]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Slider Testimonial left</title>
+      <identifier>slider-client-left</identifier>
+      <content><![CDATA[<div class="block testimonial-column-wrapper">
+
+	<h2 class="block-title">Testimonials</h2>
+	
+	<div class="block-content-testimonial">
+		<div class="testimonial-column-slider">
+			<div class="item item-client-say">
+				<div class="client-say-info">
+					<span><i class="fa fa-quote-left"></i></span>Duis aliquam, magna ac fermentum are we finibus, orci viverra risus, into varius telluso tortor sed eros. Sedion pharetra ante sit amet suscipit ornare. Integer et auctor diam sit dolor.<span><i class="fa fa-quote-right"></i></span>
+				</div>
+				
+				<div class="image-client">
+					<a href="#" title="Jack Andrson"><img src="{{media url="wysiwyg/image-client/clien-say.jpg"}}" alt="Image Client" /></a>
+				</div>	
+				<div class="name-client">
+					<h2><a href="#" title="Jack Andrson">- Jack Andrson -</a></h2>
+				</div>				
+			</div>
+			
+			<div class="item item-client-say">
+				<div class="client-say-info">
+					<span><i class="fa fa-quote-left"></i></span>Duis aliquam, magna ac fermentum are we finibus, orci viverra risus, into varius telluso tortor sed eros. Sedion pharetra ante sit amet suscipit ornare. Integer et auctor diam sit dolor.<span><i class="fa fa-quote-right"></i></span>
+				</div>
+				
+				<div class="image-client">
+					<a href="#" title="Jack Andrson"><img src="{{media url="wysiwyg/image-client/clien-say1.jpg"}}" alt="Image Client" /></a>
+				</div>
+				<div class="name-client">
+					<h2><a href="#" title="Jack Andrson">- Jack Andrson -</a></h2>
+				</div>				
+			</div>
+			
+			<div class="item item-client-say">
+				<div class="client-say-info">
+					<span><i class="fa fa-quote-left"></i></span>Duis aliquam, magna ac fermentum are we finibus, orci viverra risus, into varius telluso tortor sed eros. Sedion pharetra ante sit amet suscipit ornare. Integer et auctor diam sit dolor.<span><i class="fa fa-quote-right"></i></span>
+				</div>
+				
+				<div class="image-client">
+					<a href="#" title="Jack Andrson"><img src="{{media url="wysiwyg/image-client/clien-say.jpg"}}" alt="Image Client" /></a>
+				</div>	
+				<div class="name-client">
+					<h2><a href="#" title="Jack Andrson">- Jack Andrson -</a></h2>
+				</div>				
+			</div>
+			
+			<div class="item item-client-say">
+				<div class="client-say-info">
+					<span><i class="fa fa-quote-left"></i></span>Duis aliquam, magna ac fermentum are we finibus, orci viverra risus, into varius telluso tortor sed eros. Sedion pharetra ante sit amet suscipit ornare. Integer et auctor diam sit dolor.<span><i class="fa fa-quote-right"></i></span>
+				</div>
+				
+				<div class="image-client">
+					<a href="#" title="Jack Andrson"><img src="{{media url="wysiwyg/image-client/clien-say1.jpg"}}" alt="Image Client" /></a>
+				</div>
+				<div class="name-client">
+					<h2><a href="#" title="Jack Andrson">- Jack Andrson -</a></h2>
+				</div>				
+			</div>
+		</div>
+	</div>
+</div>
+	
+<script>
+	jQuery(document).ready(function($) {
+		var owl_client = $(".testimonial-column-slider");
+		owl_client.owlCarousel({
+
+			autoplayHoverPause: true,
+			autoplaySpeed: 300,
+			paginationSpeed : 400,
+			autoPlay:false,
+			dots: false,
+			nav: true,
+			navClass: ['owl-prev', 'owl-next'],
+			navText: ['', ''],	
+			responsive: {
+				0: {
+					items:1							
+					},
+				768: {
+					items:1						
+					},
+				992: {
+					items:1							
+				},
+				1200: {
+					items:1							
+					}
+			}
+
+		});	  
+	});	
+</script>]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Stobok - Info Store</title>
+      <identifier>info-store</identifier>
+      <content><![CDATA[<div class="col-md-3 col-sm-6 store-info">
+<ul class="list-info">
+<li class="item-info main-info">
+<div class="info-content">
+<h2><a title="Main office" href="#">Main office</a></h2>
+<div class="des-info">Sed ut perspiciatis unde omnis 123456 Street Name, Los Angeles</div>
+</div>
+</li>
+<li class="item-info email-info">
+<div class="info-content">
+<h2>Email</h2>
+<div class="des-info"><a class="mailto" title="Send Email" href="mailto:Support1@shopname.com">Support1@shopname.com</a><br /> <a class="mailto" title="Send Email" href="mailto:Support2@shopname.com">Support2@shopname.com</a></div>
+</div>
+</li>
+<li class="item-info phone-info">
+<div class="info-content">
+<h2>Phone</h2>
+<div class="des-info"><a class="call-phone" title="Call: 0123-4567-8910" href="tel:0123-4567-8910">0123-4567-8910</a><br /> <a class="call-phone" title="Call: 0123-4567-8910" href="tel:0123-4567-8910">0123-4567-8910</a></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="col-md-3 col-sm-6 store-info">
+<ul class="list-info">
+<li class="item-info main-info">
+<div class="info-content">
+<h2><a title="Branch 01" href="#">Branch 01</a></h2>
+<div class="des-info">Sed ut perspiciatis unde omnis 123456 Street Name, Los Angeles</div>
+</div>
+</li>
+<li class="item-info email-info">
+<div class="info-content">
+<h2>Email</h2>
+<div class="des-info"><a class="mailto" title="Send Email" href="mailto:Support1@shopname.com">Support1@shopname.com</a><br /> <a class="mailto" title="Send Email" href="mailto:Support2@shopname.com">Support2@shopname.com</a></div>
+</div>
+</li>
+<li class="item-info phone-info">
+<div class="info-content">
+<h2>Phone</h2>
+<div class="des-info"><a class="call-phone" title="Call: 0123-4567-8910" href="tel:0123-4567-8910">0123-4567-8910</a><br /> <a class="call-phone" title="Call: 0123-4567-8910" href="tel:0123-4567-8910">0123-4567-8910</a></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="col-md-3 col-sm-6 store-info">
+<ul class="list-info">
+<li class="item-info main-info">
+<div class="info-content">
+<h2><a title="Branch 02" href="#">Branch 02</a></h2>
+<div class="des-info">Sed ut perspiciatis unde omnis 123456 Street Name, Los Angeles</div>
+</div>
+</li>
+<li class="item-info email-info">
+<div class="info-content">
+<h2>Email</h2>
+<div class="des-info"><a class="mailto" title="Send Email" href="mailto:Support1@shopname.com">Support1@shopname.com</a><br /> <a class="mailto" title="Send Email" href="mailto:Support2@shopname.com">Support2@shopname.com</a></div>
+</div>
+</li>
+<li class="item-info phone-info">
+<div class="info-content">
+<h2>Phone</h2>
+<div class="des-info"><a class="call-phone" title="Call: 0123-4567-8910" href="tel:0123-4567-8910">0123-4567-8910</a><br /> <a class="call-phone" title="Call: 0123-4567-8910" href="tel:0123-4567-8910">0123-4567-8910</a></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="col-md-3 col-sm-6 store-info">
+<ul class="list-info">
+<li class="item-info main-info">
+<div class="info-content">
+<h2><a title="Branch 03" href="#">Branch 03</a></h2>
+<div class="des-info">Sed ut perspiciatis unde omnis 123456 Street Name, Los Angeles</div>
+</div>
+</li>
+<li class="item-info email-info">
+<div class="info-content">
+<h2>Email</h2>
+<div class="des-info"><a class="mailto" title="Send Email" href="mailto:Support1@shopname.com">Support1@shopname.com</a><br /> <a class="mailto" title="Send Email" href="mailto:Support2@shopname.com">Support2@shopname.com</a></div>
+</div>
+</li>
+<li class="item-info phone-info">
+<div class="info-content">
+<h2>Phone</h2>
+<div class="des-info"><a class="call-phone" title="Call: 0123-4567-8910" href="tel:0123-4567-8910">0123-4567-8910</a><br /> <a class="call-phone" title="Call: 0123-4567-8910" href="tel:0123-4567-8910">0123-4567-8910</a></div>
+</div>
+</li>
+</ul>
+</div>]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Stobok - f_box_4</title>
+      <identifier>f_box_4</identifier>
+      <content><![CDATA[<div class="footer-title">
+<h2>MY ACCOUNT</h2>
+</div>
+<div class="content-block-footer">
+<ul>
+<li style="line-height: 125%"><span class="sp-ic icon-home"><i class="fa fa-home"></i></span>Your address is going to be here Country here</li>
+<li><span class="sp-ic icon-envelope"><i class="fa fa-envelope"></i></span><a title="support@sitename.com" href="mailto:name@email.com">support@sitename.com</a></li>
+<li><span class="sp-ic icon-phone"><i class="fa fa-phone"></i></span><a title="Call:(801) 2345 - 6789" href="tel:123456789">+123 456 789/ +123 456 789</a></li>
+</ul>
+</div>]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Stobok - f_box_2</title>
+      <identifier>f_box_2</identifier>
+      <content><![CDATA[<div class="footer-title">
+							<h2>CUSTOMER SERVICE</h2>
+						</div>
+						<div class="content-block-footer">
+							<ul>
+								<li><a href="#">Find a Store</a></li>
+								<li><a href="{{config path="web/unsecure/base_url"}}contact-us.html">Contact Us</a></li>
+								<li><a href="#">FAQ</a></li>
+								<li><a href="#">Postage</a></li>
+								<li><a href="#">Refunds & Returns</a></li>
+								<li><a href="#">Privacy & Security</a></li>
+								<li><a href="#">Media Centre</a></li>
+								<li><a href="#">White papers</a></li>
+							</ul>
+						</div>]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Stobok - f_box_3</title>
+      <identifier>f_box_3</identifier>
+      <content><![CDATA[<div class="footer-title">
+							<h2>SHOPPING CART</h2>
+						</div>
+						<div class="content-block-footer">
+							<ul>
+								<li><a href="{{config path="web/unsecure/base_url"}}checkout/cart/">Shopping Cart</a></li>
+								<li><a href="{{config path="web/unsecure/base_url"}}customer/account/">My Account</a></li>
+								<li><a href="{{config path="web/unsecure/base_url"}}wishlist">Wishlist</a></li>
+								<li><a href="#">Corporation</a></li>
+								<li><a href="#">History</a></li>
+							</ul>
+						</div>]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Stobok - Left Image Static</title>
+      <identifier>left-img-static</identifier>
+      <content><![CDATA[<div class="block-image-static"><a href="#" title="Image Static"><img src="{{media url="wysiwyg/left-image-static.png"}}" alt="Left Image" /></a></div>]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Stobok - FAQs</title>
+      <identifier>faqs</identifier>
+      <content><![CDATA[<div class="block faqs-block">
+			<div class="block-title">
+				<strong>
+					<span>FAQs</span>
+				</strong>
+			</div>
+			
+			<div class="block-content">
+				<div class="faq-wrapper">
+					<div class="faq-item">
+						<div class="accordion" id="section1"><span>Pellentesque vitae imperdiet in?</span></div>
+						<div class="container-accordion">
+							<div class="content">
+								Donec tempor, odio sed hendrerit placerat, tourna in posuere tortor, blandit nisi erat non tellus. Aenean non finibus turpis.
+							</div>
+						</div>
+					</div>
+					
+					<div class="faq-item">
+						<div class="accordion" id="section2"><span>Hendrerit eu nunc massa?</span></div>
+						<div class="container-accordion">
+							<div class="content">
+								Donec tempor, odio sed hendrerit placerat, tourna in posuere tortor, blandit nisi erat non tellus. Aenean non finibus turpis.
+							</div>
+						</div>
+					</div>
+					
+					<div class="faq-item">
+						<div class="accordion" id="section3"><span>Suspendisse feugiat cursus?</span></div>
+						<div class="container-accordion">
+							<div class="content">
+								Donec tempor, odio sed hendrerit placerat, tourna in posuere tortor, blandit nisi erat non tellus. Aenean non finibus turpis.
+							</div>
+						</div>
+					</div>
+					
+					<div class="faq-item">
+						<div class="accordion" id="section4"><span>Finibus ullamcorper eleifend?</span></div>
+						<div class="container-accordion">
+							<div class="content">
+								Donec tempor, odio sed hendrerit placerat, tourna in posuere tortor, blandit nisi erat non tellus. Aenean non finibus turpis.
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<script type="text/javascript">
+				jQuery(document).ready(function($) {
+					$('.accordion').accordion_snyderplace({
+						defaultOpen: 'section2',
+						speed: 'fast',
+						animateOpen: function (elem, opts) { //replace the standard slideUp with custom function
+							elem.next().slideFadeToggle(opts.speed);
+						},
+						animateClose: function (elem, opts) { //replace the standard slideDown with custom function
+							elem.next().slideFadeToggle(opts.speed);
+						}
+					});
+					//custom animation for open/close
+					$.fn.slideFadeToggle = function(speed, easing, callback) {
+						return this.animate({opacity: 'toggle', height: 'toggle'}, speed, easing, callback);
+					};
+				});
+			</script>
+		</div>]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Banner image2 homepage2</title>
+      <identifier>b-img2-homepage2</identifier>
+      <content><![CDATA[<div class="b-img2-homepage2"><a href="#"><img src="{{media url="wysiwyg/static-image-home/b-img1-homepage2-3.jpg"}}" alt="" /></a></div>]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Bottom Services</title>
+      <identifier>bottom-service</identifier>
+      <content><![CDATA[<ul class="list-services row">
+	<li class="item-service col-lg-3 col-md-3 col-sm-3">
+		<div class="item-service-inner">
+			<p class="image"><a href="#"><i class="fa fa-cube"></i></a></p>
+			<div class="info">
+				<a href="#" class="title">Free Delivery</a>
+				<p class="des">Enjoy free delivery on all online orders (Only for national orders)</p>
+			</div>
+		</div>
+	</li>
+
+	<li class="item-service col-lg-3 col-md-3 col-sm-3">
+		<div class="item-service-inner">
+			<p class="image"><a href="#"><i class="fa fa-exchange"></i></a></p>
+			<div class="info">
+				<a href="#" class="title">free exchange</a>
+				<p class="des">You can exchange your product once in 24 hours</p>
+			</div>
+		</div>
+	</li>
+	<li class="clear-2"></li>
+	<li class="item-service col-lg-3 col-md-3 col-sm-3">
+		<div class="item-service-inner">
+			<p class="image"><a href="#"><i class="fa fa-life-ring"></i></a></p>
+			<div class="info">
+				<a href="#" class="title">24/7 Support</a>
+				<p class="des">We provide an extremly suppport service quality.</p>
+			</div>
+		</div>
+	</li>
+
+	<li class="item-service col-lg-3 col-md-3 col-sm-3">
+		<div class="item-service-inner">
+			<p class="image"><a href="#"><i class="fa fa-thumbs-up"></i></a></p>
+			<div class="info">
+				<a href="#" class="title">Satisfaction</a>
+				<p class="des">We guarantee you will be satisfied with using our products and services.</p>
+			</div>
+		</div>
+	</li>	
+</ul>]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Stobok - About Us Page</title>
+      <identifier>about-us</identifier>
+      <content/>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Stobok - Brand Slider</title>
+      <identifier>brand-slider</identifier>
+      <content><![CDATA[		<div class="item">
+			<a href="#" title="Image Brand"><img src="{{media url="wysiwyg/brand-slider/brand-item-1.png"}}" alt="Image Brand" /></a>
+		</div>
+		
+		<div class="item">
+			<a href="#" title="Image Brand"><img src="{{media url="wysiwyg/brand-slider/brand-item-2.png"}}" alt="Image Brand" /></a>
+		</div>
+		
+		<div class="item">
+			<a href="#" title="Image Brand"><img src="{{media url="wysiwyg/brand-slider/brand-item-3.png"}}" alt="Image Brand" /></a>
+		</div>
+		
+		<div class="item">
+			<a href="#" title="Image Brand"><img src="{{media url="wysiwyg/brand-slider/brand-item-4.png"}}" alt="Image Brand" /></a>
+		</div>
+		
+		<div class="item">
+			<a href="#" title="Image Brand"><img src="{{media url="wysiwyg/brand-slider/brand-item-5.png"}}" alt="Image Brand" /></a>
+		</div>
+		
+		<div class="item">
+			<a href="#" title="Image Brand"><img src="{{media url="wysiwyg/brand-slider/brand-item-1.png"}}" alt="Image Brand" /></a>
+		</div>
+		
+		<div class="item">
+			<a href="#" title="Image Brand"><img src="{{media url="wysiwyg/brand-slider/brand-item-2.png"}}" alt="Image Brand" /></a>
+		</div>
+]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Banner image1 homepage2</title>
+      <identifier>b-img1-homepage2</identifier>
+      <content><![CDATA[<div class="b-img1-homepage2"><a title="Static Image" href="#"><img src="{{media url="wysiwyg/static-image-home/b-img1-homepage2-1.jpg"}}" alt="Static Image" /></a><a title="Static Image" href="#"><img src="{{media url="wysiwyg/static-image-home/b-img1-homepage2-2.jpg"}}" alt="Static Image" /></a></div>]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Stobok Desc social</title>
+      <identifier>desc-social</identifier>
+      <content><![CDATA[	<h3 class="mod-social-title">Get social with Stobok world</h3>
+	<p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Stobok - Payment Method</title>
+      <identifier>payment-footer</identifier>
+      <content><![CDATA[<ul class="payment-method">
+<li><a title="Payment Method"><img src="{{media url="wysiwyg/payment/payment-1.png"}}" alt="Payment" /></a></li>
+<li><a title="Payment Method"><img src="{{media url="wysiwyg/payment/payment-2.png"}}" alt="Payment" /></a></li>
+<li><a title="Payment Method"><img src="{{media url="wysiwyg/payment/payment-3.png"}}" alt="Payment" /></a></li>
+<li><a title="Payment Method"><img src="{{media url="wysiwyg/payment/payment-4.png"}}" alt="Payment" /></a></li>
+<li><a title="Payment Method"><img src="{{media url="wysiwyg/payment/payment-5.png"}}" alt="Payment" /></a></li>
+</ul>]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Stobok - f_box_1</title>
+      <identifier>f_box_1</identifier>
+      <content><![CDATA[<div class="footer-title">
+							<h2>CATEGORIES</h2>
+						</div>
+						<div class="content-block-footer">
+							<ul>
+								<li><a href="{{config path="web/unsecure/base_url"}}laptop.html">Technology</a></li>
+								<li><a href="{{config path="web/unsecure/base_url"}}fiction-30.html">Fiction</a></li>
+								<li><a href="{{config path="web/unsecure/base_url"}}health-fitness.html">Health & fitness</a></li>
+								<li><a href="{{config path="web/unsecure/base_url"}}computer-accessories.html">History</a></li>
+								<li><a href="{{config path="web/unsecure/base_url"}}politics-current-affairs.html">Politics & current Affairs</a></li>
+							</ul>
+						</div>]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Stobok Welcome</title>
+      <identifier>welcome</identifier>
+      <content><![CDATA[<div class="block welcome-block">
+	<div class="block-title">Welcome to Stobok World</div>
+	<p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	<p class="action-wrap"><a href="{{config path="web/secure/base_url"}}about-us.html">Find more about Us</a></p>
+</div>]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Stobok - Testimonial homepage 1</title>
+      <identifier>testimonial-h1</identifier>
+      <content><![CDATA[<div class="block testimonial-h1-wrapper">
+
+	<h2 class="block-title">What customers say about us?</h2>
+	<div class="desc-title"><p>Read all Testimonials</p></div>
+	
+	<div class="block-content-testimonial">
+		<div class="testimonial-h1-slider">
+			<div class="item item-client-say">
+				<div class="image-client">
+					<a href="#" title="Jack Andrson"><img src="{{media url="wysiwyg/image-client/clien-say.jpg"}}" alt="Image Client" /></a>
+				</div>
+
+				<div class="client-say-info">
+					"Duis aliquam, magna ac fermentum are we finibus, orci viverra risus, into varius telluso tortor sed eros. Sedion pharetra ante sit amet suscipit ornare. Integer et auctor diam sit dolor.
+					<div class="name-client">
+						<h2><a href="#" title="Jack Andrson">- Jack Andrson -</a></h2>
+					</div>
+				</div>
+			</div>
+			
+			<div class="item item-client-say">
+				<div class="image-client">
+					<a href="#" title="Jack Andrson"><img src="{{media url="wysiwyg/image-client/clien-say1.jpg"}}" alt="Image Client" /></a>
+				</div>
+
+				<div class="client-say-info">
+					"Duis aliquam, magna ac fermentum are we finibus, orci viverra risus, into varius telluso tortor sed eros. Sedion pharetra ante sit amet suscipit ornare. Integer et auctor diam sit dolor.
+					<div class="name-client">
+						<h2><a href="#" title="Jack Andrson">- Jack Andrson -</a></h2>
+					</div>
+				</div>
+			</div>
+
+			<div class="item item-client-say">
+				<div class="image-client">
+					<a href="#" title="Jack Andrson"><img src="{{media url="wysiwyg/image-client/clien-say.jpg"}}" alt="Image Client" /></a>
+				</div>
+
+				<div class="client-say-info">
+					"Duis aliquam, magna ac fermentum are we finibus, orci viverra risus, into varius telluso tortor sed eros. Sedion pharetra ante sit amet suscipit ornare. Integer et auctor diam sit dolor.
+					<div class="name-client">
+						<h2><a href="#" title="Jack Andrson">- Jack Andrson -</a></h2>
+					</div>
+				</div>
+			</div>
+			
+			<div class="item item-client-say">
+				<div class="image-client">
+					<a href="#" title="Jack Andrson"><img src="{{media url="wysiwyg/image-client/clien-say1.jpg"}}" alt="Image Client" /></a>
+				</div>
+
+				<div class="client-say-info">
+					"Duis aliquam, magna ac fermentum are we finibus, orci viverra risus, into varius telluso tortor sed eros. Sedion pharetra ante sit amet suscipit ornare. Integer et auctor diam sit dolor.
+					<div class="name-client">
+						<h2><a href="#" title="Jack Andrson">- Jack Andrson -</a></h2>
+					</div>
+				</div>
+			</div>
+			
+			<div class="item item-client-say">
+				<div class="image-client">
+					<a href="#" title="Jack Andrson"><img src="{{media url="wysiwyg/image-client/clien-say.jpg"}}" alt="Image Client" /></a>
+				</div>
+
+				<div class="client-say-info">
+					"Duis aliquam, magna ac fermentum are we finibus, orci viverra risus, into varius telluso tortor sed eros. Sedion pharetra ante sit amet suscipit ornare. Integer et auctor diam sit dolor.
+					<div class="name-client">
+						<h2><a href="#" title="Jack Andrson">- Jack Andrson -</a></h2>
+					</div>
+				</div>
+			</div>
+			
+			<div class="item item-client-say">
+				<div class="image-client">
+					<a href="#" title="Jack Andrson"><img src="{{media url="wysiwyg/image-client/clien-say1.jpg"}}" alt="Image Client" /></a>
+				</div>
+
+				<div class="client-say-info">
+					"Duis aliquam, magna ac fermentum are we finibus, orci viverra risus, into varius telluso tortor sed eros. Sedion pharetra ante sit amet suscipit ornare. Integer et auctor diam sit dolor.
+					<div class="name-client">
+						<h2><a href="#" title="Jack Andrson">- Jack Andrson -</a></h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script>
+		jQuery(document).ready(function($) {
+			var owl_client = $(".testimonial-h1-slider");
+			owl_client.owlCarousel({
+
+				autoplayHoverPause: true,
+				autoplaySpeed: 300,
+				paginationSpeed : 400,
+				autoPlay:false,
+				dots: true,
+                                dotClass: 'owl-dot',
+                                dotsClass: 'owl-dots',
+				responsive: {
+					0: {
+						items:1							
+						},
+					768: {
+						items:1						
+						},
+					992: {
+						items:2							
+					},
+					1200: {
+						items:2							
+						}
+				}
+
+			});	  
+		});	
+	</script>
+</div>]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Baner hompage 1</title>
+      <identifier>banner-h1</identifier>
+      <content><![CDATA[<div class="col-lg-2 col-md-2 col-sm-2 banner-h1"><a href="#"><img src="{{media url="wysiwyg/static-image-home/banner-h1-1.jpg"}}" alt="" /></a>
+</div>
+<div class="col-lg-2 col-md-2 col-sm-2 banner-h1"><a href="#"><img src="{{media url="wysiwyg/static-image-home/banner-h1-2.jpg"}}" alt="" /></a>
+</div>
+<div class="col-lg-2 col-md-2 col-sm-2 banner-h1"><a href="#"><img src="{{media url="wysiwyg/static-image-home/banner-h1-3.jpg"}}" alt="" /></a>
+</div>
+<div class="col-lg-2 col-md-2 col-sm-2 banner-h1"><a href="#"><img src="{{media url="wysiwyg/static-image-home/banner-h1-4.jpg"}}" alt="" /></a>
+</div>
+<div class="col-lg-2 col-md-2 col-sm-2 banner-h1"><a href="#"><img src="{{media url="wysiwyg/static-image-home/banner-h1-5.jpg"}}" alt="" /></a>
+</div>
+<div class="col-lg-2 col-md-2 col-sm-2 banner-h1"><a href="#"><img src="{{media url="wysiwyg/static-image-home/banner-h1-6.jpg"}}" alt="" /></a>
+</div>]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Stobok - Home style links</title>
+      <identifier>home-style-links</identifier>
+      <content><![CDATA[<div class="dropdown-link-sub">
+<div class="home-wrapper-item">
+	<div class="item-feature layout-block">
+		<div class="title-item-feature"><h2>Layouts</h2></div>
+		<ul>
+			<li><a title="Home Style 1" href="{{store url="?___store=default&amp;___from_store=french"}}">Home Style 1</a></li>
+			<li><a title="Home Style 2" href="{{store url="?___store=french&amp;___from_store=default"}}">Home Style 2</a></li>
+			<li><a title="Home Style 3" href="{{store url="?___store=sweden&amp;___from_store=default"}}">Home Style 3</a></li>
+			<li><a title="Home Style 4" href="{{store url="?___store=jamaica&amp;___from_store=default"}}">Home Style 4</a></li>
+			<li><a title="Boxed Layout" href="{{store url="?___store=hungary&amp;___from_store=english"}}">Boxed Layout</a></li>
+		</ul>
+	</div>
+
+	<div class="item-feature color-block">
+		<div class="title-item-feature"><h2>Color styles</h2></div>
+		<ul>
+			<li class="red"><a title="Red" href="{{store url="?___store=cameroon&amp;___from_store=default"}}">Red</a></li>
+			<li class="green"><a title="Green" href="{{store url="?___store=argentina&amp;___from_store=default"}}">Green</a></li>
+			<li class="blue"><a title="Blue" href="{{store url="?___store=german&amp;___from_store=default"}}">Blue</a></li>
+			<li class="orange"><a title="Orange" href="{{store url="?___store=default&amp;___from_store=french"}}">Orange</a></li>
+			<li class="brown"><a title="Brown" href="{{store url="?___store=bolivia&amp;___from_store=default"}}">Brown</a></li>
+			<li class="purple"><a title="Purple" href="{{store url="?___store=cambodja&amp;___from_store=default"}}">Purple</a></li>
+		</ul>
+	</div>
+</div>
+</div>]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Desc social slidebar</title>
+      <identifier>desc-social-slidebar</identifier>
+      <content><![CDATA[	<h3 class="mod-social-title">Follow us</h3>
+]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Top service</title>
+      <identifier>service-top</identifier>
+      <content><![CDATA[<ul class="list-services row">
+	<li class="item-service col-lg-4 col-md-4 col-sm-4">
+		<div class="item-service-inner">
+			<p class="image"><a href="#"><i class="fa fa-cube"></i></a></p>
+			<div class="info">
+				<a href="#" class="title">Free Delivery</a>
+			</div>
+		</div>
+	</li>
+
+	<li class="item-service col-lg-4 col-md-4 col-sm-4">
+		<div class="item-service-inner">
+			<p class="image"><a href="#"><i class="fa fa-exchange"></i></a></p>
+			<div class="info">
+				<a href="#" class="title">free exchange</a>
+			</div>
+		</div>
+	</li>
+	
+	<li class="item-service col-lg-4 col-md-4 col-sm-4">
+		<div class="item-service-inner">
+			<p class="image"><a href="#"><i class="fa fa-life-ring"></i></a></p>
+			<div class="info">
+				<a href="#" class="title">24/7 Support</a>
+			</div>
+		</div>
+	</li>
+</ul>]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Stobok Banner image1 homepage3</title>
+      <identifier>b-img1-homepage3</identifier>
+      <content><![CDATA[<div class="b-img1-homepage3 col-lg-4 col-md-4 col-sm-12"><a title="Static Image" href="#"><img src="{{media url="wysiwyg/static-image-home/b-img1-homepage3-1.jpg"}}" alt="Static Image" /></a><a title="Static Image" href="#"><img src="{{media url="wysiwyg/static-image-home/b-img1-homepage3-2.jpg"}}" alt="Static Image" /></a></div>]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Stobok Banner image2 homepage3</title>
+      <identifier>b-img2-homepage3</identifier>
+      <content><![CDATA[<div class="b-img2-homepage3">
+	<div class="col-lg-5 col-md-5 col-sm-12">
+		<a title="Static Image" href="#"><img src="{{media url="wysiwyg/static-image-home/b-img2-homepage3-1.jpg"}}" alt="Static Image" /></a>
+	</div>
+	<div class="col-lg-7 col-md-7 col-sm-12">
+		<div class="row">
+			<a class="col-57" title="Static Image" href="#"><img src="{{media url="wysiwyg/static-image-home/b-img2-homepage3-2.jpg"}}" alt="Static Image" /></a>
+			<a class="col-43"  title="Static Image" href="#"><img src="{{media url="wysiwyg/static-image-home/b-img2-homepage3-3.jpg"}}" alt="Static Image" /></a>
+			<a style="clear: both;"></a>
+			<a class="col-43"  title="Static Image" href="#"><img src="{{media url="wysiwyg/static-image-home/b-img2-homepage3-4.jpg"}}" alt="Static Image" /></a>
+			<a class="col-57"  title="Static Image" href="#"><img src="{{media url="wysiwyg/static-image-home/b-img2-homepage3-5.jpg"}}" alt="Static Image" /></a>
+		</div>
+	</div>
+</div>
+	]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>Stobok Deal of the week</title>
+      <identifier>deal-of-the-week</identifier>
+      <content><![CDATA[<div class="mod-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</div>
+<div class="btn-wrap"><a href="#">Discover more</a></div>]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>menu-left-home2</title>
+      <identifier>menu-left-home2</identifier>
+      <content><![CDATA[{{block type="megamenu/list" name="megamenu.list.theme" as="megaMenuLeft" group_id="1" theme="2"}}]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+    <cms_block>
+      <title>css-menu-left</title>
+      <identifier>css-menu-left</identifier>
+      <content><![CDATA[{{block type="core/text_list" name="top.menu" as="topMenu" template="catalog/navigation/topmenu.phtml"}}]]></content>
+      <is_active>1</is_active>
+      <store_id>0</store_id>
+    </cms_block>
+  </blocks>
+</root>

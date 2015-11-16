@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<layout version="1.0">
+    <default>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name helper="featuredcategory/data/getInlucdeJQquery"/></action>
+            <action method="addItem"><type>skin_js</type><name helper="featuredcategory/data/getInlucdeNoconflict"/></action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>sm/featuredcategory/js/owl.carousel.js</name>
+            </action>
+        </reference>
+    </default>
+    <featuredcategory_index_index>
+        <reference name="content">
+            <block type="featuredcategory/list" name="featuredcategory.list.default" template="sm/featuredcategory/default.phtml">
+            </block>
+        </reference>
+    </featuredcategory_index_index>
+</layout>

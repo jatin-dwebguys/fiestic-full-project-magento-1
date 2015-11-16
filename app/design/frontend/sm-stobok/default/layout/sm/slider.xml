@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<layout version="1.0">
+	<default>
+		<reference name="head">
+			<!--action method="addItem"> move to less
+				<type>skin_css</type>
+				<name>sm/slider/css/slider.css</name>
+			</action>
+			<action method="addItem">
+				<type>skin_css</type>
+				<name>sm/slider/css/component.css</name>
+			</action-->
+		</reference>
+	</default>
+	<slider_index_index>
+		<reference name="content">
+			<block type="slider/list" name="slider.list.default" template="sm/slider/default.phtml">
+			</block>
+		</reference>
+	</slider_index_index>
+</layout>   
+	

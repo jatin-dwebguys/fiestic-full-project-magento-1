@@ -1,0 +1,297 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   design_default
+ * @package    Mage
+ * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+global $var_yttheme;
+
+?>
+<!DOCTYPE html>
+<html xml:lang="<?php echo $this->getLang() ?>" lang="<?php echo $this->getLang() ?>">
+<head>
+<meta name="format-detection" content="telephone=no">
+<?php echo $this->getChildHtml('head') ?>
+</head>
+
+<?php 
+	if( $var_yttheme->getParam('usebgimage') == 1 && $var_yttheme->getParam('usecustomizeimage') == 0 ){
+		$bg_image = $var_yttheme->getParam('bgimage');
+	}else{
+		$bg_image = '';
+	}
+?>
+<?php
+	$homepage_style = Mage::getStoreConfig('stobok_cfg/general/homepage_style');
+?>
+<?php $identifier = Mage::getSingleton('cms/page')->getIdentifier();?>
+<body id="bd" class="<?php echo $homepage_style?> <?php echo $var_yttheme->template ?> <?php echo $bg_image;?> <?php if( $var_yttheme->getParam('layoutstyle') == '2' ){echo "layout-boxed";}?> <?php echo $this->getBodyClass();?> bd-<?php echo $var_yttheme->getParam('headerstyle'); ?>">
+<?php echo $this->getChildHtml('after_body_start') ?>
+    <div id="yt_wrapper">
+    
+        <!-- BEGIN: Header -->
+		<div id="yt_header" class="yt-header wrap">
+		     <?php echo $this->getChildHtml('header') ?>
+		</div>
+		<!-- END: Header -->
+		
+		<!-- BEGIN: content -->
+        <div id="yt_content" class="yt-content wrap">
+			<?php if($this->getChildHtml('block_home_top')){ ?> 																																								
+			<div class="block-home-top">
+				<div class="row">
+					<?php echo $this->getChildHtml('block_home_top') ?>  
+				</div>
+			</div>			
+			<?php } ?>				
+			
+			<?php if($this->getChildHtml('block_home_content_top')){ ?> 																																								
+			<div class="block-home-content-top">
+				<div class="container">
+					<div class="row">
+						<?php echo $this->getChildHtml('block_home_content_top') ?>  
+					</div>
+				</div>
+			</div>					
+			<?php } ?>				
+			
+			<?php if($this->getChildHtml('block_home_content_top_1')){ ?> 																																								
+			<div class="block-home-content-top-1">
+				<div class="container">
+					<div class="row">
+						<?php echo $this->getChildHtml('block_home_content_top_1') ?>  
+					</div>
+				</div>
+			</div>	
+			<?php } ?>				
+			
+			<?php if($this->getChildHtml('block_home_content_top_2')){ ?> 																																														
+			<div class="block-home-content-top-2">
+				<div class="container">
+					<div class="row">
+						<?php echo $this->getChildHtml('block_home_content_top_2') ?>  
+					</div>
+				</div>
+			</div>	
+			<?php } ?>				
+			
+			<?php if($this->getChildHtml('block_home_content_top_3')){ ?> 																																								
+			<div class="block-home-content-top-3">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12">
+							<div class="col-1-wrapper">
+								<?php echo $this->getChildHtml('block_home_content_top_3') ?>  
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<?php } ?>				
+			
+			<?php if($this->getChildHtml('block_home_content_top_4')){ ?> 																																																												
+			<div class="block-home-content-top-4">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12">
+							<div class="col-1-wrapper">
+								<?php echo $this->getChildHtml('block_home_content_top_4') ?>  
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<?php } ?>				
+			
+			<?php if($this->getChildHtml('block_home_content_top_5')){ ?> 																																								
+			<div class="block-home-content-top-5">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12">
+							<div class="col-1-wrapper">
+								<?php echo $this->getChildHtml('block_home_content_top_5') ?>  
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<?php } ?>				
+			<?php if($this->getChildHtml('breadcrumbs')){ ?> 																																											
+			<div class="yt-breadcrumbs">
+        		<div class="container">
+        			<div class="row">
+        				<?php echo $this->getChildHtml('breadcrumbs') ?>
+        			</div>
+        		</div>
+        	</div>
+			<?php } ?>				
+			
+            <div class="yt-content-inner">
+				<div class="container">
+					<div class="row">
+						<div class="col-2-wrapper">
+							<?php if($this->getChildHtml('top_block_home')){ ?> 
+							<div class="col-lg-12 col-md-12">
+								<?php echo $this->getChildHtml('top_block_home') ?>  
+							</div>
+							<?php } ?>
+							<div id="yt_left" class="col-lg-3 col-md-3">
+								<div class="yt-left-wrap">
+								<?php if($homepage_style == 'homepage2') { ?>
+									<?php if($identifier =="home-v2") { ?>
+										<?php if( $var_yttheme->getParam('menustyle') == 'mega' ){
+											echo $this->getChildHtml('megaMenu-left');
+										} else { ?>
+											<div class="mega-left-title css-menu-left-title">
+												<strong><?php echo $this->__('Categories')?></strong>
+											</div>
+											<div class="cssMenu-vertical">
+											<?php echo $this->getChildHtml('cssMenu-left');?>
+											</div>
+										<?php } ?>	
+									<?php } ?>									
+								<?php } ?>									
+								
+								 <?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('css-menu-left')->toHtml(); ?>
+								 <?php  //echo $this->getLayout()->createBlock('cms/block')->setBlockId('menu-left-home2')->toHtml(); ?>
+								
+									<?php if($homepage_style == 'homepage2') {
+										if( $var_yttheme->getParam('menustyle') == 'mega' ){
+											//echo $this->getLayout()->createBlock('cms/block')->setBlockId('menu-left-home2')->toHtml();
+										} else {
+											//echo $this->getLayout()->createBlock('cms/block')->setBlockId('css-menu-left')->toHtml();
+										}
+									}?>								
+
+									<?php echo $this->getChildHtml('left') ?>
+								</div>
+							</div>
+							
+							<div id="yt_main" class="yt-main-right yt-main col-main col-lg-9 col-md-9">
+								<div class="yt_main_inner">
+									<?php echo $this->getChildHtml('global_notices') ?>
+									<?php echo $this->getChildHtml('global_messages') ?>
+									<?php echo $this->getTitle() ?>  
+									<?php echo $this->getChildHtml('content') ?>                                      	                        
+								</div>
+							</div>
+							
+							<div style="clear:both;"></div>
+							
+							<?php if($this->getChildHtml('bottom_block_home')){ ?> 
+								<?php echo $this->getChildHtml('bottom_block_home') ?>  
+							<?php } ?>
+						</div>
+					</div>
+				</div>
+            </div>
+				
+				<?php if($this->getChildHtml('block_home_content_bottom_1')){ ?> 																				
+				<div class="block-home-content-bottom-1">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-12 col-md-12">
+								<div class="col-1-wrapper">
+									<?php echo $this->getChildHtml('block_home_content_bottom_1') ?>  
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>					
+				<?php } ?>				
+				
+				<?php if($this->getChildHtml('block_home_content_bottom_2')){ ?> 																								
+				<div class="block-home-content-bottom-2">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-12 col-md-12">
+								<div class="col-1-wrapper">
+									<?php echo $this->getChildHtml('block_home_content_bottom_2') ?>  
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>					
+				<?php } ?>				
+				
+				<?php if($this->getChildHtml('block_home_content_bottom_3')){ ?> 																								
+				<div class="block-home-content-bottom-3">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-12 col-md-12">
+								<div class="col-1-wrapper">
+									<?php echo $this->getChildHtml('block_home_content_bottom_3') ?>  
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>					
+				<?php } ?>				
+				
+				<?php if($this->getChildHtml('block_home_content_bottom_4')){ ?> 																								
+				<div class="block-home-content-bottom-4">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-12 col-md-12">
+								<div class="col-1-wrapper">
+									<?php echo $this->getChildHtml('block_home_content_bottom_4') ?>  
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>		
+				<?php } ?>				
+				
+				<?php if($this->getChildHtml('block_home_content_bottom_5')){ ?> 												
+				<div class="block-home-content-bottom-5">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-12 col-md-12">
+								<div class="col-1-wrapper">
+									<?php echo $this->getChildHtml('block_home_content_bottom_5') ?>  
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+				<?php } ?>
+			
+         </div>      
+        <!-- END: content -->
+        
+        <!-- BEGIN: footer -->
+        <div id="yt_footer" class="yt-footer wrap">
+        	<?php echo $this->getChildHtml('footer') ?>
+        </div>
+        <!-- END: footer -->        
+        
+		<?php echo $this->getChildHtml('before_body_end') ?>
+        <?php echo $this->getAbsoluteFooter() ?>
+    </div>
+	
+</body>
+</html>

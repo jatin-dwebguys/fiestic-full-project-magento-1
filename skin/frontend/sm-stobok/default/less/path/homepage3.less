@@ -1,0 +1,203 @@
+/* COMMON homepage3 */
+.b-img1-homepage3 {
+	a {margin-bottom: 10px; display: block; overflow: hidden;
+		img{max-width: 100%; .transition_all(0.3s);
+			&:hover { transform: scale(1.05);  -moz-transform: scale(1.05);  -webkit-transform: scale(1.05);  -ms-transform: scale(1.05);
+			}			
+		}
+		&:last-child {  margin-bottom: 0;}		
+	}
+}
+.b-img2-homepage3 {
+	img { max-width: 100%; .transition_all(0.9s);
+		&:hover { opacity: 0.5;
+		}	
+	}
+	> div:last-child {
+		a { padding: 0 15px; float: left;
+			img { margin: 0 0 30px;
+			}
+			&.col-57 {width: 57%;}
+			&.col-43 {width: 43%;}
+		}
+	}
+}
+
+/* HOT DEAL HOMEPAGE 3*/
+.hot-deal-homepage3 {
+
+	.item-time {  position: absolute;  bottom: 5px;  left: 18px;  right: 18px;  color: #fff;
+		.item-timer {  position: relative;  padding: 10px 0; overflow: hidden;
+			&:before {  content: "";  position: absolute;  top: 0;  left: 0;  right: 0;  bottom: 0;  background-color: #000;  opacity: 0.8;
+			}		
+			> div {  position: relative;  border: 0;  width: 25% !important; height: 33px !important; float: left; text-align: center;
+				&:after {  content: "";  position: absolute;  width: 1px;  top: -10px;  bottom: -12px;  right: 0;  background-color: #fff;  opacity: 0.5;
+				}	
+				&:last-child:after { display: none;
+				}
+			}		
+		}	
+	}
+	
+}
+
+.homepage3.cms-index-index #yt_content .testimonial-column-slider .owl-controls .owl-nav > div {right: 0;
+	&.owl-prev {  right: 15px;
+	}
+}
+
+
+.homepage3.cms-index-index #yt_content #yt_left .block.latest-blog-slidebar .block-title {  color: #636363; text-align: left;
+}
+.homepage3.cms-index-index #yt_content .latest-blog-slidebar .owl-controls .owl-nav > div {	top: -28px; right: 0;
+	&.owl-prev {  right: 15px;
+	}
+}
+
+.homepage3.cms-index-index {
+	.yt-content-inner { margin-top: 0;}
+	#yt_content{
+		.deal-wrapper-banner .deal-wrapper .item-time .item-timer .time-item .num-time,
+		.deal-wrapper-banner .deal-wrapper .item-time .item-timer .time-item .name-time{color: #fff;}
+		.owl-controls .owl-nav > div {
+			top: -9px; right: 15px;
+			text-indent: 0;
+			text-align: center;
+			background: none;
+			width: 15px; height: 30px;
+			line-height: 30px;
+			color: #ccc;
+			&:after {
+				content: "\f105";
+				font-family: 'FontAwesome';
+				font-size: 24px;			
+			}
+			&.owl-prev {
+			  left: auto;
+			  right: 30px;
+				&:after {
+					content: "\f104";
+				}			  
+			}
+			&:hover { 
+				&:after{color: @color_theme;}
+			}			
+		}
+		
+		.sm-imageslider .owl-controls .owl-nav > div {	height: 44px; width: 30px; top: 50%; margin-top: -22px; background-repeat: no-repeat; text-indent: -999px;
+			&:after {display: none;}
+			&.owl-next {
+				background-position: -27px -481px;
+				right: 20px;
+				&:hover {
+					background-position: -27px -539px;
+				}
+			}  
+			&.owl-prev {
+				left: 20px;
+				background-position: 3px -481px;
+				&:hover {
+					background-position: 3px -539px;
+				}
+			}	
+		}	
+		
+		.list-services{  background: #fff;  margin: 0;  padding: 18px 0;  border-bottom: 1px solid #ebebeb;
+			li .item-service-inner {  padding: 0; text-align: left; .transition_all(0.3s);
+				.image a {  width: auto;  float: left;  height: auto;  padding: 0 20px 0 5px;  line-height: 100%; font-size: 300%; width: auto; background-color: transparent;  color: #636363;
+				}	
+				.info { padding-top: 11px;
+					.title {  font-size: 100%;  font-weight: normal;  font-family: inherit;
+					}	
+					.des {display: none;}				
+				}
+				&:hover {  transform: scale(1.1);  -moz-transform: scale(1.1);  -webkit-transform: scale(1.1);  -ms-transform: scale(1.1);
+					.image a {  color: @color_theme;
+					}	
+					.info {
+						.title {  color: @color_theme;
+						}	
+					}			
+				}
+			}	
+		}
+		.deal-wrapper.deal-wrapper-label.new-arrival-homepage3 {
+			.block-title { background-color: #fff;}
+			.sm-deal-wrap { padding-bottom: 20px; background-color: #fff;
+				&:after { content: "";  position: absolute;  height: 4px;  background-color: #fff;  box-shadow: 0 1px 4px #eeecec;  bottom: 15px;  left: 23px;  right: 23px;  border-top: 0;				
+				}
+			}		
+		}		
+		.deal-wrapper, .deal-wrapper-banner {clear: none;
+			.deal-wrapper-inner { 
+				background-color: #fff;
+				position: relative;
+				box-shadow: 0 1px 2px #eeecec;
+				&:before {
+					content:"";
+					position: absolute;
+					right: 6px; left: 6px; bottom: -6px;
+					height: 50px; display: inline-block;
+					background-color: #fff;
+					box-shadow: 0 1px 2px #eeecec;
+					z-index: -1;
+				}
+				.respl-item:before { display: none;}
+				.respl-item .item-inner { box-shadow: none;}
+			}
+		}
+
+		.deal-wrapper-banner .deal-wrapper {
+			.block-title { padding-top: 23px;
+			}		
+			.sm-deal-wrap { padding-bottom: 18px;
+			}
+			.respl-item .item-inner .item-info > div.item-action .btn-pd.btn-cart span { padding: 0 13px 0 6px;}
+		}
+
+		.block-home-content-top { margin: 42px 0 30px;
+		}
+		#yt_left {
+			.block {
+				background-color: #fff;
+				position: relative;
+				padding: 20px;
+				.block-title {
+					color: #363636;
+					border-bottom: 0;
+				}
+				.block {  padding: 0;  margin: 0;  border: 0;
+					&:after { display: none;	}
+				}			
+				&.deal-wrapper-banner,
+				&.latest-blog-slidebar,
+				&.block-subscribe-slidebar,
+				&.social-slidebar-wrap,
+				&.testimonial-column-wrapper {
+					box-shadow: 0 1px 2px #eeecec;
+					&:before {
+						content: "";
+						position: absolute;
+						left: 8px; right: 8px;
+						bottom: -6px;
+						height: 100%; max-height: 50px;
+						background-color: #fff;
+						box-shadow: 0 1px 2px #eeecec;
+						display: inline-block;
+						z-index: -1;
+					}
+				}
+			}
+			.deal-wrapper-banner.block {padding-top: 0; margin-top: 0;}
+		}	
+	}
+
+}
+.homepage3.cms-index-index #yt_content .basic-slide-block-v2 .owl-controls .owl-nav > div {
+  top: -20px;
+}
+.homepage3.cms-index-index #yt_content .sj-listing-tabs .owl-controls .owl-nav > div { top: -35px;}
+@media(min-width: 1200px) {
+	.image-slide-home3.col-lg-8.col-md-8.col-sm-12 { width: 69.2%;}
+	.b-img1-homepage3.col-lg-4.col-md-4.col-sm-12 { width: 30.8%;}
+}

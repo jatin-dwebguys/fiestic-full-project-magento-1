@@ -1,0 +1,30 @@
+<?php 
+global $var_yttheme;
+?>
+<div class="socials-wrap">
+	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('desc-social')->toHtml(); ?>
+	<!--
+	<h3 class="mod-social-title">Get social with Stobok world</h3>
+	<p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+	-->
+	<ul>
+		<?php if( $var_yttheme->getParam('show_facebook') == 1 ){ ?>
+			<li><a class="icon-facebook show_facebook" title="<?php echo $var_yttheme->getParam('facebook_name');?>" href="<?php echo $var_yttheme->getParam('facebook_url');?>" target="_blank" data-icon="f"><i class="fa fa-facebook"></i><span><?php echo $var_yttheme->getParam('facebook_name');?></span></a></li>
+		<?php }?>
+		<?php if( $var_yttheme->getParam('show_twitter') == 1 ){ ?>
+			<li><a class="icon-twitter show_twitter" title="<?php echo $var_yttheme->getParam('twitter_name');?>" href="<?php echo $var_yttheme->getParam('twitter_url');?>" target="_blank" data-icon="l"><i class="fa fa-twitter"></i><span><?php echo $var_yttheme->getParam('twitter_name');?></span></a></li>
+		<?php }?>
+		<?php if( $var_yttheme->getParam('show_google') == 1 ){ ?>
+			<li><a class="icon-google-plus show_google" title="<?php echo $var_yttheme->getParam('google_name');?>" href="<?php echo $var_yttheme->getParam('google_url');?>" target="_blank" data-icon="g"><i class="fa fa-google-plus"></i><span><?php echo $var_yttheme->getParam('google_name');?></span></a></li>
+		<?php }?>
+		
+		<?php if( $var_yttheme->getParam('show_pinterest') == 1 ){ ?>
+			<li><a class="icon-pinterest show_pinterest" title="<?php echo $var_yttheme->getParam('pinterest_name');?>" href="<?php echo $var_yttheme->getParam('pinterest_url');?>" target="_blank" data-icon="&"><i class="fa fa-pinterest"></i><span><?php echo $var_yttheme->getParam('pinterest_name');?></span></a></li>
+		<?php }?>	
+		
+		<?php if( $var_yttheme->getParam('show_linkedin') == 1 ){ ?>
+			<li><a class="icon-linkedin show_linkedin" title="<?php echo $var_yttheme->getParam('linkedin_name');?>" href="<?php echo $var_yttheme->getParam('linkedin_url');?>" target="_blank" data-icon="i"><i class="fa fa-linkedin"></i><span><?php echo $var_yttheme->getParam('linkedin_name');?></span></a></li>
+		<?php }?>
+
+	</ul>
+</div>    
