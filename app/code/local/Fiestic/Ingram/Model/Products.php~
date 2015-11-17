@@ -1,0 +1,16 @@
+<?php 
+
+class Fiestic_Ingram_Model_Products extends Mage_Catalog_Model_Product
+
+{
+
+ public function getName()
+    {
+//echo "dfasd";
+//die;
+       // return $this->_getData('name');
+    }
+
+}
+
+?>

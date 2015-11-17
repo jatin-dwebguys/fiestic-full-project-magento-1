@@ -62,12 +62,12 @@ $cartproductdetails['price'] = $this->getRequest()->getParam('cart_product_price
 $cartproductdetails['image'] = $this->getRequest()->getParam('cart_product_image');
 $name=$isbn;
 
-Mage::getModel('core/cookie')->set($name, serialize($cartproductdetails), "36000");
+Mage::getModel('core/cookie')->set($name, serialize($cartproductdetails), "3600");
 
-//$data = unserialize(Mage::getModel('core/cookie')->get($name));
-//print_r($data);
+$data = unserialize(Mage::getModel('core/cookie')->get($name));
+print_r($data);
 
-//die;
+die;
 
 
 
@@ -95,7 +95,7 @@ array( 'product_id' => $product_id,
 $cart->save();
 Mage::getSingleton('checkout/session')->setCartWasUpdated(true);
 
-Mage::app()->getResponse()->setRedirect(Mage::getBaseUrl().'checkout/cart');
+Mage::app()->getResponse()->setRedirect(Mage::getBaseUrl());
 
 
 //$_product = Mage::getModel('catalog/product')->load($id);

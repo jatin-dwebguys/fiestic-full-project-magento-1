@@ -46,14 +46,6 @@
             <ingram>
                 <class>Fiestic_Ingram_Block</class>
             </ingram>
-
-	 <checkout>
-      <rewrite>
-        <cart_item_renderer>Fiestic_Ingram_Block_Cart_Item_Renderer</cart_item_renderer>
-      </rewrite>
-  	  </checkout>
-
-
         </blocks>
         <helpers>
             <ingram>

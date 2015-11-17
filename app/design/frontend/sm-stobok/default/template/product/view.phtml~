@@ -56,7 +56,7 @@ $rich_snippet = Mage::getStoreConfig('stobok_cfg/rich_snippets_setting/use_rich_
 
                 <div class="yt-detail-right <?php echo $class; ?>">			
 
-                    <form action="<?php echo $this->getUrl().'product/index/addtocart' ?>" method="post" id="product_addtocart_form" <?php if ($_product->getOptions()): ?> enctype="multipart/form-data" <?php endif; ?>>				
+                    <form action="<?php echo $this->getUrl().'index.php/product/index/addtocart' ?>" method="post" id="product_addtocart_form" <?php if ($_product->getOptions()): ?> enctype="multipart/form-data" <?php endif; ?>>				
 
 
 
@@ -126,7 +126,8 @@ $productType = 'simple';
                                             </span>      
                                         </span>
                                         <?php }
-
+echo "<pre>";
+print_r($_product->getData());
 					
 						 ?>
 <input type="hidden" value="<?php echo $_helper->productAttribute($_product, $this->htmlEscape($_product->getName()), 'name');  ?>" name="cart_product_name">

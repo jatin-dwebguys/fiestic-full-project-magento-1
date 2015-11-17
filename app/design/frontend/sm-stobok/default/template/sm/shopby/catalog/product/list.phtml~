@@ -1,5 +1,7 @@
 
 <?php
+echo get_class($this);
+die;
 $product = Mage::registry('ingram_category');
 $_productCollection = $product->Book;
 if(!$_productCollection){

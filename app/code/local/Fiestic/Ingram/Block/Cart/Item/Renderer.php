@@ -1,0 +1,42 @@
+<?php
+class Fiestic_Ingram_Block_Cart_Item_Renderer extends Mage_Checkout_Block_Cart_Item_Renderer
+{
+
+
+ public function getProductName()
+    {
+
+$sku=$this->getProduct()->getSku();
+if($sku == 'custom_product')
+{
+
+$options = $this->getOptionList();
+ foreach ($options as $option){
+
+$formatedOptionValue = $this->getFormatedOptionValue($option);
+$unique_code=$this->htmlEscape($option['value']);
+// $code = $formatedOptionValue['full_view'];
+
+}
+$data=unserialize(Mage::getModel('core/cookie')->get($unique_code));
+
+
+return $data['name'];
+}
+
+else
+{
+ return parent::getProductName();
+}
+}
+
+
+
+
+
+
+
+
+}
+
+?>
