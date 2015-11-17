@@ -179,7 +179,7 @@ if(sizeof($_productCollection) == 0): ?>
                         $name = $_product->Basic->MusicTitle;
                     }
                     $price = $_product->Ingram->IngramPrice;
-                    $image = $_product->Basic->Image->IMG187
+                    $image = $_product->Basic->Image->IMG187;
                     $authors = '';
                     foreach ($_product->Basic->Contributor as $val) {
                         if ($val->Role == 'Author') {
