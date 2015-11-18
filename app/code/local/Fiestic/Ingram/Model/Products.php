@@ -1,40 +1,39 @@
-<?php 
+<?php
 
-class Fiestic_Ingram_Model_Products extends Mage_Catalog_Model_Product
-
-{
+class Fiestic_Ingram_Model_Products extends Mage_Catalog_Model_Product {
 
     public function getFinalPrice($qty = null) {
-       
-        $product=$this;
-        
-         if ($optionIds = $product->getCustomOption('option_ids')) {
+
+        $product = $this;
+
+        if ($optionIds = $product->getCustomOption('option_ids')) {
             $basePrice = $finalPrice;
             foreach (explode(',', $optionIds->getValue()) as $optionId) {
                 if ($option = $product->getOptionById($optionId)) {
-                    $confItemOption = $product->getCustomOption('option_'.$option->getId());
+                    $confItemOption = $product->getCustomOption('option_' . $option->getId());
 
                     $group = $option->groupFactory($option->getType())
-                        ->setOption($option)
-                        ->setConfigurationItemOption($confItemOption);
+                            ->setOption($option)
+                            ->setConfigurationItemOption($confItemOption);
                     $cprice = unserialize(Mage::getModel('core/cookie')->get($confItemOption->getValue()));
-                   // echo $confItemOption->getValue().'xx';
+                    // echo $confItemOption->getValue().'xx';
                     //$finalPrice += $group->getOptionPrice($confItemOption->getValue(), $basePrice);
-                   
-                    if($cprice){
-                        $finalPrice = $cprice['price'];
+                    if ($option->getId() == '16') {
+                        if ($cprice) {
+
+
+                             $finalPrice = $cprice['price'];
+                            return $finalPrice;
+                        } else {
+                            return;
+                        }
                     }
-                    else return;
-                        
-                    }
+                }
             }
         }
 
-        return $finalPrice;
-   
-       
-        
-                }
+        //  return $finalPrice;
+    }
 
 }
 

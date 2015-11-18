@@ -32,10 +32,14 @@ class Fiestic_Ingram_IndexController extends Mage_Core_Controller_Front_Action {
     }
 
     public function addtocartAction() {
-
+         $cart_product_item_id = $this->getRequest()->getParam('cart_product_item_id');
+        
         $isbn = $this->getRequest()->getParam('proId');
-        if ($isbn) {
-
+        if ($cart_product_item_id) {
+            if(!$isbn){
+                $isbn=$cart_product_item_id;
+            }
+           
             $qty = $this->getRequest()->getParam('qty');
             $cartproductdetails = array();
             $cartproductdetails['name'] = $this->getRequest()->getParam('cart_product_name');
@@ -51,12 +55,13 @@ class Fiestic_Ingram_IndexController extends Mage_Core_Controller_Front_Action {
             $cart->init();
             $cart->addProduct($product, array('product_id' => $product_id,
                 'qty' => $qty,
-                'options' => array(16 => $isbn)
+                'options' => array(16 => $isbn , 17 =>$cartproductdetails['image'] , 18 => $cartproductdetails['name'])
             ));
             $cart->save();
             Mage::getSingleton('checkout/session')->setCartWasUpdated(true);
 
             Mage::app()->getResponse()->setRedirect(Mage::getBaseUrl() . 'checkout/cart');
+        
         } else {
             Mage::app()->getResponse()->setRedirect(Mage::getBaseUrl());
         }

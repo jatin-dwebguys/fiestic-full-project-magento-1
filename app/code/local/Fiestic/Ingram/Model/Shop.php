@@ -102,11 +102,11 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         $end = ($page + 1) * 23 + 1;
 
         if($parent_category == 'Music' || $category_name == 'Music'){
-            $ingramSearch = $this->getApiData('KW='.$category_name,2,$start,$end,$sort);   
+            $ingramSearch = $this->getApiData('KW='.$category_name,2,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');   
         }else if($type == 'Film' || $category_name == 'Film'){
-            $ingramSearch = $this->getApiData('BSU='.$category_name.' and BND=DVD ',1,$start,$end,$sort);   
+            $ingramSearch = $this->getApiData('BSU='.$category_name.' and BND=DVD ',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');   
         }else{
-            $ingramSearch = $this->getApiData('BSU='.$category_name.' and BND<>DVD ',1,$start,$end,$sort);   
+            $ingramSearch = $this->getApiData('BSU='.$category_name.' and BND<>DVD ',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');   
         }
 
 

@@ -66,6 +66,8 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
         <dl class="item-options">
             <?php foreach ($_options as $_option) : ?>
             <?php $_formatedOptionValue = $this->getFormatedOptionValue($_option) ?>
+            <?php if($_option['label'] == 'unique code'):  ?>
+            
             <dt><?php echo $this->htmlEscape($_option['label']) ?>: </dt>
             <dd<?php if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php endif; ?>><?php echo $_formatedOptionValue['value'] ?>
                 <?php if (isset($_formatedOptionValue['full_view'])): ?>
@@ -77,6 +79,7 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
                 </div>
                 <?php endif; ?>
             </dd>
+            <?php endif; ?>
             <?php endforeach; ?>
         </dl>
         <?php endif;?>
@@ -96,7 +99,7 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
         <?php endif ?>
     </td>
     <?php if ($this->helper('wishlist')->isAllowInCart()) : ?>
-    <td class="a-center">
+    <!--<td class="a-center">
         <?php if ($isVisibleProduct): ?>
             <a href="<?php echo $this->helper('wishlist')->getMoveFromCartUrl($_item->getId()); ?>" class="link-wishlist use-ajax"><?php echo $this->__('Move'); ?></a>
         <?php endif ?>

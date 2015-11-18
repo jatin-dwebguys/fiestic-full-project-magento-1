@@ -245,7 +245,23 @@ if(sizeof($_productCollection) == 0): ?>
 
                                 </div>
                             </div>
-                            
+                           <?php 
+                           $is_in_stock = 0;
+
+            $stock = $_product->Ingram->Stock;
+          
+            $stock = json_decode(json_encode($stock),true);
+          
+            foreach($stock as $loc => $data){
+                
+                if($data['StockStatus'] == 'Y') {
+                    $is_in_stock = 1;
+                    break;
+                }
+            } 
+            if($is_in_stock ==1)
+            {
+            ?>
                             <div class="item-action">
                                     <button title="Add to Cart" type="button" class="btn-pd btn-cart" onclick="setLocation('http://fiestic.com/books/electronic/ires-mite-rima.html?options=cart')">
                                         <span>
@@ -255,7 +271,7 @@ if(sizeof($_productCollection) == 0): ?>
                                         
 
                             <!--
-                                <a style="display:none;" href="<?php echo Mage::getUrl('product/index/index') . 'BN/'. $_product->Basic->ISBN; ?>"></a>
+                                <a style="display:none;" href="<?php //echo Mage::getUrl('product/index/index') . 'BN/'. $_product->Basic->ISBN; ?>"></a>
                                                                     <a data-toggle="tooltip" data-placement="top" title="" href="http://fiestic.com/wishlist/index/add/product/895/form_key/s2JZnjtb8azPH2mA/" class="btn-pd item-wishlist" data-original-title="Add to Wishlist" style="display: none;">
                                         <span>Add to Wishlist</span>
                                     </a>
@@ -266,6 +282,7 @@ if(sizeof($_productCollection) == 0): ?>
                                     </a>
                              -->                                   
                             </div>
+            <?php }?>
 
                                                     
 

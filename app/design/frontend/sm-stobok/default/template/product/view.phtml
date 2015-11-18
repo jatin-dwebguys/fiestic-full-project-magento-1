@@ -132,6 +132,7 @@ $productType = 'simple';
 <input type="hidden" value="<?php echo $_helper->productAttribute($_product, $this->htmlEscape($_product->getName()), 'name');  ?>" name="cart_product_name">
 <input type="hidden" value="<?php echo $_product->getData('price');  ?>" name="cart_product_price">
 <input type="hidden" value="<?php echo $_product->getData('small_image') ?>" name="cart_product_image">
+<input type="hidden" value="<?php echo $_product->getData('item_id') ?>" name="cart_product_item_id">
                                     </div>
 
                                 </div>
