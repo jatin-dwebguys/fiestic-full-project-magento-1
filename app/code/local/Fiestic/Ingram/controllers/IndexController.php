@@ -32,15 +32,18 @@ class Fiestic_Ingram_IndexController extends Mage_Core_Controller_Front_Action {
     }
 
     public function addtocartAction() {
-         $cart_product_item_id = $this->getRequest()->getParam('cart_product_item_id');
-        
+
+        $cart_product_item_id = $this->getRequest()->getParam('cart_product_item_id');
         $isbn = $this->getRequest()->getParam('proId');
         if ($cart_product_item_id) {
-            if(!$isbn){
-                $isbn=$cart_product_item_id;
+            if (!$isbn) {
+                $isbn = $cart_product_item_id;
             }
-           
+
             $qty = $this->getRequest()->getParam('qty');
+            if (!$qty) {
+                $qty = '1';
+            }
             $cartproductdetails = array();
             $cartproductdetails['name'] = $this->getRequest()->getParam('cart_product_name');
             $cartproductdetails['price'] = $this->getRequest()->getParam('cart_product_price');
@@ -55,16 +58,50 @@ class Fiestic_Ingram_IndexController extends Mage_Core_Controller_Front_Action {
             $cart->init();
             $cart->addProduct($product, array('product_id' => $product_id,
                 'qty' => $qty,
-                'options' => array(16 => $isbn , 17 =>$cartproductdetails['image'] , 18 => $cartproductdetails['name'])
+                'options' => array(16 => $isbn, 17 => $cartproductdetails['image'], 18 => $cartproductdetails['name'])
             ));
             $cart->save();
             Mage::getSingleton('checkout/session')->setCartWasUpdated(true);
 
             Mage::app()->getResponse()->setRedirect(Mage::getBaseUrl() . 'checkout/cart');
-        
         } else {
             Mage::app()->getResponse()->setRedirect(Mage::getBaseUrl());
         }
+    }
+
+    public function downloadimagesAction() {
+        // echo "success";
+        $codes = $this->getRequest()->getParam('codes');
+        $path = $this->getRequest()->getParam('paths');
+        $total = $this->getRequest()->getParam('total');
+
+        $codes_exploded = explode(',', $codes);
+        $paths_exploded = explode(',', $path);
+        //  print_r($paths_exploded);
+
+        for ($i = 0; $i < $total; $i++) {
+            $dirpath = Mage::getBaseDir('base') . "/media/server/ean/" . $codes_exploded[$i] . '/';
+            if (file_exists($dirpath)) {
+                $imgUrl = $dirpath . 'img187.gif';
+                if (file_exists($imgUrl)) {
+                    
+                } else {
+
+                    $image_data = $paths_exploded[$i];
+                    $contents = file_get_contents($image_data);
+                    $download_image = file_put_contents($imgUrl, $contents);
+                }
+            } else {
+                mkdir($dirpath, 0777);
+                $imgUrl = $dirpath . 'img187.gif';
+                $image_data = $paths_exploded[$i];
+                $contents = file_get_contents($image_data);
+                $download_image = file_put_contents($imgUrl, $contents);
+            }
+        }
+
+
+        return 'success';
     }
 
 }

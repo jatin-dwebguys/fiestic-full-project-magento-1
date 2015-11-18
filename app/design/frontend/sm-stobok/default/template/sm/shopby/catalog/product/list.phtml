@@ -153,6 +153,9 @@ $_helper = $this->helper('catalog/output');
             <div class="products-grid row">
                 <?php $i = 0;
                 foreach ($_productCollection as $_product):
+                //    echo "<pre>";
+              //  print_r($_product);
+                //die;
                     $uniq = $_product->Basic->ISBN;
                     if(!$uniq){
                         $uniq = $_product->Basic->EAN;
@@ -164,7 +167,30 @@ $_helper = $this->helper('catalog/output');
                         $name = $_product->Basic->MusicTitle;
                     }
                     $price = $_product->Ingram->IngramPrice;
-                    $image = $_product->Basic->Image->IMG187;
+                   // $image = $_product->Basic->Image->IMG187;
+                    
+                    
+                    $dirpath=Mage::getBaseDir('base')."/media/server/ean/".$uniq.'/';
+                    if(file_exists($dirpath)){
+                        $imgUrl=$dirpath.'img187.gif';
+                         if(file_exists($imgUrl)){
+                             $image = Mage::getBaseUrl('media').'server/ean/'.$uniq.'/img187.gif';
+                             
+                             
+                         }
+                         else{
+                             $image = $_product->Basic->Image->IMG187;
+                           //  $contents=file_get_contents($image_data);
+                           // $download_image = file_put_contents($imgUrl, $contents);
+                             
+                         }
+                        
+                    }
+                    else
+                    {
+                         $image = $_product->Basic->Image->IMG187;
+                        //mkdir($dirpath, 0777);
+                    }
                     $authors = '';
                     foreach ($_product->Basic->Contributor as $val) {
                         if ($val->Role == 'Author') {
@@ -192,7 +218,9 @@ $_helper = $this->helper('catalog/output');
                             <div class="w-image-box">
                                 <div class="item-image">
                                     <a href="<?php echo $url; ?>" title="<?php echo $this->stripTags($name, null, true) ?>" class="product-image">
-                                        <img id="product-collection-image-895" src="<?php  echo $image;  ?>" alt="<?php echo $image;?>" style="height:186px; widht:121px !important;"></a>
+    <input type="hidden" name="unique_code" value="<?php echo $uniq; ?>" id="unique_code" class="unique_code"> 
+
+                                        <img id="product-collection-image-895 product_image" src="<?php  echo $image;  ?>" alt="<?php echo $image;?>" style="height:186px; widht:121px !important;"></a>
                                 </div>
 
 
@@ -227,10 +255,35 @@ $_helper = $this->helper('catalog/output');
 
                                 </div>
                             </div>
+                             <?php
+                              $is_in_stock = 0;
+                              $stock = $_product->Ingram->Stock;
+          
+            $stock = json_decode(json_encode($stock),true);
+          
+            foreach($stock as $loc => $data){
+               // echo $data['StockStatus'];
+                if($data['StockStatus'] == 'Y') {
+                    $is_in_stock = 1;
+                    break;
+                }
+            } 
+            if($is_in_stock == 1)
+            {
+            ?>
                             
                             <div class="item-action">
-                                    <button title="Add to Cart" type="button" class="btn-pd btn-cart" onclick="setLocation('http://fiestic.com/books/electronic/ires-mite-rima.html?options=cart')">
-                                        <span>
+                                <?php
+                                $ean=$_product->Basic->EAN;
+                                $isbn=$_product->Basic->ISBN;
+                                        $qty='1';
+  $params='cart_product_item_id='.$ean.'&proId='.$isbn.'&cart_product_name='.$name.'&cart_product_price='.$price.'&cart_product_image='.$image;
+         $url="http://fiestic.com/product/index/addtocart?".$params;                  
+  ?>
+                                   <!-- <button title="Add to Cart" type="button" class="btn-pd btn-cart" onclick="setLocation('http://fiestic.com/books/electronic/ires-mite-rima.html?options=cart')"> -->
+<button title="Add to Cart" type="button" class="btn-pd btn-cart" onclick='setLocation("<?php echo $url;?>")'>
+    
+                                   <span>
                                             <span>Add to Cart</span>
                                         </span>
                                     </button>
@@ -248,6 +301,7 @@ $_helper = $this->helper('catalog/output');
                                     </a>
                              -->                                   
                             </div>
+            <?php } ?>
 
                                                     
 

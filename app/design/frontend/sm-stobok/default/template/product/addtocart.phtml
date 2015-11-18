@@ -85,7 +85,7 @@ $maxmumQty = 100;//(int) $_product->getStockItem()->getMaxSaleQty();
                                                                 $('qty').value = Number($('qty').value) - 1;
                                                             }" value="">					
 
-                <input type="text" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>" class="quantity-input qty" />
+                <input type="text" name="qty" id="qty" maxlength="12" value="<?php echo '1' ?>" title="<?php echo $this->__('Qty') ?>" class="quantity-input qty" />
 
                 <input type="hidden" id="qty_stock" name="qty_stock" value="<?php echo $qtyStock; ?>"/>
 
