@@ -271,7 +271,7 @@ echo "</ul>";
 	</div>
 </div>
 <script type="text/javascript">
-	jQuery('.header-v2 .btn-menu-destop').click(function(){
+	/*jQuery('.header-v2 .btn-menu-destop').click(function(){
 		if(jQuery('.header-v2 .btn-menu-destop i').hasClass('fa-angle-down')){
 			jQuery('.header-v2 .btn-menu-destop i').removeClass('fa-angle-down');
 			jQuery('.header-v2 .btn-menu-destop i').addClass('fa-angle-up');
@@ -280,7 +280,7 @@ echo "</ul>";
 			jQuery('.header-v2 .btn-menu-destop i').addClass('fa-angle-down');
 		}
 		jQuery(".header-v2 .yt-menu-wrap-vertical-destop").slideToggle("fast");
-	});
+	});*/
 </script>
 
 <script>
@@ -439,6 +439,15 @@ jQuery('.film_subcategory').hover(
 //--------------ENDS------------------------>>
 
 jQuery(document).ready(function(){
+    
+    if(jQuery('.header-v2 .btn-menu-destop i').hasClass('fa-angle-down')){
+			jQuery('.header-v2 .btn-menu-destop i').removeClass('fa-angle-down');
+			jQuery('.header-v2 .btn-menu-destop i').addClass('fa-angle-up');
+		} else {
+			jQuery('.header-v2 .btn-menu-destop i').removeClass('fa-angle-up');
+			jQuery('.header-v2 .btn-menu-destop i').addClass('fa-angle-down');
+		}
+		jQuery(".header-v2 .yt-menu-wrap-vertical-destop").slideToggle("fast");
     
     var menu_books_src = jQuery(".menu_books_logo").attr('src');
      var menu_music_src = jQuery(".menu_music_logo").attr('src');
