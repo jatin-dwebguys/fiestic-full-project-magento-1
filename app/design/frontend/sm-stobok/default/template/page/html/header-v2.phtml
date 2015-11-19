@@ -284,6 +284,7 @@ echo "</ul>";
 </script>
 
 <script>
+    /*
 jQuery(document).ready(function(){
     var menu_books_src = jQuery(".menu_books_logo").attr('src');
      var menu_music_src = jQuery(".menu_music_logo").attr('src');
@@ -434,6 +435,121 @@ jQuery('.film_subcategory').hover(
     }
     });
 });    
-
+*/
 //--------------ENDS------------------------>>
+
+jQuery(document).ready(function(){
+    
+    var menu_books_src = jQuery(".menu_books_logo").attr('src');
+     var menu_music_src = jQuery(".menu_music_logo").attr('src');
+      var menu_film_src = jQuery(".menu_film_logo").attr('src');
+      
+      
+      var url      = window.location.href;  
+       console.log(url);
+       var books_url = '<?php echo Mage::getBaseUrl(); ?>books'
+        var music_url = '<?php echo Mage::getBaseUrl(); ?>music'
+         var film_url = '<?php echo Mage::getBaseUrl(); ?>film'
+         console.log(books_url);
+         console.log(music_url);
+         console.log(film_url);
+      if(url.indexOf(books_url) > -1){
+          
+  var src= '<?php  echo Mage::getBaseUrl('media');?>'+'sm/icon-books-active.png';
+     jQuery('.menu_books_logo').attr("src", src);
+        jQuery('.book_subcategory').css("display","block");
+
+}
+
+ else if(url.indexOf(music_url) > -1){
+ 
+    var src= '<?php  echo Mage::getBaseUrl('media');?>'+'sm/icon-music-active.png';
+     jQuery('.menu_music_logo').attr("src", src);
+        jQuery('.music_subcategory').css("display","block");
+}
+
+ else if(url.indexOf(film_url) > -1){
+ 
+ var src= '<?php  echo Mage::getBaseUrl('media');?>'+'sm/icon-film-active.png';
+     jQuery('.menu_film_logo').attr("src", src);
+        jQuery('.film_subcategory').css("display","block");
+ 
+}
+else{
+
+        
+        
+        var src= '<?php  echo Mage::getBaseUrl('media');?>'+'sm/icon-books-active.png';
+     jQuery('.menu_books_logo').attr("src", src);
+        jQuery('.book_subcategory').css("display","block");
+      
+      }
+    
+    
+    
+    jQuery(".menu_books_logo").hover(function(){
+          
+          
+            var src1= '<?php  echo Mage::getBaseUrl('media');?>'+'sm/icon-music-off.png';
+        jQuery('.menu_music_logo').attr("src", src1);
+         var src2= '<?php  echo Mage::getBaseUrl('media');?>'+'sm/icon-film-off.png';
+        jQuery('.menu_film_logo').attr("src", src2);
+        
+            var src= '<?php  echo Mage::getBaseUrl('media');?>'+'sm/icon-books-hover.png';
+        jQuery(this).attr("src", src);
+        
+        
+        
+        jQuery('.music_subcategory').css("display","none");
+        jQuery('.film_subcategory').css("display","none");
+        jQuery('.book_subcategory').css("display","block");
+         
+    }, function(){
+              var src= '<?php  echo Mage::getBaseUrl('media');?>'+'sm/icon-books-active.png';
+               jQuery(this).attr("src", src);
+            });
+            
+            
+
+
+    jQuery(".menu_music_logo").hover(function(){
+        
+        var src1= '<?php  echo Mage::getBaseUrl('media');?>'+'sm/icon-books-off.png';
+        jQuery('.menu_books_logo').attr("src", src1);
+         var src2= '<?php  echo Mage::getBaseUrl('media');?>'+'sm/icon-film-off.png';
+        jQuery('.menu_film_logo').attr("src", src2);
+        
+            var src= '<?php  echo Mage::getBaseUrl('media');?>'+'sm/icon-music-hover.png';
+        jQuery(this).attr("src", src);
+        jQuery('.music_subcategory').css("display","block");
+        jQuery('.film_subcategory').css("display","none");
+        jQuery('.book_subcategory').css("display","none");
+         
+    }, function(){
+               var src= '<?php  echo Mage::getBaseUrl('media');?>'+'sm/icon-music-active.png';
+               jQuery(this).attr("src", src);
+            });
+            
+            
+              jQuery(".menu_film_logo").hover(function(){
+        
+        var src1= '<?php  echo Mage::getBaseUrl('media');?>'+'sm/icon-books-off.png';
+        jQuery('.menu_books_logo').attr("src", src1);
+         var src2= '<?php  echo Mage::getBaseUrl('media');?>'+'sm/icon-music-off.png';
+        jQuery('.menu_music_logo').attr("src", src2);
+        
+            var src= '<?php  echo Mage::getBaseUrl('media');?>'+'sm/icon-film-hover.png';
+        jQuery(this).attr("src", src);
+        jQuery('.music_subcategory').css("display","none");
+        jQuery('.film_subcategory').css("display","block");
+        jQuery('.book_subcategory').css("display","none");
+         
+    }, function(){
+               var src= '<?php  echo Mage::getBaseUrl('media');?>'+'sm/icon-film-active.png';
+               jQuery(this).attr("src", src);
+            });
+      
+      
+    
+});
 </script>

@@ -280,7 +280,7 @@ $_helper = $this->helper('catalog/output');
                                 $isbn=$_product->Basic->ISBN;
                                         $qty='1';
   $params='cart_product_item_id='.$ean.'&proId='.$isbn.'&cart_product_name='.$name.'&cart_product_price='.$price.'&cart_product_image='.$image;
-         $url="http://127.0.0.1/fiestic2/index.php/product/index/addtocart?".$params;                  
+         $url=Mage::getBaseUrl()."product/index/addtocart?".$params;                  
   ?>
                                    <!-- <button title="Add to Cart" type="button" class="btn-pd btn-cart" onclick="setLocation('http://fiestic.com/books/electronic/ires-mite-rima.html?options=cart')"> -->
 <button title="Add to Cart" type="button" class="btn-pd btn-cart" onclick='setLocation("<?php echo $url;?>")'>
