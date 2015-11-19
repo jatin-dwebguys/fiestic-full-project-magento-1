@@ -167,10 +167,147 @@ global $var_yttheme;
 											echo $this->getChildHtml('megaMenu-left');
 										} else { ?>
 											<div class="mega-left-title css-menu-left-title">
-												<strong><?php echo $this->__('Categories')?></strong>
+												<!--<strong><?php //echo $this->__('Categories')?></strong>-->
 											</div>
 											<div class="cssMenu-vertical">
-											<?php echo $this->getChildHtml('cssMenu-left');?>
+                                 
+    <div class="row menu-container" style="margin-top: 12px;">
+        <div class="col-lg-1 col-md-1 "></div>
+        <div class="col-lg-3 col-md-3 ">
+            <?php 
+            trim($path);
+            $url= Mage::getBaseUrl().'books.html';
+            trim($url);
+            trim($currentUrl);
+         
+            if($currentUrl == $url){
+                
+                 
+            $src = Mage::getBaseUrl('media')."sm/icon-books-active.png";
+            }  else {
+                
+            
+            $src = Mage::getBaseUrl('media')."sm/icon-books-off.png";
+            }
+            ?>
+            <a href="<?php echo $url;?>"><img src="<?php echo $src; ?>" class="menu_img menu_books_logo"></a></div>
+        <div class="col-lg-3 col-md-3 ">
+            
+            <?php 
+            trim($path);
+            $url= Mage::getBaseUrl().'music.html';
+            trim($url);
+            trim($currentUrl);
+         
+            if($currentUrl == $url){
+                
+                 
+            $src =Mage::getBaseUrl('media')."sm/icon-music-active.png";
+            }  else {
+                
+            
+            $src = Mage::getBaseUrl('media')."sm/icon-music-off.png";
+            }
+            ?>
+            
+            <a href="<?php echo $url;?>"> <img src="<?php echo $src; ?>" class="menu_img menu_music_logo"> </a></div>
+        <div class="col-lg-3 col-md-3 ">
+            
+              <?php 
+            trim($path);
+            $url= Mage::getBaseUrl().'film.html';
+            trim($url);
+            trim($currentUrl);
+         
+            if($currentUrl == $url){
+                
+                 
+            $src =Mage::getBaseUrl('media')."sm/icon-film-active.png";
+            }  else {
+                
+            
+            $src = Mage::getBaseUrl('media')."sm/icon-film-off.png";
+            }
+            ?>
+            
+            <a href="<?php echo $url;?>">  <img src="<?php echo $src; ?>" class="menu_img menu_film_logo"></a></div>
+         <div class="col-lg-1 col-md-1 "></div>
+                                                                                
+                                                                                
+    </div>
+    <div style="color:black; display: none; margin-top:-8px;" class="book_subcategory menu_subcategory ">
+        <?php
+        $cat = Mage::getModel('catalog/category')->load('128');
+        
+        $subcats = $cat->getChildren();
+        echo "<ul class='level0 shown-sub'>";
+        foreach(explode(',',$subcats) as $subCatid)
+{
+           
+  $_category = Mage::getModel('catalog/category')->load($subCatid);
+  if($_category->getIsActive())
+  {
+     $caturl     = $_category->getURL();
+    
+      $catname     = $_category->getName();
+   echo "<a href=".$caturl."> <li class='level1 nav-1-6'>". $catname."</li></a>";
+   
+  }
+}
+echo "</ul>";
+    
+        ?>
+        </div>
+    
+    <div style="color:black; display:none; margin-top: -6px;" class="music_subcategory menu_subcategory ">
+        <?php
+        $cat = Mage::getModel('catalog/category')->load('129');
+        
+        $subcats = $cat->getChildren();
+        echo "<ul class='level0 shown-sub'>";
+        foreach(explode(',',$subcats) as $subCatid)
+{
+           
+  $_category = Mage::getModel('catalog/category')->load($subCatid);
+  if($_category->getIsActive())
+  {
+     $caturl     = $_category->getURL();
+    
+      $catname     = $_category->getName();
+   echo "<a href=".$caturl."> <li class='level1 nav-1-6'>". $catname."</li></a>";
+   
+  }
+}
+echo "</ul>";
+    
+        ?>
+        </div>
+    <div style="color:black; display: none;" class="film_subcategory menu_subcategory ">
+        <?php
+        $cat = Mage::getModel('catalog/category')->load('130');
+        
+        $subcats = $cat->getChildren();
+        echo "<ul class='level0 shown-sub'>";
+        foreach(explode(',',$subcats) as $subCatid)
+{
+           
+  $_category = Mage::getModel('catalog/category')->load($subCatid);
+  if($_category->getIsActive())
+  {
+     $caturl     = $_category->getURL();
+    
+      $catname     = $_category->getName();
+   echo "<a href=".$caturl."> <li class='level1 nav-1-6'>". $catname."</li></a>";
+   
+  }
+}
+echo "</ul>";
+    
+        ?>
+        </div>
+										<!--<?php// echo $this->getChildHtml('topMenu');?>
+									   
+											<?php// echo $this->getChildHtml('cssMenu-left');?>-->
 											</div>
 										<?php } ?>	
 									<?php } ?>									

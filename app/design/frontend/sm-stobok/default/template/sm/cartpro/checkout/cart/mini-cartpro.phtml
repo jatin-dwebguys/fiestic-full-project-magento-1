@@ -89,12 +89,12 @@ $timeclick = $config['mini_cartpro_effect_duration'];
 			<div class="info-mini-cart">
 				<div class="item-cart">
 					<?php if($_cartQty >= 2 && $_cartQty <= 9) {
-						echo '<a>('.$_cartQty.')</a> items';
+						echo '<a>'.$_cartQty.' </a> items';
 					}else {
 						if($_cartQty == 1){
-							echo '<a>(1)</a> items';
+							echo '<a>1 </a> items';
 						}else {
-							echo '<a>(0)</a> items';
+							echo '<a>0 </a> items';
 						}
 					}?>
 				</div>

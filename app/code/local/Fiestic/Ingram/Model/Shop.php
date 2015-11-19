@@ -73,13 +73,13 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
 
     public function getSearchData($query,$type){
         if($type == 'Book'){
-            $ingramSearch = $this->getApiData('KW=' . $query);
+            $ingramSearch = $this->getApiData('KW=' . $query,'1','1','25','','Y','IMG,IM60,IM90,LOGI');
         }else if($type == 'Author'){
-            $ingramSearch = $this->getApiData('CO=' . '*'.$query.'*');
+            $ingramSearch = $this->getApiData('CO=' . '*'.$query.'*','1','1','25','','Y','IMG,IM60,IM90,LOGI');
         }else if($type == 'Publisher'){
-            $ingramSearch = $this->getApiData('KWPU=' . $query);
+            $ingramSearch = $this->getApiData('KWPU=' . $query,'1','1','25','','Y','IMG,IM60,IM90,LOGI');
         }else if($type == 'Subject'){
-            $ingramSearch = $this->getApiData('KWSU=' . $query);
+            $ingramSearch = $this->getApiData('KWSU=' . $query,'1','1','25','','Y','IMG,IM60,IM90,LOGI');
         }
         //$result = Mage::getModel('ingram/product')->setProductData($ingramSearch);
         return $ingramSearch;

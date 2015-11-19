@@ -1,3 +1,8 @@
+<style type="text/css">
+    .menu-container{color:black;}
+    .menu_img{max-height:30px; max-width:px;}
+    .menu_subcategory{padding-top: 20px; padding-left: 10px;}
+</style>
 <?php global $var_yttheme; ?>
 <?php $identifier = Mage::getSingleton('cms/page')->getIdentifier();?>
 <div class="header-default header-v2">
@@ -23,8 +28,145 @@
 									<div class="mega-left-title css-menu-left-title">
 										<strong><?php echo $this->__('Categories')?></strong>
 									</div>
-									<div class="cssMenu-vertical">
-										<?php echo $this->getChildHtml('topMenu');?>
+<?php 
+  $currentUrl = Mage::helper('core/url')->getCurrentUrl();
+ //$url = Mage::getSingleton('core/url')->parseUrl($currentUrl);
+// $path = $url->getPath();?>									<div class="cssMenu-vertical">
+    <div class="row menu-container" style="margin-top: 12px;">
+        <div class="col-lg-1 col-md-1 "></div>
+        <div class="col-lg-3 col-md-3 ">
+            <?php 
+            trim($path);
+            $url= Mage::getBaseUrl().'books.html';
+            trim($url);
+            trim($currentUrl);
+         
+            if($currentUrl == $url){
+                
+                 
+            $src = Mage::getBaseUrl('media')."sm/icon-books-active.png";
+            }  else {
+                
+            
+            $src = Mage::getBaseUrl('media')."sm/icon-books-off.png";
+            }
+            ?>
+            <a href="<?php echo $url;?>"><img src="<?php echo $src; ?>" class="menu_img menu_books_logo"></a></div>
+        <div class="col-lg-3 col-md-3 ">
+            
+            <?php 
+            trim($path);
+            $url= Mage::getBaseUrl().'music.html';
+            trim($url);
+            trim($currentUrl);
+         
+            if($currentUrl == $url){
+                
+                 
+            $src =Mage::getBaseUrl('media')."sm/icon-music-active.png";
+            }  else {
+                
+            
+            $src = Mage::getBaseUrl('media')."sm/icon-music-off.png";
+            }
+            ?>
+            
+            <a href="<?php echo $url;?>"> <img src="<?php echo $src; ?>" class="menu_img menu_music_logo"> </a></div>
+        <div class="col-lg-3 col-md-3 ">
+            
+              <?php 
+            trim($path);
+            $url= Mage::getBaseUrl().'film.html';
+            trim($url);
+            trim($currentUrl);
+         
+            if($currentUrl == $url){
+                
+                 
+            $src =Mage::getBaseUrl('media')."sm/icon-film-active.png";
+            }  else {
+                
+            
+            $src = Mage::getBaseUrl('media')."sm/icon-film-off.png";
+            }
+            ?>
+            
+            <a href="<?php echo $url;?>">  <img src="<?php echo $src; ?>" class="menu_img menu_film_logo"></a></div>
+         <div class="col-lg-1 col-md-1 "></div>
+                                                                                
+                                                                                
+    </div>
+    <div style="color:black; display: none; margin-top:-8px;" class="book_subcategory menu_subcategory ">
+        <?php
+        $cat = Mage::getModel('catalog/category')->load('128');
+        
+        $subcats = $cat->getChildren();
+        echo "<ul class='level0 shown-sub'>";
+        foreach(explode(',',$subcats) as $subCatid)
+{
+           
+  $_category = Mage::getModel('catalog/category')->load($subCatid);
+  if($_category->getIsActive())
+  {
+     $caturl     = $_category->getURL();
+    
+      $catname     = $_category->getName();
+   echo "<a href=".$caturl."> <li class='level1 nav-1-6'>". $catname."</li></a>";
+   
+  }
+}
+echo "</ul>";
+    
+        ?>
+        </div>
+    
+    <div style="color:black; display:none; margin-top: -6px;" class="music_subcategory menu_subcategory ">
+        <?php
+        $cat = Mage::getModel('catalog/category')->load('129');
+        
+        $subcats = $cat->getChildren();
+        echo "<ul class='level0 shown-sub'>";
+        foreach(explode(',',$subcats) as $subCatid)
+{
+           
+  $_category = Mage::getModel('catalog/category')->load($subCatid);
+  if($_category->getIsActive())
+  {
+     $caturl     = $_category->getURL();
+    
+      $catname     = $_category->getName();
+   echo "<a href=".$caturl."> <li class='level1 nav-1-6'>". $catname."</li></a>";
+   
+  }
+}
+echo "</ul>";
+    
+        ?>
+        </div>
+    <div style="color:black; display: none;" class="film_subcategory menu_subcategory ">
+        <?php
+        $cat = Mage::getModel('catalog/category')->load('130');
+        
+        $subcats = $cat->getChildren();
+        echo "<ul class='level0 shown-sub'>";
+        foreach(explode(',',$subcats) as $subCatid)
+{
+           
+  $_category = Mage::getModel('catalog/category')->load($subCatid);
+  if($_category->getIsActive())
+  {
+     $caturl     = $_category->getURL();
+    
+      $catname     = $_category->getName();
+   echo "<a href=".$caturl."> <li class='level1 nav-1-6'>". $catname."</li></a>";
+   
+  }
+}
+echo "</ul>";
+    
+        ?>
+        </div>
+										<!--<?php// echo $this->getChildHtml('topMenu');?>-->
 									</div>
 								<?php } ?>
 							</div>
@@ -139,4 +281,159 @@
 		}
 		jQuery(".header-v2 .yt-menu-wrap-vertical-destop").slideToggle("fast");
 	});
+</script>
+
+<script>
+jQuery(document).ready(function(){
+    var menu_books_src = jQuery(".menu_books_logo").attr('src');
+     var menu_music_src = jQuery(".menu_music_logo").attr('src');
+      var menu_film_src = jQuery(".menu_film_logo").attr('src');
+   
+        
+var isHoverSpecialDiv = false;
+jQuery('.book_subcategory').hover(
+    function(){
+        //console.log('11');
+        jQuery('.book_subcategory').css("display","block");
+        isHoverSpecialDiv = true;
+         var src= '<?php  echo Mage::getBaseUrl('media');?>'+'sm/icon-books-hover.png';
+        jQuery('.menu_books_logo').attr("src", src);
+    },
+    function(){
+        
+        isHoverSpecialDiv = false;
+         jQuery('.menu_books_logo').attr("src", menu_books_src);
+         jQuery('.book_subcategory').css("display","none");
+    
+});
+
+        
+        
+        
+        jQuery(".menu_books_logo").hover(function(){
+            
+         var src= '<?php  echo Mage::getBaseUrl('media');?>'+'sm/icon-books-hover.png';
+        jQuery(this).attr("src", src);
+        jQuery('.book_subcategory').css("display","block");
+        
+        }, function(){
+            
+         if(isHoverSpecialDiv == true){
+            
+            jQuery('.book_subcategory').css("display","block");
+        
+             
+            
+       
+    }
+    else{
+       
+         jQuery('.book_subcategory').css("display","none");
+          jQuery(this).attr("src", menu_books_src);
+    }
+    });
+    
+    
+    
+    
+    
+    
+    //---------------------MUSIC------------------->>
+    var musicdiv = false;
+jQuery('.music_subcategory').hover(
+    function(){
+        //console.log('11');
+        jQuery('.music_subcategory').css("display","block");
+        musicdiv = true;
+         var src= '<?php  echo Mage::getBaseUrl('media');?>'+'sm/icon-music-hover.png';
+        jQuery('.menu_music_logo').attr("src", src);
+    },
+    function(){
+        
+        musicdiv = false;
+         jQuery('.menu_music_logo').attr("src", menu_music_src);
+         jQuery('.music_subcategory').css("display","none");
+    
+});
+
+
+    jQuery(".menu_music_logo").hover(function(){
+              var src= '<?php  echo Mage::getBaseUrl('media');?>'+'sm/icon-music-hover.png';
+        jQuery(this).attr("src", src);
+         jQuery('.music_subcategory').css("display","block");
+        }, function(){
+          
+          
+           if(musicdiv == true){
+              
+            
+            jQuery('.music_subcategory').css("display","block");
+        
+             
+            
+       
+    }
+    else{
+       
+         jQuery('.music_subcategory').css("display","none");
+          jQuery(this).attr("src", menu_music_src);
+    }
+          
+          
+    });
+    
+    
+    
+    //-------------------------ENDS----------->>
+    
+    
+    
+    
+    
+    
+    //------------------MOVIE---------------->>
+    
+     var filmdiv = false;
+jQuery('.film_subcategory').hover(
+    function(){
+        //console.log('11');
+        jQuery('.film_subcategory').css("display","block");
+        filmdiv = true;
+         var src= '<?php  echo Mage::getBaseUrl('media');?>'+'sm/icon-film-hover.png';
+        jQuery('.menu_film_logo').attr("src", src);
+    },
+    function(){
+        
+        filmdiv = false;
+         jQuery('.menu_film_logo').attr("src", menu_film_src);
+         jQuery('.film_subcategory').css("display","none");
+    
+});
+
+
+    jQuery(".menu_film_logo").hover(function(){
+        
+              var src= '<?php  echo Mage::getBaseUrl('media');?>'+'sm/icon-film-hover.png';
+        jQuery(this).attr("src", src);
+         jQuery('.film_subcategory').css("display","block");
+        }, function(){
+            
+          if(filmdiv == true){
+              
+            
+            jQuery('.film_subcategory').css("display","block");
+        
+             
+            
+       
+    }
+    else{
+       
+         jQuery('.film_subcategory').css("display","none");
+          jQuery(this).attr("src", menu_film_src);
+    }
+    });
+});    
+
+//--------------ENDS------------------------>>
 </script>
