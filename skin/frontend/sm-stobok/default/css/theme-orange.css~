@@ -4509,7 +4509,7 @@ h2.resp-tab-active span.resp-arrow {
 .header-default.header-v2 .yt-header-top .logo-wrapper .yt-menu-wrap-vertical-destop {
   position: absolute;
   width: 100%;
-  top: 68px;
+  top: 86px;
   z-index: 99;
   display: none;
 }

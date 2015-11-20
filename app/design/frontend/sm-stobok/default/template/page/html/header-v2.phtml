@@ -21,18 +21,12 @@
 							<?php } ?>
 						</h1>
 						<?php if ($identifier !="home-v2") {?>
-							<div class="yt-menu-wrap-vertical-destop">
+							<div class="yt-menu-wrap-vertical-destop" style="margin-top: 3px">
 								<?php if( $var_yttheme->getParam('menustyle') == 'mega' ){
 									echo $this->getChildHtml('megaMenuBtnCate');
 								} else { ?>
 									<div class="mega-left-title css-menu-left-title">
-										<strong><?php echo $this->__('Categories')?></strong>
-									</div>
-<?php 
-  $currentUrl = Mage::helper('core/url')->getCurrentUrl();
- //$url = Mage::getSingleton('core/url')->parseUrl($currentUrl);
-// $path = $url->getPath();?>									<div class="cssMenu-vertical">
-    <div class="row menu-container" style="margin-top: 12px;">
+                                                                            <div class="row menu-container" style="">
         <div class="col-lg-1 col-md-1 "></div>
         <div class="col-lg-3 col-md-3 ">
             <?php 
@@ -109,6 +103,89 @@
                                                                                 
                                                                                 
     </div>
+										<!--<strong><?php //echo $this->__('Categories')?></strong>-->
+									</div>
+<?php 
+  $currentUrl = Mage::helper('core/url')->getCurrentUrl();
+ //$url = Mage::getSingleton('core/url')->parseUrl($currentUrl);
+// $path = $url->getPath();?>									<div class="cssMenu-vertical">
+    <!--<div class="row menu-container" style="margin-top: 12px;">
+        <div class="col-lg-1 col-md-1 "></div>
+        <div class="col-lg-3 col-md-3 ">
+            <?php 
+            trim($path);
+            $url= Mage::getBaseUrl().'books.html';
+            trim($url);
+            trim($currentUrl);
+         
+            if($currentUrl == $url){
+                
+                 
+            $src = Mage::getBaseUrl('media')."sm/icon-books-active.png";
+            }  else {
+                
+            
+            $src = Mage::getBaseUrl('media')."sm/icon-books-off.png";
+            }
+            ?>
+            <div class="menu_books">
+            <a href="<?php echo $url;?>">
+      <img src="<?php echo Mage::getBaseUrl('media')."sm/icon-books-off.png"; ?>" class="menu_img menu_books_logo menu_books_logo_off"  id="menu_books_logo_off" style="display:block">
+            <img src="<?php echo Mage::getBaseUrl('media')."sm/icon-books-active.png"; ?>" class="menu_img menu_books_logo menu_books_logo_active" id="menu_books_logo_active"  style="display:none">
+            <img src="<?php echo Mage::getBaseUrl('media')."sm/icon-books-hover.png"; ?>" class="menu_img menu_books_logo menu_books_logo_hover"  id="menu_books_logo_hover"style="display:none">
+            </a> </div> </div>
+        <div class="col-lg-3 col-md-3 ">
+            
+            <?php 
+            trim($path);
+            $url= Mage::getBaseUrl().'music.html';
+            trim($url);
+            trim($currentUrl);
+         
+            if($currentUrl == $url){
+                
+                 
+            $src =Mage::getBaseUrl('media')."sm/icon-music-active.png";
+            }  else {
+                
+            
+            $src = Mage::getBaseUrl('media')."sm/icon-music-off.png";
+            }
+            ?>
+             <div class="menu_music">
+            <a href="<?php echo $url;?>"> 
+<img src="<?php echo Mage::getBaseUrl('media')."sm/icon-music-off.png"; ?>" class="menu_img menu_music_logo menu_music_logo_off" id="menu_music_logo_off" style="display: block;">
+<img src="<?php echo Mage::getBaseUrl('media')."sm/icon-music-hover.png"; ?>" class="menu_img menu_music_logo menu_music_logo_hover"  id="menu_music_logo_hover" style="display: none;"> 
+<img src="<?php echo Mage::getBaseUrl('media')."sm/icon-music-active.png"; ?>" class="menu_img menu_music_logo menu_music_logo_active" id="menu_music_logo_active" style="display: none;"> 
+            </a> </div> </div>
+        <div class="col-lg-3 col-md-3 ">
+            
+              <?php 
+            trim($path);
+            $url= Mage::getBaseUrl().'film.html';
+            trim($url);
+            trim($currentUrl);
+         
+            if($currentUrl == $url){
+                
+                 
+            $src =Mage::getBaseUrl('media')."sm/icon-film-active.png";
+            }  else {
+                
+            
+            $src = Mage::getBaseUrl('media')."sm/icon-film-off.png";
+            }
+            ?>
+               <div class="menu_film">
+            <a href="<?php echo $url;?>"> 
+<img src="<?php echo Mage::getBaseUrl('media')."sm/icon-film-off.png"; ?>" class="menu_img menu_film_logo menu_film_logo_off" id="menu_film_logo_off" style="display: block;">
+<img src="<?php echo Mage::getBaseUrl('media')."sm/icon-film-hover.png"; ?>" class="menu_img menu_film_logo menu_film_logo_hover" id="menu_film_logo_hover" style="display: none;">
+<img src="<?php echo Mage::getBaseUrl('media')."sm/icon-film-active.png"; ?>" class="menu_img menu_film_logo menu_film_logo_active" id="menu_film_logo_active" style="display: none;">
+            </a> </div> </div>
+         <div class="col-lg-1 col-md-1 "></div>
+                                                                                
+                                                                                
+    </div>-->
     <div style="color:black; display: none; margin-top:-8px;" class="book_subcategory menu_subcategory ">
         <?php
         $cat = Mage::getModel('catalog/category')->load('128');
