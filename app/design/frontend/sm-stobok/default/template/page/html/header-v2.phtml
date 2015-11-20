@@ -578,14 +578,14 @@ else{
     
     jQuery(document).ready(function(){
         
-         if(jQuery('.header-v2 .btn-menu-destop i').hasClass('fa-angle-down')){
+        /* if(jQuery('.header-v2 .btn-menu-destop i').hasClass('fa-angle-down')){
 			jQuery('.header-v2 .btn-menu-destop i').removeClass('fa-angle-down');
 			jQuery('.header-v2 .btn-menu-destop i').addClass('fa-angle-up');
 		} else {
 			jQuery('.header-v2 .btn-menu-destop i').removeClass('fa-angle-up');
 			jQuery('.header-v2 .btn-menu-destop i').addClass('fa-angle-down');
 		}
-		jQuery(".header-v2 .yt-menu-wrap-vertical-destop").slideToggle("fast");
+		jQuery(".header-v2 .yt-menu-wrap-vertical-destop").slideToggle("fast");*/
                 
                 
                 
@@ -600,6 +600,32 @@ else{
          console.log(books_url);
          console.log(music_url);
          console.log(film_url);
+         if((url.indexOf(books_url) > -1) || (url.indexOf(music_url) > -1)  || (url.indexOf(film_url) > -1)){
+        
+        if(jQuery('.header-v2 .btn-menu-destop i').hasClass('fa-angle-down')){
+			jQuery('.header-v2 .btn-menu-destop i').removeClass('fa-angle-down');
+			jQuery('.header-v2 .btn-menu-destop i').addClass('fa-angle-up');
+		} else {
+			jQuery('.header-v2 .btn-menu-destop i').removeClass('fa-angle-up');
+			jQuery('.header-v2 .btn-menu-destop i').addClass('fa-angle-down');
+		}
+		jQuery(".header-v2 .yt-menu-wrap-vertical-destop").slideToggle("fast");    
+         
+    
+    }
+    else{
+        jQuery('.header-v2 .btn-menu-destop').click(function(){
+		if(jQuery('.header-v2 .btn-menu-destop i').hasClass('fa-angle-down')){
+			jQuery('.header-v2 .btn-menu-destop i').removeClass('fa-angle-down');
+			jQuery('.header-v2 .btn-menu-destop i').addClass('fa-angle-up');
+		} else {
+			jQuery('.header-v2 .btn-menu-destop i').removeClass('fa-angle-up');
+			jQuery('.header-v2 .btn-menu-destop i').addClass('fa-angle-down');
+		}
+		jQuery(".header-v2 .yt-menu-wrap-vertical-destop").slideToggle("fast");
+	});
+        
+    }
       if(url.indexOf(books_url) > -1){
           
   
