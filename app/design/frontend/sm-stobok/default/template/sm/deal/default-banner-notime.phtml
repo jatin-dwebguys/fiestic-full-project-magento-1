@@ -10,7 +10,7 @@
 <?php 
 $list = $this->_getProducts();
 $helper = Mage::helper('deal/data');
-if (!empty($list)) {
+//if (!empty($list)) {
 	$uniqued = 'sm_deal_' . time() . rand();
 	
 	$class_suffix = $this->_getConfig('class_suffix', '');
@@ -46,11 +46,11 @@ if (!empty($list)) {
 		<?php endif; ?>
 		<div class="deal-wrapper block <?php echo $class_slide; ?>">
 			<div class="deal-wrapper-inner">
-			<?php if( $this->_getConfig('deal_title_text') ){ ?>
+			<!--<?php// if( $this->_getConfig('deal_title_text') ){ ?>-->
 				<div class="block-title">
-					<span><?php echo $this->_getConfig('deal_title_text','Deal Title'); ?></span>
+					<span><?php echo 'FEATURED PRODUCTS'; ?></span>
 				</div>
-			<?php } ?>
+			<!--<?php //} ?>-->
 
 
 			<div id="<?php echo $uniqued; ?>" class="sm-deal-wrap">
@@ -68,125 +68,103 @@ if (!empty($list)) {
 							<?php 
 							$j = 0;
 							$_limit = (int)$this->_getConfig('product_limitation', 5);
-							foreach ($list as $_product) {
-							$specialprice = $_product->getData('special_price');
-							$specialPriceFromDate = $_product->getData('special_from_date');
-							$specialPriceToDate = $_product->getData('special_to_date');
-							$today =  time();
-							
-							if ($specialprice && $specialPriceFromDate && $specialPriceToDate){
-								if( $today >= strtotime( $specialPriceFromDate) && $today <= strtotime($specialPriceToDate) || $today >= strtotime( $specialPriceFromDate) && is_null($specialPriceToDate) ){ 
-								$j++;
-								if( $j <= $_limit ){
-								?>			
-								<div class="item item-deal respl-item">
+							for($i=0; $i<5; $i++){
+//foreach ($list as $_product) {
+                                                             ?>
+                                                    
+                                                    <div class="owl-item active" style="width: 285.5px; margin-right: 0px;"><div class="item item-deal respl-item">
 									<div class="item-inner">
 										
-										<?php if ( $_product->_image && $this->_getConfig('product_image_display') ) { ?>
-											<div class="w-image-box">
+																					<div class="w-image-box">
 												<div class="image-w">
 													<div class="item-image">
-														<a href="<?php echo $_product->link ?>" title="<?php echo $_product->title; ?>" <?php echo $helper->parseTarget($this->_getConfig('product_links_target'));?>>
-															<img src="<?php echo $_product->_image; ?>" title="<?php echo $_product->title; ?>" alt="<?php echo $_product->title; ?>" >
+														<a href="http://127.0.0.1/fiestic2/index.php/kera-more-poza.html" title="Kera more poza ">
+															<img src="http://127.0.0.1/fiestic2/media/catalog/product/cache/1/thumbnail/255x392/9df78eab33525d08d6e5fb8d27136e95/1/3/13_1_1.jpg" title="Kera more poza " alt="Kera more poza ">
 														</a>
 													</div>
 				
 												</div>
 
 											</div>
-										<?php } ?>
-										
+																				
 										<div class="item-info">
 										
 											
-											<?php if( (int)$this->_getConfig('product_title_display',1) ) { ?>
-												<div class="item-title">
-													<a href="<?php echo $_product->link;?>" title="<?php echo $_product->title; ?>"
-														<?php echo $helper->parseTarget($this->_getConfig('product_links_target'));?>
-														>
-														<?php echo $helper->truncate($_product->title,$this->_getConfig('product_title_maxlength'));?>
-													</a>
+																							<div class="item-title">
+													<a href="http://127.0.0.1/fiestic2/index.php/kera-more-poza.html" title="Kera more poza ">
+														Kera more poza 													</a>
 												</div>
-											<?php } ?>		
+													
 
 							
 										
-											<?php if ( (int)$this->_getConfig('product_reviews_count', 1) ) { ?>
-												<div class="item-review">
-													<?php echo $this->getReviewsSummaryHtml($_product, 'short', true); ?>
+																							<div class="item-review">
+													    <div class="ratings">
+        			            <div class="rating-box">
+                <div class="rating" style="width:87%"></div>
+            </div>
+                <span class="amount"><a href="#" onclick="var t = opener ? opener.window : window; t.location.href='http://127.0.0.1/fiestic2/index.php/review/product/list/id/909/'; return false;">2 Review(s)</a></span>
+    </div>
 												</div>
-											<?php } ?>
-											
-											<?php if ( (int)$this->_getConfig('product_description_display', 1) ) { ?>
-												<div class="des-content">
-													<?php echo $_product->_description; ?>
-												</div>
-											<?php } ?>											
+																						
+																							<div class="des-content">
+													Fusce porttitor at ante eu egestas. Morbi vulputate diam at nibh imperdiet pretium. Nulla euismod, ...												</div>
+																						
 
-											<?php if ((int)$this->_getConfig('product_price_display', 1) || (int)$this->_getConfig('product_addcart_display', 1)) { ?>
-												<div class="item-price">
-													<?php if ((int)$this->_getConfig('product_price_display', 1)) { ?>
-														<?php echo $this->getPriceHtml($_product, true); ?>
-													<?php } ?>
-											
+																							<div class="item-price">
+																											
+
+                        
+    <div class="price-box">
+                                            
+                    <p class="old-price">
+                <span class="price-label">Regular Price:</span>
+                <span class="price">
+                    $565.00                </span>
+            </p>
+
+                            <p class="special-price">
+                    <span class="price-label">Special Price</span>
+                <span class="price">
+                    $0.00                </span>
+                </p>
+                    
+    
+        </div>
+
+																								
 												</div>
-											<?php } ?>
-											
-											<?php if ((int)$this->_getConfig('product_addcompare_display', 1) || (int)$this->_getConfig('product_addwishlist_display', 1) || (int)$this->_getConfig('product_addcart_display', 1)) { ?>
-												<div class="item-action">
+																						
+																							<div class="item-action">
 													
-													<?php if ((int)$this->_getConfig('product_addcart_display', 1)) : ?>
-														<?php if ($_product->isSaleable()): ?>
-														<button type="button" title="<?php echo $this->__('Buy') ?>"
-																					class="btn-pd btn-cart"
-																					onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')">
-																				<span><span><?php echo $this->__('Buy') ?></span></span>
+																																									<button type="button" title="Buy" class="btn-pd btn-cart" onclick="setLocation('http://127.0.0.1/fiestic2/index.php/checkout/cart/add/uenc/aHR0cDovLzEyNy4wLjAuMS9maWVzdGljMi8,/product/909/form_key/jv9r9Cx6FpHCxrdu/')">
+																				<span><span>Buy</span></span>
 														</button>
-														<?php else: ?>
-														<p class="availability out-of-stock">
-															<span><?php echo $this->__('Out of stock') ?></span>
-														</p>
-														<?php endif;
-													endif; ?>
-
-													<?php if ($this->helper('wishlist')->isAllow() && (int)$this->_getConfig('product_addwishlist_display', 1)) : ?>
-														<a data-toggle="tooltip" data-placement="top" title="<?php echo $this->__('Add to Wishlist') ?>" href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>"  class="btn-pd item-wishlist">
-															<span><?php echo $this->__('Add to Wishlist') ?></span>
+														
+																											<a data-toggle="tooltip" data-placement="top" title="" href="http://127.0.0.1/fiestic2/index.php/wishlist/index/add/product/909/form_key/jv9r9Cx6FpHCxrdu/" class="btn-pd item-wishlist" data-original-title="Add to Wishlist">
+															<span>Add to Wishlist</span>
 														</a>
-													<?php endif; ?>
-
-													<?php if ((int)$this->_getConfig('product_addcompare_display', 1)) {?>
-
-														<?php if ($_compareUrl = $this->getAddToCompareUrl($_product) && (int)$this->_getConfig('product_addcompare_display', 1)): ?>
-															<a data-toggle="tooltip" data-placement="top" title="<?php echo $this->__('Add to Compare') ?>" href="<?php echo $this->getAddToCompareUrl($_product) ?>" class="btn-pd item-compare">
-																<span><?php echo $this->__('Add to Compare') ?></span>
+													
+													
+																													<a data-toggle="tooltip" data-placement="top" title="" href="http://127.0.0.1/fiestic2/index.php/catalog/product_compare/add/product/909/uenc/aHR0cDovLzEyNy4wLjAuMS9maWVzdGljMi8,/form_key/jv9r9Cx6FpHCxrdu/" class="btn-pd item-compare" data-original-title="Add to Compare">
+																<span>Add to Compare</span>
 															</a>
-														<?php endif; ?>
-																	
-													<?php } ?>												
+																															
+																									
 												</div>
-											<?php } ?>
-
-											<?php if ($this->_getConfig('product_readmore_display') == 1) { ?>
-												<div class="deal-detail">
-													<a href="<?php echo $_product->link ?>"
-														title="<?php echo $_product->title; ?>"
-														<?php echo $helper->parseTarget($this->_getConfig('product_links_target'));?>
-														>
-														<?php echo $this->_getConfig('product_readmore_text','Details'); ?>
-													</a>
-												</div>
-											<?php } ?>
-										</div> 
-										<a style="display:none;" href="<?php echo $_product->link;?>" title="<?php echo $_product->title; ?>" > </a>
+											
+																					</div> 
+										<a style="display:none;" href="http://127.0.0.1/fiestic2/index.php/kera-more-poza.html" title="Kera more poza "> </a>
 
 
 										
-									</div>
-								</div>
-
-								<?php }}} ?>
-							<?php } ?>
+									<a class="btn-pd sm_quickview_handler" data-toggle="tooltip" data-placement="top" title="" href="http://127.0.0.1/fiestic2/index.php/quickview/index/view/path/kera-more-poza.html" data-original-title="Quick View"><span>Quick View</span></a></div>
+								</div></div>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                            <?php } ?>
 						</div>
 						</div>
 					</div>
@@ -240,4 +218,4 @@ if (!empty($list)) {
 	<div class="deal-posttext"><?php echo $this->_getConfig('posttext'); ?></div>
 <?php } ?>
 	
-<?php } else { echo $this->__('Has no content to show!'); }; ?>
+<!--<?php// } else { echo $this->__('Has no content to show!'); }; ?>-->
