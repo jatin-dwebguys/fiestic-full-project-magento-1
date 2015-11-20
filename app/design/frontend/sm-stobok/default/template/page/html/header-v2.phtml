@@ -51,7 +51,12 @@
             $src = Mage::getBaseUrl('media')."sm/icon-books-off.png";
             }
             ?>
-            <a href="<?php echo $url;?>"><img src="<?php echo $src; ?>" class="menu_img menu_books_logo"></a></div>
+            <div class="menu_books">
+            <a href="<?php echo $url;?>">
+      <img src="<?php echo Mage::getBaseUrl('media')."sm/icon-books-off.png"; ?>" class="menu_img menu_books_logo menu_books_logo_off"  id="menu_books_logo_off" style="display:block">
+            <img src="<?php echo Mage::getBaseUrl('media')."sm/icon-books-active.png"; ?>" class="menu_img menu_books_logo menu_books_logo_active" id="menu_books_logo_active"  style="display:none">
+            <img src="<?php echo Mage::getBaseUrl('media')."sm/icon-books-hover.png"; ?>" class="menu_img menu_books_logo menu_books_logo_hover"  id="menu_books_logo_hover"style="display:none">
+            </a> </div> </div>
         <div class="col-lg-3 col-md-3 ">
             
             <?php 
@@ -70,8 +75,12 @@
             $src = Mage::getBaseUrl('media')."sm/icon-music-off.png";
             }
             ?>
-            
-            <a href="<?php echo $url;?>"> <img src="<?php echo $src; ?>" class="menu_img menu_music_logo"> </a></div>
+             <div class="menu_music">
+            <a href="<?php echo $url;?>"> 
+<img src="<?php echo Mage::getBaseUrl('media')."sm/icon-music-off.png"; ?>" class="menu_img menu_music_logo menu_music_logo_off" id="menu_music_logo_off" style="display: block;">
+<img src="<?php echo Mage::getBaseUrl('media')."sm/icon-music-hover.png"; ?>" class="menu_img menu_music_logo menu_music_logo_hover"  id="menu_music_logo_hover" style="display: none;"> 
+<img src="<?php echo Mage::getBaseUrl('media')."sm/icon-music-active.png"; ?>" class="menu_img menu_music_logo menu_music_logo_active" id="menu_music_logo_active" style="display: none;"> 
+            </a> </div> </div>
         <div class="col-lg-3 col-md-3 ">
             
               <?php 
@@ -90,8 +99,12 @@
             $src = Mage::getBaseUrl('media')."sm/icon-film-off.png";
             }
             ?>
-            
-            <a href="<?php echo $url;?>">  <img src="<?php echo $src; ?>" class="menu_img menu_film_logo"></a></div>
+               <div class="menu_film">
+            <a href="<?php echo $url;?>"> 
+<img src="<?php echo Mage::getBaseUrl('media')."sm/icon-film-off.png"; ?>" class="menu_img menu_film_logo menu_film_logo_off" id="menu_film_logo_off" style="display: block;">
+<img src="<?php echo Mage::getBaseUrl('media')."sm/icon-film-hover.png"; ?>" class="menu_img menu_film_logo menu_film_logo_hover" id="menu_film_logo_hover" style="display: none;">
+<img src="<?php echo Mage::getBaseUrl('media')."sm/icon-film-active.png"; ?>" class="menu_img menu_film_logo menu_film_logo_active" id="menu_film_logo_active" style="display: none;">
+            </a> </div> </div>
          <div class="col-lg-1 col-md-1 "></div>
                                                                                 
                                                                                 
@@ -120,7 +133,7 @@ echo "</ul>";
         ?>
         </div>
     
-    <div style="color:black; display:none; margin-top: -6px;" class="music_subcategory menu_subcategory ">
+    <div style="color:black; display:none; margin-top: -8px;" class="music_subcategory menu_subcategory ">
         <?php
         $cat = Mage::getModel('catalog/category')->load('129');
         
@@ -143,7 +156,7 @@ echo "</ul>";
     
         ?>
         </div>
-    <div style="color:black; display: none;" class="film_subcategory menu_subcategory ">
+    <div style="color:black; display: none; margin-top: 8px;" class="film_subcategory menu_subcategory ">
         <?php
         $cat = Mage::getModel('catalog/category')->load('130');
         
@@ -438,7 +451,7 @@ jQuery('.film_subcategory').hover(
 */
 //--------------ENDS------------------------>>
 
-jQuery(document).ready(function(){
+/*jQuery(document).ready(function(){
     
     if(jQuery('.header-v2 .btn-menu-destop i').hasClass('fa-angle-down')){
 			jQuery('.header-v2 .btn-menu-destop i').removeClass('fa-angle-down');
@@ -560,5 +573,206 @@ else{
       
       
     
-});
+});*/
+    
+    
+    jQuery(document).ready(function(){
+        
+         if(jQuery('.header-v2 .btn-menu-destop i').hasClass('fa-angle-down')){
+			jQuery('.header-v2 .btn-menu-destop i').removeClass('fa-angle-down');
+			jQuery('.header-v2 .btn-menu-destop i').addClass('fa-angle-up');
+		} else {
+			jQuery('.header-v2 .btn-menu-destop i').removeClass('fa-angle-up');
+			jQuery('.header-v2 .btn-menu-destop i').addClass('fa-angle-down');
+		}
+		jQuery(".header-v2 .yt-menu-wrap-vertical-destop").slideToggle("fast");
+                
+                
+                
+                
+                
+    //----------------Categry page link active------------->>>>
+       var url      = window.location.href;  
+       console.log(url);
+       var books_url = '<?php echo Mage::getBaseUrl(); ?>books'
+        var music_url = '<?php echo Mage::getBaseUrl(); ?>music'
+         var film_url = '<?php echo Mage::getBaseUrl(); ?>film'
+         console.log(books_url);
+         console.log(music_url);
+         console.log(film_url);
+      if(url.indexOf(books_url) > -1){
+          
+  
+     jQuery('.menu_books_logo_off').css("display","none");
+     jQuery('.menu_books_logo_active').css("display","block");
+     
+        jQuery('.book_subcategory').css("display","block");
+
+}
+
+ else if(url.indexOf(music_url) > -1){
+ 
+    jQuery('.menu_music_logo_off').css("display","none");
+     jQuery('.menu_music_logo_active').css("display","block");
+        jQuery('.music_subcategory').css("display","block");
+}
+
+ else if(url.indexOf(film_url) > -1){
+ 
+  jQuery('.menu_film_logo_off').css("display","none");
+     jQuery('.menu_film_logo_active').css("display","block");
+        jQuery('.film_subcategory').css("display","block");
+ 
+}
+else{
+
+        
+        
+        jQuery('.menu_books_logo_off').css("display","none");
+     jQuery('.menu_books_logo_active').css("display","block");
+        jQuery('.book_subcategory').css("display","block");
+      
+      }
+    //-------------------END------------------------------>>>>
+        
+        
+        
+        //-------------HOVER---------------------->>
+        var prev_id;
+         jQuery(".menu_books").hover(function(){
+          
+          
+           jQuery('.menu_books_logo').each(function(){
+              var css= jQuery(this).css('display');
+             if(css == 'block'){
+                  prev_id=jQuery(this).attr('id');
+            
+             }      
+    });  
+     jQuery('#menu_books_logo_off').css("display","none");
+     jQuery('#menu_books_logo_active').css("display","none");
+     jQuery('#menu_books_logo_hover').css("display","block");
+        
+    }, function(){
+       // console.log(prev_id);
+        
+         jQuery('.menu_books_logo').each(function(){
+            var id= jQuery(this).attr('id');
+            if(id == prev_id){
+                jQuery(this).css('display','block');
+                //console.log('a');
+            }
+            else{
+                 jQuery(this).css('display','none');
+            }
+             
+         });
+                     
+            });
+            
+            
+            
+            
+            
+             jQuery(".menu_music").hover(function(){
+          
+          
+           jQuery('.menu_music_logo').each(function(){
+              var css= jQuery(this).css('display');
+             if(css == 'block'){
+                  prev_id=jQuery(this).attr('id');
+                 // console.log(prev_id);
+                    
+     
+                 
+             }      
+    });  
+     jQuery('#menu_music_logo_off').css("display","none");
+     jQuery('#menu_music_logo_active').css("display","none");
+     jQuery('#menu_music_logo_hover').css("display","block");
+        
+    }, function(){
+       // console.log(prev_id);
+        
+         jQuery('.menu_music_logo').each(function(){
+            var id= jQuery(this).attr('id');
+            if(id == prev_id){
+                jQuery(this).css('display','block');
+                //console.log('a');
+            }
+            else{
+                 jQuery(this).css('display','none');
+            }
+             
+         });
+                     
+            });
+            
+            
+            
+            
+            
+            
+            
+            
+             jQuery(".menu_film").hover(function(){
+          
+          
+           jQuery('.menu_film_logo').each(function(){
+              var css= jQuery(this).css('display');
+             if(css == 'block'){
+                  prev_id=jQuery(this).attr('id');
+                 // console.log(prev_id);
+                    
+     
+                 
+             }      
+    });  
+     jQuery('#menu_film_logo_off').css("display","none");
+     jQuery('#menu_film_logo_active').css("display","none");
+     jQuery('#menu_film_logo_hover').css("display","block");
+        
+    }, function(){
+       // console.log(prev_id);
+        
+         jQuery('.menu_film_logo').each(function(){
+            var id= jQuery(this).attr('id');
+            if(id == prev_id){
+                jQuery(this).css('display','block');
+                //console.log('a');
+            }
+            else{
+                 jQuery(this).css('display','none');
+            }
+             
+         });
+                     
+            });
+            
+            
+            
+            
+      /*   jQuery(".menu_books").click(function(){
+             jQuery(".book_subcategory").css('display','block');
+              jQuery(".music_subcategory").css('display','none');
+               jQuery(".film_subcategory").css('display','none');
+               
+               jQuery('#menu_books_logo_active').css('display' , 'block');
+                jQuery('#menu_books_logo_hover').css('display' , 'none');
+                 jQuery('#menu_books_logo_off').css('display' , 'none');
+   
+});   */
+            
+            
+            
+            
+            
+            
+            
+            
+        
+       
+        
+        //--------------------------ENDS----------->>
+    });
 </script>
