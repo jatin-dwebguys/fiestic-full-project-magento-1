@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------*/
 $list = $this->_getProducts();
 $helper = Mage::helper('basicproducts/data');
-if (!empty($list)) {
+//if (!empty($list)) {
     $uniqued = 'sm_basic_products_' . time() . rand();
 	
 	$nb_column1 = $this->_getConfig('nb_column1', 6);
@@ -193,6 +193,6 @@ if (!empty($list)) {
 
 
 <?php
-} else {
-    echo 'Has no content to show!';
-}?>
+//} else {
+  //  echo 'Has no content to show!';
+//}?>
