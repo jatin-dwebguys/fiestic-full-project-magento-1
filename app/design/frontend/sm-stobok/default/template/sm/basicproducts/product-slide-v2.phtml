@@ -6,6 +6,19 @@
  # Author: YouTech Company
  # Websites: http://www.magentech.com
 -------------------------------------------------------------------------*/
+$p_images=array();
+$p_name=array();
+$p_name[]= 'CORI MIREN MASE';
+$p_name[]= 'KAZE DAMA PISA';
+$p_name[]= 'NURE MAS MIRE';
+$p_name[]= 'KERA MORA POZA';
+$p_name[]= 'KAZE DAMA PISA';
+$p_images[]=Mage::getBaseUrl('media').'sm/cori_miren_mase.png';
+$p_images[]=Mage::getBaseUrl('media').'sm/kaze_dama_pisa.png';
+$p_images[]=Mage::getBaseUrl('media').'sm/nure_mass_mira.png';
+$p_images[]=Mage::getBaseUrl('media').'sm/kera_more_poza.png';
+$p_images[]=Mage::getBaseUrl('media').'sm/kaze_dama_pisa.png';
+
 $list = $this->_getProducts();
 $helper = Mage::helper('basicproducts/data');
 //if (!empty($list)) {
@@ -76,8 +89,8 @@ $helper = Mage::helper('basicproducts/data');
 											<div class="w-image-box">
 							<div class="image-w">
 								<div class="item-image">
-									<a href="http://127.0.0.1/fiestic2/index.php/cori-miren-masem.html" title="Cori miren mase">
-										<img src="http://127.0.0.1/fiestic2/media/catalog/product/resized/128x197/27aae3a567691a4df1106d8229e40130/15_1.jpg" title="Cori miren mase" alt="Cori miren mase">
+									<a href="#" title="Cori miren mase">
+										<img src="<?php echo $p_images[$y];?>" title="Cori miren mase" alt="Cori miren mase">
 									</a>
 								</div>
 							</div>
@@ -89,7 +102,7 @@ $helper = Mage::helper('basicproducts/data');
 						
 													<div class="item-title">
 								<a href="http://127.0.0.1/fiestic2/index.php/cori-miren-masem.html" title="Cori miren mase">
-									Cori miren mase								</a>
+									<?php echo $p_name[$y]; ?>							</a>
 							</div>
 								
 

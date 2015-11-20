@@ -8,6 +8,17 @@
 -------------------------------------------------------------------------*/?>
 
 <?php 
+
+$p_images=array();
+$p_images[]=Mage::getBaseUrl('media').'sm/carnival_de_paris.png';
+$p_images[]=Mage::getBaseUrl('media').'sm/shutterstock.png';
+$p_images[]=Mage::getBaseUrl('media').'sm/carnival_de_paris.png';
+$p_images[]=Mage::getBaseUrl('media').'sm/shutterstock.png';
+$p_images[]=Mage::getBaseUrl('media').'sm/carnival_de_paris.png';
+
+
+
+
 $list = $this->_getProducts();
 $helper = Mage::helper('deal/data');
 //if (!empty($list)) {
@@ -78,8 +89,8 @@ $helper = Mage::helper('deal/data');
 																					<div class="w-image-box">
 												<div class="image-w">
 													<div class="item-image">
-														<a href="http://127.0.0.1/fiestic2/index.php/kera-more-poza.html" title="Kera more poza ">
-															<img src="http://127.0.0.1/fiestic2/media/catalog/product/cache/1/thumbnail/255x392/9df78eab33525d08d6e5fb8d27136e95/1/3/13_1_1.jpg" title="Kera more poza " alt="Kera more poza ">
+														<a href="#" title="Kera more poza ">
+															<img src="<?php echo $p_images[$i]; ?>" title="Kera more poza " alt="Kera more poza ">
 														</a>
 													</div>
 				
