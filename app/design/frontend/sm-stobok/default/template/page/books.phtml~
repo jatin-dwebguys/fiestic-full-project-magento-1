@@ -1,0 +1,8 @@
+<?php 
+
+echo  $this->getLayout()
+                 ->createBlock("core/template")
+                 ->setTemplate("sm/basicproducts/product-slide-v2.phtml")
+                 ->toHtml(); 
+
+?>
