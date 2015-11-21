@@ -118,6 +118,29 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         //echo "<pre>"; print_r($ingramSearch); die;
 
     }
+    
+     public function getCategoryDataBestSeller($category_name,$parent_category,$page = 1,$sort = 'DE|1') {
+        $page--;
+        $start = $page * 23 + 1;
+        $end = ($page + 1) * 23 + 1;
+
+        if($parent_category == 'Music' || $category_name == 'Music'){
+            $ingramSearch = $this->getApiData('KW='.$category_name,2,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
+        }else if($type == 'Film' || $category_name == 'Film'){
+            $category_name = str_replace(" ", "", $category_name);
+            $category_name = preg_replace('/[^a-zA-Z0-9\']/', '|', $category_name);
+            $ingramSearch = $this->getApiData('BSU='.$category_name.' and BND=DVD ',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
+        }else{
+            $category_name = str_replace(" ", "", $category_name);
+            $category_name = preg_replace('/[^a-zA-Z0-9\']/', '|', $category_name);
+            $ingramSearch = $this->getApiData('BSU='.$category_name.' and BND<>DVD ',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
+        }
+
+
+        Mage::register('ingram_category_best_seller', $ingramSearch);
+        //echo "<pre>"; print_r($ingramSearch); die;
+
+    }
 
 
 }
