@@ -1,3 +1,50 @@
+<script>
+    jQuery(document).ready(function () {
+        console.log('asd');
+        var unique_codes=[];
+        var image_path=[];
+        var i="0";
+       jQuery('.unique_code').each(function(){
+           unique_codes[i] = jQuery(this).val();
+        image_path[i] = jQuery(this).next('img').attr('src');
+        i++;
+      // array[unique_code]=img_related;
+       // console.log(jQuery(this).val())
+    });
+    
+     //console.log(unique_codes);
+    //console.log(image_path);
+   var codes=unique_codes.join(",");
+   var paths =image_path.join(",");
+  // console.log(codes);
+    //console.log(paths);
+    
+    
+     new Ajax.Request("<?php
+    if (@$_SERVER['HTTPS'] == on) {
+        echo Mage::getUrl('product/index/downloadimages', array('_secure' => true));
+    } else {
+        echo Mage::getUrl('product/index/downloadimages');
+    }
+    ?>", {
+                method: 'post'
+                , parameters: {
+                    codes: codes,
+                    paths: paths,
+                    total:i,
+                   // ddate: ddate,
+                   // dtype: jQuery("input[name='shipping_method']:checked").val(),
+                }   
+                , requestHeaders: {Accept: 'application/json'},
+                onSuccess: function(transport) {
+                  console.log('success'); 
+                }
+            });
+        
+	//console.log(array);	
+	});
+    </script>
+
 <?php
 /**
  * Magento
@@ -68,51 +115,7 @@
 
 <?php else: ?>
 
-<script>
-    jQuery(document).ready(function () {
-        var unique_codes=[];
-        var image_path=[];
-        var i="0";
-       jQuery('.unique_code').each(function(){
-           unique_codes[i] = jQuery(this).val();
-        image_path[i] = jQuery(this).next('img').attr('src');
-        i++;
-      // array[unique_code]=img_related;
-       // console.log(jQuery(this).val())
-    });
-    
-     //console.log(unique_codes);
-    //console.log(image_path);
-   var codes=unique_codes.join(",");
-   var paths =image_path.join(",");
-  // console.log(codes);
-    //console.log(paths);
-    
-    
-     new Ajax.Request("<?php
-    if (@$_SERVER['HTTPS'] == on) {
-        echo Mage::getUrl('product/index/downloadimages', array('_secure' => true));
-    } else {
-        echo Mage::getUrl('product/index/downloadimages');
-    }
-    ?>", {
-                method: 'post'
-                , parameters: {
-                    codes: codes,
-                    paths: paths,
-                    total:i,
-                   // ddate: ddate,
-                   // dtype: jQuery("input[name='shipping_method']:checked").val(),
-                }   
-                , requestHeaders: {Accept: 'application/json'},
-                onSuccess: function(transport) {
-                  console.log('success'); 
-                }
-            });
-        
-	//console.log(array);	
-	});
-    </script>
+
     <?php echo $this->getProductListHtml() ?>
 <?php endif; ?>
 
