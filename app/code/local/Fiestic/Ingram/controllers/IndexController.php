@@ -75,36 +75,34 @@ class Fiestic_Ingram_IndexController extends Mage_Core_Controller_Front_Action {
         $path = $this->getRequest()->getParam('paths');
         $total = $this->getRequest()->getParam('total');
 
-        $codes_exploded = explode(',', $codes);
-        $paths_exploded = explode(',', $path);
+        
         $date = date('mY');
         //  print_r($paths_exploded);
 
 
-        for ($i = 0; $i < $total; $i++) {
-            $dirpath = Mage::getBaseDir('base') . "/media/server/ean/" . $date. '/' . $codes_exploded[$i];
+            $dirpath = Mage::getBaseDir('base') . "/media/server/ean/" . $date. '/' . $codes;
             if (file_exists($dirpath)) {
                 $imgUrl = $dirpath .'/'. 'cache.png';
                 if (file_exists($imgUrl)) {
                     
                 } else {
-                    $image_data = $paths_exploded[$i];
+                    $image_data = $path;
                     $contents = file_get_contents($image_data);
                     $download_image = file_put_contents($imgUrl, $contents);
                 }
             } else {
                 
-                $dirpath = Mage::getBaseDir('base') . "/media/server/ean/" . $date. '/' . $codes_exploded[$i];
+                $dirpath = Mage::getBaseDir('base') . "/media/server/ean/" . $date. '/' . $codes;
                 if(!mkdir($dirpath . '/'. $date,0755,true)){
                     echo 'Unable to make folder '.$dirpath.'<br/>';
                 }else{
                     $imgUrl = $dirpath . '/'. $date .'/cache.png';
-                    $image_data = $paths_exploded[$i];
+                    $image_data = $path;
                     $contents = file_get_contents($image_data);
                     $download_image = file_put_contents($imgUrl, $contents);
                 }
             }
-        }
+        
 
 
         return 'success';

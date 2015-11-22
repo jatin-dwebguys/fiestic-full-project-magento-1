@@ -342,8 +342,10 @@ if ( $var_yttheme->getParam('custom_css') != '' ){
 
 
 <script>
-
-	function cacheImage(codes,paths,i){
+	var pos = 0;
+	function cacheImage(codes,paths,pos){
+		if(!pos)
+			pos = 0;
 		new Ajax.Request("<?php
 	    if (@$_SERVER['HTTPS'] == on) {
 	        echo Mage::getUrl('product/index/downloadimages', array('_secure' => true));
@@ -353,18 +355,20 @@ if ( $var_yttheme->getParam('custom_css') != '' ){
 	    ?>", {
                 method: 'post'
                 , parameters: {
-                    codes: codes[i],
-                    paths: paths[i],
-                    total:i,
+                    codes: codes[pos],
+                    paths: paths[pos],
+                    total:pos,
                    // ddate: ddate,
                    // dtype: jQuery("input[name='shipping_method']:checked").val(),
                 }   
                 , requestHeaders: {Accept: 'application/json'},
                 onSuccess: function(transport) {
-                	if(i >= codes.length){
+                	console.log('done image ' + pos);
+                	if(pos >= codes.length){
 
                 	}else{
-                  		cacheImage(codes,paths,i++);
+                		pos++;
+                  		cacheImage(codes,paths,pos);
                   	}
                 }
             });
@@ -380,7 +384,7 @@ if ( $var_yttheme->getParam('custom_css') != '' ){
        	  if(jQuery(this).next('img')){
        	  	console.log(jQuery(this).next('img').attr('src').indexOf(base_url));
        	  	console.log(jQuery(this).next('img').attr('src'));
-       	  	if(jQuery(this).next('img').attr('src').indexOf(base_url) == -1){
+       	  	if(jQuery(this).next('img').attr('src').indexOf(base_url) == -1 || true){
 	            unique_codes[i] = jQuery(this).val();
 	            image_path[i] = jQuery(this).next('img').attr('src');
 	        	i++;
@@ -399,7 +403,7 @@ if ( $var_yttheme->getParam('custom_css') != '' ){
      	console.log('no image urls to cache');	
 		return;
      }else{
-	     cacheImage(unique_codes,image_path,0)
+	     cacheImage(unique_codes,image_path)
         //console.log(array);	
      }
     
