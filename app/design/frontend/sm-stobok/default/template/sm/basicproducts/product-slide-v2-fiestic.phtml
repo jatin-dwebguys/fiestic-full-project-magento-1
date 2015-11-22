@@ -9,6 +9,7 @@ $shop = Mage::getModel('ingram/shop');
  $ingram_price=array();
  $p_price=array();
  $p_href=array();
+ $uniq = array();
 
 foreach($data as $dat){
   //  echo "<pre>";
@@ -21,6 +22,7 @@ foreach($data as $dat){
     $p_price[]=$shop->getProductMRP($dat);
     $pub[] = $shop->getProductPublisher($dat);
     $desc[] = $shop->getProductShortDesc($dat);
+    $uniq[] = $shop->getProductUniq($dat);
     $i++;
     //if($i == '5')
         //break;
@@ -43,7 +45,8 @@ $helper = Mage::helper('basicproducts/data');
 						<div class="w-image-box">
 							<div class="image-w">
 								<div class="item-image">
-									<a href="#" title="<?php echo $p_names[$y]?>">
+									<a href="<?php echo $p_href[$y]?>" title="<?php echo $p_names[$y]?>">
+										<input type="hidden" name="unique_code" value="<?php echo $uniq[$y]; ?>" id="unique_code" class="unique_code"> 
 										<img src="<?php echo $p_images[$y];?>" title="<?php echo $p_names[$y]?>" alt="<?php echo $p_names[$y]?>" style=" height:162px;">
 									</a>
 								</div>

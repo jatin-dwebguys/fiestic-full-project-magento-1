@@ -97,7 +97,24 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
             return false;
         }
     }
+    public function getCategoryDataDesc($category_name,$parent_category,$page = 1,$sort = 'DE|1') {
+        $page--;
+        $start = $page * 23 + 1;
+        $end = ($page + 1) * 23 + 1;
 
+        if($parent_category == 'Music' || $category_name == 'Music'){
+            $ingramSearch = $this->getApiData('KW='.$category_name,2,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
+        }else if($parent_category == 'Film' || $category_name == 'Film'){
+            $ingramSearch = $this->getApiData('BSC='.$category_name.' and BND=DVD ',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
+        }else{
+            $ingramSearch = $this->getApiData('BSC='.$category_name.' and BND<>DVD ',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
+        }
+
+
+        Mage::register('ingram_category', $ingramSearch);
+        //echo "<pre>"; print_r($ingramSearch); die;
+
+    }
 
      public function getCategoryData($category_name,$parent_category,$page = 1,$sort = 'DE|1') {
         $page--;
@@ -230,11 +247,12 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
     public function getProductImage($_product){
         $image = false;
         $uniq = $this->getProductUniq($_product);
-        $dirpath=Mage::getBaseDir('base')."/media/server/ean/".$uniq.'/';
+        $dirpath=Mage::getBaseDir('base')."/media/server/ean/".$date.'/'.$uniq.'/';
+        $date = date('mY');
         if(file_exists($dirpath)){
-            $imgUrl=$dirpath.'img187.png';
+            $imgUrl=$dirpath.'cache.png';
              if(file_exists($imgUrl)){
-                 $image = Mage::getBaseUrl('media').'server/ean/'.$uniq.'/img187.png';
+                 $image = Mage::getBaseUrl('media').'server/ean/'.$date.'/'.$uniq.'/cache.png';
              }
         }
         if(!$image)
@@ -282,6 +300,14 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
     public function getProductDesc($_product){
         return (string)$_product->Basic->Annotation;
     }
+    public function getProductPublicationDate($_product){
+        $data = false;
+        if($_product->Basic->PubDate){
+                $date = (string) $_product->Basic->PubDate;
+                $date = substr($date, 0,2) . '-' . substr($date, 2);
+        }
+        return $date;
+    }
     public function getProductPublisher($_product){
         $pub = '';
         if($_product->Basic->RecordLabel){
@@ -291,5 +317,36 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         }
         return $pub;
     }
+    public function getProductAddToCartUrl($_product,$qty=1,$price = false){
+         $ean=$_product->Basic->EAN;
+         $isbn=$_product->Basic->ISBN;
+         $name = $this->getProductName();
+         if(!$price)
+            $price = $this->getProductPrice();
+         $image = $this->getProductImage();
+         $params='cart_product_item_id='.$ean.'&proId='.$isbn.'&cart_product_name='.$name.'&cart_product_price='.$price.'&cart_product_image='.$image;
+         $url=Mage::getBaseUrl()."product/index/addtocart?".$params; 
+         return $url;
+
+    }
+    public function isProductInStock($_product){
+        $is_in_stock = 0;
+
+        $stock = $_product->Ingram->Stock;
+      
+        $stock = json_decode(json_encode($stock),true);
+      
+        foreach($stock as $loc => $data){
+           //print_r($data);
+            
+            if($data['StockStatus'] == 'Y') {
+                $is_in_stock = 1;
+                break;
+            }
+        } 
+
+        return $is_in_stock;
+    }
+
 
 }

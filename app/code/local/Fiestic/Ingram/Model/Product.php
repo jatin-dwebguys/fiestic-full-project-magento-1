@@ -4,34 +4,26 @@ class Fiestic_Ingram_Model_Product extends Mage_Core_Model_Abstract {
 
     public function setProductData($data) {
         $product = Mage::getModel('catalog/product');
+        $shop = Mage::getModel('ingram/shop');
         foreach ($data->Book as $item) {
             //echo '<pre>'; print_r($item);
-            $product->setData('item_id', (string) $item->Basic->EAN);
-            $product->setData('product_id', (string) $item->Basic->EAN);
+            $product->setData('item_id', $shop->getProductUniq($item));
+            $product->setData('product_id', $shop->getProductUniq($item));
 
             $is_in_stock = 0;
 
-            $stock = $item->Ingram->Stock;
-            $stock = json_decode(json_encode($stock),true);
-            foreach($stock as $loc => $data){
-                if($data['StockStatus'] == 'Y') {
-                    $is_in_stock = 1;
-                    break;
-                }
-            }
+            $is_in_stock = $shop->isProductInStock($item);
             if($is_in_stock == 0){
                 $product->setData('is_salable',false);
             }
             $product->setData('is_in_stock', $is_in_stock);
             $product->setData('type_id', 'simple');
 
-            if($item->Basic->TitleLeadingArticle){
-                $product->setData('name', $item->Basic->TitleLeadingArticle . ' ' . $item->Basic->Title);
-            }else{
-                $product->setData('name', $item->Basic->Title);
-            }
+            
+            $product->setData('name', $shop->getProductTitle($item));
+            
 
-            $product->setData('entity_id', (string) $item->Basic->ISBN);
+            $product->setData('entity_id', $shop->getProductUniq($item));
             $product->setData('display_mode', 'PRODUCTS');
             if((int)$item->Ingram->IngramPrice!=(int)$item->Basic->PubListPrice){
                 $product->setData('special_price',(string) $item->Ingram->IngramPrice);
@@ -51,31 +43,21 @@ class Fiestic_Ingram_Model_Product extends Mage_Core_Model_Abstract {
             $product->setData('use_config_min_sale_qty', 1);
             $product->setData('use_config_max_sale_qty', 1);
             $product->setData('min_qty', 0.0000);
-            $product->setData('image', (string) $item->Basic->Image->IMG187);
+            $product->setData('image', (string) $shop->getProductImage($item));
             $product->setData('small_image', (string) $item->Basic->Image->IMG60);
             $product->setData('thumbnail', NULL);
             $product->setData('weight', 0.5000);
 
 
-            $product->setData('description', (string) $item->Basic->Annotation);
-            $product->setData('short_description', (string)$item->Ingram->IngramSubject);
-            $authors = '';
-            foreach ($item->Basic->Contributor as $val) {
-                if ($val->Role == 'Author') {
-                    if ($authors == '') {
-                        $authors .= $val->Name;
-                    } else {
-                        $authors .= ' - ' . $val->Name;
-                    }
-                }
-            }
+            $product->setData('description', $shop->getProductDesc($item));
+            $product->setData('short_description', $shop->getProductShortDesc($item));
+            $authors = $shop->getProductAuthor($item);
             $additional = array();
 
             $additional['Author'] = $authors;
-            if($item->Basic->PubDate){
-                $date = (string) $item->Basic->PubDate;
-                $date = substr($date, 0,2) . '-' . substr($date, 2);
-                $additional['PubDate'] = $date;
+            $pubdate = $shop->getProductPublicationDate($item);
+            if($pubdate){
+                $additional['PubDate'] = $pubdate;
             }
             $additional['Publisher'] = (string) $item->Basic->Publisher;
             $additional['Binding'] = (string) $item->Basic->Binding;

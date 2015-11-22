@@ -152,55 +152,14 @@ $_helper = $this->helper('catalog/output');
         <?php $_columnCount = $this->getColumnCount(); ?>
             <div class="products-grid row">
                 <?php $i = 0;
+                $shop = Mage::getModel('ingram/shop');
                 foreach ($_productCollection as $_product):
-                //    echo "<pre>";
-              //  print_r($_product);
-                //die;
-                    $uniq = $_product->Basic->ISBN;
-                    if(!$uniq){
-                        $uniq = $_product->Basic->EAN;
-                    }
-                    $url = Mage::getUrl('product/index/index') . 'BN/'. $uniq;
-                    if($_product->Basic->Title){
-                        $name = $_product->Basic->TitleLeadingArticle.' '.$_product->Basic->Title;
-                    }else{
-                        $name = $_product->Basic->MusicTitle;
-                    }
-                    $price = $_product->Ingram->IngramPrice;
-                   // $image = $_product->Basic->Image->IMG187;
-                    
-                    
-                    $dirpath=Mage::getBaseDir('base')."/media/server/ean/".$uniq.'/';
-                    if(file_exists($dirpath)){
-                        $imgUrl=$dirpath.'img187.gif';
-                         if(file_exists($imgUrl)){
-                             $image = Mage::getBaseUrl('media').'server/ean/'.$uniq.'/img187.gif';
-                             
-                             
-                         }
-                         else{
-                             $image = $_product->Basic->Image->IMG187;
-                           //  $contents=file_get_contents($image_data);
-                           // $download_image = file_put_contents($imgUrl, $contents);
-                             
-                         }
-                        
-                    }
-                    else
-                    {
-                         $image = $_product->Basic->Image->IMG187;
-                        //mkdir($dirpath, 0777);
-                    }
-                    $authors = '';
-                    foreach ($_product->Basic->Contributor as $val) {
-                        if ($val->Role == 'Author') {
-                            if ($authors == '') {
-                                $authors .= $val->Name;
-                            } else {
-                                $authors .= ' - ' . $val->Name;
-                            }
-                        }
-                    }
+                    $uniq = $shop->getProductUniq($_product);
+                    $url = $shop->getProductUrl($_product);
+                    $name = $shop->getProductTitle($_product);
+                    $price = $shop->getProductPrice($_product);
+                    $image = $shop->getProductImage($_product);
+                    $authors = $shop->getProductAuthor($_product);
                     ?>
                     <?php if ($i++ % $_columnCount == 0): ?>
 
@@ -256,31 +215,14 @@ $_helper = $this->helper('catalog/output');
                                 </div>
                             </div>
                              <?php
-                              $is_in_stock = 0;
-                              $stock = $_product->Ingram->Stock;
-          
-            $stock = json_decode(json_encode($stock),true);
-          
-            foreach($stock as $loc => $data){
-               // print_r($data);
-                //die;
-               // echo $data['StockStatus'];
-                if($data['StockStatus'] == 'Y') {
-                    $is_in_stock = 1;
-                    break;
-                }
-            } 
+                              $is_in_stock = $shop->isProductInStock($_product); 
             if($is_in_stock == 1)
             {
             ?>
                             
                             <div class="item-action">
                                 <?php
-                                $ean=$_product->Basic->EAN;
-                                $isbn=$_product->Basic->ISBN;
-                                        $qty='1';
-  $params='cart_product_item_id='.$ean.'&proId='.$isbn.'&cart_product_name='.$name.'&cart_product_price='.$price.'&cart_product_image='.$image;
-         $url=Mage::getBaseUrl()."product/index/addtocart?".$params;                  
+                                $url = $shop->getProductAddToCartUrl($_product);
   ?>
                                    <!-- <button title="Add to Cart" type="button" class="btn-pd btn-cart" onclick="setLocation('http://fiestic.com/books/electronic/ires-mite-rima.html?options=cart')"> -->
 <button title="Add to Cart" type="button" class="btn-pd btn-cart" onclick='setLocation("<?php echo $url;?>")'>

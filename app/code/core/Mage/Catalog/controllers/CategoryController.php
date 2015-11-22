@@ -97,7 +97,13 @@ class Mage_Catalog_CategoryController extends Mage_Core_Controller_Front_Action
 
         //-------------------- code added for server categories----------------->> 
         $category_name=$category->getName();
-        $data = Mage::getModel('ingram/shop')->getCategoryData($category_name,$parent_category,$page,$sort);
+        $description = $category->getDescription();
+        if(strlen($description) > 0){
+            $data = Mage::getModel('ingram/shop')->getCategoryDataDesc($description,$parent_category,$page,$sort);
+        }else{
+            $data = Mage::getModel('ingram/shop')->getCategoryData($category_name,$parent_category,$page,$sort);    
+        }
+        
         //------------------------------------------------------------------------->>
         //echo '<pre>';print_r($data);die;
 
