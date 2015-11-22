@@ -247,18 +247,15 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
     public function getProductImage($_product){
         $image = false;
         $uniq = $this->getProductUniq($_product);
-        $dirpath=Mage::getBaseDir('base')."/media/server/ean/".$date.'/'.$uniq.'/';
-        echo $dirpath.'<br/>';
         $date = date('mY');
+        $dirpath=Mage::getBaseDir('base')."/media/server/ean/".$date.'/'.$uniq.'/';
         if(file_exists($dirpath)){
             $imgUrl=$dirpath.'cache.png';
-            echo $imgUrl.'<br/>';
              if(file_exists($imgUrl)){
                  $image = Mage::getBaseUrl('media').'server/ean/'.$date.'/'.$uniq.'/cache.png';
                  echo 1;
              }
         }
-        die;
         if(!$image)
         {
             if($_product->Basic->Image->IMG187){
