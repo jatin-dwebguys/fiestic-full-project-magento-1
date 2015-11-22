@@ -384,7 +384,7 @@ if ( $var_yttheme->getParam('custom_css') != '' ){
        	  if(jQuery(this).next('img')){
        	  	console.log(jQuery(this).next('img').attr('src').indexOf(base_url));
        	  	console.log(jQuery(this).next('img').attr('src'));
-       	  	if(jQuery(this).next('img').attr('src').indexOf(base_url) == -1 || true){
+       	  	if(jQuery(this).next('img').attr('src').indexOf(base_url) == -1){
 	            unique_codes[i] = jQuery(this).val();
 	            image_path[i] = jQuery(this).next('img').attr('src');
 	        	i++;
