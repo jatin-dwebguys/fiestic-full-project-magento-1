@@ -341,3 +341,63 @@ if ( $var_yttheme->getParam('custom_css') != '' ){
 </script>
 
 
+<script>
+    jQuery(document).ready(function () {
+        console.log('starting ingram image caching');
+        var unique_codes=[];
+        var image_path=[];
+        var i="0";
+        var base_url = '<?php echo Mage::getUrl(); ?>';
+        console.log(base_url);
+       jQuery('.unique_code').each(function(){
+       	  if(jQuery(this).next('img')){
+       	  	console.log(jQuery(this).next('img').attr('src').indexOf(base_url));
+       	  	console.log(jQuery(this).next('img').attr('src'));
+       	  	if(jQuery(this).next('img').attr('src').indexOf(base_url) == -1){
+	            unique_codes[i] = jQuery(this).val();
+	            image_path[i] = jQuery(this).next('img').attr('src');
+	        	i++;
+        	}
+          }
+       });
+      // array[unique_code]=img_related;
+       // console.log(jQuery(this).val())
+
+         //console.log(unique_codes);
+	    //console.log(image_path);
+	   var codes=unique_codes.join(",");
+	   var paths =image_path.join(",");
+	  // console.log(codes);
+	    //console.log(paths);
+
+     if(unique_codes.length == 0){
+     	console.log('no image urls to cache');	
+		return;
+     }
+	     new Ajax.Request("<?php
+	    if (@$_SERVER['HTTPS'] == on) {
+	        echo Mage::getUrl('product/index/downloadimages', array('_secure' => true));
+	    } else {
+	        echo Mage::getUrl('product/index/downloadimages');
+	    }
+	    ?>", {
+                method: 'post'
+                , parameters: {
+                    codes: codes,
+                    paths: paths,
+                    total:i,
+                   // ddate: ddate,
+                   // dtype: jQuery("input[name='shipping_method']:checked").val(),
+                }   
+                , requestHeaders: {Accept: 'application/json'},
+                onSuccess: function(transport) {
+                  console.log('success'); 
+                }
+            });
+        //console.log(array);	
+    
+    
+    
+	
+	});
+    </script>
