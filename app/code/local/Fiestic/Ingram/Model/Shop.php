@@ -141,9 +141,9 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
             $ingramSearch = $this->getApiData($query,2,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
         }else if($category_name == 'Film'){
             $next_60_days = date("Ymd", strtotime("+6 Months"));
-            $ingramSearch = $this->getApiData($query,1,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
+            $ingramSearch = $this->getApiData($query .' and MT=Video',1,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
         }else{
-            $ingramSearch = $this->getApiData($query,1,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
+            $ingramSearch = $this->getApiData($query .' and MT=Book',1,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
         }
         return $ingramSearch;
     }
@@ -157,7 +157,7 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
             $ingramSearch = $this->getApiData('PD > '.$date." and PD < ".$next_60_days,2,$start,$end,$sort,'','IMG,IM60,IM90');
         }else if($category_name == 'Film'){
             $next_60_days = date("Ymd", strtotime("+6 Months"));
-            $ingramSearch = $this->getApiData("MT=Video and PD>".$date." and PD < ".$next_60_days,1,$start,$end,$sort,'','IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData("MT<>Book and PD>".$date." and PD < ".$next_60_days,1,$start,$end,$sort,'','IMG,IM60,IM90');
         }else{
             $ingramSearch = $this->getApiData("MT=Book and PD>".$date." and PD < ".$next_60_days,1,$start,$end,$sort,'','IMG,IM60,IM90');
         }
