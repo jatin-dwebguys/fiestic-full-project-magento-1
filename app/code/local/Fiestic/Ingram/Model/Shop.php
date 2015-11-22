@@ -13,9 +13,10 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
     }
     public function getApiData($query,$query_type = 1,$startRecord = 1, $endRecord = 25,$sortField='',$liveUpdate ='',$dataRequest='IMG,IM60,IM90'){
         $client = $this->getSoap();
+        $query = '('.$query .' and SRC="S" and DF<>"Y" and (RF<>"P" or RF<>"E" or RF<>"D" or RF<>"L" or RF<>"V"))';
         $params = array(
             'queryType' => $query_type,
-            'query' => '('.$query .' and SRC<>"X" and DF<>"Y" and (RF<>"P" or RF<>"E" or RF<>"D" or RF<>"L" or RF<>"V"))',
+            'query' => $query,
             'startRecord' => $startRecord,
             'endRecord' => $endRecord,
             'sortField' => $sortField,
@@ -27,7 +28,9 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         $ingramSearch = new SimpleXMLElement($res->SearchRequestTypes12349EnhancedResult->any);
 
         //echo '<pre>'; print_r($params);print_r($ingramSearch);die;
-
+        if($ingramSearch->Error){
+            throw new Exception($ingramSearch->Error . '<br/>' . $query);
+        }
         $now=Mage::getModel('core/date')->date('Y-m-d H:i:s');
 
         $log=array();
@@ -102,8 +105,10 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         $end = ($page + 1) * 23 + 1;
 
         if($parent_category == 'Music' || $category_name == 'Music'){
+            $category_name = str_replace(" ", "", $category_name);
+            $category_name = preg_replace('/[^a-zA-Z0-9\']/', '|', $category_name);
             $ingramSearch = $this->getApiData('KW='.$category_name,2,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
-        }else if($type == 'Film' || $category_name == 'Film'){
+        }else if($parent_category == 'Film' || $category_name == 'Film'){
             $category_name = str_replace(" ", "", $category_name);
             $category_name = preg_replace('/[^a-zA-Z0-9\']/', '|', $category_name);
             $ingramSearch = $this->getApiData('BSU='.$category_name.' and BND=DVD ',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
@@ -118,29 +123,173 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         //echo "<pre>"; print_r($ingramSearch); die;
 
     }
-    
-     public function getCategoryDataBestSeller($category_name,$parent_category,$page = 1,$sort = 'DE|1') {
-        $page--;
-        $start = $page * 23 + 1;
-        $end = ($page + 1) * 23 + 1;
-
-        if($parent_category == 'Music' || $category_name == 'Music'){
-            $ingramSearch = $this->getApiData('KW='.$category_name,2,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
-        }else if($type == 'Film' || $category_name == 'Film'){
-            $category_name = str_replace(" ", "", $category_name);
-            $category_name = preg_replace('/[^a-zA-Z0-9\']/', '|', $category_name);
-            $ingramSearch = $this->getApiData('BSU='.$category_name.' and BND=DVD ',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
+     public function getCategoryAwards($category_name){
+        $next_60_days = date("Ymd", strtotime("+2 month"));
+        $date = date("Ymd");
+        $sort = "PD|1,DE|1";
+        $start = 1;
+        $end = 25;
+        $query = "";
+        for($i=1;$i<=2;$i++){
+            $query[] = "AWD=\"$i\"";
+        }
+        $query = '('.implode(' or ', $query).')';
+        $query = "AWD=3";
+        // echo $query;die;
+        if($category_name == 'Music'){
+            $query = "AWD=5";
+            $ingramSearch = $this->getApiData($query,2,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
+        }else if($category_name == 'Film'){
+            $next_60_days = date("Ymd", strtotime("+6 Months"));
+            $ingramSearch = $this->getApiData($query,1,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
         }else{
-            $category_name = str_replace(" ", "", $category_name);
-            $category_name = preg_replace('/[^a-zA-Z0-9\']/', '|', $category_name);
-            $ingramSearch = $this->getApiData('BSU='.$category_name.' and BND<>DVD ',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData($query,1,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
+        }
+        return $ingramSearch;
+    }
+    public function getCategoryPreOrder($category_name){
+        $next_60_days = date("Ymd", strtotime("+2 month"));
+        $date = date("Ymd");
+        $sort = "PD|0,DE|1";
+        $start = 1;
+        $end = 25;
+        if($category_name == 'Music'){
+            $ingramSearch = $this->getApiData('PD > '.$date." and PD < ".$next_60_days,2,$start,$end,$sort,'','IMG,IM60,IM90');
+        }else if($category_name == 'Film'){
+            $next_60_days = date("Ymd", strtotime("+6 Months"));
+            $ingramSearch = $this->getApiData("MT=Video and PD>".$date." and PD < ".$next_60_days,1,$start,$end,$sort,'','IMG,IM60,IM90');
+        }else{
+            $ingramSearch = $this->getApiData("MT=Book and PD>".$date." and PD < ".$next_60_days,1,$start,$end,$sort,'','IMG,IM60,IM90');
+        }
+        return $ingramSearch;
+    }
+     public function getCategoryNewReleases($category_name){
+
+        $last_30_date = date("Ymd", strtotime("first day of previous month"));
+        $date = date("Ymd");
+        $sort = "PD|1,DE|1";
+        $start = 1;
+        $end = 25;
+        if($category_name == 'Music'){
+            $ingramSearch = $this->getApiData('PD > '.$last_30_date." and PD < ".$date,2,$start,$end,$sort,'','IMG,IM60,IM90');
+        }else if($category_name == 'Film'){
+            $last_30_date = date("Ymd", strtotime("-6 Months"));
+            $ingramSearch = $this->getApiData("MT=Video and PD>".$last_30_date." and PD < ".$date,1,$start,$end,$sort,'','IMG,IM60,IM90');
+        }else{
+            $ingramSearch = $this->getApiData("MT=Book and PD>".$last_30_date." and PD < ".$date,1,$start,$end,$sort,'','IMG,IM60,IM90');
+        }
+        return $ingramSearch;
+     }
+     public function getCategoryDataBestSeller($category_name) {
+
+        $start = 1;
+        $end = 25;
+
+        $sort = "DE|1";
+
+        if($category_name == 'Music'){
+            $ingramSearch = $this->getApiData('',2,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
+        }else if($category_name == 'Film'){
+            $ingramSearch = $this->getApiData('MT=Video',1,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
+        }else{
+            $ingramSearch = $this->getApiData('MT=Book',1,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
         }
 
-
-        Mage::register('ingram_category_best_seller', $ingramSearch);
+        return $ingramSearch;
         //echo "<pre>"; print_r($ingramSearch); die;
 
     }
 
+    public function getProductUrl($_product){
+        $uniq = $_product->Basic->ISBN;
+        if(!$uniq){
+            $uniq = $_product->Basic->EAN;
+        }
+        return Mage::getUrl('product/index/index') . 'BN/'. $uniq;
+    }
+    public function getProductName($_product){
+        $name = "";
+        if($_product->Basic->Title){
+            if($_product->Basic->TitleLeadingArticle){
+                $name = (string)$_product->Basic->TitleLeadingArticle.' '.$_product->Basic->Title;
+            } else{
+                $name = (string)$_product->Basic->Title;
+            }
+        }else{
+            $name = (string)$_product->Basic->MusicTitle;
+        }
+        return $name;
+    }
+    public function getProductUniq($_product){
+        $uniq = $_product->Basic->ISBN;
+        if(!$uniq){
+            $uniq = $_product->Basic->EAN;
+        }
+        return $uniq;
+    }
+    public function getProductImage($_product){
+        $image = false;
+        $uniq = $this->getProductUniq($_product);
+        $dirpath=Mage::getBaseDir('base')."/media/server/ean/".$uniq.'/';
+        if(file_exists($dirpath)){
+            $imgUrl=$dirpath.'img187.png';
+             if(file_exists($imgUrl)){
+                 $image = Mage::getBaseUrl('media').'server/ean/'.$uniq.'/img187.png';
+             }
+        }
+        if(!$image)
+        {
+            if($_product->Basic->Image->IMG187){
+                if($_product->Basic->Image->ImageIndicator187 && $_product->Basic->Image->ImageIndicator187 == 'Y')
+                    $image = $_product->Basic->Image->IMG187;
+            }
+            if(!$image && $_product->Basic->Image->IMG94){
+                //if($_product->Basic->Image->ImageIndicator94 && $_product->Basic->Image->ImageIndicator94 == 'Y')
+                    $image = $_product->Basic->Image->IMG94;
+            }
+            if(!$image && $_product->Basic->Image->IMG60){
+                //if($_product->Basic->Image->ImageIndicator60 && $_product->Basic->Image->ImageIndicator60 == 'Y')
+                    $image = $_product->Basic->Image->IMG60;
+            }
+        }
+        if(!$image){
+            $image = Mage::getBaseUrl('media') . 'default.png';
+        }
+        return $image;
+    }
+    public function getProductAuthor($_product){
+        $authors = '';
+        foreach ($_product->Basic->Contributor as $val) {
+            if ($val->Role == 'Author') {
+                if ($authors == '') {
+                    $authors .= $val->Name;
+                } else {
+                    $authors .= ' - ' . $val->Name;
+                }
+            }
+        }
+        return $authors;
+    }
+    public function getProductPrice($_product){
+        return round((float)$_product->Ingram->IngramPrice,2);
+    }
+    public function getProductMRP($_product){
+        return round((float)$_product->Basic->PubListPrice,2);
+    }
+    public function getProductShortDesc($_product){
+        return (string)$_product->Ingram->IngramSubject;
+    }
+    public function getProductDesc($_product){
+        return (string)$_product->Basic->Annotation;
+    }
+    public function getProductPublisher($_product){
+        $pub = '';
+        if($_product->Basic->RecordLabel){
+            $pub = (string)$_product->Basic->RecordLabel;
+        }else if($_product->Basic->Publisher){
+            $pub = (string)$_product->Basic->Publisher;
+        }
+        return $pub;
+    }
 
 }

@@ -15,3 +15,16 @@ all pages check images size with actual and fix css
 cache images to local system
 
 cache all responses
+
+Show awards, authors etc when available
+provide product details in quick view of theme, right now quick view is disabled
+
+
+Programming
+
+2. create admin section where we can se the parameters for home page
+
+4. for caching image create a common ajax function to load on all pages
+5. Right now price is hard coded to $ everywhere, need to create a proper function for it
+
+

@@ -6,9 +6,9 @@
  # Author: YouTech Company
  # Websites: http://www.magentech.com
 -------------------------------------------------------------------------*/
-$req= Mage::getModel('ingram/shop')->getCategoryDataBestSeller("Music", "Music", "1" , "DE|1");
- $data= Mage::registry('ingram_category_best_seller');
- //echo "<pre>";
+$shop = Mage::getModel('ingram/shop');
+ $data = Mage::getModel('ingram/shop')->getCategoryDataBestSeller("Music");
+ // echo "<pre>"; print_r($data);die;
  $i=0;
  $p_names=array();
  $p_images=array();
@@ -16,20 +16,24 @@ $req= Mage::getModel('ingram/shop')->getCategoryDataBestSeller("Music", "Music",
  $ingram_price=array();
  $p_price=array();
  $p_href=array();
+
 foreach($data->Music as $dat){
-   // echo "<pre>";
-   // print_r($dat);
-     $p_href[]=Mage::getBaseUrl().'product/index/index/BN/'.$dat->Basic->EAN;
-     $p_ean[]=$dat->Basic->EAN;
-     $p_names[]=$dat->Basic->MusicTitle;
-     $p_images[]=$dat->Basic->Image->IMG187;
-     $ingram_price[]=$dat->Ingram->IngramPrice;
-     $p_price[]=$dat->Basic->Price;
+  //  echo "<pre>";
+  //  print_r($dat);
+    $p_href[]= $shop->getProductUrl($dat);
+    $p_ean[]= $shop->getProductUniq($dat);
+    $p_names[]= $shop->getProductName($dat);
+    $p_images[]=$shop->getProductImage($dat);
+    $ingram_price[]=$shop->getProductPrice($dat);
+    $p_price[]=$shop->getProductMRP($dat);
+    $pub[] = $shop->getProductPublisher($dat);
+    $desc[] = $shop->getProductShortDesc($dat);
     $i++;
-    if($i == '5')
-        break;
+    //if($i == '5')
+        //break;
     
 }
+
 
 $list = $this->_getProducts();
 $helper = Mage::helper('basicproducts/data');
@@ -65,7 +69,7 @@ $helper = Mage::helper('basicproducts/data');
 	
 	<div class="slide-basic-v2">
 		<?php  $j = 0;
-                for($y=0; $y < 5; $y++){
+                for($y=0; $y < sizeof($p_href); $y++){
 		//foreach ($list as $_product) {
 			$j++;
 
@@ -80,28 +84,28 @@ $helper = Mage::helper('basicproducts/data');
             
             <?php //------------------------------------------------------->>>>>>>>  ?>
             <div class="owl-item active" style="width: 210px; margin-right: 0px;"><div class="item item-basic-v2 respl-item haslabel">
-									<div class="sale-item customlabel" style="height: 28px;
+									<!-- <div class="sale-item customlabel" style="height: 28px; 
     width: 51px;
     position: absolute;
     margin-left: -62px;">
 <img src="<?php echo Mage::getBaseUrl('media').'sm/fiestic_sale.png'?>" style="height:28px; width:51px;">						
-<!--<span>Sale</span>-->
-					</div>
+<span>Sale</span>
+					</div> -->
 								
 			
-									<div class="new-item " style="height: 28px;
+									<!-- <div class="new-item " style="height: 28px;
     width: 51px;
     position: absolute;
     margin-left: 2px;">
-                                                                            <img src="<?php echo Mage::getBaseUrl('media').'sm/fiestic_new.png'?>" style="height:28px; width:51px;">
+    <img src="<?php echo Mage::getBaseUrl('media').'sm/fiestic_new.png'?>" style="height:28px; width:51px;">
 						
-					</div>
+					</div> -->
 							
 				<div class="item-inner">
 											<div class="w-image-box">
 							<div class="image-w">
 								<div class="item-image">
-									<a href="<?php echo $p_href[$y]?>" title="<?php echo $p_names[$y]?>">
+									<a href="#" title="<?php echo $p_names[$y]?>">
 										<img src="<?php echo $p_images[$y];?>" title="<?php echo $p_names[$y]?>" alt="<?php echo $p_names[$y]?>" style=" height:162px;">
 									</a>
 								</div>
@@ -113,7 +117,7 @@ $helper = Mage::helper('basicproducts/data');
 					
 						
 													<div class="item-title">
-								<a href="<?php echo $p_href[$y]?>" title="<?php echo $p_names[$y]?>">
+								<a href="#" title="<?php echo $p_names[$y]?>">
 									<?php echo $p_names[$y]; ?>							</a>
 							</div>
 								
@@ -131,14 +135,12 @@ $helper = Mage::helper('basicproducts/data');
                                             
                     <p class="old-price">
                 <span class="price-label">Regular Price:</span>
-                <span class="price">
-                    $<?php echo $p_price[$y]?>      </span>
+                <span class="price">$<?php echo $p_price[$y];?></span>
             </p>
 
                             <p class="special-price">
                     <span class="price-label">Special Price</span>
-                <span class="price">
-                   $<?php echo $ingram_price[$y];?>                </span>
+                <span class="price">$<?php echo $ingram_price[$y];?></span>
                 </p>
                     
     
@@ -147,30 +149,31 @@ $helper = Mage::helper('basicproducts/data');
 														
 							</div>
 												
-													<div class="item-action">
-								
-																										<button type="button" data-toggle="tooltip" data-placement="top" title="" class="btn-pd btn-cart" onclick="" data-original-title="Buy">
-															<span><span>Buy</span></span>
-									</button>
-									
-																	<a data-toggle="tooltip" data-placement="top" title="" href="#" class="btn-pd item-wishlist" data-original-title="Add to Wishlist" style="display: none;">
+	<div class="item-action">
+		<button on-click='window.location.href="<?php echo $p_href[$i];?>"' type="button" data-toggle="tooltip" data-placement="top" title="" class="btn-pd btn-cart" onclick="" data-original-title="Buy">
+				<span><span>Buy</span></span>
+		</button>
+		<!--							
+		<a data-toggle="tooltip" data-placement="top" title="" href="#" class="btn-pd item-wishlist" data-original-title="Add to Wishlist" style="display: none;">
 										<span>Add to Wishlist</span>
-									</a>
+									</a> -->
 								
 											
-							</div>
+	</div>
 						
 											</div> 
-					<a style="display:none;" href="#" title="Cori miren mase"> </a>
+					<!-- <a style="display:none;" href="#" title="Cori miren mase"> </a> -->
 
 					
-													<a data-toggle="tooltip" data-placement="top" title="" href="#" class="btn-pd item-compare" data-original-title="Add to Compare" style="display: none;">
+													<!-- <a data-toggle="tooltip" data-placement="top" title="" href="#" class="btn-pd item-compare" data-original-title="Add to Compare" style="display: none;"> 
 								<span>Add to Compare</span>
-							</a>
+							</a>-->
 															
 						
 					
-				<a class="btn-pd sm_quickview_handler" data-toggle="tooltip" data-placement="top" title="" href="#" data-original-title="Quick View"><span>Quick View</span></a></div>
+				<!-- <a class="btn-pd sm_quickview_handler" data-toggle="tooltip" data-placement="top" title="" href="#" data-original-title="Quick View"><span>Quick View</span></a> -->
+
+				</div>
 			</div></div>
             
             

@@ -7,11 +7,10 @@
  # Websites: http://www.magentech.com
 -------------------------------------------------------------------------*/?>
 
-<?php 
-
-$req= Mage::getModel('ingram/shop')->getCategoryData("Books", "Books", "1" , "PD|1");
- $data= Mage::registry('ingram_category');
- //echo "<pre>";
+<?php
+$shop = Mage::getModel('ingram/shop');
+$data= $shop->getCategoryNewReleases("Books");
+ // echo "<pre>";print_r($data);die;
  $i=0;
  $p_names=array();
  $p_images=array();
@@ -19,18 +18,23 @@ $req= Mage::getModel('ingram/shop')->getCategoryData("Books", "Books", "1" , "PD
  $ingram_price=array();
  $p_price=array();
  $p_href=array();
+ $desc = array();
+ $pub = array();
 foreach($data->Book as $dat){
-  //  echo "<pre>";
-  //  print_r($dat);
-    $p_href[]=Mage::getBaseUrl().'product/index/index/BN/'.$dat->Basic->EAN;
-    $p_ean[]=$dat->Basic->EAN;
-    $p_names[]=$dat->Basic->Title;
-    $p_images[]=$dat->Basic->Image->IMG187;
-    $ingram_price[]=$dat->Ingram->IngramPrice;
-    $p_price[]=$dat->Basic->PubListPrice;
+ //  	echo "<pre>";
+ //    print_r($dat);
+	// die;
+    $p_href[]= $shop->getProductUrl($dat);
+    $p_ean[]= $shop->getProductUniq($dat);
+    $p_names[]= $shop->getProductName($dat);
+    $p_images[]=$shop->getProductImage($dat);
+    $ingram_price[]=$shop->getProductPrice($dat);
+    $p_price[]=$shop->getProductMRP($dat);
+    $pub[] = $shop->getProductPublisher($dat);
+    $desc[] = $shop->getProductShortDesc($dat);
     $i++;
-    if($i == '5')
-        break;
+    // if($i == '5')
+    //     break;
     
 }
 
@@ -107,7 +111,7 @@ $helper = Mage::helper('deal/data');
 							<?php 
 							$j = 0;
 							$_limit = (int)$this->_getConfig('product_limitation', 5);
-							for($i=0; $i<5; $i++){
+							for($i=0; $i<sizeof($p_href); $i++){
 //foreach ($list as $_product) {
                                                              ?>
                                                     
@@ -136,7 +140,7 @@ $helper = Mage::helper('deal/data');
 													
 
 							
-										
+										<!--
 																							<div class="item-review">
 													    <div class="ratings">
         			            <div class="rating-box">
@@ -145,12 +149,16 @@ $helper = Mage::helper('deal/data');
                                                                                                                 <span class="amount"><a href="<?php echo $p_href[$i];?>" onclick=""></a></span>
     </div>
 												</div>
+												-->
 																						
-																							<div class="des-content">
-													Fusce porttitor at ante eu egestas. Morbi vulputate diam at nibh imperdiet pretium. Nulla euismod, ...												</div>
-																						
+	<div class="des-content">
+	Publisher: <?php echo $pub[$i]; ?>
+	<br/>
+	<?php echo $desc[$i]; ?>
+	</div>
 
-																							<div class="item-price">
+
+	<div class="item-price">
 																											
 
                         
@@ -174,23 +182,20 @@ $helper = Mage::helper('deal/data');
 																								
 												</div>
 																						
-																							<div class="item-action">
-													
-																																									<button type="button" title="Buy" class="btn-pd btn-cart" onclick="">
-																				<span><span>Buy</span></span>
-														</button>
-														
-																											<a data-toggle="tooltip" data-placement="top" title="" href="#" class="btn-pd item-wishlist" data-original-title="Add to Wishlist">
-															<span>Add to Wishlist</span>
-														</a>
-													
-													
-																													<a data-toggle="tooltip" data-placement="top" title="" href="#" class="btn-pd item-compare" data-original-title="Add to Compare">
-																<span>Add to Compare</span>
-															</a>
-																															
-																									
-												</div>
+				<div class="item-action">
+						<button type="button" title="Buy" class="btn-pd btn-cart" onclick="window.location.href='<?php echo $p_href[$i];?>';">
+								<span><span>Buy</span></span>
+						</button>
+						<?php /*
+						<a data-toggle="tooltip" data-placement="top" title="" href="#" class="btn-pd item-wishlist" data-original-title="Add to Wishlist">
+							<span>Add to Wishlist</span>
+						</a>
+						<a data-toggle="tooltip" data-placement="top" title="" href="#" class="btn-pd item-compare" data-original-title="Add to Compare">
+								<span>Add to Compare</span>
+							</a>
+						*/ ?>																	
+																	
+				</div>
 											
 																					</div> 
 										<a style="display:none;" href="#" title="<?php echo $p_names[$i];?>"> </a>

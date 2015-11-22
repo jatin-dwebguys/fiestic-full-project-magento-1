@@ -82,7 +82,7 @@ class Fiestic_Ingram_IndexController extends Mage_Core_Controller_Front_Action {
         for ($i = 0; $i < $total; $i++) {
             $dirpath = Mage::getBaseDir('base') . "/media/server/ean/" . $codes_exploded[$i] . '/';
             if (file_exists($dirpath)) {
-                $imgUrl = $dirpath . 'img187.gif';
+                $imgUrl = $dirpath . 'img187.png';
                 if (file_exists($imgUrl)) {
                     
                 } else {
@@ -93,7 +93,7 @@ class Fiestic_Ingram_IndexController extends Mage_Core_Controller_Front_Action {
                 }
             } else {
                 mkdir($dirpath, 0777);
-                $imgUrl = $dirpath . 'img187.gif';
+                $imgUrl = $dirpath . 'img187.png';
                 $image_data = $paths_exploded[$i];
                 $contents = file_get_contents($image_data);
                 $download_image = file_put_contents($imgUrl, $contents);
