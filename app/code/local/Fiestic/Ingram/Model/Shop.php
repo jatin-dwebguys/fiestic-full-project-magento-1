@@ -253,7 +253,6 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
             $imgUrl=$dirpath.'cache.png';
              if(file_exists($imgUrl)){
                  $image = Mage::getBaseUrl('media').'server/ean/'.$date.'/'.$uniq.'/cache.png';
-                 echo 1;
              }
         }
         if(!$image)
