@@ -283,7 +283,8 @@ $productType = 'simple';
 
                                 <ul class="resp-tabs-list">
 
-<?php if ($_description = $this->getChildHtml('description') && strlen($_product->getDescription()) > 0): ?>
+<?php 
+if ($_description = $_product->getDescription() && strlen($_product->getDescription()) > 0): ?>
 
                                         <li>
 
@@ -293,7 +294,9 @@ $productType = 'simple';
 
 <?php endif; ?>
 
-                                    <?php if (false && $product_additional_data = $this->getChildHtml('product_additional_data')): ?>
+                                    <?php 
+                                    $product_additional_data = $this->getChildHtml('product_additional_data');
+                                    if (false): ?>
 
                                         <li>
 
@@ -337,19 +340,19 @@ $productType = 'simple';
 
                                 <div class="resp-tabs-container">  					
 
-<?php if ($_description): ?>
+<?php if ($_description && strlen($_description) > 0): ?>
 
-                                        <div id="yt_tab_decription" class="tab-pane in active">
+                                        <div id="yt_tab_decription" class="tab-pane">
 
-                                        <?php echo $_description ?>
+                                        <?php echo $_product->getDescription(); ?>
 
                                         </div>
 
 <?php endif; ?>
 
-                                    <?php if ($product_additional_data): ?>
+                                    <?php if ($product_additional_data && false): ?>
 
-                                        <div id="yt_tab_tags" class="tab-pane">
+                                        <div id="yt_tab_tags" class="tab-pane in active">
 
                                             <?php echo $product_additional_data; ?>
 
@@ -357,7 +360,7 @@ $productType = 'simple';
 
                                     <?php endif; ?>							
 
-                                    <?php if ($review_form): ?>
+                                    <?php if ($review_form && false): ?>
 
                                         <div id="yt_tab_reviewform" class="tab-pane">
 

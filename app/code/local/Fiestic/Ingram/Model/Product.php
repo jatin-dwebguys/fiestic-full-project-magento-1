@@ -52,7 +52,6 @@ class Fiestic_Ingram_Model_Product extends Mage_Core_Model_Abstract {
             $product->setData('thumbnail', NULL);
             $product->setData('weight', 0.5000);
 
-
             $product->setData('description', $shop->getProductDesc($item));
             $product->setData('short_description', $shop->getProductShortDesc($item));
             $authors = $shop->getProductAuthor($item);
