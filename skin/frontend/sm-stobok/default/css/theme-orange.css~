@@ -5664,7 +5664,7 @@ TABLE OF CONTENTS
   content: "";
   border-bottom: 1px dashed #cccccc;
   position: absolute;
-  bottom: 0;
+  bottom: 8px;
   left: 20px;
   right: 20px;
 }
@@ -13331,7 +13331,7 @@ input.input-text.qty {
   font-weight: normal;
 }
 .respl-item .item-inner .item-review {
-  height: 20px;
+  /*height: 20px;*/
   padding-top: 0px;
   margin-bottom: 4px;
   margin-top: 5px;
