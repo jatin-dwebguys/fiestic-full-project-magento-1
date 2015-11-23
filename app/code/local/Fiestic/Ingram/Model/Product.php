@@ -5,6 +5,10 @@ class Fiestic_Ingram_Model_Product extends Mage_Core_Model_Abstract {
     public function setProductData($data) {
         $product = Mage::getModel('catalog/product');
         $shop = Mage::getModel('ingram/shop');
+        $prod = $data->Book;
+        if(!$prod){
+            $prod = $data->Music;
+        }
         foreach ($data->Book as $item) {
             //echo '<pre>'; print_r($item);
             $product->setData('item_id', $shop->getProductUniq($item));
