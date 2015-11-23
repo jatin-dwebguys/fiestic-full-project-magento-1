@@ -302,10 +302,11 @@ class Mage_Catalog_Block_Product_List_Toolbar extends Mage_Core_Block_Template
      */
     public function getCurrentPage()
     {
-        if ($page = (int) $this->getRequest()->getParam($this->getPageVarName())) {
-            return $page;
-        }
-        return 1;
+        return Mage::registry('ingram_page');
+        // if ($page = (int) $this->getRequest()->getParam($this->getPageVarName())) {
+        //     return $page;
+        // }
+        // return 1;
     }
 
     /**

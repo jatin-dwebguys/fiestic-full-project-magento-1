@@ -61,7 +61,7 @@ class Mage_Catalog_CategoryController extends Mage_Core_Controller_Front_Action
         $dir = $this->getRequest()->getParam('dir', false);
         $order = $this->getRequest()->getParam('order', false);
 
-        $sort = 'DE|1';
+        $sort = 'PD|1,DE|1';
         if($order == 'ranking'){
             if($dir == 'desc'){
                 $sort = 'DE|1';
@@ -98,12 +98,64 @@ class Mage_Catalog_CategoryController extends Mage_Core_Controller_Front_Action
         //-------------------- code added for server categories----------------->> 
         $category_name=$category->getName();
         $description = $category->getDescription();
-        if(strlen($description) > 0){
-            $data = Mage::getModel('ingram/shop')->getCategoryDataDesc($description,$parent_category,$page,$sort);
-        }else{
-            $data = Mage::getModel('ingram/shop')->getCategoryData($category_name,$parent_category,$page,$sort);    
+        $times = 0;
+        $books = array();
+        $init_page = $page;
+        Mage::register('ingram_start_page',$page);
+        $c = 0;
+        $first_book = array();
+        while(true){
+            if(strlen($description) > 0){
+                $data = Mage::getModel('ingram/shop')->getCategoryDataDesc($description,$parent_category,$page,$sort);
+            }else{
+                $data = Mage::getModel('ingram/shop')->getCategoryData($category_name,$parent_category,$page,$sort);    
+            }
+
+            $collection = $data->Book;
+            if(!$collection){
+                $collection = $data->Music;
+            }
+
+            foreach($collection as $book){
+                if(Mage::getModel('ingram/shop')->hasProductImage($book)){
+                    $c++;
+                    $books[] = $book;
+                }
+                if($times == 0){
+                    $first_book[] =  $book;
+                }
+            }
+            if($c > 24){
+                break;
+            }else{
+                $page++;
+            }
+            $times++;
+            if($times > 3){
+                break;
+            }
         }
-        
+        if(sizeof($books) > 0){
+            Mage::register('ingram_page',$page);
+            Mage::register('ingram_category', $books);
+        }else{
+            if(sizeof($first_book) == 0){
+                $data = Mage::getModel('ingram/shop')->getCategoryData($category_name,$parent_category,$page,$sort,true);    
+                $collection = $data->Book;
+                if(!$collection){
+                    $collection = $data->Music;
+                }
+
+                foreach($collection as $book){
+                        $first_book[] =  $book;
+                }
+
+            }
+            Mage::register('ingram_page',$init_page);
+            Mage::register('ingram_category', $first_book);    
+            
+            
+        }
         //------------------------------------------------------------------------->>
         //echo '<pre>';print_r($data);die;
 
