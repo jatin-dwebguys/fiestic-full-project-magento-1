@@ -36,7 +36,7 @@ foreach($list as $dat){
 
 $helper = Mage::helper('deal/data');
 	$class_suffix = '';
-	$class_slide = 'col-lg-8 col-md-8 col-sm-12';
+	$class_slide = 'col-lg-12 col-md-12 col-sm-12';
 	$uniqued = time();
 ?>
 
@@ -45,11 +45,11 @@ $helper = Mage::helper('deal/data');
 		<?php 
 		$static_id_left = 'b-img1-homepage2';
 		$class_static = 'col-lg-4 col-md-4 col-sm-12';
-		if($static_id_left && $static_id_left != ''):?>
-			<div class="static-l <?php echo $class_static; ?>">
-				<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId($static_id_left)->toHtml();?>
-			</div>
-		<?php endif; ?>
+		//if($static_id_left && $static_id_left != ''):?>
+			<!--<div class="static-l <?php echo $class_static; ?>">
+				<?php// echo $this->getLayout()->createBlock('cms/block')->setBlockId($static_id_left)->toHtml();?>
+			</div>-->
+		<?php// endif; ?>
 		<div class="deal-wrapper block <?php echo $class_slide; ?>">
 			<div class="deal-wrapper-inner">
 				<div class="block-title">
@@ -64,7 +64,7 @@ $helper = Mage::helper('deal/data');
 						<div class="slider-deal-slidebar">
 							<?php  for($i=0; $i<sizeof($p_href); $i++){ ?>
                                                     
-                               <div class="owl-item active" style="width: 285.5px; margin-right: 0px;"><div class="item item-deal respl-item">
+                               <div class="owl-item active" style="width: 240px; margin-right: 0px;"><div class="item item-deal respl-item">
 									<div class="item-inner">
 										<div class="w-image-box">
 												<div class="image-w">
