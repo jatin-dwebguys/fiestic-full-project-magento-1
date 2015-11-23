@@ -9,8 +9,8 @@ class Fiestic_Ingram_Model_Product extends Mage_Core_Model_Abstract {
         if(!$prod){
             $prod = $data->Music;
         }
-        foreach ($data->Book as $item) {
-            //echo '<pre>'; print_r($item);
+        foreach ($prod as $item) {
+            // echo '<pre>'; print_r($item);
             $product->setData('item_id', $shop->getProductUniq($item));
             $product->setData('product_id', $shop->getProductUniq($item));
 
@@ -24,7 +24,7 @@ class Fiestic_Ingram_Model_Product extends Mage_Core_Model_Abstract {
             $product->setData('type_id', 'simple');
 
             
-            $product->setData('name', $shop->getProductTitle($item));
+            $product->setData('name', $shop->getProductName($item));
             
 
             $product->setData('entity_id', $shop->getProductUniq($item));
@@ -52,21 +52,23 @@ class Fiestic_Ingram_Model_Product extends Mage_Core_Model_Abstract {
             $product->setData('thumbnail', NULL);
             $product->setData('weight', 0.5000);
 
-
             $product->setData('description', $shop->getProductDesc($item));
             $product->setData('short_description', $shop->getProductShortDesc($item));
             $authors = $shop->getProductAuthor($item);
             $additional = array();
-
-            $additional['Author'] = $authors;
+            if($item->Basic->MusicTitle){
+                $additional['Recorded By'] = $authors;
+            }else{
+                $additional['Author'] = $authors;
+            }
             $pubdate = $shop->getProductPublicationDate($item);
             if($pubdate){
                 $additional['PubDate'] = $pubdate;
             }
-            $additional['Publisher'] = (string) $item->Basic->Publisher;
+            $additional['Publisher'] = (string) $shop->getProductPublisher($item);
             $additional['Binding'] = (string) $item->Basic->Binding;
-            $additional['ProductFormat'] = (string) $item->Basic->ProductFormat;
-            $additional['Media'] = (string) $item->Basic->Media;
+            $additional['ProductFormat'] = (string) $shop->getProductFormat($item);
+            $additional['Media'] = (string) $shop->getProductMedia($item);
             $additional['Language'] = (string) $item->Basic->Language;
             $additional['Accessory'] = (string) $item->Basic->Accessory;
             $additional['LargePrint'] = (string) $item->Basic->LargePrint;
@@ -80,7 +82,7 @@ class Fiestic_Ingram_Model_Product extends Mage_Core_Model_Abstract {
         }
         if ($product) {
             Mage::register('product', $product);
-            return $item->Basic->TitleLeadingArticle . ' ' . $item->Basic->Title;
+            return $shop->getProductName($item);
         } else {
             return false;
         }

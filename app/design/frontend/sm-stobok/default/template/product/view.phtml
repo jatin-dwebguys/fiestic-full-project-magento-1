@@ -283,9 +283,10 @@ $productType = 'simple';
 
                                 <ul class="resp-tabs-list">
 
-<?php if ($_description = $this->getChildHtml('description')): ?>
+<?php 
+if ($_description = $_product->getDescription() && strlen($_product->getDescription()) > 0): ?>
 
-                                        <li class="active">
+                                        <li>
 
                                             <a title="<?php echo $this->__('Description') ?>" href="javascript:void(0);"><?php echo $this->__('Description') ?></a>
 
@@ -293,7 +294,9 @@ $productType = 'simple';
 
 <?php endif; ?>
 
-                                    <?php if ($product_additional_data = $this->getChildHtml('product_additional_data')): ?>
+                                    <?php 
+                                    $product_additional_data = $this->getChildHtml('product_additional_data');
+                                    if (false): ?>
 
                                         <li>
 
@@ -303,7 +306,7 @@ $productType = 'simple';
 
                                     <?php endif; ?>							
 
-                                    <?php if ($review_form = $this->getChildHtml('review_form')): ?>
+                                    <?php if (false && $review_form = $this->getChildHtml('review_form')): ?>
 
                                         <li id="review-tab">
 
@@ -315,7 +318,7 @@ $productType = 'simple';
 
                                     <?php if ($_additional = $this->getChildHtml('additional')): ?>
 
-                                        <li>
+                                        <li class="active">
 
                                             <a title="<?php echo $this->__('Information') ?>" href="javascript:void(0);"><?php echo $this->__('Information') ?></a>
 
@@ -323,7 +326,7 @@ $productType = 'simple';
 
                                     <?php endif; ?>	
 
-                                    <?php if ($var_yttheme != null && $var_yttheme->getParam('show_customtab') == 1) : ?>
+                                    <?php if (false && $var_yttheme != null && $var_yttheme->getParam('show_customtab') == 1) : ?>
 
                                         <li>
 
@@ -337,19 +340,19 @@ $productType = 'simple';
 
                                 <div class="resp-tabs-container">  					
 
-<?php if ($_description): ?>
+<?php if ($_description && strlen($_description) > 0): ?>
 
-                                        <div id="yt_tab_decription" class="tab-pane in active">
+                                        <div id="yt_tab_decription" class="tab-pane">
 
-                                        <?php echo $_description ?>
+                                        <?php echo $_product->getDescription(); ?>
 
                                         </div>
 
 <?php endif; ?>
 
-                                    <?php if ($product_additional_data): ?>
+                                    <?php if ($product_additional_data && false): ?>
 
-                                        <div id="yt_tab_tags" class="tab-pane">
+                                        <div id="yt_tab_tags" class="tab-pane in active">
 
                                             <?php echo $product_additional_data; ?>
 
@@ -357,7 +360,7 @@ $productType = 'simple';
 
                                     <?php endif; ?>							
 
-                                    <?php if ($review_form): ?>
+                                    <?php if ($review_form && false): ?>
 
                                         <div id="yt_tab_reviewform" class="tab-pane">
 
@@ -379,7 +382,7 @@ $productType = 'simple';
 
                                     <?php endif; ?>
 
-                                    <?php if ($var_yttheme != null && $var_yttheme->getParam('show_customtab') == 1) : ?>
+                                    <?php if ($var_yttheme != null && false && $var_yttheme->getParam('show_customtab') == 1) : ?>
 
                                         <div id="yt_tab_custom" class="tab-pane">
 
