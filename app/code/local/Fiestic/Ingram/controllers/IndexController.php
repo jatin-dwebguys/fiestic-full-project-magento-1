@@ -58,7 +58,7 @@ class Fiestic_Ingram_IndexController extends Mage_Core_Controller_Front_Action {
             $cart->init();
             $cart->addProduct($product, array('product_id' => $product_id,
                 'qty' => $qty,
-                'options' => array(16 => $isbn, 17 => $cartproductdetails['image'], 18 => $cartproductdetails['name'])
+                'options' => array(19 => $isbn, 20 => $cartproductdetails['image'], 21 => $cartproductdetails['name'])
             ));
             $cart->save();
             Mage::getSingleton('checkout/session')->setCartWasUpdated(true);

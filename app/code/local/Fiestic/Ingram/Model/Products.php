@@ -18,7 +18,7 @@ class Fiestic_Ingram_Model_Products extends Mage_Catalog_Model_Product {
                     $cprice = unserialize(Mage::getModel('core/cookie')->get($confItemOption->getValue()));
                     // echo $confItemOption->getValue().'xx';
                     //$finalPrice += $group->getOptionPrice($confItemOption->getValue(), $basePrice);
-                    if ($option->getId() == '16') {
+                    if ($option->getId() == '19') {
                         if ($cprice) {
 
 
