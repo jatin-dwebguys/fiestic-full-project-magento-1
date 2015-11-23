@@ -2,6 +2,28 @@
     .menu-container{color:black;}
     .menu_img{max-height:30px; max-width:px;}
     .menu_subcategory{padding-top: 20px; padding-left: 10px;}
+    
+    
+    .selectParent{
+    width:22px;
+    /*overflow:hidden;*/
+   
+   
+}
+
+.selectParent select{
+    width:22px;
+    height:25px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 2px 2px 2px 20px;
+    border: none;
+     background: transparent url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png") no-repeat left center;
+   
+}
+   
+}
 </style>
 <?php global $var_yttheme; ?>
 <?php $identifier = Mage::getSingleton('cms/page')->getIdentifier();?>
@@ -82,11 +104,18 @@
                                         
                                         <div class="block-action-header top-link-account search-box" style="float:right;">
                                             <span class="search_logo"><img src="<?php echo Mage::getBaseUrl('media').'/sm/search-icon.png'?>" style="height:28px; margin-top:4px;"></span>
-                                           <div style="display: none; height:25px; width:250px; margin-top:5px; background-color: white; " class="search-item">
-                                                    <img src="<?php echo Mage::getBaseUrl('media').'/sm/search-icon-logo.png'?>" style="height:25px;">
+                                           <div style="display: none; height:25px; width:272px; margin-top:5px; background-color: white; " class="search-item">
+                                               <form id="search_mini_form" action="<?php echo Mage::getUrl('product/index/search') ?>" method="get">
+                                                    <img src="<?php echo Mage::getBaseUrl('media').'/sm/search-icon-logo.png'?>" style="height:25px; margin-top:-4px">
                                                     <input type="text" name="q" id="search" class="fiestic-search" style="height:22px; outline:none; border:none !important;">
-                                                    <img src="<?php echo Mage::getBaseUrl('media').'/sm/searchbox-close.png'?>" style="height:12px;">
-                                                </div>
+                                                    <div class="selectParent" style="display:inline; "><select name="" style="display:inline; ">
+                                                       <option value="Book" selected>Books</option>
+                                                       <option value="Music">Music</option>
+                                                       <option value="Film">Film</option>
+                                                        </select></div>
+                                                    <img src="<?php echo Mage::getBaseUrl('media').'/sm/searchbox-close.png'?>" style="height:12px; margin-top:-4px;" class="searchbox_hide">
+                                               </form>
+                                           </div>
 						</div>
                                         <script>
                                             jQuery(document).ready(function($){
@@ -96,7 +125,12 @@ jQuery('.search_logo').css('display','none');
 jQuery('.search-item').show();
             
         });
-                                                
+                       
+                jQuery('.searchbox_hide').click(function(){
+jQuery('.search_logo').css('display','block');  
+jQuery('.search-item').css('display','none');
+            
+        });
                                                 
                                                 
                                             });
@@ -147,7 +181,7 @@ jQuery('.search-item').show();
 
 				<div class="col-lg-9 col-md-9 yt-menu-wrap">
 					<!--<div class="search-pro">
-						<?php echo $this->getChildHtml('searchboxpro'); ?>
+						<?php// echo $this->getChildHtml('searchboxpro'); ?>
 					</div>-->
 				</div>
 			</div>

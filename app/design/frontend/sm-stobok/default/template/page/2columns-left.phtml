@@ -31,6 +31,10 @@
 global $var_yttheme;
 
 ?>
+
+<?php 
+$currentUrls = Mage::helper('core/url')->getCurrentUrl();
+?>
 <!DOCTYPE html>
 <html xml:lang="<?php echo $this->getLang() ?>" lang="<?php echo $this->getLang() ?>">
 <head>
@@ -334,8 +338,11 @@ global $var_yttheme;
         
         $subcats = $cat->getChildren();
         echo "<ul class='level0 shown-sub'>";
+        $i=0;
         foreach(explode(',',$subcats) as $subCatid)
 {
+            $i++;
+            
            
   $_category = Mage::getModel('catalog/category')->load($subCatid);
   if($_category->getIsActive())
@@ -343,7 +350,13 @@ global $var_yttheme;
      $caturl     = $_category->getURL();
     
       $catname     = $_category->getName();
-   echo "<a href=".$caturl."> <li class='level1 nav-1-6'>". $catname."</li></a>";
+      if($caturl == $currentUrls){
+          $style = "style='color:#f26522;'";
+      }
+      else{
+            $style = "";
+      }
+   echo "<a href=".$caturl."> <li class='level1 nav-1-".$i."' ".$style.">". $catname."</li></a>";
    
   }
 }
@@ -358,16 +371,27 @@ echo "</ul>";
         
         $subcats = $cat->getChildren();
         echo "<ul class='level0 shown-sub'>";
+        $i=0;
         foreach(explode(',',$subcats) as $subCatid)
 {
-           
+           $i++;
   $_category = Mage::getModel('catalog/category')->load($subCatid);
   if($_category->getIsActive())
   {
      $caturl     = $_category->getURL();
     
       $catname     = $_category->getName();
-   echo "<a href=".$caturl."> <li class='level1 nav-1-6'>". $catname."</li></a>";
+  
+
+if($caturl == $currentUrls){
+          $style = "style='color:#f26522;'";
+      }
+      else{
+            $style = "";
+      }
+   echo "<a href=".$caturl."> <li class='level1 nav-2-".$i."' ".$style.">". $catname."</li></a>";
+
+// echo "<a href=".$caturl."> <li class='level1 nav-1-6'>". $catname."</li></a>";
    
   }
 }
@@ -381,16 +405,27 @@ echo "</ul>";
         
         $subcats = $cat->getChildren();
         echo "<ul class='level0 shown-sub'>";
+        $i=0;
         foreach(explode(',',$subcats) as $subCatid)
 {
-           
+           $i++;
   $_category = Mage::getModel('catalog/category')->load($subCatid);
   if($_category->getIsActive())
   {
      $caturl     = $_category->getURL();
     
       $catname     = $_category->getName();
-   echo "<a href=".$caturl."> <li class='level1 nav-1-6'>". $catname."</li></a>";
+   
+if($caturl == $currentUrls){
+          $style = "style='color:#f26522;'";
+      }
+      else{
+            $style = "";
+      }
+   echo "<a href=".$caturl."> <li class='level1 nav-3-".$i."' ".$style.">". $catname."</li></a>";
+
+
+//echo "<a href=".$caturl."> <li class='level1 nav-1-6'>". $catname."</li></a>";
    
   }
 }
