@@ -86,14 +86,14 @@
 							<ul>
 								<?php if(!$this->helper('customer')->isLoggedIn()){?>
 								<li>
-									<a class="login-btn" data-toggle="modal" data-target="#modal-login" title="<?php echo $this->__('Login')?>"><i class="fa fa-user"></i><?php echo $this->__('')?></a>
+									<a class="login-btn" data-toggle="modal" data-target="#modal-login" title="<?php echo $this->__('Login')?>"><i class="fa fa-user" style="color:white;"></i><?php echo $this->__('')?></a>
 									<?php echo $this->getChildHtml('customer_form_mini_login'); ?>
 								</li>
 								<?php } else{?>
 									<div class="block-action-header top-link-account parent-link my-account-link">
 										<ul>
 											<li>
-												<a class="account-toplink dropdown-ict" title="<?php echo $this->__('My Account')?>" href="<?php echo $this->getUrl('customer/account')?>"><i class="fa fa-user"></i><?php echo $this->__(' Hi %s', Mage::getSingleton('customer/session')->getCustomer()->getFirstname()) ?></a>
+												<a class="account-toplink dropdown-ict" title="<?php echo $this->__('My Account')?>" href="<?php echo $this->getUrl('customer/account')?>" style="color:white;"><i class="fa fa-user" style="color:white;"></i><?php echo $this->__(' Hello %s', Mage::getSingleton('customer/session')->getCustomer()->getFirstname()) ?></a>
 												<?php echo $this->getChildHtml('account_links'); ?>
 											</li>
 										</ul>
@@ -142,7 +142,7 @@ jQuery('.search-item').css('display','none');
 						<div class="block-action-header top-link-account my-account-link account-mobile-btn">
 							<ul>
 								<li>
-									<a title="<?php echo $this->__('My Account')?>" href="<?php echo $this->getUrl('customer/account')?>"><i class="fa fa-user"></i></a>
+									<a title="<?php echo $this->__('My Account')?>" href="<?php echo $this->getUrl('customer/account')?>"><i class="fa fa-user" style="color:white;"></i></a>
 								</li>
 							</ul>
 							<div class="dropdown-mobile">
