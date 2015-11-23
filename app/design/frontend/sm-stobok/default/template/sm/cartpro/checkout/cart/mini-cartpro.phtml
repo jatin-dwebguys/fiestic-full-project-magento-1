@@ -85,7 +85,10 @@ $timeclick = $config['mini_cartpro_effect_duration'];
 				<?php } ?>			
 		 	//]]>
 		    </script>
-			<?php if($hd_style == 'df' || $hd_style == 'hd2' || $hd_style == 'hd3' || $hd_style == 'hd4'){?>
+			<?php if($hd_style == 'df' || $hd_style == 'hd2' || $hd_style == 'hd3' || $hd_style == 'hd4'){
+                           if($_cartQty == 0){ ?>
+                    
+                           <?php } else {?>
 			<div class="info-mini-cart">
 				<div class="item-cart">
 					<?php if($_cartQty >= 2 && $_cartQty <= 9) {
@@ -99,7 +102,9 @@ $timeclick = $config['mini_cartpro_effect_duration'];
 					}?>
 				</div>
 			</div>
-			<?php } else if($hd_style == 'hd5'){?>
+                        <?php }
+                        
+                                                } else if($hd_style == 'hd5'){?>
 				<div class="info-mini-cart">
 					<div class="info-title-cart">
 						<?php echo $this->__('%d item(s)', count($_items)) ?>
