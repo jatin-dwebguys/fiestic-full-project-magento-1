@@ -95,6 +95,9 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
 
     public function getProductData($id, $type) {
         $ingramSearch = $this->getApiData($id,1,1,2,'','Y','IMG,IM60,IM90,LOGI,PM,BIB,RQ,JF,JB,AWD');
+        if((int)$ingramSearch->SearchMessage->MatchingRecs == 0){
+            $ingramSearch = $this->getApiData($id,2,1,2,'','Y','IMG,IM60,IM90,LOGI,PM,BIB,RQ,JF,JB,AWD');
+        }
         $result = Mage::getModel('ingram/product')->setProductData($ingramSearch);
         if ($result) {
             return $result;
@@ -255,7 +258,11 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         if(!$uniq){
             $uniq = $_product->Basic->EAN;
         }
-        return Mage::getUrl('product/index/index') . 'BN/'. $uniq;
+        // if($_product->Basic->MusicTitle){
+        //     return Mage::getUrl('product/index/index') . 'BN/'. $uniq.'/type/Music';
+        // }else{
+            return Mage::getUrl('product/index/index') . 'BN/'. $uniq;
+        // }
     }
     public function getProductName($_product){
         $name = "";
@@ -310,8 +317,20 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
     }
     public function getProductAuthor($_product){
         $authors = '';
+        $is_music = false;
+        if($_product->Basic->MusicTitle){
+            $is_music = true;
+        }
         foreach ($_product->Basic->Contributor as $val) {
-            if ($val->Role == 'Author') {
+            if(!$is_music){
+                if ($val->Role == 'Author') {
+                    if ($authors == '') {
+                        $authors .= $val->Name;
+                    } else {
+                        $authors .= ' - ' . $val->Name;
+                    }
+                }
+            }else{
                 if ($authors == '') {
                     $authors .= $val->Name;
                 } else {
