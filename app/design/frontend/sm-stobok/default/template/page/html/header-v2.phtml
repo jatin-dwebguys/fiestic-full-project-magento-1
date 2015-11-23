@@ -28,7 +28,7 @@
 						<?php echo $this->getChildHtml('mobiMenu'); ?>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-9 col-sm-6 right-wrapper">
+				<div class="col-lg-6 col-md-9 col-sm-6 right-wrapper">
 					<div class="wrap-search-mobile">
 						<a class="btn-search-mobile icon-search" href="javascript:void(0)" title="<?php echo $this->__('Search')?>"><i class="fa fa-search"></i></a>
 						<script>
@@ -42,9 +42,25 @@
 					</div>
 					<?php echo $this->getChildHtml('currency'); ?>
 					<?php echo $this->getChildHtml('store_language') ?>
-					<div class="top-links-action">
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+					
 
-						<div class="block-action-header top-link-account login-link">
+					<div class="mini-cart-header">
+						<?php echo $this->getChildHtml('mini-cartpro') ?>
+					</div>
+                                    
+                                    <div class="top-links-action">
+
+						<div class="block-action-header top-link-account login-link" style="float:right;">
 							<ul>
 								<?php if(!$this->helper('customer')->isLoggedIn()){?>
 								<li>
@@ -63,11 +79,29 @@
 								<?php } ?>
 							</ul>
 						</div>
+                                        
+                                        <div class="block-action-header top-link-account search-box" style="float:right;">
+                                            <span class="search_logo"><img src="<?php echo Mage::getBaseUrl('media').'/sm/search-icon.png'?>" style="height:28px; margin-top:4px;"></span>
+                                           <div style="display: none; height:25px; width:250px; margin-top:5px; background-color: white; " class="search-item">
+                                                    <img src="<?php echo Mage::getBaseUrl('media').'/sm/search-icon-logo.png'?>" style="height:25px;">
+                                                    <input type="text" name="q" id="search" class="fiestic-search" style="height:22px; outline:none; border:none !important;">
+                                                    <img src="<?php echo Mage::getBaseUrl('media').'/sm/searchbox-close.png'?>" style="height:12px;">
+                                                </div>
+						</div>
+                                        <script>
+                                            jQuery(document).ready(function($){
+                                                
+       jQuery('.search_logo').click(function(){
+jQuery('.search_logo').css('display','none');  
+jQuery('.search-item').show();
+            
+        });
+                                                
+                                                
+                                                
+                                            });
+                                            </script>
 
-					</div>
-
-					<div class="mini-cart-header">
-						<?php echo $this->getChildHtml('mini-cartpro') ?>
 					</div>
 
 					<div class="action-mobile">
@@ -112,9 +146,9 @@
 				</div>
 
 				<div class="col-lg-9 col-md-9 yt-menu-wrap">
-					<div class="search-pro">
+					<!--<div class="search-pro">
 						<?php echo $this->getChildHtml('searchboxpro'); ?>
-					</div>
+					</div>-->
 				</div>
 			</div>
 		</div>

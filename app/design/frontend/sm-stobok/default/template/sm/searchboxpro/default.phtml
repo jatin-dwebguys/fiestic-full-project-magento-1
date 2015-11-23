@@ -19,10 +19,10 @@ $options = $this->getConfigObject();?>
 	</div>
 	<?php }?>
 		
-		<div class="sm-searbox-content">
+		<!--<div class="sm-searbox-content">
 			<form id="search_mini_form" action="<?php echo Mage::getUrl('product/index/search') ?>" method="get">
 			<!--<form id="search_mini_form" action="<?php echo $this->helper('catalogsearch')->getResultUrl() ?>" method="get">-->
-				<div class="form-search">
+				<!--<div class="form-search">
 					<?php $categorySearchHelper = $this->helper('searchboxpro'); ?>
 					<div class="cat-wrapper">
 						<select id="<?php echo $categorySearchHelper->getCategoryParamName() ?>" name="<?php echo $categorySearchHelper->getCategoryParamName() ?>">
@@ -42,7 +42,7 @@ $options = $this->getConfigObject();?>
 					<div id="search_autocomplete" class="search-autocomplete"></div>
 				</div>
 			</form>
-		</div>
+		</div>-->
 		<?php if( $options->show_popular == 1 ){?>
 			<div class="sm-searchbox-popular">
 				<div class="sm-searchbox-popular-title"><?php echo $this->__('Popular Searches: ')?></div>
