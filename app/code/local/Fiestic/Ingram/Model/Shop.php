@@ -127,23 +127,40 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
 
     }
 
-     public function getCategoryData($category_name,$parent_category,$page = 1,$sort = 'DE|1') {
+     public function getCategoryData($category_name,$parent_category,$page = 1,$sort = 'DE|1',$extended = false) {
         $page--;
         $start = $page * 23 + 1;
         $end = ($page + 1) * 23 + 1;
         $date = date('Ymd');
+        $category_name = str_replace(" ", "", $category_name);
+        $category_name = preg_replace('/[^a-zA-Z0-9\']/', '|', $category_name);
+
+        if(sizeof(explode('|', $category_name)) > 1){
+            $exp = explode('|', $category_name);
+            $q = array();
+            for($i=0;$i<sizeof($exp);$i++){
+                if($extended){
+                    $q[] = 'BSD3='.$exp[$i];
+                }else{
+                    $q[] = 'BSU='.$exp[$i];    
+                }
+                
+            }
+            $query = implode(' or ', $q);
+        }else{
+            if($extended){
+                $q[] = 'BSD3='.$category_name;    
+            }else{
+                $query = 'BSU='.$category_name;
+            }
+        }
+
         if($parent_category == 'Music' || $category_name == 'Music'){
-            $category_name = str_replace(" ", "", $category_name);
-            $category_name = preg_replace('/[^a-zA-Z0-9\']/', '|', $category_name);
             $ingramSearch = $this->getApiData('KW='.$category_name.' and MUMT<>"Book"',2,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
         }else if($parent_category == 'Films' || $parent_category == 'Film' || $category_name == 'Films'){
-            $category_name = str_replace(" ", "", $category_name);
-            $category_name = preg_replace('/[^a-zA-Z0-9\']/', '|', $category_name);
-            $ingramSearch = $this->getApiData('BSU='.$category_name.' and (MT="Video Product" or MT="Film")',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData($query.' and (MT="Video Product" or MT="Film")',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
         }else{
-            $category_name = str_replace(" ", "", $category_name);
-            $category_name = preg_replace('/[^a-zA-Z0-9\']/', '|', $category_name);
-            $ingramSearch = $this->getApiData('BSU='.$category_name.' and (MT="Book" or MT="Ebook")',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData($query.' and (MT="Book" or MT="Ebook")',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
         }
         return $ingramSearch;
 

@@ -139,8 +139,22 @@ class Mage_Catalog_CategoryController extends Mage_Core_Controller_Front_Action
             Mage::register('ingram_page',$page);
             Mage::register('ingram_category', $books);
         }else{
+            if(sizeof($first_book) == 0){
+                $data = Mage::getModel('ingram/shop')->getCategoryData($category_name,$parent_category,$page,$sort,true);    
+                $collection = $data->Book;
+                if(!$collection){
+                    $collection = $data->Music;
+                }
+
+                foreach($collection as $book){
+                        $first_book[] =  $book;
+                }
+
+            }
             Mage::register('ingram_page',$init_page);
-            Mage::register('ingram_category', $first_book);
+            Mage::register('ingram_category', $first_book);    
+            
+            
         }
         //------------------------------------------------------------------------->>
         //echo '<pre>';print_r($data);die;
