@@ -14,7 +14,7 @@ class Fiestic_Ingram_IndexController extends Mage_Core_Controller_Front_Action {
 
     public function searchAction() {
         $query = $this->getRequest()->getParam('q', '');
-        $search_type = $this->getRequest()->getParam('type', 'Book');
+        $search_type = $this->getRequest()->getParam('type', false);
 
         if (sizeof(explode(' ', $query)) == 1) {
             //single word

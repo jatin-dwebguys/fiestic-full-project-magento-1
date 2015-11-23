@@ -130,6 +130,10 @@ class Mage_Catalog_CategoryController extends Mage_Core_Controller_Front_Action
             }else{
                 $page++;
             }
+            if($parent_category == 'Music'){
+                $books = $first_book;
+                break;
+            }
             $times++;
             if($times > 3){
                 break;

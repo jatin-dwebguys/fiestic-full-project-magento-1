@@ -76,6 +76,7 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
     }
 
     public function getSearchData($query,$type){
+        $search = array();
         if($type == 'Book'){
             $ingramSearch = $this->getApiData('KW=' . $query.' and (MT="Book" or MT="Ebook") ','1','1','25','','Y','IMG,IM60,IM90,LOGI');
         }else if($type == 'Author'){
@@ -88,9 +89,20 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
             $ingramSearch = $this->getApiData('KW=' . $query,'2','1','25','','Y','IMG,IM60,IM90,LOGI');
         }else if($type == 'Film'){
             $ingramSearch = $this->getApiData('KW=' . $query.' and (MT="Video Product" or MT="Film")','2','1','25','','Y','IMG,IM60,IM90,LOGI');
+        }else{
+            $ingramSearch = $this->getApiData('KW=' . $query,'1','1','25','','Y','IMG,IM60,IM90,LOGI');
+            $ingramSearch2 = $this->getApiData('KW=' . $query,'2','1','25','','Y','IMG,IM60,IM90,LOGI');
+        }
+        foreach($ingramSearch->Book as $item){
+            $search[] = $item;
+        }
+        if($ingramSearch2){
+            foreach($ingramSearch2->Music as $item){
+                $search[] = $item;
+            }   
         }
         //$result = Mage::getModel('ingram/product')->setProductData($ingramSearch);
-        return $ingramSearch;
+        return $search;
     }
 
     public function getProductData($id, $type) {
@@ -189,14 +201,17 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         $query = "AWD=3";
         // echo $query;die;
         if($category_name == 'Music'){
-            $query = "AWD=5";
+            $query = "AWD=130";
             $ingramSearch = $this->getApiData($query,2,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
         }else if($category_name == 'Film'){
-            $query = "AWD=6";
+            $query = "AWD=101";
             $next_60_days = date("Ymd", strtotime("+6 Months"));
-            $ingramSearch = $this->getApiData($query .' and and (MT="Video Product" or MT="Film")',1,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
+            $ingramSearch = $this->getApiData($query,1,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
+            // echo '<pre>'; print_r($ingramSearch);die;
         }else{
+            $query = "AWD=23";
             $ingramSearch = $this->getApiData($query .' and (MT="Book" or MT="Ebook")',1,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
+            
         }
         return $ingramSearch;
     }
@@ -314,6 +329,32 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
             $image = Mage::getBaseUrl('media') . 'default.png';
         }
         return $image;
+    }
+    public function getProductActor($_product){
+        $authors = '';
+        foreach ($_product->Basic->Contributor as $val) {
+            if ($val->Role == 'Actor') {
+                if ($authors == '') {
+                    $authors .= $val->Name;
+                } else {
+                    $authors .= ' - ' . $val->Name;
+                }
+            }
+        }
+        return $authors;
+    }
+    public function getProductDirector($_product){
+        $authors = '';
+        foreach ($_product->Basic->Contributor as $val) {
+            if ($val->Role == 'Director') {
+                if ($authors == '') {
+                    $authors .= $val->Name;
+                } else {
+                    $authors .= ' - ' . $val->Name;
+                }
+            }
+        }
+        return $authors;
     }
     public function getProductAuthor($_product){
         $authors = '';

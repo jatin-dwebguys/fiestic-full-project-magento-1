@@ -61,6 +61,8 @@ class Fiestic_Ingram_Model_Product extends Mage_Core_Model_Abstract {
             }else{
                 $additional['Author'] = $authors;
             }
+            $additional['Director'] = $shop->getProductDirector($item);
+            $additional['Actor'] = $shop->getProductActor($item);
             $pubdate = $shop->getProductPublicationDate($item);
             if($pubdate){
                 $additional['PubDate'] = $pubdate;

@@ -6,6 +6,6 @@ class Fiestic_Ingram_Block_Books_Award extends Mage_Core_Block_Template {
     	return $data->Book;
     }
     public function getTitle(){
-    	return 'AWARD WINNING';
+    	return 'PULITZER AWARD WINNING';
     }
 }
