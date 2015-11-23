@@ -78,7 +78,7 @@ $_helper = $this->helper('catalog/output');
             <?php if ($i++ % $_columnCount == 0): ?>
 
             <?php endif ?>
-            <div class="item col-lg-4 col-md-4 col-sm-4 respl-item haslabel" style="height:393px">
+            <div class="item col-lg-4 col-md-4 col-sm-4 respl-item haslabel" style="height:380px">
             <!--
                 <div class="sale-item">
                     <span class="txt-label">Sale</span>
@@ -101,12 +101,6 @@ $_helper = $this->helper('catalog/output');
 
                         <div class="item-title">
                             <a title="<?php echo $this->stripTags($name, null, true) ?>" href="<?php echo $url; ?>"><?php echo $name; ?></a>
-                        </div>
-
-                        <div class="item-review">
-                            <div class="ratings">
-                                <?php echo $authors;?>
-                            </div>
                         </div>
 
                         <div class="item-price">
