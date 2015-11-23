@@ -159,14 +159,14 @@ global $var_yttheme;
 								<?php echo $this->getChildHtml('top_block_home') ?>  
 							</div>
 							<?php } ?>
-							<div id="yt_left" class="col-lg-3 col-md-3" style="padding-top:656px;">
+							<div id="yt_left" class="col-lg-3 col-md-3" style="">
 								<div class="yt-left-wrap" >
 								<?php if($homepage_style == 'homepage2') { ?>
-									<?php if($identifier =="home-v2") { ?>
-										<?php if( $var_yttheme->getParam('menustyle') == 'mega' ){
-											echo $this->getChildHtml('megaMenu-left');
-										} else { ?>
-											<div class="mega-left-title css-menu-left-title" style="margin-top: -656px;">
+									<!--<?php//if($identifier !="home-v2") {
+                                                                            
+                                                                            ?>-->
+										
+											<div class="mega-left-title css-menu-left-title" style="margin-top:">
                                                                                             <div class="row menu-container" style="">
         <div class="col-lg-1 col-md-1 "></div>
         <div class="col-lg-3 col-md-3 ">
@@ -402,8 +402,8 @@ echo "</ul>";
 									   
 											<?php// echo $this->getChildHtml('cssMenu-left');?>-->
 											</div>
-										<?php } ?>	
-									<?php } ?>									
+											
+									<!--<?php //} ?>	-->								
 								<?php } ?>									
 								
 								 <?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('css-menu-left')->toHtml(); ?>

@@ -4430,6 +4430,9 @@ h2.resp-tab-active span.resp-arrow {
 .cms-index-index.bd-hd2 #yt_left {
   margin-top: -31px;
 }
+.cms-page-view.bd-hd2 #yt_left {
+  margin-top: -31px;
+}
 #yt_header .header-v2 .yt-header-under .yt-header-under-wrap {
   padding-bottom: 0;
 }
@@ -4484,7 +4487,7 @@ h2.resp-tab-active span.resp-arrow {
 .header-default.header-v2 .yt-header-top .logo-wrapper h1:after {
   content: "";
   position: absolute;
-  display: inline-block;
+  display: none;
   height: 4px;
   background-color: #fff;
   bottom: -5px;
@@ -12958,7 +12961,7 @@ input.input-text.qty {
 }
 #yt_left .cssMenu-vertical,
 #yt_left .mega-left-title.css-menu-left-title {
-  display: none;
+  display: block;
 }
 /* 	ICON SPRITES */
 .header-v4 .menu-btn-categories .btn-cate:after,
@@ -15027,6 +15030,13 @@ dd.swatch-attr {
   color: #363636;
   border-bottom: 0;
 }
+
+.homepage2.cms-page-view #yt_left .block .block-title {
+  color: #363636;
+  border-bottom: 0;
+}
+
+
 .homepage2.cms-index-index #yt_left .block .block {
   padding: 0;
   margin: 0;
@@ -16351,6 +16361,9 @@ ul.nav-menu li.parent > .res-wrapnav ul li {
     left: 173px;
   }
   .cms-index-index.bd-hd2 #yt_left {
+    margin-top: -46px;
+  }
+.cms-page-view.bd-hd2 #yt_left {
     margin-top: -46px;
   }
   .header-default.header-v3 .yt-header-under.yt-menu-wrap .container #nav > li > a {
