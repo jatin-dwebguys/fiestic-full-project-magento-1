@@ -108,10 +108,11 @@
 			<div class="sort-by">
 				<label>
 					<?php 
+						 $cur_page = Mage::registry('ingram_start_page');
 						 $page = $this->getCurrentPage();
 //						 $page--; //because default page = 1
 						 $next = $page + 1;
-						 $prev = $page - 1;
+						 $prev = $cur_page - 1;
 
 					?>
 					<?php if($prev > 0) { ?>

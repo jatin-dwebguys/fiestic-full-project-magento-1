@@ -33,11 +33,8 @@
 ?>
 <?php
 // $_productCollection=$this->getLoadedProductCollection();
-$product = Mage::registry('ingram_category');
-$_productCollection = $product->Book;
-if(!$_productCollection){
-    $_productCollection = $product->Music;
-}
+$_productCollection = Mage::registry('ingram_category');
+
 $_helper = $this->helper('catalog/output');
 if(sizeof($_productCollection) == 0): ?>
 <p class="note-msg">
@@ -164,7 +161,7 @@ if(sizeof($_productCollection) == 0): ?>
 		<script type="text/javascript">decorateList('products-list', 'none-recursive')</script>
 		
 		<?php else: ?>
-		<?php $_collectionSize = $_productCollection->count() ?>
+		<?php $_collectionSize = sizeof($_productCollection); ?>
 		<?php $_columnCount = $this->getColumnCount();?>
             <div class="products-grid row">
                 <?php $i = 0;
