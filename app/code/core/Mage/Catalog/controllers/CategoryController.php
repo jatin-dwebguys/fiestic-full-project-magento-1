@@ -61,7 +61,7 @@ class Mage_Catalog_CategoryController extends Mage_Core_Controller_Front_Action
         $dir = $this->getRequest()->getParam('dir', false);
         $order = $this->getRequest()->getParam('order', false);
 
-        $sort = 'DE|1';
+        $sort = 'PD|1';
         if($order == 'ranking'){
             if($dir == 'desc'){
                 $sort = 'DE|1';
@@ -104,6 +104,19 @@ class Mage_Catalog_CategoryController extends Mage_Core_Controller_Front_Action
             $data = Mage::getModel('ingram/shop')->getCategoryData($category_name,$parent_category,$page,$sort);    
         }
         
+
+        $books = array();
+        $c = 0;
+        foreach($ingramSearch->Book as $book){
+            if($this->hasProductImage($book)){
+                $c++;
+            }
+        }
+        echo $c;
+        if($c < 24){
+            $this->getCategoryData
+        }
+
         //------------------------------------------------------------------------->>
         //echo '<pre>';print_r($data);die;
 

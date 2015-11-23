@@ -172,10 +172,14 @@ if(sizeof($_productCollection) == 0): ?>
                 foreach ($_productCollection as $_product):
                     $uniq = $shop->getProductUniq($_product);
                     $url = $shop->getProductUrl($_product);
-                    $name = $shop->getProductTitle($_product);
+                    $name = $shop->getProductName($_product);
                     $price = $shop->getProductPrice($_product);
                     $image = $shop->getProductImage($_product);
                     $authors = $shop->getProductAuthor($_product);
+                    $publisher = $shop->getProductPublisher($_product);
+                    $media = $shop->getProductMedia($_product);
+                    $format = $shop->getProductFormat($_product);
+                    $date = $shop->getProductPublicationDate($_product);
 
 //echo "<pre>"; print_r($_product); die;
 
@@ -183,7 +187,7 @@ if(sizeof($_productCollection) == 0): ?>
                     <?php if ($i++ % $_columnCount == 0): ?>
 
                 <?php endif ?>
-                    <div class="item col-lg-4 col-md-4 col-sm-4 respl-item haslabel" style="height:404px;">
+                    <div class="item col-lg-4 col-md-4 col-sm-4 respl-item haslabel" style="height:465px;">
                         
                             <!--
                             <div class="sale-item">
@@ -196,7 +200,9 @@ if(sizeof($_productCollection) == 0): ?>
                             <div class="w-image-box">
                                 <div class="item-image">
                                     <a href="<?php echo $url; ?>" title="<?php echo $this->stripTags($name, null, true) ?>" class="product-image">
-                                                                       <input type="hidden" name="unique_code" value="<?php echo $uniq; ?>" id="unique_code" class="unique_code"> 
+                                    <?php if($shop->hasImage($_product)) { ?>
+                                            <input type="hidden" name="unique_code" value="<?php echo $uniq; ?>" id="unique_code" class="unique_code"> 
+                                    <?php } ?>
 
                                         <img id="product-collection-image-895 product_image" src="<?php  echo $image;  ?>" alt="<?php echo $image;?>" style="height:186px; widht:121px !important;"></a>
                                 </div>
@@ -210,7 +216,10 @@ if(sizeof($_productCollection) == 0): ?>
                                     <a href="<?php echo $url; ?>" title="<?php echo $this->stripTags($name, null, true) ?>"><?php echo $name; ?></a>
                                 </div>
                                 <div class="item-review">
-                                    <small><?php echo $authors;?></small>
+                                    <div><small><?php echo $authors;?></small></div>
+                                    <div><small>Publisher: <?php echo $publisher; ?></small></div>
+                                    <div><small><?php echo $media.'-'.$format; ?></small></div>
+                                    <div><small><?php echo $date;?></small></div>
                                 </div>
                                 <?php /*                 
                                 <div class="item-review">

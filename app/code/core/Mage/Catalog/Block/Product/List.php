@@ -240,8 +240,8 @@ class Mage_Catalog_Block_Product_List extends Mage_Catalog_Block_Product_Abstrac
     public function getAvailableOrders(){
         //manish
         return array(
-            'ranking' => 'Ranking',
             'date' => 'Date',
+            'ranking' => 'Ranking',
             'title' => 'Title',
             'price' => 'Price',
             'author' => 'Author'
