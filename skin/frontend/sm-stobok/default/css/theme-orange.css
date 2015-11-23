@@ -4222,7 +4222,7 @@ h2.resp-tab-active span.resp-arrow {
   float: left;
 }
 .header-default .top-link-account > ul > li > a {
-  line-height: 42px;
+  line-height: 40px;
   padding: 0 18px 7px;
   display: block;
   cursor: pointer;
