@@ -260,9 +260,9 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         if($category_name == 'Music'){
             $ingramSearch = $this->getApiData('(MUMT="Audio" or MUMT="Compact Disc" or MUMT="CD-ROM") and (PD < ' . $date.')',2,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
         }else if($category_name == 'Film'){
-            $ingramSearch = $this->getApiData('(MT=Video or MT=Film) and (PD < ' . $date.')',1,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(MT=Video or MT=Film)',1,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
         }else{
-            $ingramSearch = $this->getApiData('(MT="Book" or MT="Ebook") and (PD < ' . $date.')',1,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(MT="Book" or MT="Ebook")',1,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
         }
 
         return $ingramSearch;
