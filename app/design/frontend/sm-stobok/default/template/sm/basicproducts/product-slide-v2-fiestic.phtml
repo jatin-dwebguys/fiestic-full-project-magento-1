@@ -40,11 +40,11 @@ $helper = Mage::helper('basicproducts/data');
 	
 	<div class="slide-basic-v2">
 		<?php for($y=0; $y < sizeof($p_href); $y++){ ?>	
-            <div class="owl-item active" style="width: 210px; margin-right: 0px;"><div class="item item-basic-v2 respl-item haslabel">							
+            <div class="owl-item active" style="width: 210px; margin-right: 0px; height:350px;"><div class="item item-basic-v2 respl-item haslabel">							
 				<div class="item-inner">
 						<div class="w-image-box">
 							<div class="image-w">
-								<div class="item-image">
+								<div class="item-image" style="height:161px;">
 									<a href="<?php echo $p_href[$y]?>" title="<?php echo $p_names[$y]?>">
 										<input type="hidden" name="unique_code" value="<?php echo $uniq[$y]; ?>" id="unique_code" class="unique_code"> 
 										<img src="<?php echo $p_images[$y];?>" title="<?php echo $p_names[$y]?>" alt="<?php echo $p_names[$y]?>" style=" height:162px;">
@@ -55,7 +55,7 @@ $helper = Mage::helper('basicproducts/data');
 											
 					
 					<div class="item-info">
-						<div class="item-title">
+						<div class="item-title" style="height:42px !important;  overflow: hidden; text-overflow: ellipsis; ">
 								<a href="#" title="<?php echo $p_names[$y]?>">
 									<?php echo $p_names[$y]; ?>							
 								</a>
