@@ -204,15 +204,15 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         // echo $query;die;
         if($category_name == 'Music'){
             $query = "AWD=130";
-            $ingramSearch = $this->getApiData($query,2,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
+            $ingramSearch = $this->getApiData($query. ' and (PD < ' . $date.')',2,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
         }else if($category_name == 'Film'){
             $query = "AWD=101";
             $next_60_days = date("Ymd", strtotime("+6 Months"));
-            $ingramSearch = $this->getApiData($query,1,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
+            $ingramSearch = $this->getApiData($query. ' and (PD < ' . $date.')',1,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
             // echo '<pre>'; print_r($ingramSearch);die;
         }else{
             $query = "AWD=23";
-            $ingramSearch = $this->getApiData($query .' and (MT="Book" or MT="Ebook")',1,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
+            $ingramSearch = $this->getApiData($query. ' and (PD < ' . $date.')'.' and (MT="Book" or MT="Ebook")',1,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
             
         }
         return $ingramSearch;
@@ -254,15 +254,15 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
 
         $start = 1;
         $end = 25;
-
+        $date = date("Ymd");
         $sort = "DE|1";
 
         if($category_name == 'Music'){
-            $ingramSearch = $this->getApiData('',2,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData(' and (PD < ' . $date.')',2,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
         }else if($category_name == 'Film'){
-            $ingramSearch = $this->getApiData('(MT=Video or MT=Film)',1,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(MT=Video or MT=Film) and (PD < ' . $date.')',1,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
         }else{
-            $ingramSearch = $this->getApiData('(MT="Book" or MT="Ebook")',1,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(MT="Book" or MT="Ebook") and (PD < ' . $date.')',1,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
         }
 
         return $ingramSearch;
