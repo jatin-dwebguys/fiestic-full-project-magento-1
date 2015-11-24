@@ -100,12 +100,10 @@ class Fiestic_Ingram_IndexController extends Mage_Core_Controller_Front_Action {
                     $image_data = $path;
                     $contents = file_get_contents($image_data);
                     $download_image = file_put_contents($imgUrl, $contents);
+                    echo $imgUrl;
                 }
             }
-        
-
-
-        return 'success';
+    
     }
 
 }
