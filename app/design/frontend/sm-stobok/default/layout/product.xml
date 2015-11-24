@@ -6,8 +6,38 @@
         <label>Catalog Product View (Any)</label>
         <!-- Mage_Catalog -->
         <reference name="root">
-            <action method="setTemplate"><template>page/1column.phtml</template></action>
+              <remove name="breadcrumbs"/>
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
         </reference>
+        
+        <reference name="left">
+	<block type="deal/list" name="deal.list.slidebar" template="sm/deal/default-banner.phtml">
+	        <action method="_setConfig">
+			<values>  
+				<deal_title_text>Hot Deals</deal_title_text>
+				<nb_column1>1</nb_column1>
+				<nb_column2>1</nb_column2>
+				<nb_column3>2</nb_column3>
+				<nb_column4>2</nb_column4>
+				<imgcfg_width>230</imgcfg_width>
+				<imgcfg_height>354</imgcfg_height>
+				<product_description_display>1</product_description_display>
+			</values>
+		</action>	 
+	</block>
+
+	<block type="cms/block" name="slider-client-left">
+		<action method="setBlockId"><block_id>slider-client-left</block_id></action>
+	</block>
+
+	<block type="blog/blog" name="blog-slidebar" template="aw_blog/latest-blog-slidebar.phtml"/>
+
+		 <block type="newsletter/subscribe" name="left.newsletter-slidebar" template="newsletter/subscribe-slidebar.phtml"/>
+
+	<block type="page/html" name="social_info-slidebar" template="page/html/social-slidebar.phtml"/>	
+</reference>
+
+
         <reference name="head">
             <action method="addJs"><script>varien/product.js</script></action>
             <action method="addItem"><type>js_css</type><name>calendar/calendar-win2k-1.css</name><params/></action>
