@@ -235,9 +235,9 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
     }
      public function getCategoryNewReleases($category_name){
 
-        $last_30_date = date("Ymd", strtotime("first day of previous month"));
+        $last_30_date = date("Ymd", strtotime("-2 months"));
         $date = date("Ymd");
-        $sort = "PD|1,DE|1";
+        $sort = "DE|1";
         $start = 1;
         $end = 25;
         if($category_name == 'Music'){
@@ -305,11 +305,11 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         $image = false;
         $uniq = $this->getProductUniq($_product);
         $date = date('mY');
-        $dirpath=Mage::getBaseDir('base')."/media/server/ean/".$date.'/'.$uniq.'/';
+        $dirpath=Mage::getBaseDir('base')."/media/server/ean/".$uniq.'/';
         if(file_exists($dirpath)){
             $imgUrl=$dirpath.'cache.png';
              if(file_exists($imgUrl)){
-                 $image = Mage::getBaseUrl('media').'server/ean/'.$date.'/'.$uniq.'/cache.png';
+                 $image = Mage::getBaseUrl('media').'server/ean/'.$uniq.'/cache.png';
              }
         }
         if(!$image)
