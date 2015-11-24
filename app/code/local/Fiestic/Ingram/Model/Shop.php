@@ -233,9 +233,9 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
     }
      public function getCategoryNewReleases($category_name){
 
-        $last_30_date = date("Ymd", strtotime("first day of previous month"));
+        $last_30_date = date("Ymd", strtotime("-2 months"));
         $date = date("Ymd");
-        $sort = "PD|1,DE|1";
+        $sort = "DE|1";
         $start = 1;
         $end = 25;
         if($category_name == 'Music'){
