@@ -6,6 +6,6 @@ class Fiestic_Ingram_Block_Music_Bestseller extends Mage_Core_Block_Template {
     	return $data->Music;
     }
     public function getTitle(){
-    	return 'BESTSELLER';
+    	return 'BESTSELLERS';
     }
 }
