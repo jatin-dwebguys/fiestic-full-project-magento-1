@@ -121,11 +121,13 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         $page--;
         $start = $page * 23 + 1;
         $end = ($page + 1) * 23 + 1;
+        
+        $date = date("Ymd");
 
         if($parent_category == 'Music' || $category_name == 'Music'){
-            $ingramSearch = $this->getApiData('KW='.$category_name,2,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('KW='.$category_name . ' and (PD < ' . $date.')',2,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
         }else if($parent_category == 'Films' || $parent_category == 'Film' || $category_name == 'Films'){
-            $ingramSearch = $this->getApiData('BSC='.$category_name.' and (MT="Video Product" or MT="Film") ',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('BSC='.$category_name . ' and (PD < ' . $date.')'.' and (MT="Video Product" or MT="Film") ',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
         }else{
             if(sizeof(explode(' ', $category_name)) > 1){
                 $exp = explode(' ', $category_name);
@@ -134,9 +136,9 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
                     $q[] = 'BSC='.$exp[$i];
                 }
                 $query = implode(' or ', $q);
-                $ingramSearch = $this->getApiData($query.' and (MT="Book" or MT="Ebook") ',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
+                $ingramSearch = $this->getApiData($query. ' and (PD < ' . $date . ')' .' and (MT="Book" or MT="Ebook") ',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
             }else{
-                $ingramSearch = $this->getApiData('BSC='.$category_name.' and (MT="Book" or MT="Ebook") ',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
+                $ingramSearch = $this->getApiData('BSC='.$category_name. ' and (PD < ' . $date.')'.' and (MT="Book" or MT="Ebook") ',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
             }
         }
         return $ingramSearch;
@@ -175,11 +177,11 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         }
 
         if($parent_category == 'Music' || $category_name == 'Music'){
-            $ingramSearch = $this->getApiData('KW='.$category_name.' and MUMT<>"Book"',2,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('KW='.$category_name. ' and (PD < ' . $date.')'.' and MUMT<>"Book"',2,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
         }else if($parent_category == 'Films' || $parent_category == 'Film' || $category_name == 'Films'){
-            $ingramSearch = $this->getApiData($query.' and (MT="Video Product" or MT="Film")',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData($query. ' and (PD < ' . $date.')'.' and (MT="Video Product" or MT="Film")',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
         }else{
-            $ingramSearch = $this->getApiData($query.' and (MT="Book" or MT="Ebook")',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData($query. ' and (PD < ' . $date.')'.' and (MT="Book" or MT="Ebook")',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
         }
         return $ingramSearch;
 

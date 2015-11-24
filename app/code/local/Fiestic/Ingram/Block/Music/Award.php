@@ -6,6 +6,6 @@ class Fiestic_Ingram_Block_Music_Award extends Mage_Core_Block_Template {
     	return $data->Music;
     }
     public function getTitle(){
-    	return 'GRAMMRY AWARD WINNING';
+    	return 'GRAMMY AWARD WINNING';
     }
 }

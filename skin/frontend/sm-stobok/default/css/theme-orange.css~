@@ -4222,7 +4222,7 @@ h2.resp-tab-active span.resp-arrow {
   float: left;
 }
 .header-default .top-link-account > ul > li > a {
-  line-height: 42px;
+  line-height: 40px;
   padding: 0 18px 7px;
   display: block;
   cursor: pointer;
@@ -13473,6 +13473,9 @@ input.input-text.qty {
 .category-products .respl-item .item-inner .item-price .price-box .price {
   font-size: 161.54%;
 }
+.old-price{
+  display: none;
+}
 .category-products .respl-item .item-inner .item-price .price-box .old-price .price {
   font-size: 123.08%;
   top: 4px;
@@ -14868,7 +14871,8 @@ dd.swatch-attr {
 .latest-blog.latest-blog-slidebar .button-wrap {
   margin-bottom: 8px;
 }
-.homepage2.cms-index-index #yt_content #yt_left .block.latest-blog-slidebar .block-title {
+.homepage2.cms-index-index #yt_content #yt_left .block.latest-blog-slidebar .block-title,
+.homepage2.cms-page-view #yt_content #yt_left .block.latest-blog-slidebar .block-title {
   color: #636363;
   text-align: left;
 }
@@ -14881,14 +14885,17 @@ dd.swatch-attr {
 }
 
 
-.homepage2.cms-index-index #yt_content .latest-blog-slidebar .owl-controls .owl-nav > div {
+.homepage2.cms-index-index #yt_content .latest-blog-slidebar .owl-controls .owl-nav > div,
+.homepage2.cms-page-view #yt_content .latest-blog-slidebar .owl-controls .owl-nav > div {
   top: -28px;
   right: 0;
 }
-.homepage2.cms-index-index #yt_content .latest-blog-slidebar .owl-controls .owl-nav > div.owl-prev {
+.homepage2.cms-index-index #yt_content .latest-blog-slidebar .owl-controls .owl-nav > div.owl-prev,
+.homepage2.cms-page-view #yt_content .latest-blog-slidebar .owl-controls .owl-nav > div.owl-prev {
   right: 15px;
 }
-.homepage2.cms-index-index #yt_content .owl-controls .owl-nav > div {
+.homepage2.cms-index-index #yt_content .owl-controls .owl-nav > div,
+.homepage2.cms-page-view #yt_content .owl-controls .owl-nav > div {
   top: -9px;
   right: 5px;
   text-indent: 0;
@@ -14899,22 +14906,27 @@ dd.swatch-attr {
   line-height: 30px;
   color: #ccc;
 }
-.homepage2.cms-index-index #yt_content .owl-controls .owl-nav > div:after {
+.homepage2.cms-index-index #yt_content .owl-controls .owl-nav > div:after,
+.homepage2.cms-page-view #yt_content .owl-controls .owl-nav > div:after  {
   content: "\f105";
   font-family: 'FontAwesome';
   font-size: 24px;
 }
-.homepage2.cms-index-index #yt_content .owl-controls .owl-nav > div.owl-prev {
+.homepage2.cms-index-index #yt_content .owl-controls .owl-nav > div.owl-prev,
+.homepage2.cms-page-view #yt_content .owl-controls .owl-nav > div.owl-prev {
   left: auto;
   right: 20px;
 }
-.homepage2.cms-index-index #yt_content .owl-controls .owl-nav > div.owl-prev:after {
+.homepage2.cms-index-index #yt_content .owl-controls .owl-nav > div.owl-prev:after,
+.homepage2.cms-page-view #yt_content .owl-controls .owl-nav > div.owl-prev:after {
   content: "\f104";
 }
-.homepage2.cms-index-index #yt_content .owl-controls .owl-nav > div:hover:after {
+.homepage2.cms-index-index #yt_content .owl-controls .owl-nav > div:hover:after,
+.homepage2.cms-page-view #yt_content .owl-controls .owl-nav > div:hover:after {
   color: #f26522;
 }
-.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div {
+.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div,
+.homepage2.cms-page-view #yt_content .sm-imageslider .owl-controls .owl-nav > div {
   height: 44px;
   width: 30px;
   top: 50%;
@@ -14922,21 +14934,26 @@ dd.swatch-attr {
   background-repeat: no-repeat;
   text-indent: -999px;
 }
-.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div:after {
+.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div:after,
+.homepage2.cms-page-view #yt_content .sm-imageslider .owl-controls .owl-nav > div:after {
   display: none;
 }
-.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-next {
+.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-next,
+.homepage2.cms-page-view #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-next {
   background-position: -27px -481px;
   right: 20px;
 }
-.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-next:hover {
+.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-next:hover,
+.homepage2.cms-page-view #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-next:hover {
   background-position: -27px -539px;
 }
-.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-prev {
+.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-prev,
+.homepage2.cms-page-view #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-prev {
   left: 20px;
   background-position: 3px -481px;
 }
-.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-prev:hover {
+.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-prev:hover,
+.homepage2.cms-page-view #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-prev:hover {
   background-position: 3px -539px;
 }
 .homepage2.cms-index-index #yt_content .deal-wrapper-banner {
