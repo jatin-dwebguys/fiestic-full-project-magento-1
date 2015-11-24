@@ -84,7 +84,7 @@ class Fiestic_Ingram_IndexController extends Mage_Core_Controller_Front_Action {
             if (file_exists($dirpath)) {
                 $imgUrl = $dirpath .'/'. 'cache.png';
                 if (file_exists($imgUrl)) {
-                    
+                    echo 'image already exists';
                 } else {
                     $image_data = $path;
                     $contents = file_get_contents($image_data);
