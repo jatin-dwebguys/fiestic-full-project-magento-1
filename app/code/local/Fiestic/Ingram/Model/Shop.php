@@ -86,7 +86,7 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         }else if($type == 'Subject'){
             $ingramSearch = $this->getApiData('KWSU=' . $query,'1','1','25','','Y','IMG,IM60,IM90,LOGI');
         }else if($type == 'Music'){
-            $ingramSearch = $this->getApiData('KW=' . $query,'2','1','25','','Y','IMG,IM60,IM90,LOGI');
+            $ingramSearch = $this->getApiData('(MUMT="Audio" or MUMT="Compact Disc" or MUMT="CD-ROM") and KW=' . $query,'2','1','25','','Y','IMG,IM60,IM90,LOGI');
         }else if($type == 'Film'){
             $ingramSearch = $this->getApiData('KW=' . $query.' and (MT="Video Product" or MT="Film")','2','1','25','','Y','IMG,IM60,IM90,LOGI');
         }else{
@@ -125,7 +125,7 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         $date = date("Ymd");
 
         if($parent_category == 'Music' || $category_name == 'Music'){
-            $ingramSearch = $this->getApiData('KW='.$category_name . ' and (PD < ' . $date.')',2,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(MUMT="Audio" or MUMT="Compact Disc" or MUMT="CD-ROM") and KW='.$category_name . ' and (PD < ' . $date.')',2,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
         }else if($parent_category == 'Films' || $parent_category == 'Film' || $category_name == 'Films'){
             $ingramSearch = $this->getApiData('BSC='.$category_name . ' and (PD < ' . $date.')'.' and (MT="Video Product" or MT="Film") ',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
         }else{
@@ -177,7 +177,7 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         }
 
         if($parent_category == 'Music' || $category_name == 'Music'){
-            $ingramSearch = $this->getApiData('KW='.$category_name. ' and (PD < ' . $date.')'.' and MUMT<>"Book"',2,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(MUMT="Audio" or MUMT="Compact Disc" or MUMT="CD-ROM") and KW='.$category_name. ' and (PD < ' . $date.')'.' and MUMT<>"Book"',2,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
         }else if($parent_category == 'Films' || $parent_category == 'Film' || $category_name == 'Films'){
             $ingramSearch = $this->getApiData($query. ' and (PD < ' . $date.')'.' and (MT="Video Product" or MT="Film")',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
         }else{
@@ -204,7 +204,7 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         // echo $query;die;
         if($category_name == 'Music'){
             $query = "AWD=130";
-            $ingramSearch = $this->getApiData($query. ' and (PD < ' . $date.')',2,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
+            $ingramSearch = $this->getApiData($query. ' and (MUMT="Audio" or MUMT="Compact Disc" or MUMT="CD-ROM")  and (PD < ' . $date.')',2,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
         }else if($category_name == 'Film'){
             $query = "AWD=101";
             $next_60_days = date("Ymd", strtotime("+6 Months"));
@@ -224,7 +224,7 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         $start = 1;
         $end = 25;
         if($category_name == 'Music'){
-            $ingramSearch = $this->getApiData('PD > '.$date." and PD < ".$next_60_days,2,$start,$end,$sort,'','IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(MUMT="Audio" or MUMT="Compact Disc" or MUMT="CD-ROM")  and PD > '.$date." and PD < ".$next_60_days,2,$start,$end,$sort,'','IMG,IM60,IM90');
         }else if($category_name == 'Film'){
             $next_60_days = date("Ymd", strtotime("+6 Months"));
             $ingramSearch = $this->getApiData("(MT=\"Video Product\" or MT=\"Film\") and PD>".$date." and PD < ".$next_60_days,1,$start,$end,$sort,'','IMG,IM60,IM90');
@@ -241,7 +241,7 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         $start = 1;
         $end = 25;
         if($category_name == 'Music'){
-            $ingramSearch = $this->getApiData('PD > '.$last_30_date." and PD < ".$date,2,$start,$end,$sort,'','IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(MUMT="Audio" or MUMT="Compact Disc" or MUMT="CD-ROM")  and PD > '.$last_30_date." and PD < ".$date,2,$start,$end,$sort,'','IMG,IM60,IM90');
         }else if($category_name == 'Film'){
             $last_30_date = date("Ymd", strtotime("-6 Months"));
             $ingramSearch = $this->getApiData("(MT=\"Video Product\" or MT=\"Film\") and PD>".$last_30_date." and PD < ".$date,1,$start,$end,$sort,'','IMG,IM60,IM90');
@@ -258,7 +258,7 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         $sort = "DE|1";
 
         if($category_name == 'Music'){
-            $ingramSearch = $this->getApiData(' and (PD < ' . $date.')',2,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(MUMT="Audio" or MUMT="Compact Disc" or MUMT="CD-ROM") and (PD < ' . $date.')',2,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
         }else if($category_name == 'Film'){
             $ingramSearch = $this->getApiData('(MT=Video or MT=Film) and (PD < ' . $date.')',1,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
         }else{
