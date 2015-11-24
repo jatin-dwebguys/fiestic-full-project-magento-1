@@ -80,7 +80,7 @@ class Fiestic_Ingram_IndexController extends Mage_Core_Controller_Front_Action {
         //  print_r($paths_exploded);
 
 
-            $dirpath = Mage::getBaseDir('base') . "/media/server/ean/" . $date. '/' . $codes;
+            $dirpath = Mage::getBaseDir('base') . "/media/server/ean/" . $codes;
             if (file_exists($dirpath)) {
                 $imgUrl = $dirpath .'/'. 'cache.png';
                 if (file_exists($imgUrl)) {
@@ -92,11 +92,11 @@ class Fiestic_Ingram_IndexController extends Mage_Core_Controller_Front_Action {
                 }
             } else {
                 
-                $dirpath = Mage::getBaseDir('base') . "/media/server/ean/" . $date. '/' . $codes;
-                if(!mkdir($dirpath . '/'. $date,0755,true)){
+                $dirpath = Mage::getBaseDir('base') . "/media/server/ean/" . $codes;
+                if(!mkdir($dirpath,755,true)){
                     echo 'Unable to make folder '.$dirpath.'<br/>';
                 }else{
-                    $imgUrl = $dirpath . '/'. $date .'/cache.png';
+                    $imgUrl = $dirpath .'/cache.png';
                     $image_data = $path;
                     $contents = file_get_contents($image_data);
                     $download_image = file_put_contents($imgUrl, $contents);
