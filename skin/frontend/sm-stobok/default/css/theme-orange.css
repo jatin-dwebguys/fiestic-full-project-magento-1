@@ -13473,6 +13473,9 @@ input.input-text.qty {
 .category-products .respl-item .item-inner .item-price .price-box .price {
   font-size: 161.54%;
 }
+.old-price{
+  display: none;
+}
 .category-products .respl-item .item-inner .item-price .price-box .old-price .price {
   font-size: 123.08%;
   top: 4px;

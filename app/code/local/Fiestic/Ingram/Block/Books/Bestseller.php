@@ -6,6 +6,6 @@ class Fiestic_Ingram_Block_Books_Bestseller extends Mage_Core_Block_Template {
     	return $data->Book;
     }
     public function getTitle(){
-    	return 'BEST SELLER';
+    	return 'BESTSELLER';
     }
 }
