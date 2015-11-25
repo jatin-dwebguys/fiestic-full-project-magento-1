@@ -21,7 +21,7 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
             'startRecord' => $startRecord,
             'endRecord' => $endRecord,
             'sortField' => $sortField,
-            'liveUpdate' => $liveUpdate,
+            'liveUpdate' => 'Y',
             'dataRequest' => $dataRequest
         );
         $res = $client->SearchRequestEnhanced($params);
@@ -178,21 +178,21 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         }
 
         if($parent_category == 'PSVita' || $category_name == 'PSVita'){
-            $ingramSearch = $this->getApiData('(IFMT="PlayStation Vita") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(IFMT="PlayStation Vita") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
         }else if($parent_category == '3DS' || $category_name == '3DS'){
-            $ingramSearch = $this->getApiData('(IFMT="Nintendo 3ds") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(IFMT="Nintendo 3ds") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
         }else if($parent_category == 'WiiU' || $category_name == 'WiiU'){
-            $ingramSearch = $this->getApiData('(IFMT="Wii Universe" or IFMT="Nintendo Wii") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(IFMT="Wii Universe" or IFMT="Nintendo Wii") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
         }else if($parent_category == 'XboxOne' || $category_name == 'XboxOne'){
-            $ingramSearch = $this->getApiData('(IFMT="Xbox") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(IFMT="Xbox") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
         }else if($parent_category == 'PlayStation4' || $category_name == 'PlayStation4'){
-            $ingramSearch = $this->getApiData('(IFMT="Playstation*") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(IFMT="Playstation*") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
         }else if($parent_category == 'Xbox360' || $category_name == 'Xbox360'){
-            $ingramSearch = $this->getApiData('(IFMT="Xbox 360") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(IFMT="Xbox 360") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
         }else if($parent_category == 'PlayStation3' || $category_name == 'PlayStation3'){
-            $ingramSearch = $this->getApiData('(IFMT="PlayStation 3") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(IFMT="PlayStation 3") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
         }else if($parent_category == 'PCGames' || $category_name == 'PCGames'){
-            $ingramSearch = $this->getApiData('(IFMT="Game") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(IFMT="Game") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
         }else if($parent_category == 'Music' || $category_name == 'Music'){
             $ingramSearch = $this->getApiData('(MUMT="Audio" or MUMT="Compact Disc" or MUMT="CD-ROM") and KW='.$category_name. ' and (PD < ' . $date.')'.' and MUMT<>"Book"',2,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
         }else if($parent_category == 'Films' || $parent_category == 'Film' || $category_name == 'Films'){
@@ -221,18 +221,18 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         // echo $query;die;
         if($category_name == 'Music'){
             $query = "AWD=130";
-            $ingramSearch = $this->getApiData($query. ' and (MUMT="Audio" or MUMT="Compact Disc" or MUMT="CD-ROM")  and (PD < ' . $date.')',2,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
+            $ingramSearch = $this->getApiData($query. ' and (MUMT="Audio" or MUMT="Compact Disc" or MUMT="CD-ROM")  and (PD < ' . $date.')',2,$start,$end,$sort,'','IMG,IM60,IM90,AWD,LOGI');
         }else if($category_name == 'Film'){
             $query = "AWD=101";
             $next_60_days = date("Ymd", strtotime("+6 Months"));
-            $ingramSearch = $this->getApiData($query. ' and (PD < ' . $date.')',1,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
+            $ingramSearch = $this->getApiData($query. ' and (PD < ' . $date.')',1,$start,$end,$sort,'','IMG,IM60,IM90,AWD,LOGI');
         }else if($category_name == 'Games'){
             $query = "AWD=23";
             //$next_60_days = date("Ymd", strtotime("+6 Months"));
-            $ingramSearch = $this->getApiData($query,1,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
+            $ingramSearch = $this->getApiData($query,1,$start,$end,$sort,'','IMG,IM60,IM90,AWD,LOGI');
         }else{
             $query = "AWD=23";
-            $ingramSearch = $this->getApiData($query. ' and (PD < ' . $date.')'.' and (MT="Book" or MT="Ebook")',1,$start,$end,$sort,'','IMG,IM60,IM90,AWD');
+            $ingramSearch = $this->getApiData($query. ' and (PD < ' . $date.')'.' and (MT="Book" or MT="Ebook")',1,$start,$end,$sort,'','IMG,IM60,IM90,AWD,LOGI');
             
         }
         return $ingramSearch;
@@ -240,21 +240,23 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
     public function getCategoryPreOrder($category_name){
         $next_60_days = date("Ymd", strtotime("+2 month"));
         $next_30_days = date("Ymd", strtotime("+1 month"));
-        $date = date("Ymd");
+        $date = date("Ymd",strtotime('+7 days'));
+        // echo $date;die;
         $sort = "PD|0,DE|1";
         $start = 1;
         $end = 25;
         if($category_name == 'Music'){
-            $ingramSearch = $this->getApiData('(MUMT="Audio" or MUMT="Compact Disc" or MUMT="CD-ROM")  and PD > '.$date." and PD < ".$next_60_days,2,$start,$end,$sort,'','IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(MUMT="Audio" or MUMT="Compact Disc" or MUMT="CD-ROM")  and PD > '.$date." and PD < ".$next_60_days,2,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
         }else if($category_name == 'Film'){
             $next_60_days = date("Ymd", strtotime("+6 Months"));
-            $ingramSearch = $this->getApiData("(MT=\"Video Product\" or MT=\"Film\") and PD>".$date." and PD < ".$next_60_days,1,$start,$end,$sort,'','IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData("(MT=\"Video Product\" or MT=\"Film\") and PD>".$date." and PD < ".$next_60_days,1,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
         }else if($category_name == 'Games'){
             //$next_60_days = date("Ymd", strtotime("+6 Months"));
-            $ingramSearch = $this->getApiData('(IFMT="Xbox*" or IFMT="Playstation*" or IFMT="Nintendo*" or IFMT="Wii*" or IFMT="PS Vita")  and PD > '.$date.' and PD < '.$next_30_days,1,$start,$end,$sort,'','IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(IFMT="Xbox*" or IFMT="Playstation*" or IFMT="Nintendo*" or IFMT="Wii*" or IFMT="PS Vita")  and PD > '.$date.' and PD < '.$next_30_days,1,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
         }else{
-            $ingramSearch = $this->getApiData("(MT=\"Book\" or MT=\"Ebook\") and PD>".$date." and PD < ".$next_60_days,1,$start,$end,$sort,'','IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData("(MT=\"Book\" or MT=\"Ebook\") and PD>".$date." and PD < ".$next_60_days,1,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
         }
+        // echo '<pre>';print_r($ingramSearch);die;
         return $ingramSearch;
     }
      public function getCategoryNewReleases($category_name){
@@ -265,16 +267,16 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         $start = 1;
         $end = 25;
         if($category_name == 'Music'){
-            $ingramSearch = $this->getApiData('(MUMT="Audio" or MUMT="Compact Disc" or MUMT="CD-ROM")  and PD > '.$last_30_date." and PD < ".$date,2,$start,$end,$sort,'','IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(MUMT="Audio" or MUMT="Compact Disc" or MUMT="CD-ROM")  and PD > '.$last_30_date." and PD < ".$date,2,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
         }else if($category_name == 'Film'){
             $last_30_date = date("Ymd", strtotime("-6 Months"));
-            $ingramSearch = $this->getApiData("(MT=\"Video Product\" or MT=\"Film\") and PD>".$last_30_date." and PD < ".$date,1,$start,$end,$sort,'','IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData("(MT=\"Video Product\" or MT=\"Film\") and PD>".$last_30_date." and PD < ".$date,1,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
         }else if($category_name == 'Games'){
             //$last_30_date = date("Ymd", strtotime("-6 Months"));
-            $ingramSearch = $this->getApiData('(IFMT="Xbox*" or IFMT="Playstation*" or IFMT="Nintendo*" or IFMT="Wii*" or IFMT="PS Vita")',1,$start,$end,$sort,'','IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(IFMT="Xbox*" or IFMT="Playstation*" or IFMT="Nintendo*" or IFMT="Wii*" or IFMT="PS Vita")',1,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
             //echo '<pre>';print_r($ingramSearch);die;
         }else{
-            $ingramSearch = $this->getApiData("(MT=\"Book\" or MT=\"Ebook\") and PD>".$last_30_date." and PD < ".$date,1,$start,$end,$sort,'','IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData("(MT=\"Book\" or MT=\"Ebook\") and PD>".$last_30_date." and PD < ".$date,1,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
         }
         return $ingramSearch;
      }
