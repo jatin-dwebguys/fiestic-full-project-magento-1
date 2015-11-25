@@ -58,11 +58,11 @@
         <a href="<?php echo $this->getConfigureUrl() ?>" title="<?php echo $this->__('Edit item') ?>" class="btn-edit"><span></span></a>
         <?php endif ?>
         
-		<?php if (Mage::helper('catalog')->isModuleEnabled('Mage_Review') && $product_rating_summary_display) { ?>
+		<?php /*if (Mage::helper('catalog')->isModuleEnabled('Mage_Review') && $product_rating_summary_display) { ?>
 		<div class="rating-container">
 			<?php echo $_reviewsHelperBlock->getSummaryHtml($_item->getProduct(),false,true) ?>
  		</div>
-		<?php } ?> 
+		<?php } */?> 
 
 	</div>
 	    
@@ -149,7 +149,7 @@
 		<span class="qty-number"><?php echo Mage::helper('weee')->__('Qty:'); ?><a><?php if($this->getQty() >=1 && $this->getQty()<=9) echo '0'; echo $this->getQty() ?></a></span>		
 		<!--p-->
 		<?php if ($_options = $this->getOptionList()):?>
-		<div class="truncated">
+		<!--<div class="truncated">
 		  <div class="truncated_full_value">
 			<dl class="item-options">
 				<?php foreach ($_options as $_option) : ?>
@@ -164,8 +164,8 @@
 				<?php endforeach; ?>
 			</dl>
 		  </div>
-		<!--a href="#" onclick="return false;" class="details"><?php //echo $this->__('Details') ?></a-->
-		</div>
+		<a href="#" onclick="return false;" class="details"><?php //echo $this->__('Details') ?></a>
+		</div>-->
 		<?php endif; ?>
         <!--p-->
     </div>

@@ -3,10 +3,11 @@
 class Fiestic_Ingram_Model_Product extends Mage_Core_Model_Abstract {
 
     public function setProductData($data) {
+        //echo '<pre>';print_r($data);die;
         $product = Mage::getModel('catalog/product');
         $shop = Mage::getModel('ingram/shop');
         $prod = $data->Book;
-        if(!$prod){
+        if (!$prod) {
             $prod = $data->Music;
         }
         foreach ($prod as $item) {
@@ -17,23 +18,28 @@ class Fiestic_Ingram_Model_Product extends Mage_Core_Model_Abstract {
             $is_in_stock = 0;
 
             $is_in_stock = $shop->isProductInStock($item);
-            if($is_in_stock == 0){
-                $product->setData('is_salable',false);
+            if ($is_in_stock == 0) {
+                $product->setData('is_salable', false);
             }
             $product->setData('is_in_stock', $is_in_stock);
             $product->setData('type_id', 'simple');
 
-            
+
             $product->setData('name', $shop->getProductName($item));
-            
+
 
             $product->setData('entity_id', $shop->getProductUniq($item));
             $product->setData('display_mode', 'PRODUCTS');
-            if((int)$item->Ingram->IngramPrice!=(int)$item->Basic->PubListPrice){
-                $product->setData('special_price',(string) $item->Ingram->IngramPrice);
-                $product->setData('price', (string) $item->Basic->PubListPrice);
-            }else{
-                $product->setData('price',(string) $item->Ingram->IngramPrice);
+            if ((int) $item->Ingram->IngramPrice != (int) $item->Basic->PubListPrice) {
+                if ((int) $item->Basic->PubListPrice == '') {
+                    $product->setData('price', (string) $item->Ingram->IngramPrice);
+                    $product->setData('special_price', false);
+                } else {
+                    $product->setData('special_price', (string) $item->Ingram->IngramPrice);
+                    $product->setData('price', (string) $item->Basic->PubListPrice);
+                }
+            } else {
+                $product->setData('price', (string) $item->Ingram->IngramPrice);
                 $product->setData('special_price', false);
             }
             $product->setData('status', 1);
@@ -56,15 +62,15 @@ class Fiestic_Ingram_Model_Product extends Mage_Core_Model_Abstract {
             $product->setData('short_description', $shop->getProductShortDesc($item));
             $authors = $shop->getProductAuthor($item);
             $additional = array();
-            if($item->Basic->MusicTitle){
+            if ($item->Basic->MusicTitle) {
                 $additional['Recorded By'] = $authors;
-            }else{
+            } else {
                 $additional['Author'] = $authors;
             }
             $additional['Director'] = $shop->getProductDirector($item);
             $additional['Actor'] = $shop->getProductActor($item);
             $pubdate = $shop->getProductPublicationDate($item);
-            if($pubdate){
+            if ($pubdate) {
                 $additional['PubDate'] = $pubdate;
             }
             $additional['Publisher'] = (string) $shop->getProductPublisher($item);
@@ -78,7 +84,7 @@ class Fiestic_Ingram_Model_Product extends Mage_Core_Model_Abstract {
             $additional['Pages'] = (string) $item->Basic->Pages;
             $additional['Units'] = (string) $item->Basic->Units;
 
-            
+
             $additional['CountryOfOrigin'] = (string) $item->Ingram->Logistics->CountryOfOrigin;
             $product->setData('additional', $additional);
         }
@@ -91,4 +97,3 @@ class Fiestic_Ingram_Model_Product extends Mage_Core_Model_Abstract {
     }
 
 }
-

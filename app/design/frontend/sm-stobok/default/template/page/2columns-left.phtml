@@ -172,7 +172,7 @@ $currentUrls = Mage::helper('core/url')->getCurrentUrl();
 										
 											<div class="mega-left-title css-menu-left-title" style="margin-top:">
                                                                                             <div class="row menu-container" style="">
-        <div class="col-lg-1 col-md-1 "></div>
+        
         <div class="col-lg-3 col-md-3 ">
             <?php 
             trim($path);
@@ -244,7 +244,30 @@ $currentUrls = Mage::helper('core/url')->getCurrentUrl();
 <img src="<?php echo Mage::getBaseUrl('media')."sm/icon-film-hover.png"; ?>" class="menu_img menu_film_logo menu_film_logo_hover" id="menu_film_logo_hover" style="display: none;">
 <img src="<?php echo Mage::getBaseUrl('media')."sm/icon-film-active.png"; ?>" class="menu_img menu_film_logo menu_film_logo_active" id="menu_film_logo_active" style="display: none;">
             </a> </div> </div>
-         <div class="col-lg-1 col-md-1 "></div>
+        <div class="col-lg-3 col-md-3 ">
+            <?php 
+            trim($path);
+            $url= Mage::getBaseUrl().'game';
+            trim($url);
+            trim($currentUrl);
+         
+            if($currentUrl == $url){
+                
+                 
+            $src = Mage::getBaseUrl('media')."sm/icon-game-active.png";
+            }  else {
+                
+            
+            $src = Mage::getBaseUrl('media')."sm/icon-game-off.png";
+            }
+            ?>
+            <div class="menu_game">
+            <a href="<?php echo $url;?>">
+      <img src="<?php echo Mage::getBaseUrl('media')."sm/icon-game-off.png"; ?>" class="menu_img menu_game_logo menu_game_logo_off"  id="menu_game_logo_off" style="display:block">
+            <img src="<?php echo Mage::getBaseUrl('media')."sm/icon-game-active.png"; ?>" class="menu_img menu_game_logo menu_game_logo_active" id="menu_game_logo_active"  style="display:none">
+            <img src="<?php echo Mage::getBaseUrl('media')."sm/icon-game-hover.png"; ?>" class="menu_img menu_game_logo menu_game_logo_hover"  id="menu_game_logo_hover"style="display:none">
+            </a> </div> </div>                                                                                              
+         
                                                                                 
                                                                                 
     </div>
@@ -433,6 +456,40 @@ echo "</ul>";
     
         ?>
         </div>
+        <div style="color:black; display: none; margin-top:-8px;" class="game_subcategory menu_subcategory ">
+        <?php
+        $cat = Mage::getModel('catalog/category')->load('184');
+        
+        $subcats = $cat->getChildren();
+        echo "<ul class='level0 shown-sub'>";
+        $i=0;
+        foreach(explode(',',$subcats) as $subCatid)
+{
+            $i++;
+            
+           
+  $_category = Mage::getModel('catalog/category')->load($subCatid);
+  if($_category->getIsActive())
+  {
+     $caturl     = $_category->getURL();
+    
+      $catname     = $_category->getName();
+      if($caturl == $currentUrls){
+          $style = "style='color:#f26522;'";
+      }
+      else{
+            $style = "";
+      }
+   echo "<a href=".$caturl."> <li class='level1 nav-1-".$i."' ".$style.">". $catname."</li></a>";
+   
+  }
+}
+echo "</ul>";
+    
+        ?>
+        </div>
+   
+   
 										<!--<?php// echo $this->getChildHtml('topMenu');?>
 									   
 											<?php// echo $this->getChildHtml('cssMenu-left');?>-->

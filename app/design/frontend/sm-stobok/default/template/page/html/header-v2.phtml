@@ -115,7 +115,7 @@
                                                        <option value="Music">Music</option>
                                                        <option value="Film">Film</option>
                                                         </select></div>-->
-                                                    <img src="<?php echo Mage::getBaseUrl('media').'/sm/searchbox-close.png'?>" style="height:12px; margin-top:0px;" class="searchbox_hide">
+                                                    <img src="<?php echo Mage::getBaseUrl('media').'/sm/searchbox-close.png'?>" style="height:12px; margin-top:0px; padding-left: 6px;" class="searchbox_hide">
                                                </form>
                                            </div>
 						</div>
@@ -501,13 +501,15 @@ else{
     //----------------Categry page link active------------->>>>
        var url      = window.location.href;  
        console.log(url);
-       var books_url = '<?php echo Mage::getBaseUrl(); ?>books'
-        var music_url = '<?php echo Mage::getBaseUrl(); ?>music'
-         var film_url = '<?php echo Mage::getBaseUrl(); ?>film'
+       var books_url = '<?php echo Mage::getBaseUrl(); ?>books';
+        var music_url = '<?php echo Mage::getBaseUrl(); ?>music';
+         var film_url = '<?php echo Mage::getBaseUrl(); ?>film';
+         var game_url = '<?php echo Mage::getBaseUrl(); ?>game';
          console.log(books_url);
          console.log(music_url);
          console.log(film_url);
-         if((url.indexOf(books_url) > -1) || (url.indexOf(music_url) > -1)  || (url.indexOf(film_url) > -1)){
+         console.log(film_url);
+         if((url.indexOf(books_url) > -1) || (url.indexOf(music_url) > -1)  || (url.indexOf(film_url) > -1) || (url.indexOf(game_url) > -1)){
         
         if(jQuery('.header-v2 .btn-menu-destop i').hasClass('fa-angle-down')){
 			jQuery('.header-v2 .btn-menu-destop i').removeClass('fa-angle-down');
@@ -555,6 +557,12 @@ else{
   jQuery('.menu_film_logo_off').css("display","none");
      jQuery('.menu_film_logo_active').css("display","block");
         jQuery('.film_subcategory').css("display","block");
+ 
+}else if(url.indexOf(game_url) > -1){
+ 
+  jQuery('.menu_game_logo_off').css("display","none");
+     jQuery('.menu_game_logo_active').css("display","block");
+        jQuery('.game_subcategory').css("display","block");
  
 }
 else{
@@ -682,7 +690,44 @@ else{
                      
             });
             
+            jQuery(".menu_game").hover(function(){
+          
+          
+           jQuery('.menu_game_logo').each(function(){
+              var css= jQuery(this).css('display');
+             if(css == 'block'){
+                  prev_id=jQuery(this).attr('id');
             
+             }      
+    });  
+     jQuery('#menu_game_logo_off').css("display","none");
+     jQuery('#menu_game_logo_active').css("display","none");
+     jQuery('#menu_game_logo_hover').css("display","block");
+        
+    }, function(){
+       // console.log(prev_id);
+        
+         jQuery('.menu_game_logo').each(function(){
+            var id= jQuery(this).attr('id');
+            if(id == prev_id){
+                jQuery(this).css('display','block');
+                //console.log('a');
+            }
+            else{
+                 jQuery(this).css('display','none');
+            }
+             
+         });
+                     
+            });
+            jQuery('.new-test').mouseover(function(){
+                jQuery('#cart-image').css('display','none');
+                jQuery('#cart-image-inactive').css('display','block');
+            });
+            jQuery('.new-test').mouseout(function(){
+                jQuery('#cart-image-inactive').css('display','none');
+                jQuery('#cart-image').css('display','block');
+            });
             
             
       /*   jQuery(".menu_books").click(function(){

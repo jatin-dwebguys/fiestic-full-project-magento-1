@@ -54,17 +54,14 @@
 $_product = $this->getProduct();
 
 //$qtyStock = null;
-
 //$minimumQty = null;
-
 //$maxmumQty = null;
 
-$qtyStock = 100;//(int) Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty();
+$qtyStock = 100; //(int) Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty();
 
-$minimumQty = 1;//(int) $_product->getStockItem()->getMinSaleQty();
+$minimumQty = 1; //(int) $_product->getStockItem()->getMinSaleQty();
 
-$maxmumQty = 100;//(int) $_product->getStockItem()->getMaxSaleQty();
-
+$maxmumQty = 100; //(int) $_product->getStockItem()->getMaxSaleQty();
 //$manage_stock = (int) Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getManageStock();
 ?>
 
@@ -82,8 +79,8 @@ $maxmumQty = 100;//(int) $_product->getStockItem()->getMaxSaleQty();
                 <input type="hidden" name="proId" id="proId" value="<?php echo $_product->getId(); ?>"/>
 
                 <input type="button" class="quantity-controls quantity-minus" onclick="if (Number($('qty').value) > 1) {
-                                                                $('qty').value = Number($('qty').value) - 1;
-                                                            }" value="">					
+                            $('qty').value = Number($('qty').value) - 1;
+                        }" value="">					
 
                 <input type="text" name="qty" id="qty" maxlength="12" value="<?php echo '1' ?>" title="<?php echo $this->__('Qty') ?>" class="quantity-input qty" />
 
@@ -104,10 +101,14 @@ $maxmumQty = 100;//(int) $_product->getStockItem()->getMaxSaleQty();
     </div>			
 
 <?php } ?>
-<div class="add-to-cart product-addcart">
+<!--<div class="add-to-cart product-addcart">
 
     <button type="submit"  title="<?php echo $buttonTitle ?>" class="button btn-cart btn-cart-single" ><span><span><?php echo $buttonTitle ?></span></span></button>	
 
-</div>
+</div>-->
+<button type="submit" title="" class="new-test" style="height: 34px; width: 31px;">
+    <span id="cart-image"><img src="<?php echo Mage::getBaseUrl('media').'sm/sm-icon-cart.png'?>" style="height: 24px;"></span>
+    <span id="cart-image-inactive" style="display:none;"><img src="<?php echo Mage::getBaseUrl('media').'sm/icon-cart-trans.png'?>" style="height: 24px; background-color: #f26522;" /></span>
+</button>
 
 <?php echo $this->getChildHtml('', true, true) ?>				
