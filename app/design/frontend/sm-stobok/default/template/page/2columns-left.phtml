@@ -359,15 +359,15 @@ $currentUrls = Mage::helper('core/url')->getCurrentUrl();
         <?php
         $cat = Mage::getModel('catalog/category')->load('128');
         
-        $subcats = $cat->getChildren();
+        $subChilds = $cat->getChildrenCategories();
         echo "<ul class='level0 shown-sub'>";
         $i=0;
-        foreach(explode(',',$subcats) as $subCatid)
+        foreach($subChilds as $_category)
 {
             $i++;
             
-           
-  $_category = Mage::getModel('catalog/category')->load($subCatid);
+           // echo '<pre>'; print_r($_category->getData());die;
+  // $_category = Mage::getModel('catalog/category')->load($subCatid);
   if($_category->getIsActive())
   {
      $caturl     = $_category->getURL();
@@ -392,13 +392,13 @@ echo "</ul>";
         <?php
         $cat = Mage::getModel('catalog/category')->load('129');
         
-        $subcats = $cat->getChildren();
+        $subChilds = $cat->getChildrenCategories();
         echo "<ul class='level0 shown-sub'>";
         $i=0;
-        foreach(explode(',',$subcats) as $subCatid)
+        foreach($subChilds as $_category)
 {
            $i++;
-  $_category = Mage::getModel('catalog/category')->load($subCatid);
+  // $_category = Mage::getModel('catalog/category')->load($subCatid);
   if($_category->getIsActive())
   {
      $caturl     = $_category->getURL();
@@ -426,13 +426,13 @@ echo "</ul>";
         <?php
         $cat = Mage::getModel('catalog/category')->load('130');
         
-        $subcats = $cat->getChildren();
+        $subChilds = $cat->getChildrenCategories();
         echo "<ul class='level0 shown-sub'>";
         $i=0;
-        foreach(explode(',',$subcats) as $subCatid)
+        foreach($subChilds as $_category)
 {
            $i++;
-  $_category = Mage::getModel('catalog/category')->load($subCatid);
+  // $_category = Mage::getModel('catalog/category')->load($subCatid);
   if($_category->getIsActive())
   {
      $caturl     = $_category->getURL();
@@ -460,15 +460,16 @@ echo "</ul>";
         <?php
         $cat = Mage::getModel('catalog/category')->load('195');
         
-        $subcats = $cat->getChildren();
+        // $subcats = $cat->getChildren();
+        $subChilds = $cat->getChildrenCategories();
         echo "<ul class='level0 shown-sub'>";
         $i=0;
-        foreach(explode(',',$subcats) as $subCatid)
+        foreach($subChilds as $_category)
 {
             $i++;
             
            
-  $_category = Mage::getModel('catalog/category')->load($subCatid);
+  // $_category = Mage::getModel('catalog/category')->load($subCatid);
   if($_category->getIsActive())
   {
      $caturl     = $_category->getURL();
