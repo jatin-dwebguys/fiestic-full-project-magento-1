@@ -142,7 +142,7 @@ hr.soften {
   right: 0;
   bottom: 0;
   left: 0;
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/css/img/bs-docs-masthead-pattern.png) repeat center center;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/img/bs-docs-masthead-pattern.png) repeat center center;
   opacity: .4;
 }
 /* Masthead (docs home)
@@ -705,7 +705,7 @@ form.bs-docs-example {
 }
 .bs-docs-sidenav .active .icon-chevron-right,
 .bs-docs-sidenav .active a:hover .icon-chevron-right {
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/css/img/glyphicons-halflings-white.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/img/glyphicons-halflings-white.png);
   opacity: 1;
 }
 .bs-docs-sidenav.affix {
@@ -1392,38 +1392,38 @@ th .nobr {
 #cboxTopLeft {
   width: 14px;
   height: 14px;
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/css/images/controls.gif) 0 0 no-repeat;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/images/controls.gif) 0 0 no-repeat;
 }
 #cboxTopCenter {
   height: 14px;
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/css/images/border.gif) top left repeat-x;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/images/border.gif) top left repeat-x;
 }
 #cboxTopRight {
   width: 14px;
   height: 14px;
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/css/images/controls.gif) -36px 0 no-repeat;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/images/controls.gif) -36px 0 no-repeat;
 }
 #cboxBottomLeft {
   width: 14px;
   height: 43px;
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/css/images/controls.gif) 0 -32px no-repeat;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/images/controls.gif) 0 -32px no-repeat;
 }
 #cboxBottomCenter {
   height: 43px;
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/css/images/border.gif) bottom left repeat-x;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/images/border.gif) bottom left repeat-x;
 }
 #cboxBottomRight {
   width: 14px;
   height: 43px;
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/css/images/controls.gif) -36px -32px no-repeat;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/images/controls.gif) -36px -32px no-repeat;
 }
 #cboxMiddleLeft {
   width: 14px;
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/css/images/controls.gif) -175px 0 repeat-y;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/images/controls.gif) -175px 0 repeat-y;
 }
 #cboxMiddleRight {
   width: 14px;
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/css/images/controls.gif) -211px 0 repeat-y;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/images/controls.gif) -211px 0 repeat-y;
 }
 #cboxContent {
   background: #fff;
@@ -1435,7 +1435,7 @@ th .nobr {
   /*background:url(../images/loading_background.png) center center no-repeat;*/
 }
 #cboxLoadingGraphic {
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/css/images/loading.gif) center center no-repeat;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/images/loading.gif) center center no-repeat;
 }
 #cboxTitle {
   position: absolute;
@@ -1459,7 +1459,7 @@ th .nobr {
 #cboxSlideshow {
   position: absolute;
   bottom: -29px;
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/css/images/controls.gif) 0px 0px no-repeat;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/images/controls.gif) 0px 0px no-repeat;
   width: 23px;
   height: 23px;
   text-indent: -9999px;
@@ -1566,7 +1566,7 @@ th .nobr {
   line-height: 1.25;
 }
 .sidebar .widget-new-products .block-title strong {
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/css/images/widgets/i_widget-new.gif) 0 1px no-repeat;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/images/widgets/i_widget-new.gif) 0 1px no-repeat;
   padding-left: 21px;
   color: #CE4515;
 }
@@ -1590,7 +1590,7 @@ th .nobr {
   line-height: 1.25;
 }
 .sidebar .widget-viewed .block-title strong {
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/css/images/widgets/i_block-list.gif) 0 0 no-repeat;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/images/widgets/i_block-list.gif) 0 0 no-repeat;
   padding-left: 21px;
 }
 /* Widget: Recently Compared Proructs */
@@ -1613,7 +1613,7 @@ th .nobr {
   line-height: 1.25;
 }
 .sidebar .widget-compared .block-title strong {
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/css/images/widgets/i_block-list.gif) 0 0 no-repeat;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/images/widgets/i_block-list.gif) 0 0 no-repeat;
   padding-left: 21px;
 }
 /* Widget: CMS Static Block */
@@ -1641,7 +1641,7 @@ th .nobr {
   margin: 7px 0;
 }
 .col-main .widget-product-link a {
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/css/images/widgets/i_widget-link.gif) 100% 4px no-repeat;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/images/widgets/i_widget-link.gif) 100% 4px no-repeat;
   padding-right: 15px;
 }
 .sidebar .widget-product-link {
@@ -1650,7 +1650,7 @@ th .nobr {
   padding: 0 10px;
 }
 .sidebar .widget-product-link a {
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/css/images/widgets/i_widget-link.gif) 100% 4px no-repeat;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/images/widgets/i_widget-link.gif) 100% 4px no-repeat;
   padding: 0 15px 0 0;
 }
 /* Widget: Catalog Category Link */
@@ -1663,7 +1663,7 @@ th .nobr {
   margin: 7px 0;
 }
 .col-main .widget-category-link a {
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/css/images/widgets/i_widget-link.gif) 100% 4px no-repeat;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/images/widgets/i_widget-link.gif) 100% 4px no-repeat;
   padding-right: 15px;
 }
 .sidebar .widget-category-link {
@@ -1672,7 +1672,7 @@ th .nobr {
   padding: 0 10px;
 }
 .sidebar .widget-category-link a {
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/css/images/widgets/i_widget-link.gif) 100% 4px no-repeat;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/images/widgets/i_widget-link.gif) 100% 4px no-repeat;
   padding: 0 15px 0 0;
 }
 /* Widget: CMS Page Link */
@@ -1685,7 +1685,7 @@ th .nobr {
   margin: 7px 0;
 }
 .col-main .widget-cms-link a {
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/css/images/widgets/i_widget-link.gif) 100% 4px no-repeat;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/images/widgets/i_widget-link.gif) 100% 4px no-repeat;
   padding-right: 15px;
 }
 .sidebar .widget-cms-link {
@@ -1694,7 +1694,7 @@ th .nobr {
   padding: 0 10px;
 }
 .sidebar .widget-cms-link a {
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/css/images/widgets/i_widget-link.gif) 100% 4px no-repeat;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/images/widgets/i_widget-link.gif) 100% 4px no-repeat;
   padding: 0 15px 0 0;
 }
 /* ======================================================================================= */
@@ -1733,7 +1733,7 @@ th .nobr {
   left: 0;
   width: 40px;
   height: 480px;
-  background-image: url('http://fiestic.com/skin/frontend/sm-stobok/default/images/fancybox/fancybox.png');
+  background-image: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/fancybox/fancybox.png');
 }
 #fancybox-overlay {
   position: absolute;
@@ -1838,11 +1838,11 @@ th .nobr {
   display: block;
 }
 #fancybox-left-ico {
-  background-image: url('http://fiestic.com/skin/frontend/sm-stobok/default/images/fancybox/fancybox.png');
+  background-image: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/fancybox/fancybox.png');
   background-position: -40px -30px;
 }
 #fancybox-right-ico {
-  background-image: url('http://fiestic.com/skin/frontend/sm-stobok/default/images/fancybox/fancybox.png');
+  background-image: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/fancybox/fancybox.png');
   background-position: -40px -60px;
 }
 #fancybox-left:hover,
@@ -1871,50 +1871,50 @@ th .nobr {
   top: -20px;
   left: 0;
   width: 100%;
-  background-image: url('http://fiestic.com/skin/frontend/sm-stobok/default/images/fancybox/fancybox-x.png');
+  background-image: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/fancybox/fancybox-x.png');
 }
 #fancybox-bg-ne {
   top: -20px;
   right: -20px;
-  background-image: url('http://fiestic.com/skin/frontend/sm-stobok/default/images/fancybox/fancybox.png');
+  background-image: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/fancybox/fancybox.png');
   background-position: -40px -162px;
 }
 #fancybox-bg-e {
   top: 0;
   right: -20px;
   height: 100%;
-  background-image: url('http://fiestic.com/skin/frontend/sm-stobok/default/images/fancybox/fancybox-y.png');
+  background-image: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/fancybox/fancybox-y.png');
   background-position: -20px 0px;
 }
 #fancybox-bg-se {
   bottom: -20px;
   right: -20px;
-  background-image: url('http://fiestic.com/skin/frontend/sm-stobok/default/images/fancybox/fancybox.png');
+  background-image: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/fancybox/fancybox.png');
   background-position: -40px -182px;
 }
 #fancybox-bg-s {
   bottom: -20px;
   left: 0;
   width: 100%;
-  background-image: url('http://fiestic.com/skin/frontend/sm-stobok/default/images/fancybox/fancybox-x.png');
+  background-image: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/fancybox/fancybox-x.png');
   background-position: 0px -20px;
 }
 #fancybox-bg-sw {
   bottom: -20px;
   left: -20px;
-  background-image: url('http://fiestic.com/skin/frontend/sm-stobok/default/images/fancybox/fancybox.png');
+  background-image: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/fancybox/fancybox.png');
   background-position: -40px -142px;
 }
 #fancybox-bg-w {
   top: 0;
   left: -20px;
   height: 100%;
-  background-image: url('http://fiestic.com/skin/frontend/sm-stobok/default/images/fancybox/fancybox-y.png');
+  background-image: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/fancybox/fancybox-y.png');
 }
 #fancybox-bg-nw {
   top: -20px;
   left: -20px;
-  background-image: url('http://fiestic.com/skin/frontend/sm-stobok/default/images/fancybox/fancybox.png');
+  background-image: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/fancybox/fancybox.png');
   background-position: -40px -122px;
 }
 #fancybox-title {
@@ -1942,7 +1942,7 @@ th .nobr {
 }
 #fancybox-title-over {
   padding: 10px;
-  background-image: url('http://fiestic.com/skin/frontend/sm-stobok/default/css/path/fancy_title_over.png');
+  background-image: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/path/fancy_title_over.png');
   display: block;
 }
 .fancybox-title-float {
@@ -1963,18 +1963,18 @@ th .nobr {
 }
 #fancybox-title-float-left {
   padding: 0 0 0 15px;
-  background: url('http://fiestic.com/skin/frontend/sm-stobok/default/images/fancybox/fancybox.png') -40px -90px no-repeat;
+  background: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/fancybox/fancybox.png') -40px -90px no-repeat;
 }
 #fancybox-title-float-main {
   color: #FFF;
   line-height: 29px;
   font-weight: bold;
   padding: 0 0 3px 0;
-  background: url('http://fiestic.com/skin/frontend/sm-stobok/default/images/fancybox/fancybox-x.png') 0px -40px;
+  background: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/fancybox/fancybox-x.png') 0px -40px;
 }
 #fancybox-title-float-right {
   padding: 0 0 0 15px;
-  background: url('http://fiestic.com/skin/frontend/sm-stobok/default/images/fancybox/fancybox.png') -55px -90px no-repeat;
+  background: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/fancybox/fancybox.png') -55px -90px no-repeat;
 }
 /*! fancyBox v2.1.5 fancyapps.com | fancyapps.com/fancybox/#license */
 .fancybox-wrap,
@@ -2060,7 +2060,7 @@ th .nobr {
   cursor: pointer;
   z-index: 8060;
   display: inline-block;
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/fancybox_loading.gif) no-repeat center center #000000 !important;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/fancybox_loading.gif) no-repeat center center #000000 !important;
   border-radius: 3px;
 }
 #fancybox-loading div {
@@ -2145,7 +2145,7 @@ th .nobr {
   overflow: hidden;
   display: none;
   z-index: 8010;
-  background: url('http://fiestic.com/skin/frontend/sm-stobok/default/images/fancybox_overlay.png') repeat;
+  background: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/fancybox_overlay.png') repeat;
 }
 .fancybox-overlay-fixed {
   position: fixed;
@@ -2155,7 +2155,7 @@ th .nobr {
 .fancybox-lock .fancybox-overlay {
   overflow: auto;
   /*overflow-y: scroll;*/
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/fancybox_overlay.png) repeat;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/fancybox_overlay.png) repeat;
 }
 /* Title helper */
 .fancybox-title {
@@ -2215,12 +2215,12 @@ th .nobr {
   .fancybox-close,
   .fancybox-prev span,
   .fancybox-next span {
-    background-image: url('http://fiestic.com/skin/frontend/sm-stobok/default/css/path/fancybox_sprite@2x.png');
+    background-image: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/path/fancybox_sprite@2x.png');
     background-size: 44px 152px;
     /*The size of the normal image, half the size of the hi-res image*/
   }
   #fancybox-loading div {
-    background-image: url('http://fiestic.com/skin/frontend/sm-stobok/default/css/path/fancybox_loading@2x.gif');
+    background-image: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/path/fancybox_loading@2x.gif');
     background-size: 24px 24px;
     /*The size of the normal image, half the size of the hi-res image*/
   }
@@ -2266,7 +2266,7 @@ th .nobr {
   height: 28px;
   text-indent: -9999px;
   background-color: transparent;
-  background-image: url('http://fiestic.com/skin/frontend/sm-stobok/default/images/fancybox_buttons.png');
+  background-image: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/fancybox_buttons.png');
   background-repeat: no-repeat;
   outline: none;
   opacity: 0.8;
@@ -2387,7 +2387,7 @@ th .nobr {
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
 }
 #cpanel_btn {
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/cpanel/bg-cpanel-head.png) repeat left center #666666;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/cpanel/bg-cpanel-head.png) repeat left center #666666;
   width: 40px;
   border-right: none;
   position: absolute;
@@ -2403,7 +2403,7 @@ th .nobr {
   opacity: 1 !important;
 }
 #cpanel_wrapper .cpanel-head {
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/cpanel/bg-cpanel-head.png) repeat left center #666666;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/cpanel/bg-cpanel-head.png) repeat left center #666666;
   font-size: 14px;
   font-weight: bold;
   width: 100%;
@@ -2687,7 +2687,7 @@ input.miniColors {
   left: 5px;
   width: 150px;
   height: 150px;
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/colors.png) -40px 0 no-repeat;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/colors.png) -40px 0 no-repeat;
   cursor: crosshair;
 }
 .miniColors.opacity .miniColors-colors {
@@ -2699,7 +2699,7 @@ input.miniColors {
   left: 160px;
   width: 20px;
   height: 150px;
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/colors.png) 0 0 no-repeat;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/colors.png) 0 0 no-repeat;
   cursor: crosshair;
 }
 .miniColors.opacity .miniColors-hues {
@@ -2711,7 +2711,7 @@ input.miniColors {
   left: 5px;
   width: 20px;
   height: 150px;
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/colors.png) -20px 0 no-repeat;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/colors.png) -20px 0 no-repeat;
   cursor: crosshair;
 }
 .miniColors-colorPicker {
@@ -2753,7 +2753,7 @@ input.miniColors {
   margin-right: 3px;
 }
 .miniColors-triggerWrap {
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/trigger.png) -22px 0 no-repeat;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/trigger.png) -22px 0 no-repeat;
 }
 .miniColors-triggerWrap.disabled {
   filter: alpha(opacity=50);
@@ -2762,7 +2762,7 @@ input.miniColors {
 .miniColors-trigger {
   vertical-align: middle;
   outline: none;
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/trigger.png) 0 0 no-repeat;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/trigger.png) 0 0 no-repeat;
 }
 .miniColors-triggerWrap.disabled .miniColors-trigger {
   cursor: default;
@@ -2930,7 +2930,7 @@ input.miniColors {
   top: 50%;
   margin-left: -40px;
   margin-top: -40px;
-  background: url("http://fiestic.com/skin/frontend/sm-stobok/default/css/path/owl.video.play.png") no-repeat;
+  background: url("http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/path/owl.video.play.png") no-repeat;
   cursor: pointer;
   z-index: 1;
   -webkit-backface-visibility: hidden;
@@ -3875,7 +3875,7 @@ h2.resp-tab-active span.resp-arrow {
   text-transform: uppercase;
   font-size: 133.33%;
   color: #fff;
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/icon-login-popup.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/icon-login-popup.png);
   background-repeat: no-repeat;
   background-position: 10px center;
   position: relative;
@@ -3959,7 +3959,7 @@ h2.resp-tab-active span.resp-arrow {
   position: relative;
 }
 .block-popup-login .email-input:before {
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/icon-username.png) no-repeat top left #f7f7f7;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/icon-username.png) no-repeat top left #f7f7f7;
   content: "";
   display: inline-block;
   width: 42px;
@@ -3969,7 +3969,7 @@ h2.resp-tab-active span.resp-arrow {
   left: 0px;
 }
 .block-popup-login .pass-input:before {
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/icon-pass.png) no-repeat top left #f7f7f7;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/icon-pass.png) no-repeat top left #f7f7f7;
   content: "";
   display: inline-block;
   width: 42px;
@@ -3989,7 +3989,7 @@ h2.resp-tab-active span.resp-arrow {
   height: 42px;
   font-size: 116.67%;
   font-weight: bold;
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/icon-btn-login.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/icon-btn-login.png);
 }
 .block-popup-login .input-text {
   border: none;
@@ -4024,7 +4024,7 @@ h2.resp-tab-active span.resp-arrow {
 }
 .block-popup-login .close-login {
   display: inline-block;
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/btn-close-login.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/btn-close-login.png);
   background-color: #242424;
   background-repeat: no-repeat;
   background-position: top left;
@@ -4222,7 +4222,7 @@ h2.resp-tab-active span.resp-arrow {
   float: left;
 }
 .header-default .top-link-account > ul > li > a {
-  line-height: 40px;
+  line-height: 42px;
   padding: 0 18px 7px;
   display: block;
   cursor: pointer;
@@ -4378,7 +4378,7 @@ h2.resp-tab-active span.resp-arrow {
   text-align: center;
 }
 .header-default .yt-header-middle .hot-lilne-wrapper {
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/hot-line-icon.png) no-repeat left center;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/hot-line-icon.png) no-repeat left center;
   padding-left: 48px;
   float: right;
 }
@@ -4428,9 +4428,6 @@ h2.resp-tab-active span.resp-arrow {
   display: block;
 }
 .cms-index-index.bd-hd2 #yt_left {
-  margin-top: -31px;
-}
-.cms-page-view.bd-hd2 #yt_left {
   margin-top: -31px;
 }
 #yt_header .header-v2 .yt-header-under .yt-header-under-wrap {
@@ -4487,7 +4484,7 @@ h2.resp-tab-active span.resp-arrow {
 .header-default.header-v2 .yt-header-top .logo-wrapper h1:after {
   content: "";
   position: absolute;
-  display: none;
+  display: inline-block;
   height: 4px;
   background-color: #fff;
   bottom: -5px;
@@ -4503,7 +4500,7 @@ h2.resp-tab-active span.resp-arrow {
   bottom: -10px;
   left: 50%;
   margin-left: -10px;
- /* background-color: #f26522;*/
+  background-color: #f26522;
   display: inline-block;
   text-align: center;
   line-height: 21px;
@@ -4512,7 +4509,7 @@ h2.resp-tab-active span.resp-arrow {
 .header-default.header-v2 .yt-header-top .logo-wrapper .yt-menu-wrap-vertical-destop {
   position: absolute;
   width: 100%;
-  top: 68px;
+  top: 86px;
   z-index: 99;
   display: none;
 }
@@ -5664,7 +5661,7 @@ TABLE OF CONTENTS
   content: "";
   border-bottom: 1px dashed #cccccc;
   position: absolute;
-  bottom: 8px;
+  bottom: 0;
   left: 20px;
   right: 20px;
 }
@@ -8127,7 +8124,7 @@ TABLE OF CONTENTS
   max-width: 100%;
   padding: 0;
   position: relative;
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/css/images/loading.gif) no-repeat scroll center center transparent;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/images/loading.gif) no-repeat scroll center center transparent;
   min-height: 300px;
   display: block;
   z-index: 0;
@@ -8146,7 +8143,7 @@ TABLE OF CONTENTS
   cursor: pointer;
 }
 .sj-listing-tabs .ltabs-items .ltabs-loadmore .ltabs-loadmore-btn .ltabs-image-loading {
-  background: url('http://fiestic.com/skin/frontend/sm-stobok/default/css/path/images/301.GIF') no-repeat scroll center center transparent;
+  background: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/path/images/301.GIF') no-repeat scroll center center transparent;
   width: 22px;
   height: 22px;
   display: none;
@@ -8610,7 +8607,7 @@ TABLE OF CONTENTS
   margin-left: 5px;
 }
 .sm-featured-category .fc-loading {
-  background: url('http://fiestic.com/skin/frontend/sm-stobok/default/sm/featuredcategory/images/loading.gif') no-repeat scroll center center #ffffff;
+  background: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/sm/featuredcategory/images/loading.gif') no-repeat scroll center center #ffffff;
   min-height: 300px;
   width: 100%;
   position: absolute;
@@ -8685,7 +8682,7 @@ TABLE OF CONTENTS
   right: 0;
   width: 3px;
   height: 100%;
-  background: url("http://fiestic.com/skin/frontend/sm-stobok/default/sm/featuredcategory/images/line.png") repeat-y center center #ffffff;
+  background: url("http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/sm/featuredcategory/images/line.png") repeat-y center center #ffffff;
 }
 .sm-featured-category .fc-cat-item .fc-item-image-container {
   width: 63%;
@@ -9219,7 +9216,7 @@ TABLE OF CONTENTS
 }
 .sm-imageslider .sm-imageslider-loading {
   position: absolute;
-  background: url("http://fiestic.com/skin/frontend/sm-stobok/default/images/477.gif") no-repeat center center scroll #ffffff;
+  background: url("http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/477.gif") no-repeat center center scroll #ffffff;
   z-index: 999;
   left: 0;
   right: 0;
@@ -9617,7 +9614,7 @@ TABLE OF CONTENTS
   max-width: 100%;
   padding: 0;
   position: relative;
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/css/path/images/477.gif) center center no-repeat transparent;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/css/path/images/477.gif) center center no-repeat transparent;
   min-height: 200px;
 }
 .imgsl-preload {
@@ -9926,7 +9923,7 @@ label .required {
   border-radius: 50%;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/remove_btn.png) no-repeat top left;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/remove_btn.png) no-repeat top left;
 }
 .block-compare .block-content ol#compare-items li a.btn-remove:hover {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
@@ -9950,7 +9947,7 @@ label .required {
 .fancybox-item.fancybox-close {
   width: 30px;
   height: 30px;
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/btn-close-fancy.png) no-repeat center center;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/btn-close-fancy.png) no-repeat center center;
   top: -15px;
   right: -15px;
 }
@@ -10296,7 +10293,7 @@ label.required em {
   position: absolute;
   left: 22px;
   top: 11px;
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/show-c.png) no-repeat top left #999999;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/show-c.png) no-repeat top left #999999;
 }
 .faqs-block .faq-wrapper .accordion-open span:before {
   background-position: left bottom;
@@ -10610,7 +10607,7 @@ label.required em {
 -----------------------------------------------------------------------*/
 /*------------------------back to top---------------------------------*/
 #yt-totop {
-  background: url("http://fiestic.com/skin/frontend/sm-stobok/default/images/up-arrow.png") no-repeat scroll center center #333333;
+  background: url("http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/up-arrow.png") no-repeat scroll center center #333333;
   bottom: 30px;
   height: 45px;
   overflow: hidden;
@@ -10683,10 +10680,10 @@ label.required em {
   background-position: center center;
 }
 .owl-buttons .owl-next {
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/btn-next-owl.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/btn-next-owl.png);
 }
 .owl-buttons .owl-prev {
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/btn-prev-owl.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/btn-prev-owl.png);
 }
 .resp-tab-content .btn-nav {
   position: absolute;
@@ -10959,7 +10956,7 @@ label.required em {
   display: inline-block;
 }
 .rating-box {
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/bkg_rating.png) 0px -25px repeat-x;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/bkg_rating.png) 0px -25px repeat-x;
   height: 12px;
   display: inline-block;
   width: 68px;
@@ -10969,7 +10966,7 @@ label.required em {
   top: 4px;
 }
 .rating-box .rating {
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/bkg_rating.png) 0 0 repeat-x;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/bkg_rating.png) 0 0 repeat-x;
   height: 12px;
   left: 0;
   position: absolute;
@@ -11023,11 +11020,11 @@ label.required em {
   -moz-transition: background-color 0.2s ease 0s;
 }
 .customNavigation .btn-nav.btn-next {
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/btn-next-owl.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/btn-next-owl.png);
   right: -23px;
 }
 .customNavigation .btn-nav.btn-prev {
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/btn-prev-owl.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/btn-prev-owl.png);
   left: -23px;
 }
 /*----------------------------------------------------------------------
@@ -11300,13 +11297,13 @@ label.required em {
   padding-top: 5px;
 }
 .store-info .list-info .item-info.main-info > div:before {
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/add_contact.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/add_contact.png);
 }
 .store-info .list-info .item-info.email-info > div:before {
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/email_contact.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/email_contact.png);
 }
 .store-info .list-info .item-info.phone-info > div:before {
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/phone_contact.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/phone_contact.png);
 }
 .contact-form .buttons-set {
   border: none;
@@ -11326,7 +11323,7 @@ label.required em {
   margin-bottom: 25px;
 }
 .title-about-us {
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/bg-title-about.png) repeat-x left center;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/bg-title-about.png) repeat-x left center;
   margin-bottom: 17px;
 }
 .title-about-us h2 {
@@ -11361,7 +11358,7 @@ label.required em {
   width: 100%;
 }
 .our-member .title-about-us {
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/bg-title-about.png) repeat-x left center;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/bg-title-about.png) repeat-x left center;
   margin-bottom: 17px;
   text-align: center;
 }
@@ -11410,20 +11407,20 @@ label.required em {
   background-color: #f26522;
 }
 .our-member .respl-item .w-image-box .cl-nw.cl-facebook {
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/cl_facebook.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/cl_facebook.png);
   margin-left: -42px;
   transition: all 0.3s ease 0s;
   -web-kit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
 }
 .our-member .respl-item .w-image-box .cl-nw.cl-flickr {
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/cl_flickr.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/cl_flickr.png);
   transition: all 0.5s ease 0s;
   -web-kit-transition: all 0.5s ease 0s;
   -moz-transition: all 0.5s ease 0s;
 }
 .our-member .respl-item .w-image-box .cl-nw.cl-twitter {
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/cl_twitter.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/cl_twitter.png);
   margin-left: 18px;
   transition: all 0.7s ease 0s;
   -web-kit-transition: all 0.7s ease 0s;
@@ -11459,12 +11456,12 @@ label.required em {
   top: 10px;
   background-repeat: no-repeat;
   background-position: top left;
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/icon-whylist.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/icon-whylist.png);
 }
 .why-list li a {
   display: block;
   padding: 5px 0 7px;
-  background: url("http://fiestic.com/skin/frontend/sm-stobok/default/images/border-bottom-bs.png") repeat-x left bottom;
+  background: url("http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/border-bottom-bs.png") repeat-x left bottom;
 }
 .why-list li:last-child > a {
   background: none;
@@ -11529,7 +11526,7 @@ label.required em {
   position: relative;
 }
 .happy-about-us .owl-controls .owl-prev {
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/btn-prev-hp.png) !important;
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/btn-prev-hp.png) !important;
   margin-right: 3px;
   right: 0px !important;
   left: inherit !important;
@@ -11542,7 +11539,7 @@ label.required em {
   background: #F7F5F5;
 }
 .happy-about-us .owl-controls .owl-next {
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/btn-next-hp.png) !important;
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/btn-next-hp.png) !important;
   right: 0px !important;
   background-position: center center !important;
 }
@@ -12239,35 +12236,35 @@ input.input-text.qty {
 }
 /*css background image*/
 .pattern1 {
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/pattern/pattern1.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/pattern/pattern1.png);
   background-attachment: fixed;
 }
 .pattern2 {
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/pattern/pattern2.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/pattern/pattern2.png);
   background-attachment: fixed;
 }
 .pattern3 {
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/pattern/pattern3.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/pattern/pattern3.png);
   background-attachment: fixed;
 }
 .pattern4 {
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/pattern/pattern4.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/pattern/pattern4.png);
   background-attachment: fixed;
 }
 .pattern5 {
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/pattern/pattern5.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/pattern/pattern5.png);
   background-attachment: fixed;
 }
 .pattern6 {
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/pattern/pattern6.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/pattern/pattern6.png);
   background-attachment: fixed;
 }
 .pattern7 {
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/pattern/pattern7.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/pattern/pattern7.png);
   background-attachment: fixed;
 }
 .pattern8 {
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/pattern/pattern8.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/pattern/pattern8.png);
   background-attachment: fixed;
 }
 #product-options-wrapper .input-box .input-text {
@@ -12778,7 +12775,7 @@ input.input-text.qty {
   margin: 0 27% 30px;
 }
 .block-subscribe .input-box-wrap {
-  background: url('http://fiestic.com/skin/frontend/sm-stobok/default/images/bg-newsletter.png') no-repeat bottom center;
+  background: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/bg-newsletter.png') no-repeat bottom center;
   padding-bottom: 68px;
   text-align: center;
   margin: 0 15%;
@@ -12961,7 +12958,7 @@ input.input-text.qty {
 }
 #yt_left .cssMenu-vertical,
 #yt_left .mega-left-title.css-menu-left-title {
-  display: block;
+  display: none;
 }
 /* 	ICON SPRITES */
 .header-v4 .menu-btn-categories .btn-cate:after,
@@ -12984,19 +12981,18 @@ input.input-text.qty {
 .category-products .respl-item .item-inner .item-action .btn-pd.btn-cart:before,
 .yt-product-detail .yt-detail-right .add-to-cart .btn-cart:after,
 .btn-pd.btn-cart {
-  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/icon-sprites.png);
+  background-image: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/icon-sprites.png);
 }
 .resp-tab-content .rating-box .rating,
 .yt-product-detail .simple-product .rating-box .rating,
 .left-basic-product .rating-box .rating {
-  background: url('http://fiestic.com/skin/frontend/sm-stobok/default/images/bkg_rating_f7f5f5.png') repeat-x;
+  background: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/bkg_rating_f7f5f5.png') repeat-x;
 }
 .homepage3.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div,
 .homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div,
-.homepage2.cms-page-view #yt_content .sm-imageslider .owl-controls .owl-nav > div,
 .sm-imageslider .owl-controls .owl-nav > div,
 .sm-featured-category .fc-owl-controls .fc-owl-nav div {
-  background-image: url('http://fiestic.com/skin/frontend/sm-stobok/default/images/fc-control.png');
+  background-image: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/fc-control.png');
 }
 /* tooltip */
 .tooltip-inner {
@@ -13332,7 +13328,7 @@ input.input-text.qty {
   font-weight: normal;
 }
 .respl-item .item-inner .item-review {
-  /*height: 20px;*/
+  height: 20px;
   padding-top: 0px;
   margin-bottom: 4px;
   margin-top: 5px;
@@ -13473,9 +13469,6 @@ input.input-text.qty {
 }
 .category-products .respl-item .item-inner .item-price .price-box .price {
   font-size: 161.54%;
-}
-.old-price{
-  display: none;
 }
 .category-products .respl-item .item-inner .item-price .price-box .old-price .price {
   font-size: 123.08%;
@@ -13832,7 +13825,7 @@ input.input-text.qty {
   padding: 0 43px 0 10px;
   width: 100% !important;
   line-height: 31px;
-  background: url("http://fiestic.com/skin/frontend/sm-stobok/default/images/select-btn-detail.png") no-repeat right top #ffffff;
+  background: url("http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/select-btn-detail.png") no-repeat right top #ffffff;
   border: 1px solid #ccc;
 }
 .yt-product-detail .yt-detail-right .product-options .selector select {
@@ -13924,7 +13917,7 @@ input.input-text.qty {
   z-index: 9999;
 }
 .yt-product-detail .popup-btn.hidden-phone a {
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/icon-zoom.png) no-repeat center center;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/icon-zoom.png) no-repeat center center;
   line-height: 100%;
   text-align: center;
   display: inline-block;
@@ -14176,7 +14169,7 @@ input.input-text.qty {
   right: 0;
   top: 0;
   bottom: 0;
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/bg_x.png) center no-repeat transparent;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/bg_x.png) center no-repeat transparent;
   z-index: 10;
 }
 .swatch-link.has-image .swatch-label {
@@ -14461,7 +14454,7 @@ dd.swatch-attr {
   width: 100%;
   height: 65%;
   max-height: 348px;
-  background: #f26522 url('http://fiestic.com/skin/frontend/sm-stobok/default/images/bg-slide.png') repeat;
+  background: #f26522 url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/bg-slide.png') repeat;
   background-position: bottom center;
 }
 .homepage1 .block-home-content-top-1 {
@@ -14660,7 +14653,7 @@ dd.swatch-attr {
   margin: 62px 0 34px;
 }
 .homepage1.cms-home-default .block-home-content-top-5 {
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/bg-block-home-testimonia.jpg) no-repeat center bottom;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default/images/bg-block-home-testimonia.jpg) no-repeat center bottom;
 }
 .homepage1 .block-home-content-top-5 .block.testimonial-h1-wrapper .owl-controls {
   margin: 40px 0 0;
@@ -14872,31 +14865,18 @@ dd.swatch-attr {
 .latest-blog.latest-blog-slidebar .button-wrap {
   margin-bottom: 8px;
 }
-.homepage2.cms-index-index #yt_content #yt_left .block.latest-blog-slidebar .block-title,
-.homepage2.cms-page-view #yt_content #yt_left .block.latest-blog-slidebar .block-title {
+.homepage2.cms-index-index #yt_content #yt_left .block.latest-blog-slidebar .block-title {
   color: #636363;
   text-align: left;
 }
-
-
-
-.homepage2.cms-page-view #yt_left .block.latest-blog-slidebar .block-title {
-  color: #636363;
-  text-align: left;
-}
-
-
-.homepage2.cms-index-index #yt_content .latest-blog-slidebar .owl-controls .owl-nav > div,
-.homepage2.cms-page-view #yt_content .latest-blog-slidebar .owl-controls .owl-nav > div {
+.homepage2.cms-index-index #yt_content .latest-blog-slidebar .owl-controls .owl-nav > div {
   top: -28px;
   right: 0;
 }
-.homepage2.cms-index-index #yt_content .latest-blog-slidebar .owl-controls .owl-nav > div.owl-prev,
-.homepage2.cms-page-view #yt_content .latest-blog-slidebar .owl-controls .owl-nav > div.owl-prev {
+.homepage2.cms-index-index #yt_content .latest-blog-slidebar .owl-controls .owl-nav > div.owl-prev {
   right: 15px;
 }
-.homepage2.cms-index-index #yt_content .owl-controls .owl-nav > div,
-.homepage2.cms-page-view #yt_content .owl-controls .owl-nav > div {
+.homepage2.cms-index-index #yt_content .owl-controls .owl-nav > div {
   top: -9px;
   right: 5px;
   text-indent: 0;
@@ -14907,27 +14887,22 @@ dd.swatch-attr {
   line-height: 30px;
   color: #ccc;
 }
-.homepage2.cms-index-index #yt_content .owl-controls .owl-nav > div:after,
-.homepage2.cms-page-view #yt_content .owl-controls .owl-nav > div:after  {
+.homepage2.cms-index-index #yt_content .owl-controls .owl-nav > div:after {
   content: "\f105";
   font-family: 'FontAwesome';
   font-size: 24px;
 }
-.homepage2.cms-index-index #yt_content .owl-controls .owl-nav > div.owl-prev,
-.homepage2.cms-page-view #yt_content .owl-controls .owl-nav > div.owl-prev {
+.homepage2.cms-index-index #yt_content .owl-controls .owl-nav > div.owl-prev {
   left: auto;
   right: 20px;
 }
-.homepage2.cms-index-index #yt_content .owl-controls .owl-nav > div.owl-prev:after,
-.homepage2.cms-page-view #yt_content .owl-controls .owl-nav > div.owl-prev:after {
+.homepage2.cms-index-index #yt_content .owl-controls .owl-nav > div.owl-prev:after {
   content: "\f104";
 }
-.homepage2.cms-index-index #yt_content .owl-controls .owl-nav > div:hover:after,
-.homepage2.cms-page-view #yt_content .owl-controls .owl-nav > div:hover:after {
+.homepage2.cms-index-index #yt_content .owl-controls .owl-nav > div:hover:after {
   color: #f26522;
 }
-.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div,
-.homepage2.cms-page-view #yt_content .sm-imageslider .owl-controls .owl-nav > div {
+.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div {
   height: 44px;
   width: 30px;
   top: 50%;
@@ -14935,26 +14910,21 @@ dd.swatch-attr {
   background-repeat: no-repeat;
   text-indent: -999px;
 }
-.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div:after,
-.homepage2.cms-page-view #yt_content .sm-imageslider .owl-controls .owl-nav > div:after {
+.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div:after {
   display: none;
 }
-.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-next,
-.homepage2.cms-page-view #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-next {
+.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-next {
   background-position: -27px -481px;
   right: 20px;
 }
-.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-next:hover,
-.homepage2.cms-page-view #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-next:hover {
+.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-next:hover {
   background-position: -27px -539px;
 }
-.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-prev,
-.homepage2.cms-page-view #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-prev {
+.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-prev {
   left: 20px;
   background-position: 3px -481px;
 }
-.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-prev:hover,
-.homepage2.cms-page-view #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-prev:hover {
+.homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div.owl-prev:hover {
   background-position: 3px -539px;
 }
 .homepage2.cms-index-index #yt_content .deal-wrapper-banner {
@@ -14966,18 +14936,6 @@ dd.swatch-attr {
 .homepage2.cms-index-index #yt_content .deal-wrapper-banner-notime .owl-controls .owl-nav > div.owl-prev {
   right: 25px;
 }
-
-.homepage2.cms-page-view .deal-wrapper-banner {
-  margin: 25px 0;
-}
-.homepage2.cms-page-view .deal-wrapper-banner-notime .owl-controls .owl-nav > div {
-  right: 10px;
-}
-.homepage2.cms-page-view .deal-wrapper-banner-notime .owl-controls .owl-nav > div.owl-prev {
-  right: 25px;
-}
-
-
 .homepage2.cms-index-index #yt_content .list-services {
   background: #fff;
   margin: 0;
@@ -15048,13 +15006,6 @@ dd.swatch-attr {
   color: #363636;
   border-bottom: 0;
 }
-
-.homepage2.cms-page-view #yt_left .block .block-title {
-  color: #363636;
-  border-bottom: 0;
-}
-
-
 .homepage2.cms-index-index #yt_left .block .block {
   padding: 0;
   margin: 0;
@@ -15109,88 +15060,6 @@ dd.swatch-attr {
 .homepage2.cms-index-index #yt_left .block.block-subscribe .block-content {
   padding-bottom: 0;
 }
-
-
-
-
-
-
-
-
-
-.homepage2.cms-page-view #yt_left .block {
-  background-color: #fff;
-  position: relative;
-  padding: 20px;
-}
-.homepage2.cms-page-view #yt_left .block .block-title {
-  color: #363636;
-  border-bottom: 0;
-}
-.homepage2.cms-page-view #yt_left .block .block {
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-.homepage2.cms-page-view #yt_left .block .block:after {
-  display: none;
-}
-.homepage2.cms-page-view #yt_left .block.deal-wrapper-banner,
-.homepage2.cms-page-view #yt_left .block.latest-blog-slidebar,
-.homepage2.cms-page-view #yt_left .block.block-subscribe-slidebar,
-.homepage2.cms-page-view #yt_left .block.social-slidebar-wrap,
-.homepage2.cms-page-view #yt_left .block.testimonial-column-wrapper {
-  box-shadow: 0 1px 2px #eeecec;
-}
-.homepage2.cms-page-view #yt_left .block.deal-wrapper-banner:before,
-.homepage2.cms-page-view #yt_left .block.latest-blog-slidebar:before,
-.homepage2.cms-page-view #yt_left .block.block-subscribe-slidebar:before,
-.homepage2.cms-page-view #yt_left .block.social-slidebar-wrap:before,
-.homepage2.cms-page-view #yt_left .block.testimonial-column-wrapper:before {
-  content: "";
-  position: absolute;
-  left: 8px;
-  right: 8px;
-  bottom: -6px;
-  height: 100%;
-  max-height: 50px;
-  background-color: #fff;
-  box-shadow: 0 1px 2px #eeecec;
-  display: inline-block;
-  z-index: -1;
-}
-.homepage2.cms-page-view #yt_left .block.deal-wrapper-banner {
-  padding: 0 20px 5px;
-  margin-top: 0;
-  margin-bottom: 30px;
-}
-.homepage2.cms-page-view #yt_left .block.deal-wrapper-banner .block {
-  padding-top: 0;
-  margin-top: 0;
-}
-.homepage2.cms-page-view #yt_left .block.deal-wrapper-banner .respl-item:before {
-  display: none;
-}
-.homepage2.cms-page-view #yt_left .block.deal-wrapper-banner .respl-item .item-inner {
-  box-shadow: none;
-}
-.homepage2.cms-page-view #yt_left .block.deal-wrapper-banner .item-time {
-  position: relative;
-}
-.homepage2.cms-page-view #yt_left .block.latest-blog .block-content,
-.homepage2.cms-page-view #yt_left .block.block-subscribe .block-content {
-  padding-bottom: 0;
-}
-
-
-
-
-
-
-
-
-
-
 /* END HOMEPAGE2 ============================================================================================== END HOMEPAGE2*/
 /* HOMEPAGE3 ============================================================================================== HOMEPAGE3*/
 /* COMMON homepage3 */
@@ -15642,7 +15511,7 @@ dd.swatch-attr {
   left: 0;
   bottom: 0;
   right: 15px;
-  background: url(http://fiestic.com/skin/frontend/sm-stobok/default//images/repeat_1.png) repeat;
+  background: url(http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default//images/repeat_1.png) repeat;
 }
 .homepage4 #yt_content .deal-wrapper-banner.deal-wrapper-banner-h4 .static-l:after {
   content: "";
@@ -15788,7 +15657,7 @@ dd.swatch-attr {
   background: #fff;
 }
 .homepage4 #yt_content .block-home-content-top-3 {
-  background: url('http://fiestic.com/skin/frontend/sm-stobok/default//images/bg-mod-tab-h4.jpg') no-repeat bottom center;
+  background: url('http://127.0.0.1/fiestic2/skin/frontend/sm-stobok/default//images/bg-mod-tab-h4.jpg') no-repeat bottom center;
   background-size: auto 100%;
   position: relative;
 }
@@ -16379,9 +16248,6 @@ ul.nav-menu li.parent > .res-wrapnav ul li {
     left: 173px;
   }
   .cms-index-index.bd-hd2 #yt_left {
-    margin-top: -46px;
-  }
-.cms-page-view.bd-hd2 #yt_left {
     margin-top: -46px;
   }
   .header-default.header-v3 .yt-header-under.yt-menu-wrap .container #nav > li > a {

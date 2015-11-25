@@ -177,7 +177,23 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
             }
         }
 
-        if($parent_category == 'Music' || $category_name == 'Music'){
+        if($parent_category == 'PSVita' || $category_name == 'PSVita'){
+            $ingramSearch = $this->getApiData('(IFMT="PlayStation Vita") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90');
+        }else if($parent_category == '3DS' || $category_name == '3DS'){
+            $ingramSearch = $this->getApiData('(IFMT="Nintendo 3ds") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90');
+        }else if($parent_category == 'WiiU' || $category_name == 'WiiU'){
+            $ingramSearch = $this->getApiData('(IFMT="Wii Universe" or IFMT="Nintendo Wii") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90');
+        }else if($parent_category == 'XboxOne' || $category_name == 'XboxOne'){
+            $ingramSearch = $this->getApiData('(IFMT="Xbox") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90');
+        }else if($parent_category == 'PlayStation4' || $category_name == 'PlayStation4'){
+            $ingramSearch = $this->getApiData('(IFMT="Playstation*") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90');
+        }else if($parent_category == 'Xbox360' || $category_name == 'Xbox360'){
+            $ingramSearch = $this->getApiData('(IFMT="Xbox 360") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90');
+        }else if($parent_category == 'PlayStation3' || $category_name == 'PlayStation3'){
+            $ingramSearch = $this->getApiData('(IFMT="PlayStation 3") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90');
+        }else if($parent_category == 'PCGames' || $category_name == 'PCGames'){
+            $ingramSearch = $this->getApiData('(IFMT="Game") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90');
+        }else if($parent_category == 'Music' || $category_name == 'Music'){
             $ingramSearch = $this->getApiData('(MUMT="Audio" or MUMT="Compact Disc" or MUMT="CD-ROM") and KW='.$category_name. ' and (PD < ' . $date.')'.' and MUMT<>"Book"',2,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
         }else if($parent_category == 'Films' || $parent_category == 'Film' || $category_name == 'Films'){
             $ingramSearch = $this->getApiData($query. ' and (PD < ' . $date.')'.' and (MT="Video Product" or MT="Film")',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
