@@ -12984,19 +12984,19 @@ input.input-text.qty {
 .category-products .respl-item .item-inner .item-action .btn-pd.btn-cart:before,
 .yt-product-detail .yt-detail-right .add-to-cart .btn-cart:after,
 .btn-pd.btn-cart {
-  background-image: url(sm-stobok/default/images/icon-sprites.png);
+  background-image: url(http://fiestic.com/skin/frontend/sm-stobok/default/images/icon-sprites.png);
 }
 .resp-tab-content .rating-box .rating,
 .yt-product-detail .simple-product .rating-box .rating,
 .left-basic-product .rating-box .rating {
-  background: url('sm-stobok/default/images/bkg_rating_f7f5f5.png') repeat-x;
+  background: url('http://fiestic.com/skin/frontend/sm-stobok/default/images/bkg_rating_f7f5f5.png') repeat-x;
 }
 .homepage3.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div,
 .homepage2.cms-index-index #yt_content .sm-imageslider .owl-controls .owl-nav > div,
 .homepage2.cms-page-view #yt_content .sm-imageslider .owl-controls .owl-nav > div,
 .sm-imageslider .owl-controls .owl-nav > div,
 .sm-featured-category .fc-owl-controls .fc-owl-nav div {
-  background-image: url('sm-stobok/default/images/fc-control.png');
+  background-image: url('http://fiestic.com/skin/frontend/sm-stobok/default/images/fc-control.png');
 }
 /* tooltip */
 .tooltip-inner {

@@ -294,8 +294,7 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         }else if($category_name == 'Games'){
             $ingramSearch = $this->getApiData('(IFMT="Xbox*" or IFMT="Playstation*" or IFMT="Nintendo*" or IFMT="Wii*" or IFMT="PS Vita")',1,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
         }else{
-            $ingramSearch = $this->getApiData('(BSC="FIC*")',1,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
-            //$ingramSearch = $this->getApiData('(MT="Book" or MT="Ebook")',1,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(MT="Book" or MT="Ebook")',1,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
         }
 
         return $ingramSearch;

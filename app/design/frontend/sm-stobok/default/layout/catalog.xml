@@ -77,6 +77,9 @@ Supported layout update handles (special):
 					<value><product_addcompare_display>0</product_addcompare_display></value>
 				</action>
 			</block>
+                        <block type="blog/blog" name="blog-slidebar" template="aw_blog/latest-blog-slidebar.phtml"/>
+                        <block type="newsletter/subscribe" name="left.newsletter-slidebar" template="newsletter/subscribe-slidebar.phtml"/>
+                        <block type="page/html" name="social_info-slidebar" template="page/html/social-slidebar.phtml"/>	
 			<!-- <block type="tag/popular" after="lastest-product" name="tags_popular" template="tag/popular.phtml"/> -->
 
 		</reference>

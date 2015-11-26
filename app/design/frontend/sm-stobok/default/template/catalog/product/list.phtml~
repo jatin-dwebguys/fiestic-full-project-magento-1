@@ -1,0 +1,336 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Category view template
+ *
+ * @see Mage_Catalog_Block_Category_View
+ */
+?>
+<?php
+// $_productCollection=$this->getLoadedProductCollection();
+$_productCollection = Mage::registry('ingram_category');
+
+$_helper = $this->helper('catalog/output');
+if(sizeof($_productCollection) == 0): ?>
+<p class="note-msg">
+	<?php echo $this->__('There are no products matching the selection.') ?>
+</p>
+<?php else: ?>
+<div id="catalog-listing">
+    <div class="category-products">
+	<?php echo $this->getToolbarHtml() ?>
+		<?php if($this->getMode()!='grid' && false): ?>
+        
+		<?php $_iterator = 0; ?>
+            <ol class="products-list" id="products-list">
+                <?php foreach ($_productCollection as $_product):
+
+                    $url = Mage::getUrl('product/index/index') . 'BN/'. $_product->Basic->ISBN;
+                    $name = $_product->Basic->TitleLeadingArticle.' '.$_product->Basic->Title;
+                    $price = $_product->Ingram->IngramPrice;
+                    $image = $_product->Basic->Image->IMG187
+
+                    /*
+                    $id_product = Mage::getModel('catalog/product')->load($_product->getId());
+                    //$count_input_qty++;
+                    $now = date("Y-m-d");
+                    $newsFrom = substr($_product->getData('news_from_date'), 0, 10);
+                    $newsTo = substr($_product->getData('news_to_date'), 0, 10);
+
+                    $specialprice = Mage::getModel('catalog/product')->load($_product->getId())->getSpecialPrice();
+                    //echo $specialprice . '-hau<br/>';
+                    $price = Mage::getModel('catalog/product')->load($_product->getId())->getPrice();
+                    if ($specialprice == '') {
+                        $store_id = Mage::app()->getStore()->getStoreId();
+                        $discounted_price = Mage::getResourceModel('catalogrule/rule')->getRulePrice(
+                            Mage::app()->getLocale()->storeTimeStamp($store_id),
+                            Mage::app()->getStore($store_id)->getWebsiteId(),
+                            Mage::getSingleton('customer/session')->getCustomerGroupId(),
+                            $_product->getId());
+                        $specialprice = $discounted_price;
+
+                    }
+                    */
+
+                    ?>
+                    <div class="item respl-item<?php echo ($newsFrom != "" && $now >= $newsFrom && ($now <= $newsTo || $newsTo == "") || $specialprice)? " haslabel":""; ?>">
+						<?php if ($newsFrom != "" && $now >= $newsFrom && ($now <= $newsTo || $newsTo == "")) { ?>
+							<div class="new-item<?php echo ($specialprice)? " label2":""; ?>">
+								<span class="txt-label"><?php echo $this->__('New') ?></span>
+							</div>
+						<?php } ?>
+
+						<?php if ($specialprice) { ?>
+							<div class="sale-item<?php echo ($newsFrom != "" && $now >= $newsFrom && ($now <= $newsTo || $newsTo == ""))? " label2":""; ?>">
+								<span class="txt-label"><?php echo $this->__('Sale') ?></span>
+							</div>
+						<?php } ?>	
+											
+                        <div class="item-inner">
+                            <div class="w-image-box">
+                                <div class="item-image">
+                                       <a href="<?php echo $url;?>" title="<?php echo $this->stripTags($name, null, true) ?>" class="product-image">
+                                          <img id="product-collection-image-895" src="<?php  echo $image;  ?>" alt="<?php echo $this->stripTags($name, null, true) ?>" style="height:186px; widht:121px !important;"></a>                                   
+                                </div>
+
+
+                            </div>
+
+                            <div class="w-info-box">
+                                <div class="item-info">
+                                    
+                                    <div class="item-title">
+                                        <a href="<?php echo $url ?>"
+                                           title="<?php echo $this->stripTags($name, null, true) ?>"><?php echo $name ?></a>
+                                    </div>
+                                    <!--
+                                    <div class="item-review">
+                                        <?php echo $this->getReviewsSummaryHtml($_product, "short", true); ?>
+                                    </div>
+                                    -->
+
+                                    <div class="item-price">
+                                        <?php echo $price ?>
+                                    </div>
+                                    
+                                    <div class="desc std">
+                                        <?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+                                    </div>                              
+                                </div>
+
+                                <div class="item-action">
+                                    <?php if ($_product->isSaleable() || true): ?>
+                                        <button title="<?php echo $this->__('Add to Cart')?>" type="button" class="btn-pd btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')">
+                                            <span>
+                                                <span><?php echo $this->__('Add to Cart') ?></span>
+                                            </span>
+                                        </button>
+                                    <?php else: ?>
+                                        <p class="availability out-of-stock">
+                                            <span><?php echo $this->__('Out of stock') ?></span>
+                                        </p>
+                                    <?php endif; ?>     
+
+                                    <!-- 
+                                    <a style="display:none;" href="<?php echo $_product->getProductUrl() ?>"></a>
+                                    <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                                        <a data-toggle="tooltip" data-placement="top"  title="<?php echo $this->__('Add to Wishlist') ?>" href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="btn-pd item-wishlist">
+                                            <span><?php echo $this->__('Add to Wishlist') ?></span>
+                                        </a>
+                                    <?php endif; ?>     
+
+                                    <?php if ($_compareUrl = $this->getAddToCompareUrl($_product)): ?>
+                                        <a data-toggle="tooltip" data-placement="top" title="<?php echo $this->__('Add to Compare') ?>" href="<?php echo $_compareUrl ?>" class="btn-pd item-compare">
+                                            <span><?php echo $this->__('Add to Compare') ?></span>
+                                        </a>
+                                    <?php endif; ?>                             
+                                    -->
+                                </div>
+                                    
+                            </div>
+
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </ol>
+		<script type="text/javascript">decorateList('products-list', 'none-recursive')</script>
+		
+		<?php else: ?>
+		<?php $_collectionSize = sizeof($_productCollection); ?>
+		<?php $_columnCount = $this->getColumnCount();?>
+            <div class="products-grid row">
+                <?php $i = 0;
+                $shop = Mage::getModel('ingram/shop');
+                foreach ($_productCollection as $_product):
+                    $uniq = $shop->getProductUniq($_product);
+                    $url = $shop->getProductUrl($_product);
+                    $name = $shop->getProductName($_product);
+                    $price = $shop->getProductPrice($_product);
+                    $image = $shop->getProductImage($_product);
+                    $authors = $shop->getProductAuthor($_product);
+                    $publisher = $shop->getProductPublisher($_product);
+                    $media = $shop->getProductMedia($_product);
+                    $format = $shop->getProductFormat($_product);
+                    $date = $shop->getProductPublicationDate($_product);
+
+//echo "<pre>"; print_r($_product); die;
+
+                    ?>
+                    <?php if ($i++ % $_columnCount == 0): ?>
+
+                <?php endif ?>
+                    <div class="item col-lg-4 col-md-4 col-sm-4 respl-item haslabel" style="height:380px;">
+                        
+                            <!--
+                            <div class="sale-item">
+                                <span class="txt-label">Sale</span>
+                            </div>
+                            -->
+                            
+                                            
+                        <div class="item-inner" style="height:100%;">
+                            <div class="w-image-box">
+                                <div class="item-image">
+                                    <a href="<?php echo $url; ?>" title="<?php echo $this->stripTags($name, null, true) ?>" class="product-image">
+                                    <?php if($shop->hasImage($_product)) { ?>
+                                            <input type="hidden" name="unique_code" value="<?php echo $uniq; ?>" id="unique_code" class="unique_code"> 
+                                    <?php } ?>
+
+                                        <img id="product-collection-image-895 product_image" src="<?php  echo $image;  ?>" alt="<?php echo $image;?>" style="height:186px; widht:121px !important;"></a>
+                                </div>
+
+
+                            </div>
+
+                            <div class="item-info">
+                                
+                                <div class="item-title" style="height:42px !important;  overflow: hidden; text-overflow: ellipsis; ">
+                                    <a href="<?php echo $url; ?>" title="<?php echo $this->stripTags($name, null, true) ?>"><?php echo $name; ?></a>
+                                </div>
+                                <!-- <div class="item-review">
+                                    <div><small><?php echo $authors;?></small></div>
+                                    <div><small>Publisher: <?php echo $publisher; ?></small></div>
+                                    <div><small><?php echo $media.'-'.$format; ?></small></div>
+                                    <div><small><?php echo $date;?></small></div>
+                                </div> -->
+                                <?php /*                 
+                                <div class="item-review">
+                                        <div class="ratings">
+                                            <div class="rating-box">
+                                                 <div class="rating" style="width:80%"></div>
+                                            </div>
+            
+                <span class="amount"><a href="#" onclick="var t = opener ? opener.window : window; t.location.href='http://fiestic.com/review/product/list/id/895/category/72/'; return false;">2 Review(s)</a></span>  
+                                        </div>
+                                </div>
+                                */ ?>
+
+                                <div class="item-price">                      
+                                     <div class="price-box">
+                                            <span class="regular-price">
+                                                  <span class="price">$<?php echo $price; ?></span>                                    </span>
+                                             </span>     
+                                    </div>
+
+                                </div>
+                            </div>
+                           <?php 
+                           $is_in_stock = $shop->isProductInStock($_product);
+            if($is_in_stock ==1)
+            {
+            ?>
+                            <div class="item-action">
+                                <?php
+                                   $url = $shop->getProductAddToCartUrl($_product);                 
+                                ?>
+                                
+                                   <!-- <button title="Add to Cart" type="button" class="btn-pd btn-cart" onclick="setLocation('http://fiestic.com/books/electronic/ires-mite-rima.html?options=cart')">-->
+                                   <!--<button title="Add to Cart" type="button" class="btn-pd btn-cart" onclick='setLocation("<?php echo $url;?>")'>
+
+                                        <span>
+                                            <span>cgkahsk</span>
+                                        </span>
+                                    </button>-->
+				<button type="button" title="" class="new-test-category" style="height: 34px; width: 31px;" onclick='setLocation("<?php echo $shop->getProductUrl($_product); ?>")'>
+				    <span id="cart-image"><img src="<?php echo Mage::getBaseUrl('media').'sm/sm-icon-cart.png'?>" style="height: 24px;"></span>
+				    <span id="cart-image-inactive" style="display:none;"><img src="<?php echo Mage::getBaseUrl('media').'sm/icon-cart-trans.png'?>" style="height: 24px; background-color: #f26522;" /></span>
+				</button>
+
+<script type='text/javascript'>
+jQuery(document).ready(function(){ 
+
+
+alert('asdf');
+
+
+
+});
+</script>
+                                        
+
+                            <!--
+                                <a style="display:none;" href="<?php //echo Mage::getUrl('product/index/index') . 'BN/'. $_product->Basic->ISBN; ?>"></a>
+                                                                    <a data-toggle="tooltip" data-placement="top" title="" href="http://fiestic.com/wishlist/index/add/product/895/form_key/s2JZnjtb8azPH2mA/" class="btn-pd item-wishlist" data-original-title="Add to Wishlist" style="display: none;">
+                                        <span>Add to Wishlist</span>
+                                    </a>
+                                        
+
+                                                                    <a data-toggle="tooltip" data-placement="top" title="" href="http://fiestic.com/catalog/product_compare/add/product/895/uenc/aHR0cDovL2ZpZXN0aWMuY29tL2Jvb2tzL2VsZWN0cm9uaWMuaHRtbA,,/form_key/s2JZnjtb8azPH2mA/" class="btn-pd item-compare" data-original-title="Add to Compare">
+                                        <span>Add to Compare</span>
+                                    </a>
+                             -->                                   
+                            </div>
+            <?php }
+            else
+            {
+                  echo "<h4>Out of Stock</h4>";
+            }?>
+
+                                                    
+
+                        
+                        <!-- <a class="btn-pd sm_quickview_handler" data-toggle="tooltip" data-placement="top" title="" href="http://fiestic.com/quickview/index/view/path/books/electronic/ires-mite-rima.html" data-original-title="Quick View"><span>Quick View</span></a> -->
+                        </div>
+                    </div>
+                    <?php if($i % 2 == 0) : ?>
+                        <div class="clr2-item-plg"></div>
+                    <?php endif; ?>
+                    <?php if($i % 3 == 0) : ?>
+                        <div class="clr3-item-plg"></div>
+                    <?php endif; ?>
+                    <?php if ($i % $_columnCount == 0 || $i == $_collectionSize): ?>
+
+                <?php endif ?>
+                <?php endforeach ?>
+            </div>
+		<script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+		<?php endif; ?>
+	</div>
+	
+	<div class="toolbar-bottom">
+		<?php echo $this->getToolbarHtml() ?>
+	</div>
+	
+</div>
+<?php endif; ?>
+
+<?php
+// Provides a block where additional page components may be attached, primarily good for in-page JavaScript
+if ($this->getChild('after')) {
+    $_afterChildren = $this->getChild('after')->getSortedChildren();
+    foreach ($_afterChildren as $_afterChildName) {
+        $_afterChild = $this->getChild('after')->getChild($_afterChildName);
+        //set product collection on after blocks
+        $_afterChild->setProductCollection($_productCollection);
+        echo $_afterChild->toHtml();
+    }
+}
+?>
+
+
+

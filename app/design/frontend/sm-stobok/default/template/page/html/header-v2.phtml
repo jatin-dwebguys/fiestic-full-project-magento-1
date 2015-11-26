@@ -115,7 +115,7 @@
                                                        <option value="Music">Music</option>
                                                        <option value="Film">Film</option>
                                                         </select></div>-->
-                                                    <img src="<?php echo Mage::getBaseUrl('media').'/sm/searchbox-close.png'?>" style="height:12px; margin-top:0px; padding-left: 6px;" class="searchbox_hide">
+                                                    <img src="<?php echo Mage::getBaseUrl('media').'/sm/searchbox-close.png'?>" style="height:12px; margin-top: 7px; float: right; margin-right: 3px;" class="searchbox_hide">
                                                </form>
                                            </div>
 						</div>
@@ -728,6 +728,17 @@ else{
                 jQuery('#cart-image-inactive').css('display','none');
                 jQuery('#cart-image').css('display','block');
             });
+            
+           // jQuery('.new-test-category').mouseover(function(){
+               
+             jQuery(".new-test-category").hover(function(){                 
+                 jQuery(this).find('#cart-image').css('display','none');
+                 jQuery(this).find('#cart-image-inactive').css('display','block');
+                 }, function(){
+                 jQuery(this).find('#cart-image-inactive').css('display','none');
+                 jQuery(this).find('#cart-image').css('display','block');                    
+                 });
+          
             
             
       /*   jQuery(".menu_books").click(function(){
