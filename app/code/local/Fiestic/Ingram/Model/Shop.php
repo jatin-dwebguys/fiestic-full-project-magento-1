@@ -28,7 +28,7 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
 
         $ingramSearch = new SimpleXMLElement($res->SearchRequestTypes12349EnhancedResult->any);
 
-        // echo '<pre>'; print_r($params);print_r($ingramSearch);die;
+         //echo '<pre>'; print_r($params);print_r($ingramSearch);die;
         if($ingramSearch->Error){
             throw new Exception($ingramSearch->Error . '<br/>' . $query);
         }
@@ -175,7 +175,7 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
             }else{
                 $query = 'BSU='.$category_name;
             }
-        }
+        }//(MT="DVD" or MT="Blu-Ray")
 
         if($parent_category == 'PSVita' || $category_name == 'PSVita'){
             $ingramSearch = $this->getApiData('(IFMT="PlayStation Vita") and PD < '.$date,1,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
@@ -196,10 +196,11 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         }else if($parent_category == 'Music' || $category_name == 'Music'){
             $ingramSearch = $this->getApiData('(MUMT="Audio" or MUMT="Compact Disc" or MUMT="CD-ROM") and KW='.$category_name. ' and (PD < ' . $date.')'.' and MUMT<>"Book"',2,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
         }else if($parent_category == 'Films' || $parent_category == 'Film' || $category_name == 'Films'){
-            $ingramSearch = $this->getApiData($query. ' and (PD < ' . $date.')'.' and (MT="Video Product" or MT="Film")',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData($query. ' and (PD < ' . $date.')'.' and (IFMT="DVD" or IFMT="Blu-Ray")',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
         }else{
             $ingramSearch = $this->getApiData($query. ' and (PD < ' . $date.')'.' and (MT="Book" or MT="Ebook")',1,$start,$end,$sort,'Y','LOGI,IMG,IM60,IM90');
         }
+        //echo "<pre>";print_r($ingramSearch);die;
         return $ingramSearch;
 
         // Mage::register('ingram_category', $ingramSearch);
@@ -267,14 +268,15 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         $start = 1;
         $end = 25;
         if($category_name == 'Music'){
-            $ingramSearch = $this->getApiData('(MUMT="Audio" or MUMT="Compact Disc" or MUMT="CD-ROM")  and PD > '.$last_30_date." and PD < ".$date,2,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
+            $ingramSearch = $this->getApiData('(IS="Pop*" or IS="Rock*" or IS="R & B*" or IS="R&B*") and (MUMT="Audio" or MUMT="Compact Disc" or MUMT="CD-ROM")  and PD > '.$last_30_date." and PD < ".$date,2,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
         }else if($category_name == 'Film'){
             $last_30_date = date("Ymd", strtotime("-6 Months"));
-            $ingramSearch = $this->getApiData("(MT=\"Video Product\" or MT=\"Film\") and PD>".$last_30_date." and PD < ".$date,1,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
+            $ingramSearch = $this->getApiData("(BSU=\"Suspense\" or \"Thriller\") and (MT=\"Video Product\" or MT=\"Film\") and PD>".$last_30_date." and PD < ".$date,1,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
+            //echo '<pre>';print_r($ingramSearch);die;
         }else if($category_name == 'Games'){
             //$last_30_date = date("Ymd", strtotime("-6 Months"));
-            $ingramSearch = $this->getApiData('(IFMT="Xbox*" or IFMT="Playstation*" or IFMT="Nintendo*" or IFMT="Wii*" or IFMT="PS Vita")',1,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
-            //echo '<pre>';print_r($ingramSearch);die;
+            $ingramSearch = $this->getApiData('(IFMT="Xbox*" or IFMT="Playstation*")',1,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
+            
         }else{
             $ingramSearch = $this->getApiData("(MT=\"Book\" or MT=\"Ebook\") and PD>".$last_30_date." and PD < ".$date,1,$start,$end,$sort,'','IMG,IM60,IM90,LOGI');
         }
@@ -288,11 +290,12 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         $sort = "DE|1";
 
         if($category_name == 'Music'){
-            $ingramSearch = $this->getApiData('(MUMT="Audio" or MUMT="Compact Disc" or MUMT="CD-ROM") and (PD < ' . $date.')',2,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(IS="Pop*" or IS="Rock*" or IS="R & B*" or IS="R&B*") and (MUMT="Audio" or MUMT="Compact Disc" or MUMT="CD-ROM") and (PD < ' . $date.')',2,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
         }else if($category_name == 'Film'){
-            $ingramSearch = $this->getApiData('(MT=Video or MT=Film)',1,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(BSU="Romance") and (MT=Video or MT=Film)',1,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
+            //echo '<pre>';print_r($ingramSearch);die;
         }else if($category_name == 'Games'){
-            $ingramSearch = $this->getApiData('(IFMT="Xbox*" or IFMT="Playstation*" or IFMT="Nintendo*" or IFMT="Wii*" or IFMT="PS Vita")',1,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
+            $ingramSearch = $this->getApiData('(IFMT="Nintendo*" or IFMT="Wii*")',1,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
         }else{
             $ingramSearch = $this->getApiData('(BSC="FIC*")',1,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
             //$ingramSearch = $this->getApiData('(MT="Book" or MT="Ebook")',1,$start,$end,$sort,'','LOGI,IMG,IM60,IM90');
@@ -333,6 +336,19 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
             $uniq = $_product->Basic->EAN;
         }
         return $uniq;
+    }
+    public function hasCacheImage($_product){
+        $image = false;
+        $uniq = $this->getProductUniq($_product);
+        $date = date('mY');
+        $dirpath=Mage::getBaseDir('base')."/media/server/ean/".$uniq.'/';
+        if(file_exists($dirpath)){
+            $imgUrl=$dirpath.'cache.png';
+             if(file_exists($imgUrl)){
+                 return true;
+             }
+        }
+        return false;
     }
     public function getProductImage($_product){
         $image = false;
@@ -448,10 +464,10 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
     public function getProductAddToCartUrl($_product,$qty=1,$price = false){
          $ean=$_product->Basic->EAN;
          $isbn=$_product->Basic->ISBN;
-         $name = $this->getProductName();
+         $name = $this->getProductName($_product);
          if(!$price)
-            $price = $this->getProductPrice();
-         $image = $this->getProductImage();
+            $price = $this->getProductPrice($_product);
+         $image = $this->getProductImage($_product);
          $params='cart_product_item_id='.$ean.'&proId='.$isbn.'&cart_product_name='.$name.'&cart_product_price='.$price.'&cart_product_image='.$image;
          $url=Mage::getBaseUrl()."product/index/addtocart?".$params; 
          return $url;
@@ -497,6 +513,9 @@ class Fiestic_Ingram_Model_Shop extends Mage_Core_Model_Abstract {
         if($_product->Ingram->ImageIndicator == 'Y'){
             return true;
         }else{
+            if($this->hasCacheImage($_product)){
+                return true;
+            }
             return false;
         }
     }

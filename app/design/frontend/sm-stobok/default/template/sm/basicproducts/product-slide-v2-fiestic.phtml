@@ -1,129 +1,136 @@
 <?php
 $data = $this->getList();
 $shop = Mage::getModel('ingram/shop');
- //echo "<pre>";
- $i=0;
- $p_names=array();
- $p_images=array();
- $p_ean=array();
- $ingram_price=array();
- $p_price=array();
- $p_href=array();
- $uniq = array();
+//echo "<pre>";
+$i = 0;
+$p_names = array();
+$p_images = array();
+$p_ean = array();
+$ingram_price = array();
+$p_price = array();
+$p_href = array();
+$uniq = array();
 
-foreach($data as $dat){
-  //  echo "<pre>";
-  //  print_r($dat);
-    $p_href[]= $shop->getProductUrl($dat);
-    $p_ean[]= $shop->getProductUniq($dat);
-    $p_names[]= $shop->getProductName($dat);
-    $p_images[]=$shop->getProductImage($dat);
-    $ingram_price[]=$shop->getProductPrice($dat);
-    $p_price[]=$shop->getProductMRP($dat);
+foreach ($data as $dat) {
+    //  echo "<pre>";
+    //  print_r($dat);
+    $p_href[] = $shop->getProductUrl($dat);
+    $p_ean[] = $shop->getProductUniq($dat);
+    $p_names[] = $shop->getProductName($dat);
+    $p_images[] = $shop->getProductImage($dat);
+    $ingram_price[] = $shop->getProductPrice($dat);
+    $p_price[] = $shop->getProductMRP($dat);
     $pub[] = $shop->getProductPublisher($dat);
     $desc[] = $shop->getProductShortDesc($dat);
     $uniq[] = $shop->getProductUniq($dat);
     $i++;
     //if($i == '5')
-        //break;
-    
+    //break;
 }
 $helper = Mage::helper('basicproducts/data');
-	$uniqued = time();
-	
-    ?>
+$uniqued = time();
+?>
 <div class="block basic-slide-block-v2">
-        <div class="block-title">
-            <span><?php echo $this->getTitle(); ?></span>
-        </div>
+    <div class="block-title">
+        <span><?php echo $this->getTitle(); ?></span>
+    </div>
 
-	
-	<div class="slide-basic-v2">
-		<?php for($y=0; $y < sizeof($p_href); $y++){ ?>	
+
+    <div class="slide-basic-v2">
+<?php for ($y = 0; $y < sizeof($p_href); $y++) { ?>	
             <div class="owl-item active" style="width: 210px; margin-right: 0px; height:350px;"><div class="item item-basic-v2 respl-item haslabel">							
-				<div class="item-inner">
-						<div class="w-image-box">
-							<div class="image-w">
-								<div class="item-image" style="height:161px;">
-									<a href="<?php echo $p_href[$y]?>" title="<?php echo $p_names[$y]?>">
-										<input type="hidden" name="unique_code" value="<?php echo $uniq[$y]; ?>" id="unique_code" class="unique_code"> 
-										<img src="<?php echo $p_images[$y];?>" title="<?php echo $p_names[$y]?>" alt="<?php echo $p_names[$y]?>" style=" height:162px;">
-									</a>
-								</div>
-							</div>
-						</div>						
-											
-					
-					<div class="item-info">
-						<div class="item-title" style="height:42px !important;  overflow: hidden; text-overflow: ellipsis; ">
-								<a href="#" title="<?php echo $p_names[$y]?>">
-									<?php echo $p_names[$y]; ?>							
-								</a>
-						</div>
-						<div class="item-price">
-							<div class="price-box">
-                    			<p class="old-price">
-                					<span class="price-label">Regular Price:</span>
-                					<span class="price">$<?php echo $p_price[$y];?></span>
-            					</p>
-                            	<p class="special-price">
-                    				<span class="price-label">Special Price</span>
-                					<span class="price">$<?php echo $ingram_price[$y];?></span>
-                				</p>
-                			</div>							
-						</div>
-												
-						<div class="item-action">
-							<button on-click='window.location.href="<?php echo $p_href[$i];?>"' type="button" data-toggle="tooltip" data-placement="top" title="" class="btn-pd btn-cart" onclick="" data-original-title="Buy">
-									<span><span>Buy</span></span>
-							</button>
-						</div>
-						
-					</div> 
-				</div>
-			</div></div>
-            
-            
-             <?php //------------------------------------------------------->>>>>>>>  ?>
-            
-		
-		<?php } ?>
-	</div>
-	
-	<script>
-			jQuery(document).ready(function($) {
-				var owl_basic = $(".slide-basic-v2");
-				owl_basic.owlCarousel({
+                    <div class="item-inner">
+                        <div class="w-image-box">
+                            <div class="image-w">
+                                <div class="item-image" style="height:161px;">
+                                    <a href="<?php echo $p_href[$y] ?>" title="<?php echo $p_names[$y] ?>">
+                                    	<?php if ($shop->hasImage($dat)) { ?>
+                                        <input type="hidden" name="unique_code" value="<?php echo $uniq[$y]; ?>" id="unique_code" class="unique_code"> 
+                                        <img src="<?php echo $p_images[$y]; ?>" title="<?php echo $p_names[$y] ?>" alt="<?php echo $p_names[$y] ?>" style=" height:162px;">
+                                        <?php } else { ?>
+                                        <input type="hidden"  value="<?php echo $uniq[$y]; ?>" class="ean"> 
+                                        <input type="hidden" value="<?php echo $p_names[$y]; ?>" class="name"> 
+                                        <input type="hidden" value="<?php echo $this->getCategory(); ?>" class="parent_cat" > 
+                                        <img src="<?php echo $p_images[$y]; ?>" title="<?php echo $p_names[$y] ?>" alt="<?php echo $p_names[$y] ?>" style=" height:162px;"  class="img-<?php echo $uniq[$y]; ?>" amazon-ajax="0">
+                                        <?php } ?>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>						
 
-					autoplayHoverPause: true,
-					autoplaySpeed: 300,
-					paginationSpeed : 400,
-					autoPlay:false,
-					dots: false,
-					nav: true,
-					navClass: ['owl-prev', 'owl-next'],
-					navText: ['&nbsp;', '&nbsp;'],				
 
-					responsive: {
-						0: {
-							items:1						
-							},
-						480: {
-							items:2					
-							},
-						768: {
-							items:3							
-							},
-						992: {
-							items:3							
-						},
-						1200: {
-							items:4							
-							}
-					}
-					
-				});	 
-			});	
-	</script>
-	
+                        <div class="item-info">
+                            <div class="item-title" style="height:42px !important;  overflow: hidden; text-overflow: ellipsis; ">
+                                <a href="#" title="<?php echo $p_names[$y] ?>">
+    <?php echo $p_names[$y]; ?>							
+                                </a>
+                            </div>
+                            <div class="item-price">
+                                <div class="price-box">
+				<!--<p class="old-price">
+                                        <span class="price-label">Regular Price:</span>
+                                        <span class="price">$<?php //echo $p_price[$y]; ?></span>
+                                    </p>-->
+                                    <p class="special-price">
+                                        <span class="price-label">Special Price</span>
+                                        <span class="price">$<?php echo $ingram_price[$y]; ?></span>
+                                    </p>
+                                </div>							
+                            </div>
+
+                            <div class="item-action">
+                                <!--<button on-click='window.location.href="<?php echo $p_href[$y]; ?>"' type="button" data-toggle="tooltip" data-placement="top" title="" class="btn-pd btn-cart" onclick="" data-original-title="Buy">
+                                    <span><span>Buy</span></span>
+                                </button>-->
+				<a href="<?php echo $p_href[$y]; ?>">
+					<button type="button" data-toggle="tooltip" data-placement="top" title="" class="btn-pd btn-cart" onclick="" data-original-title="Buy">
+                                    <span><span>Buy</span></span>
+                                </button></a>
+                            </div>
+
+                        </div> 
+                    </div>
+                </div></div>
+
+
+    <?php //------------------------------------------------------->>>>>>>>   ?>
+
+
+<?php } ?>
+    </div>
+
+    <script>
+        jQuery(document).ready(function ($) {
+            var owl_basic = $(".slide-basic-v2");
+            owl_basic.owlCarousel({
+                autoplayHoverPause: true,
+                autoplaySpeed: 300,
+                paginationSpeed: 400,
+                autoPlay: false,
+                dots: false,
+                nav: true,
+                navClass: ['owl-prev', 'owl-next'],
+                navText: ['&nbsp;', '&nbsp;'],
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    480: {
+                        items: 2
+                    },
+                    768: {
+                        items: 3
+                    },
+                    992: {
+                        items: 3
+                    },
+                    1200: {
+                        items: 4
+                    }
+                }
+
+            });
+        });
+    </script>
+
 </div>

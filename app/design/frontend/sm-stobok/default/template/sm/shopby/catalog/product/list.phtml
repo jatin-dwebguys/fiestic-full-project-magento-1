@@ -157,10 +157,12 @@ $_helper = $this->helper('catalog/output');
                         $price = $shop->getProductPrice($_product);
                         $image = $shop->getProductImage($_product);
                         $authors = $shop->getProductAuthor($_product);
-                        $publisher = $shop->getProductPublisher($_product);
+                        $publisher = $shop->getProductPublisher($_product); 
                         $media = $shop->getProductMedia($_product);
                         $format = $shop->getProductFormat($_product);
                         $date = $shop->getProductPublicationDate($_product);
+                        $category = Mage::registry('current_category');
+                        $parent_category = $category->getParentCategory()->getName();
                         ?>
                         <?php if ($i++ % $_columnCount == 0): ?>
 
@@ -180,9 +182,18 @@ $_helper = $this->helper('catalog/output');
                                         <a href="<?php echo $url; ?>" title="<?php echo $this->stripTags($name, null, true) ?>" class="product-image">
                                             <?php if ($shop->hasImage($_product)) { ?>
                                                 <input type="hidden" name="unique_code" value="<?php echo $uniq; ?>" id="unique_code" class="unique_code"> 
-            <?php } ?>
+                                            
 
-                                            <img id="product-collection-image-895 product_image" src="<?php echo $image; ?>" alt="<?php echo $image; ?>" style="height:186px; widht:121px !important;"></a>
+                                            <img id="product-collection-image-895 product_image" src="<?php echo $image; ?>" alt="<?php echo $this->stripTags($name, null, true) ?>" style="height:186px; widht:121px !important;"></a>
+                                            <?php } else { ?>
+
+                                            <input type="hidden"  value="<?php echo $uniq; ?>" class="ean"> 
+                                            <input type="hidden" value="<?php echo $name; ?>" class="name"> 
+                                            <input type="hidden" value="<?php echo $parent_category; ?>" class="parent_cat" ?>
+
+                                            <img id="product-collection-image-895 product_image" class="img-<?php echo $uniq; ?>" src="<?php echo $image; ?>" alt="<?php echo $this->stripTags($name, null, true) ?>" style="height:186px; width:121px !important;" amazon-ajax="0">
+
+                                            <?php } ?>
                                     </div>
 
 
@@ -211,30 +222,33 @@ $_helper = $this->helper('catalog/output');
                                       </div>
                                      */ ?>
 
+
+                                        <?php
+                                        $url = $shop->getProductAddToCartUrl($_product);
+                                        $is_in_stock = $shop->isProductInStock($_product);
+                                        ?>
+
                                     <div class="item-price">                      
                                         <div class="price-box" style="width: 80%;">
                                             <span class="regular-price">
                                                 <span class="price">$<?php echo $price; ?></span>  
                                             </span>     
                                         </div>
+                                        <?php if ($is_in_stock == 1) { ?>
                                         <div class='cart-bag' style="float: right;">
-                                            <button type="button" title="" class="new-test-category" style="height: 34px; width: 31px;" onclick='setLocation("<?php echo $shop->getProductUrl($_product); ?>")'>
+                                            <button type="button" title="" class="new-test-category" style="height: 34px; width: 31px;" onclick='setLocation("<?php echo $url; ?>")'>
                                             <span id="cart-image"><img src="<?php echo Mage::getBaseUrl('media') . 'sm/sm-icon-cart.png' ?>" style="height: 24px;"></span>
                                             <span id="cart-image-inactive" style="display:none;"><img src="<?php echo Mage::getBaseUrl('media') . 'sm/icon-cart-trans.png' ?>" style="height: 24px; background-color: #f26522;" /></span>
                                             </button>
                                         </div>
-
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <?php
-                                $is_in_stock = $shop->isProductInStock($_product);
                                 if ($is_in_stock == 1) {
                                     ?>
 
                                     <div class="item-action">
-                                        <?php
-                                        $url = $shop->getProductAddToCartUrl($_product);
-                                        ?>
                                         <!-- <button title="Add to Cart" type="button" class="btn-pd btn-cart" onclick="setLocation('http://fiestic.com/books/electronic/ires-mite-rima.html?options=cart')"> -->
                                         <!--<button title="Add to Cart" type="button" class="btn-pd btn-cart" onclick='setLocation("<?php echo $url; ?>")'>
 

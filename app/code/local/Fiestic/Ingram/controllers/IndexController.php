@@ -75,35 +75,51 @@ class Fiestic_Ingram_IndexController extends Mage_Core_Controller_Front_Action {
         $path = $this->getRequest()->getParam('paths');
         $total = $this->getRequest()->getParam('total');
 
-        
+
         $date = date('mY');
         //  print_r($paths_exploded);
 
 
-            $dirpath = Mage::getBaseDir('base') . "/media/server/ean/" . $codes;
-            if (file_exists($dirpath)) {
-                $imgUrl = $dirpath .'/'. 'cache.png';
-                if (file_exists($imgUrl)) {
-                    echo 'image already exists';
-                } else {
-                    $image_data = $path;
-                    $contents = file_get_contents($image_data);
-                    $download_image = file_put_contents($imgUrl, $contents);
-                }
+        $dirpath = Mage::getBaseDir('base') . "/media/server/ean/" . $codes;
+        if (file_exists($dirpath)) {
+            $imgUrl = $dirpath . '/' . 'cache.png';
+            if (file_exists($imgUrl)) {
+                echo 'image already exists';
             } else {
-                
-                $dirpath = Mage::getBaseDir('base') . "/media/server/ean/" . $codes;
-                if(!mkdir($dirpath,755,true)){
-                    echo 'Unable to make folder '.$dirpath.'<br/>';
-                }else{
-                    $imgUrl = $dirpath .'/cache.png';
-                    $image_data = $path;
-                    $contents = file_get_contents($image_data);
-                    $download_image = file_put_contents($imgUrl, $contents);
-                    echo $imgUrl;
-                }
+                $image_data = $path;
+                $contents = file_get_contents($image_data);
+                $download_image = file_put_contents($imgUrl, $contents);
             }
-    
+        } else {
+
+            $dirpath = Mage::getBaseDir('base') . "/media/server/ean/" . $codes;
+            if (!mkdir($dirpath, 755, true)) {
+                echo 'Unable to make folder ' . $dirpath . '<br/>';
+            } else {
+                $imgUrl = $dirpath . '/cache.png';
+                $image_data = $path;
+                $contents = file_get_contents($image_data);
+                $download_image = file_put_contents($imgUrl, $contents);
+                echo $imgUrl;
+            }
+        }
+    }
+
+    public function amazonimagesAction() {
+        $id = $this->getRequest()->getParam('a');
+        $ean = $id;
+        $ean;
+        if ($ean == 0028947889182) {
+            $src = 'https://ecx.images-amazon.com/images/I/81KbrdxlbpL._SX425_.jpg';
+        } elseif ($ean == 5019421136736) {
+            $src = 'https://ecx.images-amazon.com/images/I/61ABnFpaIfL._AA160_.jpg';
+        } elseif ($ean == 5019421405429) {
+            $src = 'https://ecx.images-amazon.com/images/I/81KbrdxlbpL._SX425_.jpg';
+        } else {
+            $src = 'https://ecx.images-amazon.com/images/I/81KbrdxlbpL._SX425_.jpg';
+        }
+
+        echo $src;
     }
 
 }

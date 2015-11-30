@@ -6,6 +6,6 @@ class Fiestic_Ingram_Block_Game_Preorder extends Mage_Core_Block_Template {
     	return $data->Book;
     }
     public function getTitle(){
-    	return 'PRE ORDER';
+    	return 'PRE-ORDER';
     }
 }

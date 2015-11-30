@@ -2,11 +2,11 @@
 <style type="text/css">
 .block.mini-cartpro .block-title.block-title.empty_cart:after{
     display:none !important;
-} 
+}
 
 .block.mini-cartpro .block-title.empty_cart{
-    
-    
+
+
     float: right;
     margin-top: 4px;
     position: relative;
@@ -75,8 +75,8 @@ $timeclick = $config['mini_cartpro_effect_duration'];
 <?php } ?>
 <script type="text/javascript">
 	 //<![CDATA[
-	 	mincart = new CartForm('minicart-form<?php echo $uq ?>', '', '<?php echo $this->getUrl('checkout/cart/updatePost') ?>');
-	 	minicartpro_id='';	 	
+	 	mincart = new CartForm('minicart-form<?php echo $uq ?>', '', '../checkout/cart/updatePost/');
+	 	minicartpro_id='';
 	 	if (typeof isShow == 'undefined') isShow = false;
 	 	if (typeof isEffect == 'undefined') isEffect = false;
 	 	if (typeof overEffect == 'undefined') overEffect = false;
@@ -99,7 +99,7 @@ $timeclick = $config['mini_cartpro_effect_duration'];
 			<script type="text/javascript">
 		 	//<![CDATA[
 				<?php if($mini_cartpro_effect_selector =='hover'){ ?>
-					
+
 				<?php } else { ?>
 					jQuery(document).ready(function($){
 						$(".mini-cartpro.dfh .block-title").click(function() {
@@ -108,15 +108,15 @@ $timeclick = $config['mini_cartpro_effect_duration'];
 								$(this).parent('.mini-cartpro').removeClass('opencart');
 							}else{
 								$(this).parent('.mini-cartpro').addClass('opencart');
-							}							
+							}
 						});
 					});
-				<?php } ?>			
+				<?php } ?>
 		 	//]]>
 		    </script>
 			<?php if($hd_style == 'df' || $hd_style == 'hd2' || $hd_style == 'hd3' || $hd_style == 'hd4'){
                            if($_cartQty == 0){ ?>
-                    
+
                            <?php } else {?>
 			<div class="info-mini-cart">
 				<div class="item-cart">
@@ -132,7 +132,7 @@ $timeclick = $config['mini_cartpro_effect_duration'];
 				</div>
 			</div>
                         <?php }
-                        
+
                                                 } else if($hd_style == 'hd5'){?>
 				<div class="info-mini-cart">
 					<div class="info-title-cart">
@@ -148,10 +148,10 @@ $timeclick = $config['mini_cartpro_effect_duration'];
 	<div class="block-content" style="display: none;">
 		<div class="block-inner">
 			<?php if(count($_items)){ ?>
-			<form action="<?php echo $this->getUrl('checkout/cart/updatePost') ?>" method="post" id="minicart-form<?php echo $uq ?>">
+			<form action="../checkout/cart/updatePost" method="post" id="minicart-form<?php echo $uq ?>">
 			<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>" />
 				<ol id="minicart-sidebar" class="mini-products-list">
-					<?php foreach($_items as $_item): 
+					<?php foreach($_items as $_item):
 						echo $this->getItemHtml($_item);
 					endforeach; ?>
 				</ol>
@@ -177,20 +177,20 @@ $timeclick = $config['mini_cartpro_effect_duration'];
 	</div>
 	<script type="text/javascript">
 		if(!isShow)
-		 	$$(".mini-cartpro .block-content")[0].setStyle({ display:"none", overflow: "visible"}); 		 			 
+		 	$$(".mini-cartpro .block-content")[0].setStyle({ display:"none", overflow: "visible"});
 	</script>
 	<?php } ?>
 </div>
 
 
 <script type="text/javascript">
-    jQuery(document).ready(function($){   
+    jQuery(document).ready(function($){
 		var n = $('#minicart-sidebar li').length;
 		//alert(n);
 		if(n > 0){
 			$('.header-cart').addClass('have_item');
 		}
-		
+
 		$("#minicart-sidebar .btn-remove").click(function() {
 			$('body').addClass('delete-overlay');
 		});
